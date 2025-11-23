@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-23T09:17:32.333Z",
+  "generatedAt": "2025-11-23T10:08:01.137Z",
   "items": [
     {
       "source": "@site/docs/_partials/block-features.md",
@@ -1982,6 +1982,22 @@
       ]
     },
     {
+      "source": "@site/docs/executableitems/questions-or-guides/frequently-asked-questions/index.md",
+      "content": "Frequently Asked Questions Welcome to the ExecutableItems FAQ section. Here you'll find answers to the most common questions about using ExecutableItems. Categories 📦 Installation & Updates - How to Install Correctly - How to Update Correctly - Installation Errors & Logs - Plugin Doesn't Work - Command /ei Doesn't Work 🎮 General Usage - Basic Tutorials - Players Can't Use the Items - Item Disappears or Limit - EI Commands Doesn't Work - Folders on EI Show ⚙️ Configuration & Features - Custom Crafting - Custom Name Feature is Not Working - Hex Colors Doesn't Work - Armor Trims - How to Use Vanilla Commands 🔧 Troubleshooting - Server Chat Spamming - Huge Delay or Cooldown or Command Time - Issue with Written Book - Trident Duplication - Score Database Large 💡 How-To Guides - How to Duplicate an EI Item - Edit Plugin Messages 💎 Premium Features - Free vs Premium Quick Links - 📖 Main Documentation - 💬 Discord Support - 🛒 Purchase Premium Need More Help? If you can't find the answer to your question here, please: 1. Search our Discord for similar issues 2. Create a support ticket in our Discord server",
+      "headings": [
+        "Frequently Asked Questions",
+        "Categories",
+        "📦 Installation & Updates",
+        "🎮 General Usage",
+        "⚙️ Configuration & Features",
+        "🔧 Troubleshooting",
+        "💡 How-To Guides",
+        "💎 Premium Features",
+        "Quick Links",
+        "Need More Help?"
+      ]
+    },
+    {
       "source": "@site/docs/executableitems/questions-or-guides/frequently-asked-questions/install-update-errors/command-ei-doesnt-work.md",
       "content": "command /ei doesn't work If you do, for example and doesn't work, the first thing you should do is try to do If it works now, well, the problem is another plugin is overriding the command /ei, an example of this is Essentials, so from now, you can either disable /ei on the plugin who overrides the command, or do /executableitems:ei all the time you want to use a command from ExecutableItems And, if it didn't work, is because the plugin is not installed correctly and you should either check the Installation tutorial or the common errors on logs",
       "headings": [
@@ -3006,6 +3022,13 @@
         "TELEPORT\\_ENTITY\\_TO\\_PLAYER",
         "TELEPORT\\_PLAYER\\_TO\\_ENTITY",
         "TELEPORT\\_POSITION"
+      ]
+    },
+    {
+      "source": "@site/docs/tools-for-all-plugins-score/custom-commands/index.md",
+      "content": "Custom Commands Documentation for all custom commands available in the plugins. import DocCardList from '@theme/DocCardList';",
+      "headings": [
+        "Custom Commands"
       ]
     },
     {

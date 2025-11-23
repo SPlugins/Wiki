@@ -1,8 +1,4 @@
 {
   "label": "📚 Custom Commands",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "Documentation for all custom commands available in the plugins."
-  }
+  "position": 3
 }

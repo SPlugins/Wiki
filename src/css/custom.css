@@ -557,3 +557,91 @@ code {
 [data-theme='dark'] .token.comment {
   color: #9ca3af; /* Lighter gray for dark mode */
 }
+
+/* DocCardList styling - Target all possible card variations */
+.card,
+article.card,
+.cardContainer_RxtF,
+.cardContainer_RxtF article {
+  background: var(--doc-surface) !important;
+  border: 1px solid var(--doc-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 12px rgba(28, 36, 48, 0.08) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.card:hover,
+article.card:hover,
+.cardContainer_RxtF:hover,
+.cardContainer_RxtF article:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 24px rgba(28, 36, 48, 0.15) !important;
+  border-color: var(--ifm-color-primary) !important;
+}
+
+/* Target card titles with various class combinations */
+.card__header h2,
+.card h2,
+.cardTitle_Usd7,
+h2.cardTitle_Usd7,
+.card__header .cardTitle_Usd7,
+article h2,
+article.card h2 {
+  color: var(--doc-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* Target card descriptions */
+.card__body p,
+.card p,
+.cardDescription_Ihb_,
+p.cardDescription_Ihb_,
+.card__body .cardDescription_Ihb_,
+article p,
+article.card p {
+  color: var(--doc-text-muted) !important;
+}
+
+/* Override ALL link colors in cards */
+.card a,
+article.card a,
+.cardContainer_RxtF a,
+a.card,
+a.cardContainer_RxtF {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.card a:hover,
+article.card a:hover,
+.cardContainer_RxtF a:hover,
+a.card:hover,
+a.cardContainer_RxtF:hover {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Specifically target the title links */
+.cardTitle_Usd7,
+.cardTitle_Usd7:hover,
+a .cardTitle_Usd7,
+a:hover .cardTitle_Usd7,
+.card__header a,
+.card__header a:hover {
+  color: var(--doc-text-primary) !important;
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] .card,
+[data-theme='dark'] article.card,
+[data-theme='dark'] .cardContainer_RxtF,
+[data-theme='dark'] .cardContainer_RxtF article {
+  box-shadow: 0 4px 12px rgba(10, 12, 22, 0.25) !important;
+}
+
+[data-theme='dark'] .card:hover,
+[data-theme='dark'] article.card:hover,
+[data-theme='dark'] .cardContainer_RxtF:hover,
+[data-theme='dark'] .cardContainer_RxtF article:hover {
+  box-shadow: 0 12px 24px rgba(10, 12, 22, 0.45) !important;
+}
