@@ -89,6 +89,13 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
+        redirects: [
+          // Specific redirect for variables page
+          {
+            from: '/tools-for-all-plugins/variables',
+            to: '/tools-for-all-plugins-score/score-variables',
+          },
+        ],
         createRedirects(existingPath) {
           // Create redirects for all subpaths under tools-for-all-plugins-score
           if (existingPath.includes('/tools-for-all-plugins-score/')) {
