@@ -1,4 +1,8 @@
 {
   "collapsed": true,
-  "label": "Frequently Asked Questions"
+  "label": "Frequently Asked Questions",
+  "link": {
+    "type": "generated-index",
+    "description": "FAQ of ExecutableEvents."
+  }
 }

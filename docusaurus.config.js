@@ -85,6 +85,23 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        createRedirects(existingPath) {
+          // Create redirects for all subpaths under tools-for-all-plugins-score
+          if (existingPath.includes('/tools-for-all-plugins-score/')) {
+            // This will create an alias URL without "-score"
+            const alternativePath = existingPath.replace('/tools-for-all-plugins-score/', '/tools-for-all-plugins/');
+            return alternativePath;
+          }
+          return undefined;
+        },
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({

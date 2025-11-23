@@ -37,9 +37,8 @@ activators:
 
 ## **IF**
 
-:::info
-CURRENTLY ONLY WORKS IN PLAYER RELATED AND ENTITY RELATED COMMANDS
-:::
+The custom utilify command IF only works in player or entity related commands.
+There is no ELSE, and keep in minds that the conditions and commands must be set on the same line.
 
 * Info: Executes commands if condition is met
 * Command settings:
