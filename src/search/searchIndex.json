@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-23T10:08:01.137Z",
+  "generatedAt": "2025-11-27T17:17:16.930Z",
   "items": [
     {
       "source": "@site/docs/_partials/block-features.md",
@@ -583,6 +583,13 @@
       ]
     },
     {
+      "source": "@site/docs/executableblocks/question-or-guides/frequently-asked-questions/index.md",
+      "content": "Frequently Asked Questions FAQ of ExecutableBlocks. import DocCardList from '@theme/DocCardList';",
+      "headings": [
+        "Frequently Asked Questions"
+      ]
+    },
+    {
       "source": "@site/docs/executableblocks/question-or-guides/frequently-asked-questions/install-update-errors/how-to-install-correctly.md",
       "content": "How to install correctly Introduction Here you can see a resume of specs you need to know when downloading the plugin and what you have to do, if you already knew and did all the things here and still having an error, please contact us on Discord and we'll help you. Type of server First of all keep in mind that the plugin is a spigot coded plugin, so it needs a server based on it, such as: Spigot Paper Purpur Etc (Any fork of spigot) :::danger For example, Bukkit isn't compatible, it has to be BukkitSpigot. ::: Type of hosting The hosting must allow the owner to import files, if the host doesn't allow that, such as using only the plugins available in a list of the hosting, ExecutableBlocks can't be used. :::danger There are Hostings that allows you to install quickly some plugins that are downloaded in their clouds, in the case of ExecutableBlocks don't use them, most of them don't work properly, its better to install it with the normal method of importing files. ::: Versions of Minecraft These are the versions supported by ExecutableBlocks: Correct way of installing 1. Download the plugin from spigot 2. You get a file .zip (this is like a folder, you have to open it using Winrar) 3. You open it and you see that there are 2 files inside, ExecutableBlocks.jar and Score.jar , both of them are needed 4. Pick up both plugins and drag them into plugins folder. (the zip is nothing so don't drag that file into plugins folder, you only need the two plugins inside the jar) :::warning If its the case you are using a webpage host server, it is highly recommended to don't drop it instantly into plugins folder , but, drag them first into desktop and once they are in your desktop, drag them into plugins folder. ::: Once done, you can start your server. :::info It is highly suggested to install it with a reload of the server (stop+start) and not with plugins managers. ::: Special cases If its the case you have ExecutableItems or ExecutableBlocks in your server, once downloading one you should update the current one. For example, I want to install ExecutableItems, while doing, I should update ExecutableBlocks too. :::info This is just for keep both plugins in the same versions (otherwise it can bring problems) ::: Still not working In case you got all the information said before, doing the right things and the plugin still not working, feel free to ask in the Discord and we will help you. :::info Also what you can do, that is something that have fixed some problems on people's threads related to the plugin not working, is downloading the plugin again and installing it again. It is weird, it is not our fault, but sometimes just doing the steps again fixes it, nobody knows why, its like a law of life, you could give it a try :P :::",
       "headings": [
@@ -1119,6 +1126,13 @@
       "content": "import HowtoUseVanillaCommands from '@site/docs/ partials/faq/how-to-use-vanilla-commands.md'; How to use vanilla commands",
       "headings": [
         "How to use vanilla commands"
+      ]
+    },
+    {
+      "source": "@site/docs/executableevents/question-or-guides/frequently-asked-questions/index.md",
+      "content": "Frequently Asked Questions FAQ of ExecutableEvents. import DocCardList from '@theme/DocCardList';",
+      "headings": [
+        "Frequently Asked Questions"
       ]
     },
     {
@@ -3259,6 +3273,13 @@
       ]
     },
     {
+      "source": "@site/docs/tools-for-all-plugins-score/custom-conditions/index.md",
+      "content": "Custom Conditions Documentation for all custom conditions available in the plugins. import DocCardList from '@theme/DocCardList';",
+      "headings": [
+        "Custom Conditions"
+      ]
+    },
+    {
       "source": "@site/docs/tools-for-all-plugins-score/custom-conditions/item-conditions.md",
       "content": "Item Conditions Condition settings All conditions are formated the same, you have: : The message to send if the condition is invalid : Whether or not the event should be cancelled if the condition is invalid : The command(s) to run if the condition is invalid Example: :::info For numerical conditions, you can assign 2 conditions at the same time. Example: \"I want to create a condition that only activates if the value is greater than 50 but less than 250\" ::: ifDurability Description: Checks if the ei has the said durability. Example: Example Situations: If the value is , the activator will only activate if the item's durability is below 789 If the value is , the activator will only activate if the item's durability is 1000 and below. If the value is , the activator will only activate if the item's durability is 788. If the value is , the activator will only activate if the item's durability is above 989. If the value is , the activator will only activate if the item's durability is 676 and above. Required: NO ifUsage Description: Checks if the item has the said usage remaining. Example: Example Situations: If the value is , the activator will only activate if the item's usage remaining is below 456 If the value is , the activator will only activate if the item's usage remaining is 234 and below. If the value is , the activator will only activate if the item's usage remaining is 16. If the value is , the activator will only activate if the item's usage remaining is above 6666. If the value is , the activator will only activate if the item's usage remaining is 78 and above. Required: NO Also it supports to work in intervals ifUseCooldown Description: Checks if the EI has the specified use cooldown. (It's like the enderpearl cooldown) (This cooldown is not related to the activator cooldown, it's the vanilla use cooldown) This feature is only available for Minecraft 1.21.2 and + The cooldown is specified in ticks (20 ticks = 1 second) Example: Example Situations: If the value is , the activator will only activate if the item's use cooldown is below 789 ticks If the value is , the activator will only activate if the item's use cooldown is 1000 and below. If the value is , the activator will only activate if the item's use cooldown is 788. If the value is , the activator will only activate if the item's use cooldown is above 989. If the value is , the activator will only activate if the item's use cooldown is 676 and above. Required: NO ifHasEnchant Description: Checks if the item has the whitelisted enchantment.Enchantments Example: Example Situations: If the EI item has the Flame enchantment and you have the condition in the example part, the activator activates Required: NO ifHasNotEnchant Description: Checks if the item has the blacklisted enchantment.Enchantments Example: Example Situations: If the EI item has the Power VI enchantment and you have the condition in the example part, the activator does not activate Required: NO ifCrossbowMustBeCharged - Not Description: Checks if the item is a (not) charged crossbow. Example: Example Situations: If the EI item is a charged crossbow, the activator activates Required: NO More Info: You can edit the error message by adding this in the file:",
       "headings": [
@@ -3436,6 +3457,13 @@
         "Global Events",
         "Step 1: EE trigger broadcasts and activates items/blocks",
         "Related Documentation"
+      ]
+    },
+    {
+      "source": "@site/docs/tools-for-all-plugins-score/general-questions-or-guides/index.md",
+      "content": "General Questions or Guides General guides and documentation for SCore plugin features. import DocCardList from '@theme/DocCardList';",
+      "headings": [
+        "General Questions or Guides"
       ]
     },
     {

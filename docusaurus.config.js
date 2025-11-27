@@ -161,6 +161,12 @@ const config = {
             position: 'left',
             label: 'Discord',
           },
+          {
+            href: 'https://chat.ssomar.com/',
+            position: 'left',
+            label: 'AI Assistant',
+            target: '_blank',
+          },
           // {
           //   to: '/ssomar-services',
           //   position: 'left',
