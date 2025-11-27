@@ -645,3 +645,106 @@ a:hover .cardTitle_Usd7,
 [data-theme='dark'] .cardContainer_RxtF article:hover {
   box-shadow: 0 12px 24px rgba(10, 12, 22, 0.45) !important;
 }
+
+/* Black Friday navbar item special styling */
+.navbar__item--blackfriday {
+  position: relative;
+  background: linear-gradient(135deg, #ff3333 0%, #ff6600 50%, #ffcc00 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700 !important;
+  animation: blackfridayGradient 3s ease infinite, blackfridayPulse 2s ease-in-out infinite;
+}
+
+.navbar__item--blackfriday::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 102, 0, 0.4) 0%, transparent 70%);
+  border-radius: 8px;
+  z-index: -1;
+  animation: blackfridayGlow 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.navbar__item--blackfriday::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff3333, #ff6600, #ffcc00, #ff6600, #ff3333);
+  background-size: 200% 100%;
+  animation: blackfridayUnderline 2s linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes blackfridayGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blackfridayPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes blackfridayGlow {
+  0% {
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    opacity: 0.8;
+    width: 120%;
+    height: 150%;
+  }
+}
+
+@keyframes blackfridayUnderline {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.navbar__item--blackfriday:hover {
+  animation: blackfridayGradient 1.5s ease infinite, blackfridayPulse 1s ease-in-out infinite;
+}
+
+.navbar__item--blackfriday:hover::before {
+  opacity: 1;
+}
+
+/* Mobile sidebar Black Friday styling */
+.navbar-sidebar .navbar__item--blackfriday,
+.menu__link.navbar__item--blackfriday {
+  background: linear-gradient(135deg, #ff3333 0%, #ff6600 50%, #ffcc00 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700 !important;
+  animation: blackfridayGradient 3s ease infinite;
+}
