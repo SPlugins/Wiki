@@ -500,7 +500,7 @@ The event is only triggered when someone force the player to open its inventory 
 
 * Info: Activator that gets triggered when the player pick ups the ExecutableItem. 
 
-### 🔹PLAYER\_PORTAL
+### PLAYER\_PORTAL
 
 * Info: Activator that gets triggered when the player uses a portal.
 
