@@ -199,7 +199,7 @@ For PLAYER_WRITE_COMMAND and PLAYER_SEND_MESSAGE:
 | **BROADCAST_MESSAGE** | `%message%`, `%is_async%` |
 | **PLUGIN_ENABLE/DISABLE** | `%plugin_name%` |
 | **PLAYER_ADVANCEMENT** | `%advancement%` |
-| **PLAYER_RECEIVE_HIT_GLOBAL, PLAYER_RECEIVE_HIT_BY_PLAYER, PLAYER_RECEIVE_HIT_BY_ENTITY** | `%last_damage_taken_nonfinal%`, `%last_damage_taken_final%` <br/>(Only direct hits provide the correct value. Receive hits from projectiles return 0) |
+| **PLAYER_RECEIVE_HIT_GLOBAL, PLAYER_RECEIVE_HIT_BY_PLAYER, PLAYER_RECEIVE_HIT_BY_ENTITY** | `%last_damage_taken_nonfinal%`,  `%last_damage_taken_nonfinal_int%`, `%last_damage_taken_final%`, `%last_damage_taken_final_int%` <br/>(Only direct hits provide the correct value. Receive hits from projectiles return 0) |
 
 ## Plugin-Specific Counts
 
