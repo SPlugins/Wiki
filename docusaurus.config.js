@@ -151,12 +151,6 @@ const config = {
             label: 'Purchase',
           },
           {
-            to: '/blackfriday',
-            position: 'left',
-            label: 'Black Friday',
-            className: 'navbar__item--blackfriday',
-          },
-          {
             to: '/discord',
             position: 'left',
             label: 'Discord',
