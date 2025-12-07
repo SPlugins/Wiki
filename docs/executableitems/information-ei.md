@@ -2,8 +2,24 @@
 
 ## Description 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KvhC9YYnB4U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-Many new features / default items appeared after this video, I let you discover them directly in-game :smile:
+ExecutableItems is the most powerful and flexible custom items plugin available for Minecraft servers. With over 5 years of active development, 4,000+ servers trusting our plugin, and 280+ five-star reviews, ExecutableItems has become the industry standard for custom item creation.
+
+Whether you're running a survival server, an RPG realm, a prison gamemode, or a custom minigame network, ExecutableItems gives you the tools to create exactly what you envision—without writing a single line of code.
+
+---
+
+## Why Server Owners Choose ExecutableItems
+
+### The Numbers Speak for Themselves
+
+- **120+ premade items** included and ready to use
+- **100+ triggers and activators** for custom abilities
+- **60+ 3D weapon textures** included (1.21.4+)
+- **50+ customization options** for every item
+- **30+ plugin integrations** out of the box
+- **5+ years** of continuous development
+- **4,000+** servers worldwide
+- **280+** five-star reviews
 
 ## Support
 
