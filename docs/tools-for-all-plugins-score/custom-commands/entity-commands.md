@@ -94,10 +94,16 @@ it only works for 1.16.5+
 * Command settings:
   * `{id}`: Item id of the ExecutableItem
   * `{quantity}`: The amount of the executable item that will drop
+  * `[owner]`: (Optional) The owner of the dropped item (player IGN or UUID)
+  * `[itemdata]`: (Optional) Item data settings containing:
+    * `Usage`: Set the usage value
+    * `Variables`: Set custom variables (format: `{key:value}`)
+    * `Durability`: Set the durability value
 * Example:
 
 ```
 - DROPEXECUTABLEITEM ElytraTrail 1
+- DROPEXECUTABLEITEM id:ElytraTrail amount:1 owner:Special70 itemdata:Usage:50,Variables:{level:5}
 ```
 
 ### DROPEXECUTABLEBLOCK
