@@ -559,6 +559,26 @@ activators:
     - JOBS_MONEY_BOOST multiplier:2.0 time:10
 ```
 
+### JOBS\_XP\_BOOST
+
+* Info: Multiplies Jobs plugin XP gains temporarily. For [Jobs reborn](https://www.spigotmc.org/resources/jobs-reborn.4216/)
+* Command settings:
+  * `{multiplier}`: XP multiplier value (e.g., 2.0 for double XP)
+  * `{time}`: Duration in seconds before the boost expires
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - JOBS_XP_BOOST multiplier:2.0 time:10
+```
+
+:::info
+This command supports stacking multiple boosts multiplicatively.
+:::
+
 ### LAUNCH
 
 * Info: Launches a custom projectile. [Reference](/ExecutableItems/wiki/%E2%9E%A4-Custom-Projectiles#type)
