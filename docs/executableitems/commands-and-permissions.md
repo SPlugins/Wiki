@@ -268,8 +268,8 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
     * `z`: Z's coordinates where the item will be dropped.
 * Examples:  (On all this examples the commands is being run inside an ExecutableItems in order to parse placeholders such as %player%,%var\_name% and %usage%)
   * `/ei drop totemshatter 1 %world% %x% %y% %z%`
-  * `ei drop nuclearWar\{Usage:3,Variables:\{niconico:"nii"\\}\} 25 %block\_world% %block\_x% %block\_y% %block\_z%`
-  * `ei drop cybert1\_5\{Variables:\{eh:5\},Usage:5\} 1 world 535 74 1329`
+  * `ei drop nuclearWar{Usage:3,Variables:{niconico:"nii"}} 25 %block_world% %block_x% %block_y% %block_z%`
+  * `ei drop cybert1_5{Variables:{eh:5},Usage:5} 1 world 535 74 1329`
 * Permission: `ei.cmd.drop`
 
 ### Modification commands
