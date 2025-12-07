@@ -226,13 +226,14 @@ activators:
   * `{count}`: how many times you want it to count
     * if this option is present, the time argument will not matter anymore
   * `{countTicks}`: true/false whether you want it to count in ticks or in seconds instead
-  * `{countOrder}`: 
+  * `{countOrder}`:
     * ascending: makes the timer count from 0
     * descending: makes the timer count from the given
   * `{overrideMode}`:
     * NO\_OVERRIDE: It doesn't override the other Bossbars
     * OVERRIDE\_ALL: It will override all other BossBars sent by SCore
     * OVERRIDE\_SAME\_TEXT: It will override the other Bossbars sent by SCore that contain the same text
+  * `{barProgress}`: (default = 1.0) The initial progress of the bar (0.0 to 1.0). Works with both static and countdown bars (only descending countdown)
 * Example:
 
 ```yaml
@@ -243,6 +244,7 @@ activators:
     - BOSSBAR time:200 color:RED text:This is a bossbar text
     - BOSSBAR time:20 color:BLUE text:Hello_world count:50 countTicks:true countOrder:ascending
     - BOSSBAR time:200 color:RED text:This is a bossbar text overrideMode:OVERRIDE_SAME_TEXT
+    - BOSSBAR time:200 color:GREEN text:Half filled bar barProgress:0.5
 ```
 
 ### CANCEL\_PICKUP
