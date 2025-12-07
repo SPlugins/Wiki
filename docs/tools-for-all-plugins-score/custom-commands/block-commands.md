@@ -176,10 +176,16 @@ It works with ItemsAdder
 * Command settings
   * `{id}`: Item id of the ExecutableItem
   * `{quantity}`: The amount of the executable item that will drop
+  * `[owner]`: (Optional) The owner of the dropped item (player IGN or UUID)
+  * `[itemdata]`: (Optional) Item data settings containing:
+    * `Usage`: Set the usage value
+    * `Variables`: Set custom variables (format: `{key:value}`)
+    * `Durability`: Set the durability value
 * Example:
 
 ```
 - DROPEXECUTABLEITEM epicsnowball 1
+- DROPEXECUTABLEITEM id:epicsnowball amount:1 owner:Special70 itemdata:Usage:50,Variables:{level:5}
 ```
 
 ### DROPEXECUTABLEBLOCK
