@@ -28,7 +28,7 @@ All plugins use SCore that has a set of powerful tools:
 
 ## 🚀 Getting Started
 
-Select a plugin from the sidebar to begin exploring its documentation. Each plugin section contains:
+Browse the [Complete Documentation Sitemap](/sitemap) to see all available pages, or select a plugin from the sidebar to begin exploring. Each plugin section contains:
 
 - Installation guides
 - Configuration references
