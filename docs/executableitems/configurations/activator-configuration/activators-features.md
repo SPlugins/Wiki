@@ -35,7 +35,8 @@ Premium features are labeled with the tag:  <CustomTag type="premium" />
 
 ### Detailed slots
 
-* Info: List of integer values that represents slots of the inventory where the activator will be able to work. This means, if the event occurs in one slot that is not from here then the activator won't be triggered. [More Info about the slots values.](/tools-for-all-plugins-score/general-questions-or-guides/utilities#slots)
+* Info: List of integer values that represents slots of the inventory where the activator will be able to work. This means, if the event occurs in one slot that is not from here then the activator won't be triggered. 
+![](</img/slots_info.png>)
 * Example:
 
 ```yaml
