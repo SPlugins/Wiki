@@ -54,7 +54,7 @@ Set the value to false
 
 Normally, the option above does the job, but if its not enough, disable this too.
 
-## If it fails, delete the `__textures__` folder.
+## If it fails, delete the pack folder inside the `__textures__` folder.
 
 There are cases where even disabling `selfHostPack` isn't enough. THIS should finally solve the issue
 
