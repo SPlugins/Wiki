@@ -318,11 +318,12 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 
 ```
 - MINEINCUBE 4 true false
+- MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false
 ```
 
 ### MINEINSPHERE
 
-* Info: Destroys blocks in a radius in a cuboid shape. Each block broken by this command gets counted as a player block break event.
+* Info: Destroys blocks in a radius in a spherical shape. Each block broken by this command gets counted as a player block break event.
 * Command settings
   * `{radius}`: Radius of the sphere
   * `{drop}`: Whether the block drops loot or not

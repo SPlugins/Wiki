@@ -23,6 +23,7 @@ _Sorted by alphabetical order_
     * `{time in ticks}` : Amount of time before the attribute expires
 * Example:
   * `ADD_TEMPORARY_ATTRIBUTE GRAVITY 2 ADD_NUMBER 5`
+  * `ADD_TEMPORARY_ATTRIBUTE attribute:SCALE amount:1.2 operation:ADD_NUMBER timeinticks:120`
 
 ### ALL\_PLAYERS
 
