@@ -559,6 +559,12 @@ activators:
     - JOBS_MONEY_BOOST multiplier:2.0 time:10
 ```
 
+:::info
+Multiplier doesn't affect the actionbar values from Jobs. The multiplier from this command only applies once the Jobs plugin decides to increment obtained money, xp and points.
+
+If executed multiple times with enough duration on each boost, all ongoing boosts can stack.
+:::
+
 ### JOBS\_XP\_BOOST
 
 * Info: Multiplies Jobs plugin XP gains temporarily. For [Jobs reborn](https://www.spigotmc.org/resources/jobs-reborn.4216/)
@@ -574,6 +580,12 @@ activators:
     playerCommands:
     - JOBS_XP_BOOST multiplier:2.0 time:10
 ```
+
+:::info
+Multiplier doesn't affect the actionbar values from Jobs. The multiplier from this command only applies once the Jobs plugin decides to increment obtained money, xp and points.
+
+If executed multiple times with enough duration on each boost, all ongoing boosts can stack.
+:::
 
 :::info
 This command supports stacking multiple boosts multiplicatively.
