@@ -601,8 +601,14 @@ And of course the vanilla spawners.
 * Example:
 
 ```
-- SMELT
+- SMELT 
+- SMELT false
 ```
+:::warning
+If you have OneBlock from SuperiorSkyblock by BG Software, <b>set the `generateEvent` value to false or else your server will crash</b>.
+
+So as much as possible, only set the event to true if necessary.
+:::
 
 ### STRIKELIGHTNING
 
