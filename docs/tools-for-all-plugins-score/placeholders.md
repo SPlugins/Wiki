@@ -145,12 +145,14 @@ Projectile placeholders are available in the activators where a projectile is in
 
 ### 📊 SCore Variables
 
-Click here to have more info abotu [SCore Variables](/tools-for-all-plugins-score/score-variables)
+Click here to have more info about [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
-**Item/Block Variables:**
+### 📊 Item/Block Variables
+
+**String/Number Variables:**
 - `%var_X%` - Value of variable X
-- `%var_X_int%` - Integer value of variable X
-- `%var_X_roman%` - Roman numeral value
+- `%var_X_int%` - Integer value of variable X (only for NUMBER type variables)
+- `%var_X_roman%` - Roman numeral value (only for NUMBER type variables)
 
 **List Variables:**
 - `%var_MYVAR%` - Full list with brackets
@@ -199,7 +201,8 @@ For PLAYER_WRITE_COMMAND and PLAYER_SEND_MESSAGE:
 | **BROADCAST_MESSAGE** | `%message%`, `%is_async%` |
 | **PLUGIN_ENABLE/DISABLE** | `%plugin_name%` |
 | **PLAYER_ADVANCEMENT** | `%advancement%` |
-| **PLAYER_RECEIVE_HIT_GLOBAL, PLAYER_RECEIVE_HIT_BY_PLAYER, PLAYER_RECEIVE_HIT_BY_ENTITY** | `%last_damage_taken_nonfinal%`,  `%last_damage_taken_nonfinal_int%`, `%last_damage_taken_final%`, `%last_damage_taken_final_int%` <br/>(Only direct hits provide the correct value. Receive hits from projectiles return 0) |
+| **PLAYER_RECEIVE_HIT_GLOBAL, PLAYER_RECEIVE_HIT_BY_PLAYER, PLAYER_RECEIVE_HIT_BY_ENTITY** | `%last_damage_taken_nonfinal%`,  `%last_damage_taken_nonfinal_int%`, <br/> Refers to the raw amount of damage taken. <br/>`%last_damage_taken_final%`, `%last_damage_taken_final_int%` <br/> Refers to the amount of damage taken after considering defense buffs such as attributes, resistance effect and armor. <br/>Only direct hits provide the correct value. Receive hits from projectiles return 0 |
+| **PLAYER_BLOCK_HIT_OF_PLAYER, PLAYER_BLOCK_HIT_OF_ENTITY** | `%damage_blocked_base%, %damage_blocked_base_int%` <br/> Returns the raw damage blocked by the shield |
 
 ## Plugin-Specific Counts
 

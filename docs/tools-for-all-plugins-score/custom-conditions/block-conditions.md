@@ -213,7 +213,7 @@ blockConditions:
 * Example:
 
 ```yaml
-blockConditions:
+    blockConditions:
       blockAroundCdts:
         blockAround0:
           southValue: 0
@@ -231,10 +231,12 @@ blockConditions:
           - EXECUTABLEBLOCKS:CUSTOMDIRT
           - !DIRT
           - ALL_ORES
+          errorMsg: error msg inside here
+      blockAroundCdtsMsg: error msg outside here
 ```
 
 ```yaml
-blockConditions:
+    blockConditions:
       requiredItems: {}
       requiredExecutableItems: {}
       blockAroundCdts:
@@ -248,6 +250,7 @@ blockConditions:
           errorMsg: ''
           blockTypeMustBe:
           - stone
+          errorMsg: error msg inside here
           placeholdersConditions:
             plchCdt0:
               type: PLAYER_STRING
@@ -260,6 +263,7 @@ blockConditions:
               stopCheckingOtherConditionsIfNotValid: true
               placeholderConditionCmds:
               - say not run
+      blockAroundCdtsMsg: error msg outside here
 ```
 
 Q: What exactly is going on in placeholder conditions?\

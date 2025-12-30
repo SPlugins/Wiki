@@ -643,6 +643,10 @@ activators:
 If you use the LAUNCH COMMAND in the activator PLAYER\_LAUNCH\_PROJECTILE, and the projectile has been launched by a bow, the projectile launch with the custom LAUNCH command will keep the same velocity.
 :::
 
+:::info
+If you use SHULKERBULLET as the projectile type, it will pick the caster's cursor as its target. Otherwise, it will target the nearest entity from the caster.
+:::
+
 ### LEGGINGS
 
 * Info: Puts the item in your main hand to your leggings slot. (Will not work if the item has "Curse of Binding")

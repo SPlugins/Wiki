@@ -200,7 +200,7 @@ restrictions:
 * Example:
 
 ```yaml
-restrictions:**
+restrictions:
   cancel-horse: true
 ```
 
@@ -402,4 +402,24 @@ restrictions:
 ```yaml
 restrictions:
   cancel-armorstand: true
+```
+
+### CANCEL SPAWNER
+
+* Info: Prevents the player from using the ExecutableItem spawn egg on a spawner in its vanilla way.
+* Example:
+
+```yaml
+restrictions:
+  cancel-spawner: true
+```
+
+### CANCEL PLACE IN BUNDLE
+
+* Info: Prevents the player from putting the ExecutableItem inside a bundle.
+* Example:
+
+```yaml
+restrictions:
+  cancel-place-in-bundle: true
 ```
