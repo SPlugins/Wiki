@@ -647,6 +647,11 @@ If you use the LAUNCH COMMAND in the activator PLAYER\_LAUNCH\_PROJECTILE, and t
 If you use SHULKERBULLET as the projectile type, it will pick the caster's cursor as its target. Otherwise, it will target the nearest entity from the caster.
 :::
 
+:::warning
+Current Issues:  
+- Shulker Bullets cannot be used in 1.9.4, 1.10.2, 1.11.2. 1.12 onwards should have no complications aside from having to create a SCore projectile to give a Shulker Bullet proper flight velocity.
+:::
+
 ### LEGGINGS
 
 * Info: Puts the item in your main hand to your leggings slot. (Will not work if the item has "Curse of Binding")
