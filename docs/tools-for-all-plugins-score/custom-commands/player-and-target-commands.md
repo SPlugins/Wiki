@@ -605,7 +605,7 @@ This command supports stacking multiple boosts multiplicatively.
 * LARGEFIREBALL
 * LINGENRINGPOTION
 * LLAMASPIT
-* SHULKERBULLET
+* SHULKERBULLET (Only available for 1.12+)
 * SIZEDFIREBALL
 * SNOWBALL
 * TRIDENT
