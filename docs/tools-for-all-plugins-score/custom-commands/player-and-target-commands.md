@@ -222,7 +222,7 @@ activators:
 * Command settings:
   * `{time}`: The duration of the bossbar in ticks
   * `{color}`: Color of bossbar text
-  * `{text}`: text on the bossbar
+  * `{text}`: text on the bossbar (Use underscores "_" to add whitespace to your argument.)
   * `{count}`: how many times you want it to count
     * if this option is present, the time argument will not matter anymore
   * `{countTicks}`: true/false whether you want it to count in ticks or in seconds instead
@@ -240,7 +240,7 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - BOSSBAR time:200 color:RED text:This is a bossbar text
+    - BOSSBAR time:200 color:RED text:This_is_a_bossbar text
     - BOSSBAR time:20 color:BLUE text:Hello_world count:50 countTicks:true countOrder:ascending
     - BOSSBAR time:200 color:RED text:This is a bossbar text overrideMode:OVERRIDE_SAME_TEXT
 ```
