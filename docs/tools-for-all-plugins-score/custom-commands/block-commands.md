@@ -46,6 +46,15 @@ _Sorted by alphabetical order_
 * Info: Targets players in a specific radius and makes them run commands
 * Command settings
     * `{distance}`: To how far in radius the command will select players
+    * `{affectThePlayerThatActivatesTheActivator}`: true/false. If true, it will not affect the caster.
+      * Example situation: When you run an ExecutableItem's activator and that activator supports block commands,
+      it will ignore the person who activated the activator. However, if this option is false, it will affect you too.
+    * `{throughBlocks}`: it will affect or not the mobs that are behind blocks
+    * `{limit}`: The amount of targets that can be affected
+    * `{sort}`: Useful for the limit option.
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+    * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
     * `{command}`: The command that the targeted players will execute
 * Example:
 
@@ -339,8 +348,18 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 * Info: Targets entities in a specific radius and makes them run commands
 * Command settings
   * `{distance}`: To how far in radius the command will select entities
-  * `{mute or not}`: (true or false) To notify the user of the item if it didn't manage to target any mobs.
-    * **Set to true to hide the message**
+  * `{displayMsgIfNoEntity}`: (true or false) To notify the user of the item if it didn't manage to target any mobs.
+    * **Set to false to hide the message**
+  * `{throughBlocks}`: it will affect or not the mobs that are behind blocks
+  * `{safeDistance}`: If the distance between the target and the launcher are below or equals to the safeDistance value then the target will not be affected.
+  * `{offsetYaw}`: The yaw direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetPitch}`: The pitch direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetDistance}`: After calculating the offsetYaw and offsetPitch, by using the value of this, it will move the AROUND command's position/centerpoint from the origin's xyz location.
+  * `{limit}`: The amount of targets that can be affected
+  * `{sort}`: Useful for the limit option.
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+  * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
   * You can BLACKLIST or WHITELIST entities adding one of these ones in anyplace of the command:
     * BLACKLIST(ZOMBIE,ARMOR\_STAND)
     * WHITELIST(CHICKEN)
@@ -468,6 +487,7 @@ Damages nearest player
     * FARMLAND - WHEAT, CARROTS, BEETROOTS, POTATOES, SWEET\_BERRY\_BUSH, MELON\_STEM, PUMPKIN\_STEM, TORCHFLOWER\_CROP
     * SOUL SAND - NETHER\_WART
     * JUNGLE WOOD/LOG - COCOA
+  * `{isCube}`: Makes the planting area from square to cube. Useful for area cocoa planting
 * Example:
 
 ```

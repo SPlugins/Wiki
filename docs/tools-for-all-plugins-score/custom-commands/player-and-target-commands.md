@@ -420,10 +420,11 @@ activators:
     - EECOOLDOWN %player% all 10 true # For all ExecutableEvents
 ```
 
-### FLY\_ON
-
-* Info: Gives the player creative flight
-* No command setting
+### FIREWORK\_BOOST
+* Info: If this command is executed while the caster is gliding using the elytra, it will spawn a firework rocket in a way similar to how when players
+right-click a firework in their hand while gliding to gain distance.
+* Command settings:
+  * `{duration}`: The firework's lifetime in seconds
 * Example:
 
 ```yaml
@@ -431,7 +432,7 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - FLY_ON
+    - FIREWORK_BOOST 20
 ```
 
 ### FLY OFF
@@ -447,6 +448,20 @@ activators:
     option: # Here goes an activator that is at least instance of player
     playerCommands:
     - FLY_OFF teleportOnTheGround:true
+```
+
+### FLY\_ON
+
+* Info: Gives the player creative flight
+* No command setting
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - FLY_ON
 ```
 
 ### FORCE\_DROP
@@ -1015,6 +1030,22 @@ activators:
     option: # Here goes an activator that is at least instance of player
     playerCommands:
     - SET_BLOCK_POS x:0 y:0 z:0 material:STONE bypassProtection:false replace:true
+```
+
+### SET\_EQUIPPABLE\_MODEL
+
+* Info: Sets the equippable model data of an item in a specific slot
+* Command settings:
+  * `{slot}`: The slot number of where the target item is
+  * `{model}`: The equipment model name you wish to assign to the item
+* Example:
+
+```yml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_EQUIPPABLE_MODEL slot:-1 model:minecraft:diamond
 ```
 
 ### SET\_EXECUTABLE\_BLOCK

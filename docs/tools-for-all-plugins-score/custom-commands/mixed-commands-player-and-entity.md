@@ -127,6 +127,14 @@ It supports blacklist and whitelist
   * `{displayMsgIfNoPlayer}`: (true or false) To notify the user of the item if it managed to target players or not (Default true)
   * `{throughBlocks}`: it will affect or not the players that are behind blocks (Default true)
   * `{safeDistance}`: If the distance between the target and the launcher are below or equals to the safeDistance value then the target will not be affected. (Default 0)
+  * `{offsetYaw}`: The yaw direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetPitch}`: The pitch direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetDistance}`: After calculating the offsetYaw and offsetPitch, by using the value of this, it will move the AROUND command's position/centerpoint from the origin's xyz location.
+  * `{limit}`: The amount of targets that can be affected 
+  * `{sort}`: Useful for the limit option. 
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+  * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
   * `{commands}`: The commands that will be executed for the target players.
 
 :::tip
@@ -784,30 +792,6 @@ activators:
 - GLOWING 100 BLUE
 ```
 
-### HITSCAN\_PLAYERS
-
-* Info: It allows to run a command at certain direction to players
-* Command settings:
-  * `{range}`: how far an entity can be to be targetted by the HITSCAN command
-  * `{radiusOfHitscan}`: How WIDE the cylinder is. It's basically the difference of shooting a bullet vs shooting a cannonball.
-  * `{pitch}`: What direction to shoot it in, relative to player pitch
-  * `{yaw}`: Same thing as Pitch but with yaw
-  * `{leftRightShift}`:
-    * -5 = the hitscan STARTS from 5 blocks to the left.
-    * 0 = Hitscan is centered where the player is.
-    * 5 = hitscan STARTS from 5 blocks to the right of the player. 
-  * `{yShift}`: Same as left,right, except with a different axis. 
-  * `{throughEntities}`: Boolean: Whether or not the HITSCAN can go through entities.
-  * `{throughBlocks}`: Boolean: Whether or not the HITSCAN can go through blocks. 
-  * `{command(s)}`: The same than AROUND commands, you can type `command1 <+> command2` ... and use the placeholder %around\_target%
-* Example:
-
-```yaml
-- HITSCAN_PLAYERS range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throughBlocks:true throughEntities:true DAMAGE 5 <+> JUMP 5
-```
-* Image to understand:
-![](</img/hitscan_players.png>)
-
 ### HITSCAN\_ENTITIES
 
 * Info: It allows to run a command at certain direction to entities
@@ -822,8 +806,13 @@ activators:
     * 5 = hitscan STARTS from 5 blocks to the right of the player. 
   * `{yShift}`: Same as left,right, except with a different axis. 
   * `{throughEntities}`: Boolean: Whether or not the HITSCAN can go through entities.
-  * `{throughBlocks}`: Boolean: Whether or not the HITSCAN can go through blocks. 
-  * `{command(5)}`: The same than AROUND commands, you can type `command1 <+> command2` ... and use the placeholder %around\_target%
+  * `{throughBlocks}`: Boolean: Whether or not the HITSCAN can go through blocks.
+  * `{limit}`: The amount of targets that can be affected
+  * `{sort}`: Useful for the limit option.
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+  * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
+  * `{command(s)}`: The same than AROUND commands, you can type `command1 <+> command2` ... and use the placeholder %around\_target%
 * Example:
 
 ```yaml
@@ -831,6 +820,35 @@ HITSCAN_ENTITIES range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throug
 ```
 * Image to understand:
 ![](</img/hitscan_entities.png>)
+
+### HITSCAN\_PLAYERS
+
+* Info: It allows to run a command at certain direction to players
+* Command settings:
+  * `{range}`: how far an entity can be to be targetted by the HITSCAN command
+  * `{radiusOfHitscan}`: How WIDE the cylinder is. It's basically the difference of shooting a bullet vs shooting a cannonball.
+  * `{pitch}`: What direction to shoot it in, relative to player pitch
+  * `{yaw}`: Same thing as Pitch but with yaw
+  * `{leftRightShift}`:
+    * -5 = the hitscan STARTS from 5 blocks to the left.
+    * 0 = Hitscan is centered where the player is.
+    * 5 = hitscan STARTS from 5 blocks to the right of the player.
+  * `{yShift}`: Same as left,right, except with a different axis.
+  * `{throughEntities}`: Boolean: Whether or not the HITSCAN can go through entities.
+  * `{throughBlocks}`: Boolean: Whether or not the HITSCAN can go through blocks.
+  * `{limit}`: The amount of targets that can be affected
+  * `{sort}`: Useful for the limit option.
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+  * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
+  * `{command(s)}`: The same than AROUND commands, you can type `command1 <+> command2` ... and use the placeholder %around\_target%
+* Example:
+
+```yaml
+- HITSCAN_PLAYERS range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throughBlocks:true throughEntities:true DAMAGE 5 <+> JUMP 5
+```
+* Image to understand:
+  ![](</img/hitscan_players.png>)
 
 ### INVULNERABILITY
 
@@ -903,6 +921,14 @@ HITSCAN_ENTITIES range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throug
     * **Set to false to hide the message**
   * `{throughBlocks}`: it will affect or not the mobs that are behind blocks
   * `{safeDistance}`: If the distance between the target and the launcher are below or equals to the safeDistance value then the target will not be affected.
+  * `{offsetYaw}`: The yaw direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetPitch}`: The pitch direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetDistance}`: After calculating the offsetYaw and offsetPitch, by using the value of this, it will move the AROUND command's position/centerpoint from the origin's xyz location.
+  * `{limit}`: The amount of targets that can be affected
+  * `{sort}`: Useful for the limit option.
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+  * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
   * You can BLACKLIST or WHITELIST entities adding one of these ones in anyplace of the command:
     * BLACKLIST(ZOMBIE,ARMOR\_STAND)
     * WHITELIST(CHICKEN)

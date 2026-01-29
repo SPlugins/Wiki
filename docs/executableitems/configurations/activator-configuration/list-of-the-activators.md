@@ -250,6 +250,10 @@ Activator features are features that are exclusive to that activator.
 
 * Info: Activator that gets triggered when the player stops from sprinting 
 
+### PLAYER\_DISABLE\_SWIM
+
+* Info: Activator that gets triggered when the player stops swimming (1.13 swimming)
+* 
 ### PLAYER\_DISCONNECT
 
 * Info: Activator that gets triggered when the player logs out from the server.
@@ -308,6 +312,10 @@ Activator features are features that are exclusive to that activator.
 ### PLAYER\_ENABLE\_SPRINT <CustomTag type="premium" />
 
 * Info: Activator that gets triggered when the player starts sprinting.
+
+### PLAYER\_ENABLE\_SWIM
+
+* Info: Activator that gets triggered when the player starts swimming (1.13 swimming)
 
 ### PLAYER\_ENTER\_IN\_THEIR\_LAND <CustomTag type="premium" />
 
