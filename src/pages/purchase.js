@@ -59,6 +59,11 @@ export default function Purchase() {
               pricing-table-id="prctbl_1RAQi3CPJh2RnYCRkv92rm2X"
               publishable-key="pk_live_c9vD7kvsJbPWGpGmGzXq7FcE">
             </stripe-pricing-table>
+            <br />
+            <stripe-pricing-table
+              pricing-table-id="prctbl_1T3fzbCPJh2RnYCR9WijoqqB"
+              publishable-key="pk_live_c9vD7kvsJbPWGpGmGzXq7FcE">
+            </stripe-pricing-table>
           </div>
         </section>
 
