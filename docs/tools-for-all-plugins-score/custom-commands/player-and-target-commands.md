@@ -1164,8 +1164,11 @@ It doesn't replace blocks that have extra datas (inventory, rotation, etc)
 ### SPAWN\_ENTITY\_ON\_CURSOR
 
 * Info: Spawn entities on your cursor
+  * You can specify an [EntityType](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html)
+  * Or an entity definition example: `{HasVisualFire:1b,id:"minecraft:bee"}` (1.21.+)
+  * Or a MythicMob ID
 * Command settings:
-  * `{entity}`: Mob ID (ALL CAPS) [EntityTypes](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html)
+  * `{entity}`: The entity specification
   * `{amount}`: The amount of mobs that will spawn in that spot
   * `[maxRange]`: (Optional) (default = 200) The max range of the spawn
 * Example:
@@ -1176,6 +1179,14 @@ activators:
     option: # Here goes an activator that is at least instance of player
     playerCommands:
     - SPAWN_ENTITY_ON_CURSOR entity:CREEPER amount:1
+```
+
+```
+# With EntitySnapshot
+- SPAWN_ENTITY_ON_CURSOR entity:{HasVisualFire:1b,id:"minecraft:bee"} amount:1
+
+# With MythicMob ID
+- SPAWN_ENTITY_ON_CURSOR entity:MyCustomBossID amount:1
 ```
 
 ### SUDO
