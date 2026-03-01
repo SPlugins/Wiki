@@ -116,6 +116,9 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      metadata: [
+        {name: 'google-site-verification', content: 'GFIfgKIQI3ziY3x_HygJNJt_mlU2Bq3H5yHL8VTyd-U'},
+      ],
       announcementBar: {
         id: 'welcome_announcement',
         content: '🎉 <strong>Welcome to our new Wiki!</strong> 🚀 Explore our completely redesigned documentation with enhanced readability.',
