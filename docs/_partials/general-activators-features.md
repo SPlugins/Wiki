@@ -95,6 +95,20 @@ activators:
     cancelEvent: true
 ```
 
+### noActivatorRunIfTheEventIsCancelled
+
+* Info: Boolean value that if enabled, prevents the activator from running if another plugin has already cancelled the event that triggers it.
+  * This is useful when you have plugins like WorldGuard that cancel damage events (e.g., in non-PvP zones) or other ExecutableItems that cancel damage events (e.g., boots with PLAYER\_RECEIVE\_HIT\_GLOBAL + cancelEvent). Without this feature, activators like PLAYER\_BEFORE\_DEATH would still trigger even though the damage was cancelled, because they react to the raw damage calculation rather than the final outcome.
+  * A common use case is a custom Totem of Undying item using PLAYER\_BEFORE\_DEATH. Without this feature enabled, the totem would activate and be consumed even when the player is in a WorldGuard protected zone where damage is cancelled, wasting the item. Enabling this feature ensures the totem only activates on actual lethal damage.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activators on the activators list
+    option: PLAYER_BEFORE_DEATH
+    noActivatorRunIfTheEventIsCancelled: true
+```
+
 ### silenceOutput
 
 * Info: Boolean value that makes all commands run from commands features such as (playerCommands, blockCommands, entityCommands and targetCommands) will not have an output on the **console**.
