@@ -1,5 +1,6 @@
 ---
-description: Complete guide for creating custom item textures in Minecraft 1.21.4+ using the new item model system
+description: "Create custom item textures in Minecraft 1.21.4+ using the new item model system. Step-by-step resource pack tutorial for custom items. No client mods required."
+keywords: [custom textures minecraft 1.21.4, item model system, resource pack, ExecutableItems, minecraft item textures, pack_format, custom items textures, minecraft 1.21.4 pack_format]
 ---
 
 # Custom Textures for Minecraft 1.21.4+

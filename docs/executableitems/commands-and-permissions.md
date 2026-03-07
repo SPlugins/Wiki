@@ -1,3 +1,8 @@
+---
+description: "Full list of ExecutableItems plugin commands and permissions for Minecraft servers. Learn how to configure permissions with LuckPerms and manage custom items."
+keywords: [ExecutableItems commands, ExecutableItems permissions, minecraft plugin commands, LuckPerms, custom items]
+---
+
 import CustomTag from '@site/src/components/CustomTag';
 
 # ⌨️ Commands & Permissions

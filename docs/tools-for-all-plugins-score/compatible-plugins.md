@@ -1,7 +1,6 @@
 ---
-description: >-
-  Here is a non-exhaustive list of plugin that you can combine with
-  ExecutableItems
+description: "List of plugins compatible with ExecutableItems and Score: MythicMobs, Citizens, Vault, PlaceholderAPI, WorldGuard, and more. Learn how to integrate them."
+keywords: [compatible plugins, ExecutableItems integration, Score plugin, MythicMobs, PlaceholderAPI, minecraft plugins]
 ---
 
 # ✔️ Compatible Plugins

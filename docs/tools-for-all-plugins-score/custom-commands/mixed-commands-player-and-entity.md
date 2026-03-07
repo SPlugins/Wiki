@@ -1,3 +1,8 @@
+---
+description: "Custom commands that work for both players and entities in Score plugins. Use in playerCommands, targetCommands, entityCommands, and ownerCommands."
+keywords: [mixed commands, entity commands, player commands, Score plugin, ExecutableItems, minecraft commands]
+---
+
 # Mixed Commands (Player & Entity)
 
 :::info

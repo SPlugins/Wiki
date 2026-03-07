@@ -1,3 +1,8 @@
+---
+description: "Custom block commands for Score plugins: place, break, set blocks, and multi-world support. Works with ExecutableItems, ExecutableBlocks, and ExecutableEvents."
+keywords: [block commands, Score plugin, ExecutableBlocks, minecraft block commands, custom commands]
+---
+
 import LinkPreview from '@site/src/components/LinkPreview';
 
 # Block Commands

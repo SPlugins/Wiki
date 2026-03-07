@@ -1,3 +1,8 @@
+---
+description: "Complete list of Score plugin placeholders: player data, entity info, block properties, math operations, and PlaceholderAPI integration for ExecutableItems and ExecutableBlocks."
+keywords: [placeholders, Score plugin, PlaceholderAPI, minecraft placeholders, ExecutableItems, dynamic variables]
+---
+
 import CustomTag from '@site/src/components/CustomTag';
 
 # 📚 Placeholders

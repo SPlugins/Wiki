@@ -1,7 +1,6 @@
 ---
-description: >-
-  These options are utilized to accomplish specific things to create simple to
-  complex items
+description: "Add abilities to your custom items: conditions, commands, cooldowns, targets, and advanced options. Build complex custom item skills for your Minecraft server with ExecutableItems."
+keywords: [custom item abilities, ExecutableItems activators, activator features, minecraft custom items, custom item skills, conditions, commands]
 ---
 
 import CustomTag from '@site/src/components/CustomTag';

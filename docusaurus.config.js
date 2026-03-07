@@ -7,18 +7,26 @@ const darkTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'SDevelopement Wiki',
-  tagline: 'Complete documentation for SPlugins : ExecutableItems, ExecutableBlocks, ExecutableEvents, and more',
+  title: 'SPlugins Wiki - ExecutableItems, ExecutableBlocks & ExecutableEvents Documentation',
+  tagline: 'Complete documentation for Ssomar Plugins: ExecutableItems, ExecutableBlocks, ExecutableEvents, and more Minecraft server plugins',
   favicon: 'img/ssomarlogo2.png',
 
   // Set the production url of your site here
-  url: 'https://ssomar-developement.github.io',
+  url: 'https://docs.ssomar.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
 
   // GitHub pages deployment config.
   organizationName: 'Ssomar-Developement', // Usually your GitHub org/user name.
   projectName: 'Wiki', // Usually your repo name.
+
+  scripts: [
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417689167216654',
+      async: true,
+      crossorigin: 'anonymous',
+    },
+  ],
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -118,6 +126,13 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       metadata: [
         {name: 'google-site-verification', content: 'GFIfgKIQI3ziY3x_HygJNJt_mlU2Bq3H5yHL8VTyd-U'},
+        {name: 'description', content: 'Official documentation for Ssomar Plugins: ExecutableItems, ExecutableBlocks, ExecutableEvents. Create custom items, blocks, and events for your Minecraft server.'},
+        {name: 'keywords', content: 'ExecutableItems, ExecutableBlocks, ExecutableEvents, SPlugins, Ssomar, Minecraft plugins, custom items, Spigot, Paper'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:site_name', content: 'SPlugins Wiki'},
+        {property: 'og:description', content: 'Official documentation for Ssomar Plugins: ExecutableItems, ExecutableBlocks, ExecutableEvents for Minecraft servers.'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+        {name: 'twitter:title', content: 'SPlugins Wiki - Minecraft Custom Items Documentation'},
       ],
       announcementBar: {
         id: 'welcome_announcement',
@@ -138,9 +153,9 @@ const config = {
         },
       },
       navbar: {
-        title: 'SDevelopement Wiki',
+        title: 'SPlugins Wiki',
         logo: {
-          alt: 'SPlugins Logo',
+          alt: 'Score Plugins Logo',
           src: 'img/ssomarlogo2.png',
         },
         items: [

@@ -1,3 +1,8 @@
+---
+description: "Create custom items for Minecraft with ExecutableItems. Custom weapons, tools, armor, abilities, textures, and crafting recipes. No coding required. 4000+ servers, 280+ reviews. Best ItemsAdder alternative."
+keywords: [custom items plugin, minecraft custom items, ExecutableItems, custom weapons, custom textures, ItemsAdder alternative, Spigot plugin, Paper plugin, custom items minecraft server]
+---
+
 # 📌 Information EI
 
 ## Description 

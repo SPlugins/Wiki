@@ -1,3 +1,8 @@
+---
+description: "Step-by-step guide to create custom item textures in Minecraft 1.13-1.21.3 using Custom Model Data and resource packs. Add unique textures to your custom items without client mods."
+keywords: [custom item textures, minecraft resource pack, custom model data, ExecutableItems, minecraft textures, custom items texture, minecraft item textures]
+---
+
 # Custom Item Textures (Minecraft 1.13 - 1.21.3)
 
 This comprehensive guide will teach you how to create custom textures for items in Minecraft versions 1.13 through 1.21.3 using Custom Model Data and resource packs.

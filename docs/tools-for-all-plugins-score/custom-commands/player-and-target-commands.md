@@ -1,3 +1,8 @@
+---
+description: "Complete list of player and target custom commands for Score plugins: teleport, heal, damage, give items, send messages, run as player with SUDO, and more."
+keywords: [player commands, target commands, Score plugin, ExecutableItems commands, minecraft custom commands, SUDO]
+---
+
 import LinkPreview from '@site/src/components/LinkPreview';
 import CustomTag from '@site/src/components/CustomTag';
 

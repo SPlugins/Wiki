@@ -1,3 +1,8 @@
+---
+description: "Add custom sounds to your Minecraft server without replacing vanilla sounds. Create a resource pack with sounds.json and use /playsound with ExecutableItems."
+keywords: [custom sounds minecraft, resource pack sounds, sounds.json, ExecutableItems, minecraft sound effects]
+---
+
 # Custom Sounds
 
 :::info

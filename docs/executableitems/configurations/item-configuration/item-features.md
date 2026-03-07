@@ -1,3 +1,8 @@
+---
+description: "Complete reference for creating custom items in Minecraft: materials, durability, enchantments, attributes, custom model data, textures, and more. Configure powerful custom items with ExecutableItems."
+keywords: [custom items configuration, ExecutableItems, item features, minecraft custom items, custom model data, custom textures, item configuration]
+---
+
 import CustomTag from '@site/src/components/CustomTag';
 
 # Item Features

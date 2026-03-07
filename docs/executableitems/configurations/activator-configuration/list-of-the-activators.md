@@ -1,18 +1,6 @@
 ---
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
+description: "50+ triggers for custom items: click, attack, bow, consume, equip, and more. Add abilities to your Minecraft custom items with ExecutableItems activators."
+keywords: [custom item triggers, ExecutableItems activators, event triggers, minecraft custom items, click activator, attack activator, custom item events]
 ---
 
 import CustomTag from '@site/src/components/CustomTag';

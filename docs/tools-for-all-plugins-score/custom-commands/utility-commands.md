@@ -1,3 +1,8 @@
+---
+description: "Score utility commands reference: DELAY, LOOP, IF conditions, RANDOM, CALCULATE, and more. Use in any command type for ExecutableItems, ExecutableBlocks, and ExecutableEvents."
+keywords: [utility commands, DELAY command, LOOP command, Score plugin, ExecutableItems, minecraft commands]
+---
+
 # Utility Commands
 
 The utility commands can be places in all type of commands, so in entity , player, block commands ...

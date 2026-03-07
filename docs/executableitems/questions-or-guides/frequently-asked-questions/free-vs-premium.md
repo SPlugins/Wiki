@@ -1,3 +1,8 @@
+---
+description: "Compare ExecutableItems Free vs Premium: unlimited custom items, 40+ activators, all features unlocked, premium support. The best custom items plugin for Minecraft servers."
+keywords: [ExecutableItems free, ExecutableItems premium, custom items plugin comparison, minecraft custom items, best custom items plugin]
+---
+
 # Free vs premium
 
 The free version of ExecutableItems is like a free-trial of it, to know how it works, what is possible and you could even make your whole server with it, but once you want to improve your items, and don't have all limitations the free one you have you start thinking into buying the premium version.. but, is it worth? what differences are there? couple of common questions asked in #support-ei in discord of Ssomar plugins, this page, should solve your answers.

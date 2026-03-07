@@ -1,3 +1,8 @@
+---
+description: "Learn how to use Score variables to store strings, numbers, and lists per player or globally. Integrate variables with ExecutableItems and ExecutableBlocks commands."
+keywords: [Score variables, minecraft variables, player data storage, ExecutableItems variables, global variables]
+---
+
 # 🧮   SCore Variables
 
 ## SCore variables
