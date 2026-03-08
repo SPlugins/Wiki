@@ -80,6 +80,9 @@ const config = {
           },
         },
         blog: false,
+        gtag: {
+          trackingID: 'G-JNS4Y63DCS',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
