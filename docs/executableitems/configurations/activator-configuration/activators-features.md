@@ -207,6 +207,7 @@ To make the features more understandable on where activators do they work, we wi
   * Example, there is an activator PROJECTILE\_HIT\_ENTITY, detailedSlots: \[all slots] and on playerCommands: \["say hi"]
     * If the feature is enabled, then it will only work if this ExecutableItem has another activator that has LAUNCH command, so, the projectile will be launched from the EI and then the condition will met
     * If the feature is disabled, all projectiles, such as: vanilla bow, vanilla snowball, projectiles from others ExecutableItems, and projectile for the ExecutableItem itself will run the activator.
+* Important: When `mustBeAProjectileLaunchWithTheSameEI` is `true`, the plugin cannot guarantee with 100% certainty which specific inventory slot held the item at the time of launch. It activates the first matching copy of the EI found in the player's inventory. For this reason, **always configure the activator's `detailedSlots` to include all slots** — do not restrict it to main hand only. If the activator is limited to main hand, it may fail to trigger if the matching item is evaluated from a different slot first.
   * Example:
 
 ```yaml
@@ -214,6 +215,7 @@ activators:
   activator1: # Activator ID, you can create as many activators on the activators list
     option: PROJECTILE_HIT_ENTITY
     mustBeAProjectileLaunchWithTheSameEI: true
+    detailedSlots: [] # Empty list = all slots (-1 through 40)
 ```
 
 <DamageCauseFeatures />
