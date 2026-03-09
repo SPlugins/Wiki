@@ -280,15 +280,25 @@ DRAININCUBE *12 WATER
 
 * Info: Destroys blocks in a radius in a rectangle shape. Each block broken by this command gets counted as a player block break event.
 * Command settings
-  * `{cube_radius}`: Radius of how big the cube radius will be
+  * `{radius}`: Radius of how big the cube radius will be
   * `{depth}`: How depth the rectangle will be.
   * `{drop}`: Whether the block drops loot or not
-  * `{create blockBreakEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
-  * `[direction]`: (Optional) (default = the player direction) If you want to force a direction.
+  * `{createBBEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
+  * `[direction]`: (Optional) (default = the player direction) If you want to force a direction. 
+    * Options:
+      * `north/n/-z` : North
+      * `south/s/+z` : South
+      * `east/e/+x` : East
+      * `west/w/-x` : West
+      * `up` : Up
+      * `down` : Down
+      * `auto` : Uses the logic of %player_direction_xz% of the Player Expansion of PlaceholderAPI to decide the `N/W/S/E` directions. For the Up/Down logic, `UP` direction if pitch is `<=` -45; `DOWN` direction if pitch `>=` 45. 
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
 - INLINE_MINEINCUBE 1 4 true true
+- INLINE_MINEINCUIBE radius:2 depth:4 drop:true createBBEvent:true direction:auto smelt:true
 ```
 
 :::info
@@ -320,14 +330,15 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 * Info: Destroys blocks in a radius in a cuboid shape. Each block broken by this command gets counted as a player block break event.
 * Command settings
   * `{radius}`: Radius of how big the area of the crops you want to break **(LIMIT IS 9)**
-  * `{drop}`: Whether the block drops loot or not
-  * `{create blockBreakEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
-  * `{offset}`: If the area of block starts to break from the block broken, or from the "center" to make the area really works the "radius" selected. (default false)
+  * `{droploot}`: Whether the block drops loot or not
+  * `{createEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
+  * `{offsetBreak}`: If the area of block starts to break from the block broken, or from the "center" to make the area really works the "radius" selected. (default false)
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
 - MINEINCUBE 4 true false
-- MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false
+- MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false smelt:false
 ```
 
 ### MINEINSPHERE
@@ -337,6 +348,7 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
   * `{radius}`: Radius of the sphere
   * `{drop}`: Whether the block drops loot or not
   * `{create blockBreakEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the command
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
@@ -389,8 +401,8 @@ It supports NBT Tags so you can add for example something like: `ZOMBIE{IsBaby:1
 ```
 - MOB_AROUND 7 BLACKLIST(ZOMBIE{CustomName:"Test Test"},ZOMBIE{CustomName:"Miyamoto"}) false BURN 3
 - MOB_AROUND 5 WHITELIST(ZOMBIE{IsBaby:1}) DAMAGE 20
-- MOB_aROUND 9 WHITELIST(WOLF{Owner:"%player%"}) HEAL 5
-- MOB_aROUND 9 WHITELIST(WOLF{Owner:%player_uuid%}) HEAL 5
+- MOB_AROUND 9 WHITELIST(WOLF{Owner:"%player%"}) HEAL 5
+- MOB_AROUND 9 WHITELIST(WOLF{Owner:%player_uuid%}) HEAL 5
 ```
 
 ### MOVE
@@ -615,20 +627,15 @@ And of course the vanilla spawners.
 
 ### SMELT
 
-* Info: It smelts the target block dropping the smelted item, for example iron\_ore -> iron\_ingot it supports fortune, if it can't be smelted nothing will happen
+* Info: It smelts the target block dropping the smelted item, for example iron\_ore -> iron\_ingot it supports fortune, if it can't be smelted nothing will happen. The block loot will not change.
 * Command setting
-  * `[generateEvent]`: (Optional) (default = true) Whethe or not it generates a block break event
+  * `[generateEvent]`: (Optional) (default = true) When the or not it generates a block break event
 * Example:
 
 ```
 - SMELT 
 - SMELT false
 ```
-:::warning
-If you have OneBlock from SuperiorSkyblock by BG Software, <b>set the `generateEvent` value to false or else your server will crash</b>.
-
-So as much as possible, only set the event to true if necessary.
-:::
 
 ### STRIKELIGHTNING
 
@@ -644,10 +651,12 @@ So as much as possible, only set the event to true if necessary.
 
 * Info: Breaks blocks in veins in one block break
 * Command settings
-  * `{max_vein_size}`: Max amount of blocks the command can break
-  * `[generateEvent]`: (Optional) (default = true) Whether or not it generates a block break event
+  * `{maxVeinSize}`: Max amount of blocks the command can break
+  * `[createBBEvent]`: (Optional) (default = true) Whether or not it generates a block break event
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
 - VEIN_BREAKER 20
+- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:true
 ```

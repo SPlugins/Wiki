@@ -1070,23 +1070,6 @@ activators:
     - SET_EXECUTABLE_BLOCK id:Mithril_Ore x:%block_x_int% y:%block_y_int% z:%block_z_int% world:%block_world% replace:false bypassProtection:true ownerUUID:%player_uuid%
 ```
 
-### SET\_ITEM\_NAME
-
-* Info: Sets a custom name for your item in a specific slot
-* Command settings:
-  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-![](</img/slots_info.png>)
-  * `{name}`: the new name of the item
-* Example:
-
-```yaml
-activators:
-  activator0: # Activator ID, you can create as many activator on the activators list
-    option: # Here goes an activator that is at least instance of player
-    playerCommands:
-    - SET_ITEM_NAME slot:%slot% name:&eThis is the new name of the item
-```
-
 ### SET\_ITEM\_COLOR
 
 * Info: Sets a specific color for the item (item colorables as leather armor / firework star)
@@ -1125,23 +1108,6 @@ activators:
 ```
 
 
-### SET\_ITEM\_CUSTOM\_MODEL\_DATA
-
-* Info: Sets a specific custom model data to the specific item
-* Command settings:
-  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-![](</img/slots_info.png>)
-  * `{customModelData}`: value of the customModelData
-* Example:
-
-```yaml
-activators:
-  activator0: # Activator ID, you can create as many activator on the activators list
-    option: # Here goes an activator that is at least instance of player
-    playerCommands:
-    - SET_ITEM_CUSTOM_MODEL_DATA slot:10 customModelData:10
-```
-
 ### SET\_ITEM\_COOLDOWN
 
 * Gives the player/target cooldown on an item
@@ -1166,6 +1132,42 @@ activators:
     - SET_ITEM_COOLDOWN group:my_cooldown_group cooldown:10
 ```
 
+### SET\_ITEM\_CUSTOM\_MODEL\_DATA
+
+* Info: Sets a specific custom model data to the specific item
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{customModelData}`: value of the customModelData
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_CUSTOM_MODEL_DATA slot:10 customModelData:10
+```
+
+### SET\_ITEM\_LORE
+
+* Info: Sets a line of lore
+* Command settings:
+  * `{slot}`: Slot number (-1 for mainhand)
+
+![](</img/slots_info.png>)
+* `{line}` : If you want to set the lore of the first type 1
+* `{text}`: The new line text
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_LORE slot:%slot% line:3 text:&6LEGENDARY SWORD
+```
+
 ### SET\_ITEM\_MATERIAL 
 
 <CustomTag type="version" version="1.20.5" />
@@ -1185,15 +1187,13 @@ activators:
     - SET_ITEM_MATERIAL slot:10 material:DIAMOND_HOE
 ```
 
-### SET\_ITEM\_LORE
+### SET\_ITEM\_MODEL
 
-* Info: Sets a line of lore
+* Info: Sets a custom model for your item in a specific slot
 * Command settings:
-  * `{slot}`: Slot number (-1 for mainhand)
-
-![](</img/slots_info.png>)
-  * `{line}` : If you want to set the lore of the first type 1
-  * `{text}`: The new line text
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{model}`: the model value you want to apply to the target item
 * Example:
 
 ```yaml
@@ -1201,7 +1201,93 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - SET_ITEM_LORE slot:%slot% line:3 text:&6LEGENDARY SWORD
+    - SET_ITEM_MODEL slot:-1 model:minecraft:stone
+```
+
+### SET\_ITEM\_NAME
+
+* Info: Sets a custom name for your item in a specific slot
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{name}`: the new name of the item
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_NAME slot:%slot% name:&eThis is the new name of the item
+```
+
+### SET\_ITEM\_POTIONCOLOR
+
+* Info: Sets a custom color to an item potion color in a specific slot
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{color}`: The color you want to apply. For the color, go to `https://www.tydac.ch/color/` and get the `MapInfo Color` value of the color of your choice.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_POTIONCOLOR slot:%slot% color:10944256
+```
+
+### SET\_ITEM\_TOOLTIPSTYLE
+
+* Info: Sets the custom tooltip style of the item in slot.
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{tooltipModel}`: (Default value: `namespace:id`) The tooltip id.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_TOOLTIPSTYLE slot:-1 tooltipModel:namespace:id
+```
+
+### SET\_PLAYER\_TIME
+
+* Info: Sets the player's time without affecting the time server-side.
+* Command settings:
+  * `{time}`: The time value. Enter `-1` to reset the player's time back to relying on server-side time.
+  * `{relative}`: (Default value: false) If not true, it will set the user's POV time to that value literally. But if true, it will take the world's current time and add it with the provided value to set your current POV time.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_PLAYER_TIME time:6000 relative:false
+```
+
+### SET\_PLAYER\_WEATHER
+
+* Info: Sets the player's weather without affecting the time server-side.
+* Command settings:
+  * `{weather The time value}`: Sets the player's weather in their POV
+    * Options:
+      * RESET : Restores it back to the server-side weather
+      * DOWNFALL : Raining or snowing depending on biome
+      * CLEAR : Clear weather, clouds but no rain.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_PLAYER_WEATHER weather:CLEAR
 ```
 
 ### SET\_TEMP\_BLOCK\_POS

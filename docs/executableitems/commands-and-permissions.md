@@ -174,8 +174,40 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 * Command: **/ei refresh \{player\} \{ExecutableItemID\}** **\{resetUsage\} \{resetDurability\}**
   * `player`: Name of a specific player or "all" to target all players online.
   * `ExecutableItemID`: Name of a specific ExecutableItem or "all" to target all ExecutableItems created.
-  * `resetUsage`: Boolean value to allow through the refresh process to reset the usage value
-  * `resetDurability`: Boolean value to allow through the refresh process to reset the durability value
+  * `option`: Refresh argument
+    * Options:
+      * MATERIAL
+      * NAME
+      * LORE
+      * DURABILITY
+      * ATTRIBUTES
+      * ENCHANTS
+      * CUSTOM_MODEL_DATA
+      * ARMOR_SETTINGS
+      * USAGE
+      * ITEM_RARITY
+      * BOOK
+      * EQUIPPABLE
+      * REPAIRABLE
+      * HIDERS
+      * INSTRUMENT
+      * TOOL_RULES
+      * FIREWORK
+      * FIREWORK_EXPLOSION
+      * CONTAINER
+      * HEAD
+      * BANNER
+      * FOOD
+      * CONSUMABLE
+      * BUNDLE
+      * BLOCK_STATE
+      * CHARGED_PROJECTILES
+      * MYFURNITURE
+      * SPAWNER
+      * WEAPON
+      * BLOCK_ATTACKS
+      * TOOLTIP_MODEL
+      * ALL_OPTIONS (Does all the jobs involved above)
 * Permission: `ei.cmd.refresh`
 
 #### **Modify the owner of the ExecutableItem that is in your hand**

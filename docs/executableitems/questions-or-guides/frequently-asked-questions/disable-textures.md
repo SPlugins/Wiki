@@ -15,35 +15,34 @@ If you desire to disable the textures feature of ExecutableItems, go to it's con
 # DISCORD HERE : https://discord.com/invite/TRmSwJaYNv
 # -
 pickupLimit: -1
-disabledWorlds: []
-whitelistedWorlds: []
-whitelistItemsPerWorld: []
+disabledWorlds: [] #Its a blacklist, EI will be disabled in these worlds
+whitelistedWorlds: [] #Its a whitelist, EI will be enabled only in these worlds
+whitelistItemsPerWorld: [] #Its a whitelist, EI will be enabled only for these items in these worlds
 #  myWorld:
 #    - "myEI1"
 #    - "myEI2"
 #  myWorld2:
 #    - "myEI3"
 #    - "myEI4"
-premiumEnableCooldownForOp: true # Premium only
+premiumEnableCooldownForOp: true #Premium only
 checkVersionMsg: true
 disableTestItems: false # If you have a big server with a lot of players, it's recommended to turn this option on true
+silentEIGive: false
 silentMessagePreventionErrorHeadDBError: false
-disableBackup: false # <- Backup your items config at each start / reload of the server
-deleteBackupsAfterDays: 7 # <- It will deletes backups older than this number of days
-enableGarbageCollectorAfterReload: false # <- It will enable the garbage collector after a reload of the server
+disableBackup: false #<- Backup your items config at each start / reload of the server
+deleteBackupsAfterDays: 7 #<- It will deletes backups older than this number of days
+enableGarbageCollectorAfterReload: false #<- It will enable the garbage collector after a reload of the server
 giveLimit: 100
-enableTexturesPack: false # Only for 1.20.5+ servers
-texturesPackUrl: '' # Only for 1.20.5+ servers
+enableTexturesPack: true #Only for 1.20.5+ servers
+texturesPackUrl: "" #Only for 1.20.5+ servers
 selfHostPack: true
+downloadTexturesPackAtTheNextLoading: true # Technical setting
 logs:
   dropped: true
   spawned: true
 debugOnlyRun: false # /ei debug will only display the run debug message
-itemCheckWithNBTAPI: false
+itemCheckWithNBTAPI: false # Deprecated. Will not receive further updates
 muteModification: false # It will mute the outputs of /ei modification or /ei console modification
-config_12_04_2024: true
-silentGive: false
-updateOldItems: false
 ```
 
 ## Disable enableTexturesPack
