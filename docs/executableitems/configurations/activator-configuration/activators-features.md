@@ -215,8 +215,7 @@ activators:
   activator1: # Activator ID, you can create as many activators on the activators list
     option: PROJECTILE_HIT_ENTITY
     mustBeAProjectileLaunchWithTheSameEI: true
-    detailedSlots:
-    - all_slots
+    detailedSlots: [] # Empty list = all slots (-1 through 40)
 ```
 
 <DamageCauseFeatures />
