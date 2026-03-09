@@ -466,18 +466,7 @@ activators:
 
 ### FORCE\_DROP
 
-* Info: It drops all the EI in your inventory with the id specified
-* Command settings:
-  * `{ei_id}`: Specify the EI that you want to be force dropped by the player
-* Example: 
-
-```yaml
-activators:
-  activator0: # Activator ID, you can create as many activator on the activators list
-    option: # Here goes an activator that is at least instance of player
-    playerCommands:
-    - FORCE_DROP ei_id:excalibursword
-```
+This command has been merged into the Mixed Commands section. See [FORCE\_DROP](</tools-for-all-plugins-score/custom-commands/mixed-commands-player-and-entity#force_drop>) for full documentation including both `slot:` and `ei_id:` modes.
 
 ### FORMAT\_ENCHANTMENTS
 

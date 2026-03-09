@@ -744,16 +744,27 @@ activators:
 
 ### FORCE\_DROP
 
-* Info: It forces the player to drop the item that he has in a specific slot.
-* Command setting: 
-  * `{slot}`: number, -1 for main hand
+* Aliases: `FORCEDROP`, `DROPSPECIFICEI`
+* Info: Forces the player/entity to drop an item. Supports two modes:
+  * **Slot mode**: drops the item in the specified inventory slot
+  * **EI ID mode**: drops all items matching the given ExecutableItem ID from the inventory (player only)
+* Command settings:
+  * `slot:`: number, -1 for main hand (default: -1). See slot reference image below.
+  * `ei_id:`: the ID of the ExecutableItem to drop (overrides slot mode when provided)
 
 ![](</img/slots_info.png>)
 
-* Example:
+* Examples:
 
 ```yaml
-- FORCE_DROP -1
+# Drop the item in main hand
+- FORCE_DROP slot:-1
+
+# Drop the item in slot 5
+- FORCE_DROP slot:5
+
+# Drop all items with the EI id "excalibursword" from the player's inventory
+- FORCE_DROP ei_id:excalibursword
 ```
 
 ### FRONTDASH
