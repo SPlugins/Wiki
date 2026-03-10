@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import Layout from '@theme/Layout';
 import styles from './purchase.module.css';
+import AdBanner from '@site/src/components/AdBanner';
 
 export default function Purchase() {
   useEffect(() => {
@@ -66,6 +67,8 @@ export default function Purchase() {
             </stripe-pricing-table>
           </div>
         </section>
+
+        <AdBanner format="inArticle" />
 
         <section className={styles.section}>
           <div className={styles.pluginsBox}>
