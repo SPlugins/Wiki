@@ -25,7 +25,7 @@ export default function AdBanner({format = 'horizontal', slot = ''}) {
   const pushed = useRef(false);
 
   useEffect(() => {
-    if (!ExecutionEnvironment.canUseDOM || !slot || pushed.current) return;
+    if (!ExecutionEnvironment.canUseDOM || pushed.current) return;
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -34,8 +34,6 @@ export default function AdBanner({format = 'horizontal', slot = ''}) {
       // AdSense not loaded yet or ad blocker active
     }
   }, [slot]);
-
-  if (!slot) return null;
 
   const config = AD_CONFIGS[format] || AD_CONFIGS.horizontal;
 
@@ -47,7 +45,7 @@ export default function AdBanner({format = 'horizontal', slot = ''}) {
         ref={adRef}
         style={config.style}
         data-ad-client="ca-pub-1417689167216654"
-        data-ad-slot={slot}
+        {...(slot && {'data-ad-slot': slot})}
         {...(config.format && {'data-ad-format': config.format})}
         {...(config.responsive && {'data-full-width-responsive': 'true'})}
         {...(config.layout && {'data-ad-layout': config.layout})}
