@@ -2,6 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import styles from './styles.module.css';
 
+const AD_CLIENT = 'ca-pub-1417689167216654';
+
 const AD_CONFIGS = {
   horizontal: {
     format: 'auto',
@@ -20,6 +22,19 @@ const AD_CONFIGS = {
   },
 };
 
+function waitForAdSense(callback, maxAttempts = 20) {
+  let attempts = 0;
+  const check = () => {
+    if (window.adsbygoogle !== undefined) {
+      callback();
+    } else if (attempts < maxAttempts) {
+      attempts++;
+      setTimeout(check, 500);
+    }
+  };
+  check();
+}
+
 export default function AdBanner({format = 'horizontal', slot = ''}) {
   const adRef = useRef(null);
   const pushed = useRef(false);
@@ -27,13 +42,20 @@ export default function AdBanner({format = 'horizontal', slot = ''}) {
   useEffect(() => {
     if (!ExecutionEnvironment.canUseDOM || pushed.current) return;
 
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    waitForAdSense(() => {
+      if (pushed.current) return;
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch (e) {
+        // Ad blocker active or other error
+      }
+    });
+
+    return () => {
       pushed.current = true;
-    } catch (e) {
-      // AdSense not loaded yet or ad blocker active
-    }
-  }, [slot]);
+    };
+  }, []);
 
   const config = AD_CONFIGS[format] || AD_CONFIGS.horizontal;
 
@@ -44,7 +66,7 @@ export default function AdBanner({format = 'horizontal', slot = ''}) {
         className="adsbygoogle"
         ref={adRef}
         style={config.style}
-        data-ad-client="ca-pub-1417689167216654"
+        data-ad-client={AD_CLIENT}
         {...(slot && {'data-ad-slot': slot})}
         {...(config.format && {'data-ad-format': config.format})}
         {...(config.responsive && {'data-full-width-responsive': 'true'})}
