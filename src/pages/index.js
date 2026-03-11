@@ -92,7 +92,7 @@ export default function Home() {
             <PluginCard key={idx} {...plugin} />
           ))}
         </div>
-        <AdBanner format="horizontal" />
+        <AdBanner format="horizontal" slot="9066716359" />
       </main>
     </Layout>
   );

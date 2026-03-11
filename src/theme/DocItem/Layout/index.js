@@ -60,7 +60,7 @@ export default function DocItemLayout({children}) {
           </article>
           <DocItemPaginator />
         </div>
-        <AdBanner format="horizontal" />
+        <AdBanner format="horizontal" slot="9066716359" />
         {/* Add Giscus comments to all doc pages except demo pages and pages with hide_comments: true */}
         {!hideComments && !isDemoPage && (
           <div style={{ marginTop: '3rem' }}>
