@@ -90,6 +90,14 @@ const config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417689167216654',
+      async: true,
+      crossorigin: 'anonymous',
+    },
+  ],
+
   plugins: [
     [
       '@docusaurus/plugin-client-redirects',

@@ -12,6 +12,7 @@ import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import styles from './styles.module.css';
 import GiscusComments from '@site/src/components/GiscusComments';
+import AdBanner from '@site/src/components/AdBanner';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 
 /**
@@ -59,6 +60,7 @@ export default function DocItemLayout({children}) {
           </article>
           <DocItemPaginator />
         </div>
+        <AdBanner format="horizontal" slot="9066716359" />
         {/* Add Giscus comments to all doc pages except demo pages and pages with hide_comments: true */}
         {!hideComments && !isDemoPage && (
           <div style={{ marginTop: '3rem' }}>
