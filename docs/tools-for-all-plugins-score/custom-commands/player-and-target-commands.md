@@ -464,10 +464,6 @@ activators:
     - FLY_ON
 ```
 
-### FORCE\_DROP
-
-This command has been merged into the Mixed Commands section. See [FORCE\_DROP](</tools-for-all-plugins-score/custom-commands/mixed-commands-player-and-entity#force_drop>) for full documentation including both `slot:` and `ei_id:` modes.
-
 ### FORMAT\_ENCHANTMENTS
 
 * Info: It formats all enchantments in your lore
