@@ -466,21 +466,6 @@ activators:
     - FLY_ON
 ```
 
-### FORCE\_DROP
-
-* Info: It drops all the EI in your inventory with the id specified
-* Command settings:
-  * `{ei_id}`: Specify the EI that you want to be force dropped by the player
-* Example: 
-
-```yaml
-activators:
-  activator0: # Activator ID, you can create as many activator on the activators list
-    option: # Here goes an activator that is at least instance of player
-    playerCommands:
-    - FORCE_DROP ei_id:excalibursword
-```
-
 ### FORMAT\_ENCHANTMENTS
 
 * Info: It formats all enchantments in your lore
