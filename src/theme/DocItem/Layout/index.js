@@ -71,7 +71,7 @@ export default function DocItemLayout({children}) {
       {docTOC.desktop && (
         <div className="col col--3">
           {docTOC.desktop}
-          <AdBanner format="rectangle" />
+          <AdBanner />
         </div>
       )}
     </div>
