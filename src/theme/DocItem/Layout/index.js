@@ -68,7 +68,12 @@ export default function DocItemLayout({children}) {
           </div>
         )}
       </div>
-      {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
+      {docTOC.desktop && (
+        <div className="col col--3">
+          {docTOC.desktop}
+          <AdBanner format="rectangle" />
+        </div>
+      )}
     </div>
   );
 }
