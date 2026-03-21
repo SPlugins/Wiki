@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './index.module.css';
-import AdBanner from '@site/src/components/AdBanner';
 
 const plugins = [
   {
@@ -92,7 +91,6 @@ export default function Home() {
             <PluginCard key={idx} {...plugin} />
           ))}
         </div>
-        <AdBanner format="horizontal" slot="9066716359" />
       </main>
     </Layout>
   );
