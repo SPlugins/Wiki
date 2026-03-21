@@ -1,4 +1,5 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import {useLocation} from '@docusaurus/router';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import styles from './styles.module.css';
 
@@ -22,7 +23,7 @@ const AD_CONFIGS = {
   },
 };
 
-function waitForAdSense(callback, maxAttempts = 20) {
+function waitForAdSense(callback, maxAttempts = 40) {
   let attempts = 0;
   const check = () => {
     if (window.adsbygoogle !== undefined) {
@@ -30,41 +31,58 @@ function waitForAdSense(callback, maxAttempts = 20) {
     } else if (attempts < maxAttempts) {
       attempts++;
       setTimeout(check, 500);
+    } else {
+      console.warn('[AdBanner] AdSense script did not load after', maxAttempts * 500, 'ms');
     }
   };
   check();
 }
 
 export default function AdBanner({format = 'horizontal', slot = ''}) {
-  const adRef = useRef(null);
-  const pushed = useRef(false);
+  const containerRef = useRef(null);
+  const location = useLocation();
+  // Use a key that changes on every navigation to force a fresh <ins> element
+  const [adKey, setAdKey] = useState(() => location.pathname + '_' + Date.now());
 
   useEffect(() => {
-    if (!ExecutionEnvironment.canUseDOM || pushed.current) return;
+    // Reset the ad on every route change so a fresh <ins> is created
+    setAdKey(location.pathname + '_' + Date.now());
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!ExecutionEnvironment.canUseDOM) return;
+    if (!containerRef.current) return;
+
+    const insEl = containerRef.current.querySelector('.adsbygoogle');
+    if (!insEl) return;
+
+    // If this <ins> was already filled by AdSense, skip
+    if (insEl.dataset.adsbygoogleStatus) return;
+
+    let cancelled = false;
 
     waitForAdSense(() => {
-      if (pushed.current) return;
+      if (cancelled) return;
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushed.current = true;
       } catch (e) {
-        // Ad blocker active or other error
+        console.warn('[AdBanner] AdSense push error:', e.message);
       }
     });
 
     return () => {
-      pushed.current = true;
+      cancelled = true;
     };
-  }, []);
+  }, [adKey]);
 
   const config = AD_CONFIGS[format] || AD_CONFIGS.horizontal;
 
   return (
-    <div className={styles.adContainer}>
+    <div className={styles.adContainer} ref={containerRef}>
       <span className={styles.adLabel}>Advertisement</span>
       <ins
         className="adsbygoogle"
-        ref={adRef}
+        key={adKey}
         style={config.style}
         data-ad-client={AD_CLIENT}
         {...(slot && {'data-ad-slot': slot})}
