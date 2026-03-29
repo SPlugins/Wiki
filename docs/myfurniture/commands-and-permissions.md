@@ -125,6 +125,13 @@ It supports entities too just use the entity UUID instead of player name
 
 * /mf modification \{set/modification\} usage \{world\} \{x\} \{y\} \{z\} \{value\}
 
+#### Test a Blockbench animation
+
+* Command: **/mf anim \{bbmodel\_file\} \[animation\_index\]**
+* Permission: `mf.cmd.anim`
+* Info: Spawns a Blockbench model at the player's location and plays an animation. The `.bbmodel` file must be in `plugins/MyFurniture/animations/`.
+* Example: `/mf anim ceiling_fan 0`
+
 ### Give & Take commands
 
 #### Give command
