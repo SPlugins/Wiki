@@ -1,4 +1,10 @@
+import CustomTag from '@site/src/components/CustomTag';
+
 # ⌨️ Commands & Permissions
+
+On this page you will learn about Commands and Permissions of MyFurniture plugin.
+
+Premium features are labeled with the tag: <CustomTag type="premium" />
 
 ## Permissions
 

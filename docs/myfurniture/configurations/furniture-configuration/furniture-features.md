@@ -1,9 +1,20 @@
+import CustomTag from '@site/src/components/CustomTag';
+
 # Furniture Features
 
-## ExecutableItem
+List of furniture features, these are the first thing you should set up on your furniture.
 
-* Define the ExecutableItem ID with which the Furniture is associated
-* Then manage all item settings directly in ExecutableItems
+Premium features are labeled with the tag: <CustomTag type="premium" />
+
+### Activators
+
+* Very important features that allow you to add abilities on your furniture
+* Dedicated Wiki for this feature : [MF Activators list](/myfurniture/configurations/activator-configuration/list-of-the-activators) and [MF Activators features](/myfurniture/configurations/activator-configuration/activators-features)
+
+### ExecutableItem
+
+* Info: Define the ExecutableItem ID with which the Furniture is associated. Then manage all item settings directly in ExecutableItems.
+* Example:
 
 ```yaml
 executableItem: acacia_bed
@@ -13,20 +24,18 @@ executableItem: acacia_bed
 
 It supports [DecentHolograms](https://www.spigotmc.org/resources/96927/), [HolographicDisplays](https://dev.bukkit.org/projects/holographic-displays) and [CMI](https://www.spigotmc.org/resources/3742/)
 
-### Active Title
+#### activeTitle
 
-* Info: Whether the title hologram would be enabled or not
+* Info: Boolean value that selects whether the title hologram is enabled or not.
 * Example:
 
 ```yaml
 activeTitle: false
 ```
 
-* Required: NO
+#### title
 
-### Title
-
-* Info: The displayed text of the hologram
+* Info: The displayed text of the hologram. Supports color codes and placeholders.
 * Example:
 
 ```yaml
@@ -41,27 +50,20 @@ title:
 - 'ITEM::DIAMOND'
 ```
 
-* Required: NO
+#### titleAdjustment
 
-### Title Adjustment
-
-* Info: How high or low is the adjustment of the elevation of the title hologram
+* Info: How high or low is the adjustment of the elevation of the title hologram. Positive number for upwards, negative number for downwards.
 * Example:
 
 ```yaml
 titleAdjustment: 0.5
 ```
 
-* Required: NO
-  * Extra Info: Positive number for upwards, Negative number for downwards
-
-### Title Features Example
+#### Title Features Example
 
 ```yaml
 titleFeatures:
-  # Active the title
   activeTitle: true
-  # The title
   title:
    - Hello
    - '&6It supports color'
@@ -69,123 +71,118 @@ titleFeatures:
   titleAdjustment: 0.5
 ```
 
-## Usage
-
-#### Adjust the Furniture usage in the ExecutableItem configuration
-
 ## Display Features
 
-### Item Model
+#### itemModel
 
-* The model of the furniture
+* Info: The item model key of the furniture. References the model in the resource pack.
 * Example:
 
 ```yaml
 itemModel: myfurniture:acacia_bed
 ```
 
-### Scale
+#### scale
 
-* Scale of the display
+* Info: Scale of the display entity.
 * Example:
 
 ```yaml
-scale: 1
+scale: 1.0
 ```
 
-### Aligned
+#### aligned
 
-* If you want the display to be aligned (yaw snaps to 90° increments)
+* Info: Boolean value that selects if the display should be aligned (yaw snaps to 90° increments).
 * Example:
 
 ```yaml
 aligned: false
 ```
 
-### Custom Pitch
+#### customPitch
 
-* Select the custom pitch
+* Info: Custom pitch rotation offset in degrees.
 * Example:
 
 ```yaml
-customPitch: 1
+customPitch: 90
 ```
 
-### Custom Y
+#### customY
 
-* Select the custom Y offset
+* Info: Custom Y offset for the placement position.
 * Example:
 
 ```yaml
 customY: 1.0
 ```
 
-### Glow
+#### glow
 
-* Whether the furniture glows
+* Info: Boolean value that selects if the furniture should glow.
 * Example:
 
 ```yaml
 glow: false
 ```
 
-### Glow Color
+#### glowColor
 
-* Customize the glow color using an RGB integer value
-* Only applies when `glow` is `true`
+* Info: Integer RGB value to customize the glow color. Only applies when `glow` is `true`.
 * Example:
 
 ```yaml
-glowColor: 16711680
+glowColor: 16711680 # Red (RGB: 255, 0, 0)
 ```
 
 :::info
-RGB integer values: Red = `16711680`, Green = `65280`, Blue = `255`, White = `16777215`. You can use online RGB-to-integer converters.
+Common RGB integer values: Red = `16711680`, Green = `65280`, Blue = `255`, White = `16777215`. You can use online RGB-to-integer converters.
 :::
 
-### Click To Break
+#### clickToBreak
 
-* Amount of clicks needed to break the display creation
+* Info: Integer value for the amount of clicks needed to break the furniture.
 * Example:
 
 ```yaml
 clickToBreak: 3
 ```
 
-### Bounding Box Zones
+#### boundingBoxZones
 
 :::warning
-Auto generated feature, don't edit it
+Auto generated feature, don't edit it manually.
 :::
 
-### Block Light
+#### blockLight
 
-* The block lighting component of this brightness. (Between 0-15)
+* Info: The block lighting component of this brightness. Integer value between 0-15.
 * Example:
 
 ```yaml
 blockLight: 10
 ```
 
-### Sky Light
+#### skyLight
 
-* The sky lighting component of this brightness. (Between 0-15)
+* Info: The sky lighting component of this brightness. Integer value between 0-15.
 * Example:
 
 ```yaml
 skyLight: 10
 ```
 
-### View Range
+#### viewRange
 
-* Configure the view range of the furniture (in blocks)
+* Info: The view range of the furniture in blocks. Players further than this distance will not see the furniture.
 * Example:
 
 ```yaml
 viewRange: 20.0
 ```
 
-### Display Features Example
+#### Display Features Example
 
 ```yaml
 displayFeatures:
@@ -202,39 +199,40 @@ displayFeatures:
   viewRange: 20.0
 ```
 
-## Interaction Range
+## Other Features
 
-* Configure the interaction range of the furniture (in blocks)
+#### interactionRange
+
+* Info: The interaction range of the furniture in blocks. Players further than this distance cannot interact with it.
 * Example:
 
 ```yaml
 interactionRange: 6.0
 ```
 
-## Drop Type
+#### dropType
 
-* Info: Select the type of drop the Furniture will have
-* Type of drops:
-  * IN\_THE\_INVENTORY
-  * ON\_THE\_GROUND
+* Info: Select the type of drop the Furniture will have when broken.
+  * Options: `IN_THE_INVENTORY`, `ON_THE_GROUND`
+* Example:
 
 ```yaml
 dropType: IN_THE_INVENTORY
 ```
 
-## Drop Block If It Is Broken
+#### dropBlockIfItIsBroken
 
-* Info: Whether the furniture drops as an item when broken
-* Default: `true`
+* Info: Boolean value that selects if the furniture drops as an item when broken.
+* Example:
 
 ```yaml
 dropBlockIfItIsBroken: true
 ```
 
-## Only Breakable With EI
+#### onlyBreakableWithEI
 
-* Info: Restrict which ExecutableItems can break this furniture. If set, only the listed items can break it.
-* Default: Empty (any item can break it)
+* Info: List of ExecutableItem IDs that are allowed to break this furniture. If empty, any item can break it.
+* Example:
 
 ```yaml
 onlyBreakableWithEI:
@@ -242,34 +240,31 @@ onlyBreakableWithEI:
   - special_hammer
 ```
 
-## Reset Internal Data When Broken
+#### resetInternalDatasWhenBroken
 
-* Info: When enabled, all internal data (variables, usage counters) are cleared when the furniture is broken and dropped
-* Default: `false`
+* Info: Boolean value that selects if all internal data (variables, usage counters) are cleared when the furniture is broken and dropped.
+* Example:
 
 ```yaml
 resetInternalDatasWhenBroken: false
 ```
 
-## Sit Features
+#### sitFeatures
 
-* Define if the players can sit or not on the furniture
+* Info: Define if the players can sit on the furniture.
+* Example:
 
 ```yaml
 sitFeatures:
   playerCanSit: false
 ```
 
-## Storage Features
+#### storageFeatures
 
-* Define if the furniture can store items like a chest or not
+* Info: Define if the furniture can store items like a chest.
+* Example:
 
 ```yaml
 storageFeatures:
   enable: false
 ```
-
-## Activators
-
-* Very important features that allow you to add abilities on your furniture
-* Dedicated Wiki for this feature : [MF Activators list](/myfurniture/configurations/activator-configuration/list-of-the-activators) and [MF Activators features](/myfurniture/configurations/activator-configuration/activators-features)
