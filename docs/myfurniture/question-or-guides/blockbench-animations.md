@@ -40,23 +40,21 @@ plugins/MyFurniture/animations/ceiling_fan.bbmodel
 plugins/MyFurniture/animations/treasure_chest.bbmodel
 ```
 
-### 4. Restart the Server
+### 4. Run `/mf pack`
 
-On startup, MyFurniture will automatically:
+After placing your `.bbmodel` file in the animations folder, run:
+
+```
+/mf pack
+```
+
+This command will automatically:
 1. Parse the `.bbmodel` file
 2. Generate resource pack assets (one model JSON per bone + textures)
 3. Create a furniture configuration in `plugins/MyFurniture/furniture/__animated__/`
-4. Include the models in the resource pack
+4. Rebuild the resource pack with the new models included
 
-You'll see log messages like:
-```
-[AnimGen] Textures: [ceiling_fan], Bones: 3
-[AnimGen] Bone: base (4 elements, scale=0.675)
-[AnimGen] Bone: blade (9 elements, scale=0.675)
-[AnimGen] Full model: 13 elements, scale=0.675
-Auto-generated pack assets for: ceiling_fan
-Created animated furniture: ceiling_fan
-```
+Players will receive the updated resource pack on their next join (or reconnect).
 
 ## Playing Animations
 
