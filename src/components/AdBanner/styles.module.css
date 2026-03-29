@@ -11,8 +11,8 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .adContainer {
-    margin: 1rem 0;
+    display: none;
   }
 }
