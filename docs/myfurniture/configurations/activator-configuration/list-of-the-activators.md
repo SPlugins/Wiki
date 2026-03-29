@@ -38,9 +38,9 @@ Activator features are features that are exclusive to that activator.
 
 * Info: Activator that gets triggered when the player scroll up with this mouse while targeting the furniture.
 
-### LOOP
+### LOOP <CustomTag type="premium" />
 
-* Info: Run a command for the furniture each time with a certain delay.
+* Info: Run commands for the furniture repeatedly at a configurable interval (in ticks).
 
 ## Display Commands
 

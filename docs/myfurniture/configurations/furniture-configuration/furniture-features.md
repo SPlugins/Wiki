@@ -2,7 +2,7 @@
 
 ## ExecutableItem
 
-* Define the Executableitem ID with which the Furniture is associated
+* Define the ExecutableItem ID with which the Furniture is associated
 * Then manage all item settings directly in ExecutableItems
 
 ```yaml
@@ -13,7 +13,7 @@ executableItem: acacia_bed
 
 It supports [DecentHolograms](https://www.spigotmc.org/resources/96927/), [HolographicDisplays](https://dev.bukkit.org/projects/holographic-displays) and [CMI](https://www.spigotmc.org/resources/3742/)
 
-### Active Title 
+### Active Title
 
 * Info: Whether the title hologram would be enabled or not
 * Example:
@@ -27,23 +27,23 @@ activeTitle: false
 ### Title
 
 * Info: The displayed text of the hologram
-* Example: 
+* Example:
 
 ```yaml
 title: '&7&oDefault title'
 ```
 
-* (With HolographicDisplay) You can display item in the title type ITEM::MATERIAL
+* (With HolographicDisplays) You can display items in the title using `ITEM::MATERIAL`
 
 ```yaml
-title: 
+title:
 - '&7&oDefault title'
 - 'ITEM::DIAMOND'
 ```
 
 * Required: NO
 
-### Title Adjustment 
+### Title Adjustment
 
 * Info: How high or low is the adjustment of the elevation of the title hologram
 * Example:
@@ -55,23 +55,23 @@ titleAdjustment: 0.5
 * Required: NO
   * Extra Info: Positive number for upwards, Negative number for downwards
 
-### Title Features Example 
+### Title Features Example
 
 ```yaml
-titleFeatures:**
+titleFeatures:
   # Active the title
   activeTitle: true
   # The title
   title:
    - Hello
-   - &#x26;6It's support color
+   - '&6It supports color'
    - and %placeholder%
   titleAdjustment: 0.5
 ```
 
 ## Usage
 
-#### Adjust the Furniture usage in the  ExecutableItem configuration
+#### Adjust the Furniture usage in the ExecutableItem configuration
 
 ## Display Features
 
@@ -95,7 +95,7 @@ scale: 1
 
 ### Aligned
 
-* If you want the display to be aligned
+* If you want the display to be aligned (yaw snaps to 90° increments)
 * Example:
 
 ```yaml
@@ -113,7 +113,7 @@ customPitch: 1
 
 ### Custom Y
 
-* Select the custom Y
+* Select the custom Y offset
 * Example:
 
 ```yaml
@@ -122,12 +122,26 @@ customY: 1.0
 
 ### Glow
 
-* Glow or not
+* Whether the furniture glows
 * Example:
 
 ```yaml
 glow: false
 ```
+
+### Glow Color
+
+* Customize the glow color using an RGB integer value
+* Only applies when `glow` is `true`
+* Example:
+
+```yaml
+glowColor: 16711680
+```
+
+:::info
+RGB integer values: Red = `16711680`, Green = `65280`, Blue = `255`, White = `16777215`. You can use online RGB-to-integer converters.
+:::
 
 ### Click To Break
 
@@ -164,7 +178,7 @@ skyLight: 10
 
 ### View Range
 
-* Configure the view range of the furniture
+* Configure the view range of the furniture (in blocks)
 * Example:
 
 ```yaml
@@ -180,6 +194,7 @@ displayFeatures:
   aligned: false
   customPitch: 90
   glow: false
+  glowColor: 16711680
   clickToBreak: 3
   boundingBoxZones: []
   blockLight: 10
@@ -189,7 +204,7 @@ displayFeatures:
 
 ## Interaction Range
 
-* Configure the interaction range of the furniture
+* Configure the interaction range of the furniture (in blocks)
 * Example:
 
 ```yaml
@@ -205,6 +220,35 @@ interactionRange: 6.0
 
 ```yaml
 dropType: IN_THE_INVENTORY
+```
+
+## Drop Block If It Is Broken
+
+* Info: Whether the furniture drops as an item when broken
+* Default: `true`
+
+```yaml
+dropBlockIfItIsBroken: true
+```
+
+## Only Breakable With EI
+
+* Info: Restrict which ExecutableItems can break this furniture. If set, only the listed items can break it.
+* Default: Empty (any item can break it)
+
+```yaml
+onlyBreakableWithEI:
+  - diamond_pickaxe_ei
+  - special_hammer
+```
+
+## Reset Internal Data When Broken
+
+* Info: When enabled, all internal data (variables, usage counters) are cleared when the furniture is broken and dropped
+* Default: `false`
+
+```yaml
+resetInternalDatasWhenBroken: false
 ```
 
 ## Sit Features
@@ -228,5 +272,4 @@ storageFeatures:
 ## Activators
 
 * Very important features that allow you to add abilities on your furniture
-* Dedicated Wiki for this feature : [MF Activators list](/myfurniture/configurations/activator-configuration/list-of-the-activators.md) and [MF Activators features](/myfurniture/configurations/activator-configuration/activators-features.md)
-
+* Dedicated Wiki for this feature : [MF Activators list](/myfurniture/configurations/activator-configuration/list-of-the-activators) and [MF Activators features](/myfurniture/configurations/activator-configuration/activators-features)
