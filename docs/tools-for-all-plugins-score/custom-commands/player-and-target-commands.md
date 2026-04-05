@@ -222,17 +222,18 @@ activators:
 * Command settings:
   * `{time}`: The duration of the bossbar in ticks
   * `{color}`: Color of bossbar text
-  * `{text}`: text on the bossbar
+  * `{text}`: text on the bossbar (Use underscores "_" to add whitespace to your argument.)
   * `{count}`: how many times you want it to count
     * if this option is present, the time argument will not matter anymore
   * `{countTicks}`: true/false whether you want it to count in ticks or in seconds instead
-  * `{countOrder}`: 
+  * `{countOrder}`:
     * ascending: makes the timer count from 0
     * descending: makes the timer count from the given
   * `{overrideMode}`:
     * NO\_OVERRIDE: It doesn't override the other Bossbars
     * OVERRIDE\_ALL: It will override all other BossBars sent by SCore
     * OVERRIDE\_SAME\_TEXT: It will override the other Bossbars sent by SCore that contain the same text
+  * `{barProgress}`: (default = 1.0) The initial progress of the bar (0.0 to 1.0). Works with both static and countdown bars (only descending countdown)
 * Example:
 
 ```yaml
@@ -240,9 +241,10 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - BOSSBAR time:200 color:RED text:This is a bossbar text
+    - BOSSBAR time:200 color:RED text:This_is_a_bossbar text
     - BOSSBAR time:20 color:BLUE text:Hello_world count:50 countTicks:true countOrder:ascending
     - BOSSBAR time:200 color:RED text:This is a bossbar text overrideMode:OVERRIDE_SAME_TEXT
+    - BOSSBAR time:200 color:GREEN text:Half filled bar barProgress:0.5
 ```
 
 ### CANCEL\_PICKUP
@@ -420,10 +422,11 @@ activators:
     - EECOOLDOWN %player% all 10 true # For all ExecutableEvents
 ```
 
-### FLY\_ON
-
-* Info: Gives the player creative flight
-* No command setting
+### FIREWORK\_BOOST
+* Info: If this command is executed while the caster is gliding using the elytra, it will spawn a firework rocket in a way similar to how when players
+right-click a firework in their hand while gliding to gain distance.
+* Command settings:
+  * `{duration}`: The firework's lifetime in seconds
 * Example:
 
 ```yaml
@@ -431,7 +434,7 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - FLY_ON
+    - FIREWORK_BOOST 20
 ```
 
 ### FLY OFF
@@ -449,19 +452,18 @@ activators:
     - FLY_OFF teleportOnTheGround:true
 ```
 
-### FORCE\_DROP
+### FLY\_ON
 
-* Info: It drops all the EI in your inventory with the id specified
-* Command settings:
-  * `{ei_id}`: Specify the EI that you want to be force dropped by the player
-* Example: 
+* Info: Gives the player creative flight
+* No command setting
+* Example:
 
 ```yaml
 activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - FORCE_DROP ei_id:excalibursword
+    - FLY_ON
 ```
 
 ### FORMAT\_ENCHANTMENTS
@@ -559,6 +561,12 @@ activators:
     - JOBS_MONEY_BOOST multiplier:2.0 time:10
 ```
 
+:::info
+Multiplier doesn't affect the actionbar values from Jobs. The multiplier from this command only applies once the Jobs plugin decides to increment obtained money, xp and points.
+
+If executed multiple times with enough duration on each boost, all ongoing boosts can stack.
+:::
+
 ### JOBS\_XP\_BOOST
 
 * Info: Multiplies Jobs plugin XP gains temporarily. For [Jobs reborn](https://www.spigotmc.org/resources/jobs-reborn.4216/)
@@ -574,6 +582,12 @@ activators:
     playerCommands:
     - JOBS_XP_BOOST multiplier:2.0 time:10
 ```
+
+:::info
+Multiplier doesn't affect the actionbar values from Jobs. The multiplier from this command only applies once the Jobs plugin decides to increment obtained money, xp and points.
+
+If executed multiple times with enough duration on each boost, all ongoing boosts can stack.
+:::
 
 :::info
 This command supports stacking multiple boosts multiplicatively.
@@ -593,7 +607,7 @@ This command supports stacking multiple boosts multiplicatively.
 * LARGEFIREBALL
 * LINGENRINGPOTION
 * LLAMASPIT
-* SHULKERBULLET
+* SHULKERBULLET (Only available for 1.12+)
 * SIZEDFIREBALL
 * SNOWBALL
 * TRIDENT
@@ -629,6 +643,15 @@ activators:
 
 :::info
 If you use the LAUNCH COMMAND in the activator PLAYER\_LAUNCH\_PROJECTILE, and the projectile has been launched by a bow, the projectile launch with the custom LAUNCH command will keep the same velocity.
+:::
+
+:::info
+If you use SHULKERBULLET as the projectile type, it will pick the caster's cursor as its target. Otherwise, it will target the nearest entity from the caster.
+:::
+
+:::warning
+Current Issues:  
+- Shulker Bullets cannot be used in 1.9.4, 1.10.2, 1.11.2. 1.12 onwards should have no complications aside from having to create a SCore projectile to give a Shulker Bullet proper flight velocity.
 :::
 
 ### LEGGINGS
@@ -996,6 +1019,22 @@ activators:
     - SET_BLOCK_POS x:0 y:0 z:0 material:STONE bypassProtection:false replace:true
 ```
 
+### SET\_EQUIPPABLE\_MODEL
+
+* Info: Sets the equippable model data of an item in a specific slot
+* Command settings:
+  * `{slot}`: The slot number of where the target item is
+  * `{model}`: The equipment model name you wish to assign to the item
+* Example:
+
+```yml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_EQUIPPABLE_MODEL slot:-1 model:minecraft:diamond
+```
+
 ### SET\_EXECUTABLE\_BLOCK
 
 * Info: Setblock but for Executable Blocks. **(EXECUTABLE BLOCKS MUST BE INSTALLED)**
@@ -1016,23 +1055,6 @@ activators:
     option: # Here goes an activator that is at least instance of player
     playerCommands:
     - SET_EXECUTABLE_BLOCK id:Mithril_Ore x:%block_x_int% y:%block_y_int% z:%block_z_int% world:%block_world% replace:false bypassProtection:true ownerUUID:%player_uuid%
-```
-
-### SET\_ITEM\_NAME
-
-* Info: Sets a custom name for your item in a specific slot
-* Command settings:
-  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-![](</img/slots_info.png>)
-  * `{name}`: the new name of the item
-* Example:
-
-```yaml
-activators:
-  activator0: # Activator ID, you can create as many activator on the activators list
-    option: # Here goes an activator that is at least instance of player
-    playerCommands:
-    - SET_ITEM_NAME slot:%slot% name:&eThis is the new name of the item
 ```
 
 ### SET\_ITEM\_COLOR
@@ -1073,23 +1095,6 @@ activators:
 ```
 
 
-### SET\_ITEM\_CUSTOM\_MODEL\_DATA
-
-* Info: Sets a specific custom model data to the specific item
-* Command settings:
-  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-![](</img/slots_info.png>)
-  * `{customModelData}`: value of the customModelData
-* Example:
-
-```yaml
-activators:
-  activator0: # Activator ID, you can create as many activator on the activators list
-    option: # Here goes an activator that is at least instance of player
-    playerCommands:
-    - SET_ITEM_CUSTOM_MODEL_DATA slot:10 customModelData:10
-```
-
 ### SET\_ITEM\_COOLDOWN
 
 * Gives the player/target cooldown on an item
@@ -1114,6 +1119,42 @@ activators:
     - SET_ITEM_COOLDOWN group:my_cooldown_group cooldown:10
 ```
 
+### SET\_ITEM\_CUSTOM\_MODEL\_DATA
+
+* Info: Sets a specific custom model data to the specific item
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{customModelData}`: value of the customModelData
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_CUSTOM_MODEL_DATA slot:10 customModelData:10
+```
+
+### SET\_ITEM\_LORE
+
+* Info: Sets a line of lore
+* Command settings:
+  * `{slot}`: Slot number (-1 for mainhand)
+
+![](</img/slots_info.png>)
+* `{line}` : If you want to set the lore of the first type 1
+* `{text}`: The new line text
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_LORE slot:%slot% line:3 text:&6LEGENDARY SWORD
+```
+
 ### SET\_ITEM\_MATERIAL 
 
 <CustomTag type="version" version="1.20.5" />
@@ -1133,15 +1174,13 @@ activators:
     - SET_ITEM_MATERIAL slot:10 material:DIAMOND_HOE
 ```
 
-### SET\_ITEM\_LORE
+### SET\_ITEM\_MODEL
 
-* Info: Sets a line of lore
+* Info: Sets a custom model for your item in a specific slot
 * Command settings:
-  * `{slot}`: Slot number (-1 for mainhand)
-
-![](</img/slots_info.png>)
-  * `{line}` : If you want to set the lore of the first type 1
-  * `{text}`: The new line text
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{model}`: the model value you want to apply to the target item
 * Example:
 
 ```yaml
@@ -1149,7 +1188,93 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - SET_ITEM_LORE slot:%slot% line:3 text:&6LEGENDARY SWORD
+    - SET_ITEM_MODEL slot:-1 model:minecraft:stone
+```
+
+### SET\_ITEM\_NAME
+
+* Info: Sets a custom name for your item in a specific slot
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{name}`: the new name of the item
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_NAME slot:%slot% name:&eThis is the new name of the item
+```
+
+### SET\_ITEM\_POTIONCOLOR
+
+* Info: Sets a custom color to an item potion color in a specific slot
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{color}`: The color you want to apply. For the color, go to `https://www.tydac.ch/color/` and get the `MapInfo Color` value of the color of your choice.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_POTIONCOLOR slot:%slot% color:10944256
+```
+
+### SET\_ITEM\_TOOLTIPSTYLE
+
+* Info: Sets the custom tooltip style of the item in slot.
+* Command settings:
+  * `{slot}`: The slot where it will be applied. (-1 for mainhand)
+    ![](</img/slots_info.png>)
+  * `{tooltipModel}`: (Default value: `namespace:id`) The tooltip id.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_ITEM_TOOLTIPSTYLE slot:-1 tooltipModel:namespace:id
+```
+
+### SET\_PLAYER\_TIME
+
+* Info: Sets the player's time without affecting the time server-side.
+* Command settings:
+  * `{time}`: The time value. Enter `-1` to reset the player's time back to relying on server-side time.
+  * `{relative}`: (Default value: false) If not true, it will set the user's POV time to that value literally. But if true, it will take the world's current time and add it with the provided value to set your current POV time.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_PLAYER_TIME time:6000 relative:false
+```
+
+### SET\_PLAYER\_WEATHER
+
+* Info: Sets the player's weather without affecting the time server-side.
+* Command settings:
+  * `{weather The time value}`: Sets the player's weather in their POV
+    * Options:
+      * RESET : Restores it back to the server-side weather
+      * DOWNFALL : Raining or snowing depending on biome
+      * CLEAR : Clear weather, clouds but no rain.
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_PLAYER_WEATHER weather:CLEAR
 ```
 
 ### SET\_TEMP\_BLOCK\_POS
@@ -1184,8 +1309,11 @@ It doesn't replace blocks that have extra datas (inventory, rotation, etc)
 ### SPAWN\_ENTITY\_ON\_CURSOR
 
 * Info: Spawn entities on your cursor
+  * You can specify an [EntityType](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html)
+  * Or an entity definition example: `{HasVisualFire:1b,id:"minecraft:bee"}` (1.21.+)
+  * Or a MythicMob ID
 * Command settings:
-  * `{entity}`: Mob ID (ALL CAPS) [EntityTypes](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html)
+  * `{entity}`: The entity specification
   * `{amount}`: The amount of mobs that will spawn in that spot
   * `[maxRange]`: (Optional) (default = 200) The max range of the spawn
 * Example:
@@ -1196,6 +1324,14 @@ activators:
     option: # Here goes an activator that is at least instance of player
     playerCommands:
     - SPAWN_ENTITY_ON_CURSOR entity:CREEPER amount:1
+```
+
+```
+# With EntitySnapshot
+- SPAWN_ENTITY_ON_CURSOR entity:{HasVisualFire:1b,id:"minecraft:bee"} amount:1
+
+# With MythicMob ID
+- SPAWN_ENTITY_ON_CURSOR entity:MyCustomBossID amount:1
 ```
 
 ### SUDO

@@ -27,8 +27,10 @@ const config = {
     hooks: {
       onBrokenMarkdownImages: 'warn',
     },
+    mermaid: true
   },
-
+  
+  themes: ['@docusaurus/theme-mermaid'],
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -78,11 +80,18 @@ const config = {
           },
         },
         blog: false,
+        gtag: {
+          trackingID: 'G-JNS4Y63DCS',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
+  ],
+
+  clientModules: [
+    './src/clientModules/adsenseLoader.js',
   ],
 
   plugins: [
@@ -114,6 +123,9 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      metadata: [
+        {name: 'google-site-verification', content: 'GFIfgKIQI3ziY3x_HygJNJt_mlU2Bq3H5yHL8VTyd-U'},
+      ],
       announcementBar: {
         id: 'welcome_announcement',
         content: '🎉 <strong>Welcome to our new Wiki!</strong> 🚀 Explore our completely redesigned documentation with enhanced readability.',

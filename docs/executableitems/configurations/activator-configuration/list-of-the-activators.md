@@ -250,6 +250,10 @@ Activator features are features that are exclusive to that activator.
 
 * Info: Activator that gets triggered when the player stops from sprinting 
 
+### PLAYER\_DISABLE\_SWIM
+
+* Info: Activator that gets triggered when the player stops swimming (1.13 swimming)
+* 
 ### PLAYER\_DISCONNECT
 
 * Info: Activator that gets triggered when the player logs out from the server.
@@ -280,6 +284,14 @@ Activator features are features that are exclusive to that activator.
 
 * Info: Activator that gets triggered when the player breaks the ExecutableItem due to vanilla durability break.
 
+### PLAYER\_EMPTY\_BUCKET
+
+* Info: Activator that gets triggered when the player empties an ExecutableItem bucket. It also triggers when you waterlog a block or fill a cauldron with said liquid for example.
+* activatorFeatures: Normally all activators shares features, but there are some that are exclusive for some activators, if its the case, the feature(s) will be listed here.
+  * [Block commands](/executableitems/configurations/activator-configuration/activators-features#p_b-blockcommands)
+  * [DetailedBlocks](/executableitems/configurations/activator-configuration/activators-features#p_b-detailedblocks)
+* When this activator gets activated, the target block is the location of where the water is supposed to be placed. With that information, you can use SETBLOCK to replace the water with something else if you want.
+
 ### PLAYER\_ENABLE\_FLY <CustomTag type="premium" />
 
 * Info: Activator that gets triggered when the player **starts** flying. This activator gets triggered by the action of "double space-bar press while having the permission of flying".
@@ -300,6 +312,10 @@ Activator features are features that are exclusive to that activator.
 ### PLAYER\_ENABLE\_SPRINT <CustomTag type="premium" />
 
 * Info: Activator that gets triggered when the player starts sprinting.
+
+### PLAYER\_ENABLE\_SWIM
+
+* Info: Activator that gets triggered when the player starts swimming (1.13 swimming)
 
 ### PLAYER\_ENTER\_IN\_THEIR\_LAND <CustomTag type="premium" />
 

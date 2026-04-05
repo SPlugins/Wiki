@@ -201,6 +201,16 @@ If you're gonna focus on the SEND\_MESSAGE command, the reason it ran 15 times b
 **It works with score variable list placeholders**
 :::
 
+:::hint
+You can also use the FOR command to store values from placeholders that are prone to changes like this and to make block variables:
+```yaml
+    playerCommands:
+    - FOR [%player_x%] > for1
+    - say %for1%
+    - ENDFOR for1
+```
+:::
+
 ```yaml
 activators:
   activator0: # Activator ID, you can create as many activator on the activators list

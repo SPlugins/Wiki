@@ -76,6 +76,10 @@ color:RED
 color:AQUA,BLUE
 ```
 
+You can also use RGB values to use custom colors in your SCore particle (0-255).
+
+Example: `color:RGB-156-82-84`
+
 #### Block particles
 
 **Instead** of using `particle:{particle name}`  if you want to use BLOCK\_CRACK / BLOCK particles you can directly use the setting blockdata with a [material](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html).

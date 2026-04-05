@@ -143,6 +143,21 @@ activators:
     - SET_ARMOR_TRIM pattern:null #to clear the armor trim
 ```
 
+### SET\_EQUIPPABLE\_MODEL
+
+* Info: Sets the equippable model data of an item in a specific slot
+* Command settings:
+  * `{model}`: The equipment model name you wish to assign to the item
+* Example:
+
+```yml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - SET_EQUIPPABLE_MODEL model:minecraft:diamond
+```
+
 ### SET\_ITEM\_NAME
 
 * Info: Sets a custom name for your item in a specific slot

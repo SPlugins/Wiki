@@ -145,12 +145,14 @@ Projectile placeholders are available in the activators where a projectile is in
 
 ### 📊 SCore Variables
 
-Click here to have more info abotu [SCore Variables](/tools-for-all-plugins-score/score-variables)
+Click here to have more info about [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
-**Item/Block Variables:**
+### 📊 Item/Block Variables
+
+**String/Number Variables:**
 - `%var_X%` - Value of variable X
-- `%var_X_int%` - Integer value of variable X
-- `%var_X_roman%` - Roman numeral value
+- `%var_X_int%` - Integer value of variable X (only for NUMBER type variables)
+- `%var_X_roman%` - Roman numeral value (only for NUMBER type variables)
 
 **List Variables:**
 - `%var_MYVAR%` - Full list with brackets
@@ -187,31 +189,68 @@ For PLAYER_WRITE_COMMAND and PLAYER_SEND_MESSAGE:
 
 ### 🎮 Event Placeholders
 
-| Activator | Placeholders |
-|-----------|--------------|
-| **RAID_TRIGGER** | `%player%`, `%badomenlevel%` |
-| **RAID_WAVE** | `%raiders%` (UUID list) |
-| **RAID_FINISH** | `%badomen%`, `%heroes%` (UUID list) |
-| **PLAYER_EXPERIENCE_CHANGE** | `%experience%` |
-| **PLAYER_RECEIVE_EFFECT** | `%effect_received%`, `%effect_received_level%`, `%effect_received_duration%` |
-| **PLAYER_HIT_ENTITY** | `%critical%` (true/false) |
-| **PLAYER_TELEPORT** | `%teleport_cause%` |
-| **BROADCAST_MESSAGE** | `%message%`, `%is_async%` |
-| **PLUGIN_ENABLE/DISABLE** | `%plugin_name%` |
-| **PLAYER_ADVANCEMENT** | `%advancement%` |
-| **PLAYER_RECEIVE_HIT_GLOBAL, PLAYER_RECEIVE_HIT_BY_PLAYER, PLAYER_RECEIVE_HIT_BY_ENTITY** | `%last_damage_taken_nonfinal%`,  `%last_damage_taken_nonfinal_int%`, `%last_damage_taken_final%`, `%last_damage_taken_final_int%` <br/>(Only direct hits provide the correct value. Receive hits from projectiles return 0) |
+| Activator | Placeholders                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **RAID_TRIGGER** | `%player%`, `%badomenlevel%`                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **RAID_WAVE** | `%raiders%` (UUID list)                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **RAID_FINISH** | `%badomen%`, `%heroes%` (UUID list)                                                                                                                                                                                                                                                                                                                                                                                               |
+| **PLAYER_EXPERIENCE_CHANGE** | `%experience%`                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **PLAYER_RECEIVE_EFFECT** | `%effect_received%`, `%effect_received_level%`, `%effect_received_duration%`                                                                                                                                                                                                                                                                                                                                                      |
+| **PLAYER_HIT_ENTITY** | `%critical%` (true/false)                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **PLAYER_TELEPORT** | `%teleport_cause%`                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **BROADCAST_MESSAGE** | `%message%`, `%is_async%`                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **PLUGIN_ENABLE/DISABLE** | `%plugin_name%`                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **PLAYER_ADVANCEMENT** | `%advancement%` (Only for 1.19+)                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **PLAYER_RECEIVE_HIT_GLOBAL, PLAYER_RECEIVE_HIT_BY_PLAYER, PLAYER_RECEIVE_HIT_BY_ENTITY** | `%last_damage_taken_nonfinal%`,  `%last_damage_taken_nonfinal_int%`, <br/> Refers to the raw amount of damage taken. <br/>`%last_damage_taken_final%`, `%last_damage_taken_final_int%` <br/> Refers to the amount of damage taken after considering defense buffs such as attributes, resistance effect and armor. <br/>Only direct hits provide the correct value. Receive hits from projectiles return 0                        |
+| **PLAYER_BLOCK_HIT_OF_PLAYER, PLAYER_BLOCK_HIT_OF_ENTITY** | `%damage_blocked_base%, %damage_blocked_base_int%` <br/> Returns the raw damage blocked by the shield                                                                                                                                                                                                                                                                                                                             |
+| **PLAYER_PICKUP_ITEM** (EE) | 1.13+<br/> `%item_type%`, `%item_name%`, `%item_amount%` <br/> 1.14-1.21.3 <br/> `%item_cmdata%` (-1 if null) <br/> 1.21.4+ <br/> `%item_cmdata_s_0%` ("null" if empty), `%item_cmdata_f_0%` (-1 if empty) <br/> (Returns the first string/float cmdata value since 1.21.4+ custom model data is stored in an array)                                                                                                              |
+| **PLAYER_INVENTORY_CLICK** (EE) | `%is_shift_click%`,<br/> `%is_mouse_click%`,<br/> `%is_left_click%`,<br/> `%is_right_click%`,<br/> `%is_keyboard_click%`,<br/> `%is_creative_action%`,<br/> `%get_action%` [Reference Enum Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/inventory/InventoryAction.html),<br/> `%before_slot%`,<br/> `%after_slot%`,<br/> `%inventory_type%` [Reference Enum Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/inventory/InventoryType.html),<br/> `%inventory_title%` (1.21+)<br/> |
+
 
 ## Plugin-Specific Counts
 
 ### ExecutableItems
-- `%executableitems_checkamount%` - Total EI in inventory
-- `%executableitems_checkamount_slot:0,2,3%` - EI in specific slots
-- `%executableitems_checkamount_id:item1,item2_slot:0,2%` - Specific items in slots
+- `%executableitems_checkamount%` - Total EI in inventory  
+- Arguments (Use commas between values to provide multiple values):
+  - `slot`: Slots to check. Do not use this argument if you want all slots to be evaluated. 
+  - `id`: ID of the ei item you want to check. 
+  - `owner`: Only count if the owner value is correct
+  - `owneruuid`: Only count if the owner uuid value is correct
+- Examples:
+  - `%executableitems_checkamount_slot:0,2,3%` - EI in specific slots
+  - `%executableitems_checkamount_id:item1,item2_slot:0,2%` - Specific items in slots
+  - `%executableitems_checkamount_owner:Special70%`
+
+<hr/>
+
+- `%executableitems_checkvar%` - Value / Total Value of Variable values
+- Arguments (Use commas between values to provide multiple values):
+  - `slot`: Slots to check. Do not use this argument if you want all slots to be evaluated.
+  - `id`: ID of the ei item you want to check.
+  - `var`: The variable id you want to check.
+- Examples:
+  - `%executableitems_checkvar_id:star_man_var:defense%`
+  - `%executableitems_checkvar_slot:-1,40_var:atk_bonus%`
+  - `%executableitems_checkvar_var:defense,bonus_defense%`
+
+:::info
+- If the first detected variable value is a string, the value will be returned immediately.
+- If the rest of the detected variable value is a number, it will add them all up and return the total value.
+- Currently does not support list variables.
+:::
+
 
 ### ExecutableBlocks
 - `%executableblocks_checkamount%` - Total EB in inventory
-- `%executableblocks_checkamount_slot:0,2,3%` - EB in specific slots
-- `%executableblocks_checkamount_id:block1,block2_slot:0,2%` - Specific blocks in slots
+- Arguments (Use commas between values to provide multiple values):
+    - `slot`: Slots to check. Do not use this argument if you want all slots to be evaluated.
+    - `id`: ID of the ei item you want to check.
+    - `owner`: Only count if the owner value is correct
+    - `owneruuid`: Only count if the owner uuid value is correct
+- Examples:
+  - `%executableblocks_checkamount_slot:0,2,3%` - EB in specific slots
+  - `%executableblocks_checkamount_id:block1,block2_slot:0,2%` - Specific blocks in slots
+  - `%executableblocks_checkamount_owner:Special70%`
 
 ## Tips & Best Practices
 

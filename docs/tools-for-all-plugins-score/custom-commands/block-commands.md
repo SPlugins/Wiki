@@ -46,6 +46,15 @@ _Sorted by alphabetical order_
 * Info: Targets players in a specific radius and makes them run commands
 * Command settings
     * `{distance}`: To how far in radius the command will select players
+    * `{affectThePlayerThatActivatesTheActivator}`: true/false. If true, it will not affect the caster.
+      * Example situation: When you run an ExecutableItem's activator and that activator supports block commands,
+      it will ignore the person who activated the activator. However, if this option is false, it will affect you too.
+    * `{throughBlocks}`: it will affect or not the mobs that are behind blocks
+    * `{limit}`: The amount of targets that can be affected
+    * `{sort}`: Useful for the limit option.
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+    * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
     * `{command}`: The command that the targeted players will execute
 * Example:
 
@@ -271,15 +280,25 @@ DRAININCUBE *12 WATER
 
 * Info: Destroys blocks in a radius in a rectangle shape. Each block broken by this command gets counted as a player block break event.
 * Command settings
-  * `{cube_radius}`: Radius of how big the cube radius will be
+  * `{radius}`: Radius of how big the cube radius will be
   * `{depth}`: How depth the rectangle will be.
   * `{drop}`: Whether the block drops loot or not
-  * `{create blockBreakEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
-  * `[direction]`: (Optional) (default = the player direction) If you want to force a direction.
+  * `{createBBEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
+  * `[direction]`: (Optional) (default = the player direction) If you want to force a direction. 
+    * Options:
+      * `north/n/-z` : North
+      * `south/s/+z` : South
+      * `east/e/+x` : East
+      * `west/w/-x` : West
+      * `up` : Up
+      * `down` : Down
+      * `auto` : Uses the logic of %player_direction_xz% of the Player Expansion of PlaceholderAPI to decide the `N/W/S/E` directions. For the Up/Down logic, `UP` direction if pitch is `<=` -45; `DOWN` direction if pitch `>=` 45. 
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
 - INLINE_MINEINCUBE 1 4 true true
+- INLINE_MINEINCUIBE radius:2 depth:4 drop:true createBBEvent:true direction:auto smelt:true
 ```
 
 :::info
@@ -311,22 +330,25 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 * Info: Destroys blocks in a radius in a cuboid shape. Each block broken by this command gets counted as a player block break event.
 * Command settings
   * `{radius}`: Radius of how big the area of the crops you want to break **(LIMIT IS 9)**
-  * `{drop}`: Whether the block drops loot or not
-  * `{create blockBreakEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
-  * `{offset}`: If the area of block starts to break from the block broken, or from the "center" to make the area really works the "radius" selected. (default false)
+  * `{droploot}`: Whether the block drops loot or not
+  * `{createEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
+  * `{offsetBreak}`: If the area of block starts to break from the block broken, or from the "center" to make the area really works the "radius" selected. (default false)
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
 - MINEINCUBE 4 true false
+- MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false smelt:false
 ```
 
 ### MINEINSPHERE
 
-* Info: Destroys blocks in a radius in a cuboid shape. Each block broken by this command gets counted as a player block break event.
+* Info: Destroys blocks in a radius in a spherical shape. Each block broken by this command gets counted as a player block break event.
 * Command settings
   * `{radius}`: Radius of the sphere
   * `{drop}`: Whether the block drops loot or not
   * `{create blockBreakEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the command
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
@@ -338,8 +360,18 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 * Info: Targets entities in a specific radius and makes them run commands
 * Command settings
   * `{distance}`: To how far in radius the command will select entities
-  * `{mute or not}`: (true or false) To notify the user of the item if it didn't manage to target any mobs.
-    * **Set to true to hide the message**
+  * `{displayMsgIfNoEntity}`: (true or false) To notify the user of the item if it didn't manage to target any mobs.
+    * **Set to false to hide the message**
+  * `{throughBlocks}`: it will affect or not the mobs that are behind blocks
+  * `{safeDistance}`: If the distance between the target and the launcher are below or equals to the safeDistance value then the target will not be affected.
+  * `{offsetYaw}`: The yaw direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetPitch}`: The pitch direction you want your offset to be (Independent of the origin's yaw value)
+  * `{offsetDistance}`: After calculating the offsetYaw and offsetPitch, by using the value of this, it will move the AROUND command's position/centerpoint from the origin's xyz location.
+  * `{limit}`: The amount of targets that can be affected
+  * `{sort}`: Useful for the limit option.
+    * NEAREST : Selects the entities closest to the origin.
+    * RANDOM : Randomly selects any entity within the command's range.
+  * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
   * You can BLACKLIST or WHITELIST entities adding one of these ones in anyplace of the command:
     * BLACKLIST(ZOMBIE,ARMOR\_STAND)
     * WHITELIST(CHICKEN)
@@ -369,8 +401,8 @@ It supports NBT Tags so you can add for example something like: `ZOMBIE{IsBaby:1
 ```
 - MOB_AROUND 7 BLACKLIST(ZOMBIE{CustomName:"Test Test"},ZOMBIE{CustomName:"Miyamoto"}) false BURN 3
 - MOB_AROUND 5 WHITELIST(ZOMBIE{IsBaby:1}) DAMAGE 20
-- MOB_aROUND 9 WHITELIST(WOLF{Owner:"%player%"}) HEAL 5
-- MOB_aROUND 9 WHITELIST(WOLF{Owner:%player_uuid%}) HEAL 5
+- MOB_AROUND 9 WHITELIST(WOLF{Owner:"%player%"}) HEAL 5
+- MOB_AROUND 9 WHITELIST(WOLF{Owner:%player_uuid%}) HEAL 5
 ```
 
 ### MOVE
@@ -467,6 +499,7 @@ Damages nearest player
     * FARMLAND - WHEAT, CARROTS, BEETROOTS, POTATOES, SWEET\_BERRY\_BUSH, MELON\_STEM, PUMPKIN\_STEM, TORCHFLOWER\_CROP
     * SOUL SAND - NETHER\_WART
     * JUNGLE WOOD/LOG - COCOA
+  * `{isCube}`: Makes the planting area from square to cube. Useful for area cocoa planting
 * Example:
 
 ```
@@ -594,13 +627,14 @@ And of course the vanilla spawners.
 
 ### SMELT
 
-* Info: It smelts the target block dropping the smelted item, for example iron\_ore -> iron\_ingot it supports fortune, if it can't be smelted nothing will happen
+* Info: It smelts the target block dropping the smelted item, for example iron\_ore -> iron\_ingot it supports fortune, if it can't be smelted nothing will happen. The block loot will not change.
 * Command setting
-  * `[generateEvent]`: (Optional) (default = true) Whethe or not it generates a block break event
+  * `[generateEvent]`: (Optional) (default = true) When the or not it generates a block break event
 * Example:
 
 ```
-- SMELT
+- SMELT 
+- SMELT false
 ```
 
 ### STRIKELIGHTNING
@@ -617,10 +651,12 @@ And of course the vanilla spawners.
 
 * Info: Breaks blocks in veins in one block break
 * Command settings
-  * `{max_vein_size}`: Max amount of blocks the command can break
-  * `[generateEvent]`: (Optional) (default = true) Whether or not it generates a block break event
+  * `{maxVeinSize}`: Max amount of blocks the command can break
+  * `[createBBEvent]`: (Optional) (default = true) Whether or not it generates a block break event
+  * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
 * Example:
 
 ```
 - VEIN_BREAKER 20
+- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:true
 ```
