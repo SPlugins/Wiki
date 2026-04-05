@@ -74,7 +74,7 @@ activators:
   * You can make your LevelledMobs drop ExecutableItems using this resource:
     * [https://www.spigotmc.org/resources/lm-items.102081/](https://www.spigotmc.org/resources/lm-items.102081/)
 
-### AureliumSkills
+### AuraSkills (prev AureliumSkills)
 
 * Ssomar Plugins have the activator feature of [requiredMana](/executableitems/configurations/activator-configuration/activators-features#requiredmana) in order to have as requirement for the activator to work.
 * Aurelium Skills commands
@@ -264,10 +264,6 @@ activators:
 ### JOBS REBORN
 
 * JOBS\_MONEY\_BOOST command work for this plugin.
-
-### AURA SKILLS
-
-* [JOBS\_MONEY\_BOOST](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#jobs_money_boost) command works with Jobs Reborn, allowing you to apply money multipliers for players based on their job earnings.
 
 ### VAULT
 
