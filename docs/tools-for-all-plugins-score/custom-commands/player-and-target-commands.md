@@ -368,8 +368,8 @@ activators:
 * Command settings:
   * `{PLAYER}`: The player to target the command
   * `{ID}`: The id of the ExecutableItem or "all" for all ExecutableItems
-  * `{SECONDS}`: The amount of time
-  * `{boolean TICKS}`: If you want the time to be in ticks
+  * `{DURATION}`: The amount of time
+  * `{boolean TICKS}`: (Default: false) If false, the duration arg value will be seen as in seconds. If true, it will be seen as in ticks.
   * `[optional activator id]`: (Optional) You can apply it to a specific activator id
 * Example: 
 
@@ -388,8 +388,8 @@ activators:
 * Command settings:
   * `{PLAYER}`: The player to target the command
   * `{ID}`: The id of the ExecutableBlocks or "all" for all ExecutableBlocks
-  * `{SECONDS}`: The amount of time
-  * `{boolean TICKS}`: If you want the time to be in ticks
+  * `{DURATION}`: The amount of time
+  * `{boolean TICKS}`: (Default: false) If false, the duration arg value will be seen as in seconds. If true, it will be seen as in ticks.
   * `[optional activator id]`: (Optional) You can apply it to a specific activator id
 * Example: 
 
@@ -408,8 +408,8 @@ activators:**
 * Command settings:
   * `{PLAYER}`: The player to target the command
   * `{ID}`: The id of the ExecutableEvent  or "all" for all ExecutableEvents
-  * `{SECONDS}`: The amount of time
-  * `{boolean TICKS}`: If you want the time to be in ticks
+  * `{DURATION}`: The amount of time
+  * `{boolean TICKS}`: (Default: false) If false, the duration arg value will be seen as in seconds. If true, it will be seen as in ticks.
   * `[optional activator id]`: (Optional) You can apply it to a specific activator id
 * Example: 
 
