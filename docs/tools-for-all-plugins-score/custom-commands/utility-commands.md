@@ -67,8 +67,8 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     playerCommands: # It can be other commands than playerCommands
     - IF 1=1||2=3 BACKDASH 1 # 1=1 OR 2=3 -> YES because 1=1
-    - IF 1=1&#x26;&#x26;2=2||2=3 BACKDASH 1 # 1=1 and 2=2 or 2=3 -> YES because 1=1 and 2=2
-    - IF (1=1&#x26;&#x26;2=2)||(2=3||3=2) BACKDASH 1 # (1=1 and 2=2) or (2=3 or 3=2) -> YES because 1=1 and 2=2
+    - IF 1=1&&2=2||2=3 BACKDASH 1 # 1=1 and 2=2 or 2=3 -> YES because 1=1 and 2=2
+    - IF (1=1&&2=2)||(2=3||3=2) BACKDASH 1 # (1=1 and 2=2) or (2=3 or 3=2) -> YES because 1=1 and 2=2
 ```
 
 ## **WHILE**
