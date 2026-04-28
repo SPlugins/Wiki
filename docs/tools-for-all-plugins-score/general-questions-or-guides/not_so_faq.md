@@ -53,3 +53,7 @@ Caused by: io.netty.channel.ChannelPipelineException: com.ssomar.score.pack.spig
 ### A: Because the host has a firewall that block the selfhost option
 Context: https://discord.com/channels/701066025516531753/1431960014142308373/1432408229161472061
 :::
+
+## Q: Sometimes a ProtocolLib related error mentions something with "STAB"
+
+### A: Update your ProtocolLib plugin jar. The spigot page doesn't give you the appropriate version suited for 1.21.9+ so you have to visit their dev build page to get it.
