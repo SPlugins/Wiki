@@ -409,3 +409,16 @@ Items with custom recognition can impact performance. The command will show you 
 ### Custom triggers
 
 * Info: ExecutableItems has commands for running custom triggers, if want to know what they are and how to use them check the info here [Custom triggers](/tools-for-all-plugins-score/custom-triggers) 
+
+### WorldGuard
+
+* You can use worldguard flags to enable/disable all ei activators
+```
+/rg flag <region> ei-activators deny # disables ALL EI activators in the region
+/rg flag <region> ei-activators allow # re-enables them (this is the default)
+```
+
+* Error message can be configred in /ExecutableItems/locale/locale_EN.yml for example
+```yml
+disableRegion: '&8[&4Executable&7Items&8] &cYou cant use &e%item%&c in this region!'
+```

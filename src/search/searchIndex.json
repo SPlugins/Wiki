@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T03:14:13.477Z",
+  "generatedAt": "2026-05-09T03:14:40.032Z",
   "items": [
     {
       "source": "@site/docs/_partials/block-features.md",
@@ -229,6 +229,15 @@
         "True: the plugin will check the message before it is sent (the message will be a bit delayed, approximately 0.3s)",
         "False: the plugin will check the message after it has been sent (the message will not be delayed) but if the message is flagged, the message will not be deleted",
         "The different harmful categories that the plugin can detect"
+      ]
+    },
+    {
+      "source": "@site/docs/ai-chat-moderation/faq.md",
+      "content": "Frequently Asked Questions Q: How can I get better results with AI Chat Moderation plugin? A: Not possible. AI Chat Moderation plugin uses a free model to handle evaluation. If you need a better model, contact Ssomar",
+      "headings": [
+        "Frequently Asked Questions",
+        "Q: How can I get better results with AI Chat Moderation plugin?",
+        "A: Not possible. AI Chat Moderation plugin uses a free model to handle evaluation. If you need a better model, contact Ssomar"
       ]
     },
     {
@@ -3802,11 +3811,13 @@
     },
     {
       "source": "@site/docs/tools-for-all-plugins-score/general-questions-or-guides/not_so_faq.md",
-      "content": "--- description: Questions that are too specific to be asked often --- Not So Frequently Asked Questions :::info Q: Texture Pack from Ssomar's plugins fail to download for its users A: Because the host has a firewall that block the selfhost option Context: https://discord.com/channels/701066025516531753/1431960014142308373/1432408229161472061 :::",
+      "content": "--- description: Questions that are too specific to be asked often --- Not So Frequently Asked Questions :::info Q: Texture Pack from Ssomar's plugins fail to download for its users A: Because the host has a firewall that block the selfhost option Context: https://discord.com/channels/701066025516531753/1431960014142308373/1432408229161472061 ::: Q: Sometimes a ProtocolLib related error mentions something with \"STAB\" A: Update your ProtocolLib plugin jar. The spigot page doesn't give you the appropriate version suited for 1.21.9+ so you have to visit their dev build page to get it.",
       "headings": [
         "Not So Frequently Asked Questions",
         "Q: Texture Pack from Ssomar's plugins fail to download for its users",
-        "A: Because the host has a firewall that block the selfhost option"
+        "A: Because the host has a firewall that block the selfhost option",
+        "Q: Sometimes a ProtocolLib related error mentions something with \"STAB\"",
+        "A: Update your ProtocolLib plugin jar. The spigot page doesn't give you the appropriate version suited for 1.21.9+ so you have to visit their dev build page to get it."
       ]
     },
     {

@@ -372,6 +372,7 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
     * NEAREST : Selects the entities closest to the origin.
     * RANDOM : Randomly selects any entity within the command's range.
   * `{regionCheck}`: true/false. If true, the AROUND command will check if the target is either in wilderness or in the caster's claim (Context of GriefPrevention plugin) (Will be updated soon to be checked with other claim plugins)
+  * `{nonliving}`: true/false. If true, it will target other entities such as Arrows and Armor Stands. Any bugs that occur when running entity commands while this argument is enabled will most likely be ignored due to scope creep.
   * You can BLACKLIST or WHITELIST entities adding one of these ones in anyplace of the command:
     * BLACKLIST(ZOMBIE,ARMOR\_STAND)
     * WHITELIST(CHICKEN)
