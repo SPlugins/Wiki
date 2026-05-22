@@ -489,6 +489,17 @@ Damages nearest player
 - PARTICLE COMPOSTER 10 0.1 0.5
 ```
 
+### PLACELIQUID
+* Info: Places liquid in a location. If a cauldron is present in that location, fill it up. If a waterloggable block is present, waterlog it. Otherwise, do nothing
+* Command settings
+  * `{type}`: Type of liquid (Default: WATER). Choices: WATER/LAVA
+* Example:
+
+```
+- PLACELIQUID type:WATER
+- PLACELIQUID type:LAVA
+```
+
 ### PLANT\_IN\_SQUARE
 
 * Info: Plants in square respect the block selected.
