@@ -1,3 +1,9 @@
+---
+description: >-
+  Full reference for every option in a MyFurniture furniture YAML — display,
+  hitbox, storage, sit, activators, drop behaviour, and more.
+---
+
 # Furniture Features
 
 ## ExecutableItem
@@ -216,13 +222,51 @@ sitFeatures:
   playerCanSit: false
 ```
 
+## Only Breakable With EI
+
+* Restrict which ExecutableItems can break this furniture. Leave empty to allow any tool.
+* Example:
+
+```yaml
+onlyBreakableWithEI:
+  - my_hammer
+  - admin_wrench
+```
+
+* Required: NO
+
+## Drop Block If It Is Broken
+
+* Whether the furniture item is dropped when the furniture is broken
+* Example:
+
+```yaml
+dropBlockIfItIsBroken: true
+```
+
+* Required: NO (default: `true`)
+
+## Reset Internal Datas When Broken
+
+* Whether the furniture resets its internal data (variables, usage) when broken and picked up
+* Example:
+
+```yaml
+resetInternalDatasWhenBroken: false
+```
+
+* Required: NO (default: `false`)
+
 ## Storage Features
 
 * Define if the furniture can store items like a chest or not
+* `enable` — whether storage is active
+* `title` — the display name shown on the storage GUI
 
 ```yaml
 storageFeatures:
-  enable: false
+  enable: true
+  title: '&8My Storage'
 ```
 
 ## Activators
