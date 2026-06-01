@@ -2,7 +2,7 @@
 description: Complete guide for creating custom item textures in Minecraft 1.21.4+ using the new item model system
 ---
 
-# Custom Textures for Minecraft 1.21.4+
+# General Items
 
 This guide covers the new item model system introduced in Minecraft 1.21.4+. If you prefer video tutorials, check out [this video guide](https://youtu.be/K39U55l4-O0) by Special70.
 

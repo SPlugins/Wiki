@@ -221,6 +221,26 @@ playerConditions:
 
 ![It will check the block under your feet. It will also properly check slabs.](https://media.giphy.com/media/DjJTjPZL1PmKbjnqvU/giphy.gif)
 
+### ifLineOfSight
+
+* Description: Checks if the player has line of sight to a living entity (within 50 blocks).
+* Example:
+
+```yaml
+playerConditions:
+    ifLineOfSight: true
+    ifLineOfSightMsg: ''
+```
+
+* Example Situations:
+  * If the player is looking directly at a mob or another player within 50 blocks, the activator will activate.
+  * Useful for creating items that only work when aiming at an entity.
+* Required: NO (Default: false)
+
+:::info
+This condition requires server version **1.14+**.
+:::
+
 ### ifPlayerMustBeOnHisTown
 
 * **SUPPORTS THE FOLLOWING PLUGINS:**
@@ -436,6 +456,23 @@ playerConditions:
 
 _If the value is `<=10`, the activator will only activate if the player's health is 10 and below._
 
+### ifPlayerSpeed
+
+* Description: Checks the player's velocity magnitude (movement speed).
+* Example:
+
+```yaml
+playerConditions:
+    ifPlayerSpeed: '>=0.1'
+    ifPlayerSpeedMsg: ''
+```
+
+* Example Situations:
+  * If the value is `>=0.1`, the activator will only activate if the player is moving.
+  * If the value is `>=0.3`, the activator will only activate if the player is sprinting or moving fast.
+  * If the value is `==0`, the activator will only activate if the player is standing still.
+* Required: NO
+
 ### ifPosX
 
 * Description: Checks if the player is in the said X level.
@@ -491,6 +528,40 @@ playerConditions:
   * If the value is `==153`, the activator will only activate if the player's Z-position value is 5.
   * If the value is `>420`, the activator will only activate if the player's Z-position value is above 420.
   * If the value is `>=99`, the activator will only activate if the player's Z-position value is 99 and above.
+* Required: NO
+
+### ifNearbyEntityCount
+
+* Description: Checks the number of entities within a 10-block radius around the player.
+* Example:
+
+```yaml
+playerConditions:
+    ifNearbyEntityCount: '>=3'
+    ifNearbyEntityCountMsg: ''
+```
+
+* Example Situations:
+  * If the value is `>=3`, the activator will only activate if there are at least 3 entities near the player.
+  * If the value is `==0`, the activator will only activate if the player is alone with no entities nearby.
+  * Counts all entity types (mobs, players, dropped items, etc.).
+* Required: NO
+
+### ifNearbyPlayerCount
+
+* Description: Checks the number of players within a 10-block radius around the player.
+* Example:
+
+```yaml
+playerConditions:
+    ifNearbyPlayerCount: '>=1'
+    ifNearbyPlayerCountMsg: ''
+```
+
+* Example Situations:
+  * If the value is `>=1`, the activator will only activate if there is at least 1 other player nearby.
+  * If the value is `==0`, the activator will only activate if no other players are within 10 blocks.
+  * Unlike ifNearbyEntityCount, this only counts players, not mobs or other entities.
 * Required: NO
 
 ### ifHasPermission - Not

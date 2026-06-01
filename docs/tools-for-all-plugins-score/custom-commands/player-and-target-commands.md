@@ -368,8 +368,8 @@ activators:
 * Command settings:
   * `{PLAYER}`: The player to target the command
   * `{ID}`: The id of the ExecutableItem or "all" for all ExecutableItems
-  * `{SECONDS}`: The amount of time
-  * `{boolean TICKS}`: If you want the time to be in ticks
+  * `{DURATION}`: The amount of time
+  * `{boolean TICKS}`: (Default: false) If false, the duration arg value will be seen as in seconds. If true, it will be seen as in ticks.
   * `[optional activator id]`: (Optional) You can apply it to a specific activator id
 * Example: 
 
@@ -388,8 +388,8 @@ activators:
 * Command settings:
   * `{PLAYER}`: The player to target the command
   * `{ID}`: The id of the ExecutableBlocks or "all" for all ExecutableBlocks
-  * `{SECONDS}`: The amount of time
-  * `{boolean TICKS}`: If you want the time to be in ticks
+  * `{DURATION}`: The amount of time
+  * `{boolean TICKS}`: (Default: false) If false, the duration arg value will be seen as in seconds. If true, it will be seen as in ticks.
   * `[optional activator id]`: (Optional) You can apply it to a specific activator id
 * Example: 
 
@@ -408,8 +408,8 @@ activators:**
 * Command settings:
   * `{PLAYER}`: The player to target the command
   * `{ID}`: The id of the ExecutableEvent  or "all" for all ExecutableEvents
-  * `{SECONDS}`: The amount of time
-  * `{boolean TICKS}`: If you want the time to be in ticks
+  * `{DURATION}`: The amount of time
+  * `{boolean TICKS}`: (Default: false) If false, the duration arg value will be seen as in seconds. If true, it will be seen as in ticks.
   * `[optional activator id]`: (Optional) You can apply it to a specific activator id
 * Example: 
 
@@ -1299,7 +1299,7 @@ activators:
   activator0: # Activator ID, you can create as many activator on the activators list
     option: # Here goes an activator that is at least instance of player
     playerCommands:
-    - SET_TEMP_BLOCK_POS x:%entity_x% y:%entity_y% z:%entity_z% world:%entity_world% material:BEDROCK time:40 bypassProtectiontrue whitelistCurrentBlock:!AIR,!WATER
+    - SET_TEMP_BLOCK_POS x:%entity_x% y:%entity_y% z:%entity_z% world:%entity_world% material:BEDROCK time:40 bypassProtection:true whitelistCurrentBlock:!AIR,!WATER
 ```
 
 :::warning

@@ -391,6 +391,34 @@ nbt:
     type: STRING_LIST
     value:
     - minecraft:stone
+ '8':
+    key: PublicBukkitValues
+    type: COMPOUND
+    value:
+      nbt:
+        '0':
+          key: auraskills:item_modifiers
+          type: COMPOUND_LIST
+          value:
+            '0':
+              key: comp0
+              nbt:
+                '0':
+                  type: COMPOUND
+                  value:
+                    nbt:
+                      '0':
+                        key: auraskills:stat
+                        type: STRING
+                        value: auraskills/wisdom
+                      '1':
+                        key: auraskills:value
+                        type: DOUBLE
+                        value: '%rand:1|10000%'
+                      '2':
+                        key: auraskills:operation
+                        type: STRING
+                        value: add
 ```
 
 ### Bukkit tags
@@ -407,8 +435,33 @@ tags:
 In game it will be represented in PublicBukkitValues, like this
 
 ```yaml
-executableitems:mytag:blabla1**
-executableitems:myothertag:blabla2
+"executableitems:mytag":"blabla1"
+"executableitems:myothertag":"blabla2"
+```
+
+You can also write %rand% placeholders in the value field of NBTs. Only works for STRING, INTEGER and DOUBLE datatypes
+```yaml
+nbt:
+ '1': #Id of this nbt, you can add as many as you want
+    type: INT
+    key: 'MyKeyTag'
+    value: '%rand:-100|100%'
+```
+Also works in the ingame editor
+```
+INTEGER::foo::%rand:1|2%
+```  
+  
+You can also save nbts to PDC (Persistent Data Container) if you want.
+* Ingame example: `integer::take::0::true`
+* Item Config:
+```yml
+nbt:
+  '0':
+    key: take
+    saveInPDC: true
+    type: INT
+    value: 0
 ```
 
 ### Hiders features
