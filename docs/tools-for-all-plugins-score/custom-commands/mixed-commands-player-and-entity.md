@@ -885,6 +885,21 @@ HITSCAN_ENTITIES range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throug
 - JUMP 20
 ```
 
+* Power scale reference (empirical tests by vkolasa):
+
+| Power | Approx. distance |
+|-------|-----------------|
+| 0.75  | 3.5 blocks      |
+| 1.0   | 5.5 blocks      |
+| 1.13  | 7 blocks        |
+| 1.25  | 8.5 blocks      |
+| 1.39  | 10.5 blocks     |
+| 1.5   | 12 blocks       |
+| 1.63  | 14 blocks       |
+| 1.75  | 15.5 blocks     |
+| 1.89  | 18 blocks       |
+| 2.0   | 20 blocks       |
+
 ### LAUNCH\_ENTITY
 
 * Info: Launches an entity to your direction
