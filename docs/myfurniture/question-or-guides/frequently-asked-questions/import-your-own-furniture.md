@@ -1,4 +1,15 @@
+---
+description: >-
+  How to import a custom texture pack or .bbmodel file into MyFurniture so the plugin
+  generates your furniture configs and resource pack automatically.
+---
+
 # Import your own Furniture
+
+:::tip New to MyFurniture?
+See [Getting Started](/myfurniture/question-or-guides/tutorials/getting-started) for a full step-by-step walkthrough including `.bbmodel` import and config reference.
+:::
+
 
 ## Text tutorial
 

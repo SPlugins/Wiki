@@ -266,5 +266,6 @@ sitFeatures:
 
 ```yaml
 storageFeatures:
-  enable: false
+  enable: true
+  title: '&8My Storage'
 ```
