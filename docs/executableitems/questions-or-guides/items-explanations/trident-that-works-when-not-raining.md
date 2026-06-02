@@ -1,50 +1,180 @@
 ---
-description: This trident allows you to launch yourself if it isn't raining
+description: >-
+  A trident that launches the player like a Riptide enchantment — even when it
+  is not raining. Uses a custom invisible projectile to replicate the motion,
+  with a world condition blocking the launch during rain if desired.
 ---
 
-# Trident that works when not raining
+# Trident That Works When Not Raining
 
-## Create the item
+The vanilla trident's **Riptide** enchantment only launches the player when it is
+raining or the player is in water. This EI trident removes that restriction and works
+anywhere — while optionally adding a weather condition to preserve realism.
 
-* To create it you have to use /ei create \<id>
-* Once you have created it, set the material to trident, and edit the visual stuff as display name, lore, etc.
+---
 
-The idea is to simulate the real trident, to do it we will launch an invisible projectile and make the player to follow that projectile, so we need a custom projectile, let's create one
+## How it works
 
-### Create the projectile
+1. **Item** — a TRIDENT material with a `PLAYER_LAUNCH_PROJECTILE` activator.
+2. **Custom projectile** — an invisible snowball launched in the direction the player
+   is facing.
+3. **`PLAYER_CUSTOM_LAUNCH` activator** — when the invisible projectile is in flight,
+   this fires and runs `CUSTOMDASH1` three times (with a 1-tick delay between each) to
+   pull the player toward the projectile's position, mimicking the Riptide arc.
 
-* There is already a tutorial for this, we aren't going to explain this too much, it will just be an invisible snowball with velocity 4.3
+`cancelEvent: true` on the launch activator prevents the real trident from being
+thrown, so it stays in the player's inventory.
+
+---
+
+## Step 1 — Create the custom projectile
+
+Run `/score projectiles-create trident_rocket` and configure:
+
+| Setting | Value |
+|---|---|
+| Projectile type | `SNOWBALL` |
+| Invisible | `true` |
+| Silent | `true` |
+| Gravity | `false` |
+| Velocity | `4.3` |
+
+Higher velocity = more powerful launch. Save the projectile.
+
+---
+
+## Step 2 — Create the trident EI item
+
+```yaml
+name: '&b⚡ Riptide Trident'
+lore:
+  - '&7Throw to launch yourself!'
+  - '&7Works even without rain.'
+material: TRIDENT
+glow: false
+disableStack: false
+keepItemOnDeath: false
+canBeUsedOnlyByTheOwner: false
+cancelEventIfNotOwner: false
+usage: 0
+usageLimit: -1
+variables: {}
+
+activators:
+  # Activator 1 — when the player throws the trident, launch the invisible projectile
+  activator0:
+    name: '&eLaunch projectile'
+    option: PLAYER_LAUNCH_PROJECTILE
+    usageModification: 0
+    cancelEvent: true            # Prevent the real trident from flying
+    silenceOutput: true
+    autoUpdateItem: false
+    cooldownOptions:
+      cooldown: 3
+      isCooldownInTicks: false
+      cooldownMsg: '&cTrident on cooldown! &e%time_S%s remaining.'
+      displayCooldownMessage: true
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    commands:
+      - LAUNCH trident_rocket      # Launch the invisible projectile
+    playerConditions: {}
+    worldConditions: {}
+    itemConditions: {}
+    placeholdersConditions: {}
+    variablesModification: {}
+
+  # Activator 2 — when the invisible projectile is in flight, pull player toward it
+  activator1:
+    name: '&eDash toward projectile'
+    option: PLAYER_CUSTOM_LAUNCH
+    usageModification: 0
+    cancelEvent: false
+    silenceOutput: true
+    autoUpdateItem: false
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    commands:
+      - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
+      - DELAYTICK 1
+      - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
+      - DELAYTICK 1
+      - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
+    playerConditions: {}
+    worldConditions: {}
+    itemConditions: {}
+    placeholdersConditions: {}
+    variablesModification: {}
+```
 
 :::info
-Depending on the velocity of the snowball your trident will launch you stronger or weaker.
+`%projectile_x%`, `%projectile_y%`, `%projectile_z%` are placeholders available
+inside `PLAYER_CUSTOM_LAUNCH` — they give the current position of the projectile in
+flight. Three `CUSTOMDASH1` calls with 1-tick delays between them produce the arcing
+Riptide-style motion.
 :::
 
-### Create the activator
+---
 
-* Now create an activator PLAYER\_LAUNCH\_PROJECTILE
-* ![](</img/image (69).png>)
-* And add into commands LAUNCH \<id of the projectile created>
-* Enable cancel event so the real trident doesn't disappears.
+## Optional — restrict to dry weather only
 
-Now we are launching the projectile, but we aren't launching ourselves, the idea is to make us to follow the path of the projectile launched, let's do it.
+To make the trident only work when it is **not raining** (add `worldConditions` to
+`activator0`):
 
-### Create another activator
-
-* Now it will be a PLAYER\_CUSTOM\_LAUNCH
-* and in playerCommands:
-
-```
-    playerCommands:
-    - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
-    - DELAYTICK 1
-    - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
-    - DELAYTICK 1
-    - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
+```yaml
+    worldConditions:
+      ifWeather:
+        - CLEAR
+      ifWeatherMsg: '&cThis trident only works in clear weather!'
 ```
 
-And that's it, now when launching the trident, you won't launch the trident because of cancel event but you will launch an invisible snowball, that, with the 2nd activator you will get launched yourself into the position of the snowball and with it, recreate the motion of the trident.
+Or invert it — **only** work when raining (matching vanilla Riptide):
 
-:::info
-You can add particles and sounds to make it look more real
-:::
+```yaml
+    worldConditions:
+      ifWeather:
+        - RAIN
+        - STORM
+      ifWeatherMsg: '&cThis trident requires rain!'
+```
 
+---
+
+## Adding particles and sound
+
+In `activator1` commands:
+
+```yaml
+commands:
+  - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
+  - [CONSOLE] playsound minecraft:item.trident.riptide_1 player %player% ~ ~ ~ 1 1
+  - [CONSOLE] particle end_rod %projectile_x% %projectile_y% %projectile_z% 0.3 0.3 0.3 0.05 10
+  - DELAYTICK 1
+  - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
+  - DELAYTICK 1
+  - CUSTOMDASH1 %projectile_x% %projectile_y% %projectile_z%
+```
+
+---
+
+## See also
+
+- [Creating a Basic Projectile](/executableitems/questions-or-guides/custom-projectiles-implementation/creating-a-basic-projectile) — step-by-step projectile creation guide.
+- [Custom Projectiles System](/tools-for-all-plugins-score/custom-projectiles) — full projectile configuration reference.
+- [CUSTOMDASH1](/tools-for-all-plugins-score/custom-commands/player-and-target-commands) — the dash command used to replicate Riptide motion.
+- [World Conditions](/tools-for-all-plugins-score/custom-conditions/world-conditions) — `ifWeather` and other world-based conditions.
