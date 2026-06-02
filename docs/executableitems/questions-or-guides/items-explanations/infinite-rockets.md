@@ -119,8 +119,8 @@ activators:
       cancelEventIfInCooldown: false
     # Only fire when the player is actually elytra-gliding
     playerConditions:
-      ifPlayerMustBeGliding: true
-      ifPlayerMustBeGlidingMsg: '&cYou need to be gliding to use this!'
+      ifGliding: true
+      ifGlidingMsg: '&cYou need to be gliding to use this!'
     commands:
       - FIREWORK_BOOST duration:1
     variablesModification: {}
