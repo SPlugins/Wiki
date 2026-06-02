@@ -1,0 +1,306 @@
+---
+title: "Best Minecraft Custom Items Plugin 2026: ExecutableItems vs ItemsAdder vs Nexo vs MMOItems"
+description: "Best Minecraft custom items plugin 2026: ExecutableItems vs ItemsAdder vs Nexo vs MMOItems. Features, pricing, and ease of use compared."
+slug: best-minecraft-custom-items-plugin-2026
+authors: [ssomar]
+tags: [executableitems, custom-items, minecraft-plugins, comparison, 2026]
+date: 2026-06-01
+image: /img/blog/custom-items-comparison-2026.png
+keywords:
+  - best minecraft custom items plugin
+  - executableitems review
+  - itemsadder vs executableitems
+  - nexo plugin minecraft
+  - mmoitems comparison
+  - minecraft custom items 2026
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+If you've spent more than five minutes searching for a Minecraft custom items plugin, you already know the landscape is crowded.
+**ExecutableItems, ItemsAdder, Nexo** (the successor to Oraxen), and **MMOItems** each claim to be the best choice — but they solve very different problems.
+
+This guide breaks down exactly what each plugin does well, where it struggles, and which one belongs on *your* server in 2026.
+
+{/* truncate */}
+
+---
+
+## Quick Verdict
+
+| Plugin | Best for | Price (approx.) | Requires resource pack? |
+|---|---|---|---|
+| **ExecutableItems** | Ability-driven custom items, any gamemode | Free / **€19.99** premium | No (optional) |
+| ItemsAdder | Custom textures & cosmetics first | Free / ~€20 premium | **Yes** |
+| Nexo | Resource-pack items with a modern API | Paid (~€15–25) | **Yes** |
+| MMOItems | Deep RPG stat systems (MythicMobs) | Free / ~€20 premium | No |
+
+**Short answer:** If you want items that *do things* — abilities, cooldowns, triggers, conditions — pick **ExecutableItems**. If your priority is custom visual assets bundled into a resource pack, ItemsAdder or Nexo are better fits. If you're building a full MMO with MythicMobs already, MMOItems slots in naturally.
+
+---
+
+## What We're Comparing
+
+For each plugin we examine:
+
+- **Feature breadth** — what can the item actually do?
+- **Ease of configuration** — how long before a new admin can make something useful?
+- **Custom textures** — is a resource pack required, and how hard is it to set up?
+- **Plugin integrations** — how well does it play with your existing stack?
+- **Community & support** — how fast can you get unblocked when you're stuck?
+- **Pricing** — what do you actually get for free vs paid?
+
+---
+
+## ExecutableItems — The Ability Powerhouse
+
+### What Is It?
+
+[ExecutableItems](https://docs.ssomar.com/executableitems/information-ei) is a YAML-based custom items plugin that lets you attach **event-driven abilities** to any Minecraft item without writing code.
+It has been in active development for **5+ years**, runs on **4,000+ servers**, and has accumulated **280+ five-star reviews** across Spigot, Polymart, and BuiltByBit.
+
+### Core Strengths
+
+#### 100+ Activators (Triggers)
+
+Every ability starts with an *activator* — an event that fires the item's logic.
+ExecutableItems ships with **100+ activators** covering virtually every player action:
+
+- `PLAYER_ALL_CLICK` — left *or* right click
+- `PLAYER_BLOCK_BREAK` — break a specific block type
+- `PLAYER_BEFORE_DEATH` — fire *before* the kill lands (great for custom totems)
+- `PLAYER_HIT_ENTITY`, `PLAYER_RECEIVE_HIT_*`, `PLAYER_BED_ENTER/LEAVE`, and dozens more
+
+Each activator supports **conditions**, **cooldowns**, **delays**, **chance rolls**, and **loops** — all in YAML.
+A gun with a 3-round burst, a 5-second reload cooldown, and a "you must be crouching" condition is a single config file.
+
+#### 50+ Item Customization Options
+
+Beyond abilities, every item has granular control over:
+
+- Custom name, lore, material, glow effect
+- Attribute modifiers (attack damage, attack speed, armor, etc.)
+- Custom model data for resource-pack textures (or use the built-in pack)
+- Item restrictions: bind to a player, prevent dropping, prevent crafting with it
+- Per-world enable/disable via whitelist or blacklist
+
+#### 30+ Out-of-the-Box Plugin Integrations
+
+ExecutableItems detects and integrates with your existing stack automatically:
+
+- **MMOItems, ItemsAdder** — use their items as `detailedItems` conditions inside EI activators
+- **WorldGuard, GriefPrevention, Lands** — region-aware abilities that respect your protection setup
+- **PlaceholderAPI** — use any placeholder in conditions or item lore
+- **MythicMobs** — spawn custom mobs from item abilities
+- **Vault** — economy checks and rewards
+- And many more
+
+#### 120 Premade Items Ready to Drop In
+
+Not starting from scratch? The premium version ships with **120+ ready-made items**: veinminer pickaxes, grappling hooks, explosive bows, AoE swords, custom totems, double-jump boots, and more.
+Each one is a fully documented YAML file you can study, copy, and adapt.
+
+#### Custom Textures — No Resource Pack Required by Default
+
+Starting from **1.20.5+**, ExecutableItems can host its own resource pack automatically via a config URL.
+If you already have a pack, you can point to any CustomModelData value or use the **60+ included 3D weapon textures** (1.21.4+).
+You can also use third-party textures from ItemsAdder inside EI's `detailedItems` without conflict.
+
+### Ease of Configuration
+
+Items live in `plugins/ExecutableItems/items/` as individual YAML files.
+There's also a **full in-game GUI** (`/ei gui`) for non-technical admins who prefer clicking over editing files.
+Editing, reloading, and testing can all be done without restarting the server.
+
+A basic right-click teleport item takes about 10 lines of YAML:
+
+```yaml
+name: '&bWarp Stone'
+material: ENDER_PEARL
+activators:
+  activator1:
+    option: PLAYER_RIGHT_CLICK
+    cooldown: 10
+    playerCommands:
+    - TELEPORT_FORWARD distance:5
+```
+
+### Pricing
+
+| Tier | Cost | Key limits |
+|---|---|---|
+| **Free** | €0 | 500 items, 1 activator/item, ~14 activators available, watermark in lore |
+| **Premium** | **€19.99 one-time** | Unlimited items, unlimited activators/item, all 100+ activators, no watermark |
+
+The free tier is a genuine trial — you can run a small server with it indefinitely.
+Premium is a one-time purchase with lifetime updates.
+
+### Community & Support
+
+- **Discord:** 700+ active members, dedicated `#support-ei` channel with fast response from the dev team and volunteers
+- **Wiki:** [docs.ssomar.com](https://docs.ssomar.com) — comprehensive, actively maintained
+- **Marketplace listings:** Spigot, Polymart, BuiltByBit, Modrinth
+
+### Honest Weaknesses
+
+- The sheer number of features means the wiki is large — new users can feel overwhelmed at first.
+- Custom 3D models require familiarity with resource packs (same as every other plugin in this list).
+- Some premium activators have no free equivalent at all.
+
+---
+
+## ItemsAdder — The Texture & Asset Manager
+
+### What Is It?
+
+ItemsAdder is primarily a **resource pack manager and custom content framework**.
+Its strength is handling the entire pipeline from 3D model design to in-game item, furniture, block, and sound — all backed by a resource pack that is served to players automatically.
+
+### Core Strengths
+
+- Excellent tooling for **custom 3D models, custom blocks, custom sounds, and custom entities**
+- Large community of content creators selling or sharing packs for ItemsAdder
+- **Custom HUDs and boss bars** baked into the resource pack
+- Supports custom armors with full texture rendering
+
+### Weaknesses
+
+- **A resource pack is mandatory.** Players who have resource packs disabled or on slow connections will see broken visuals.
+- Ability/trigger system is far more limited than ExecutableItems by default — you'll need scripting or a companion plugin for complex logic.
+- Configuration is more involved: you manage both YAML configs *and* resource pack assets simultaneously.
+- Free tier is limited; full feature set requires the paid version.
+
+### When to Choose ItemsAdder
+
+When your primary goal is **visual customization** — custom HUDs, cosmetics, furniture, textures — and your player base accepts resource packs.
+
+---
+
+## Nexo — The Modern Resource-Pack Plugin
+
+### What Is It?
+
+Nexo is the spiritual successor to Oraxen, rebuilt with a modern API and better performance.
+Like ItemsAdder, it is **resource-pack-first**: its core value is managing custom content (items, blocks, furniture, HUDs) via a bundled pack.
+
+### Core Strengths
+
+- Clean, modern codebase designed for 1.20+ servers
+- Good API for developers building add-ons
+- Active development team post-Oraxen rewrite
+
+### Weaknesses
+
+- **Paid only** — no meaningful free tier as of 2026
+- Younger codebase means fewer tutorials and a smaller community than ItemsAdder or EI
+- Same resource-pack dependency as ItemsAdder
+- Ability system lags behind ExecutableItems significantly
+
+### When to Choose Nexo
+
+When you need a resource-pack pipeline on a modern server and prefer Nexo's API style over ItemsAdder's conventions — typically a developer-first choice.
+
+---
+
+## MMOItems — The RPG Stat System
+
+### What Is It?
+
+MMOItems is part of the **MythicCraft ecosystem** (MythicMobs, MythicLib, MMOCore, etc.).
+It provides a deep **RPG item stat system**: attack speed, critical hit chance, skill/ability slots, upgrade paths, and tier-based scaling.
+
+### Core Strengths
+
+- Deep RPG stats designed to integrate tightly with MythicMobs abilities
+- Item tiers, upgrade systems, and gem/enchant slots
+- Works naturally if your server is already running MythicMobs
+
+### Weaknesses
+
+- **Requires MythicLib** (and ideally other MythicCraft plugins) — heavyweight dependency chain
+- Ability expressiveness depends on MythicMobs' scripting, which has its own learning curve
+- Less suited for non-RPG gamemodes (survival, prison, minigames)
+- Community support is excellent *within* the MythicCraft Discord but the broader Minecraft community is smaller
+
+### When to Choose MMOItems
+
+When you are building an **RPG server with MythicMobs already installed** and need items with deep stat progression integrated into that ecosystem.
+
+---
+
+## Head-to-Head: Feature Matrix
+
+| Feature | ExecutableItems | ItemsAdder | Nexo | MMOItems |
+|---|:---:|:---:|:---:|:---:|
+| No resource pack required | ✅ | ❌ | ❌ | ✅ |
+| Event-driven ability system | ✅ (100+ triggers) | ⚠️ Limited | ⚠️ Limited | ✅ (via MythicMobs) |
+| YAML-only config | ✅ | ✅ | ✅ | ✅ |
+| In-game GUI editor | ✅ | ✅ | ⚠️ Partial | ❌ |
+| Custom 3D textures | ✅ (optional) | ✅ (core) | ✅ (core) | ⚠️ Basic |
+| Custom blocks/furniture | ❌ (use ExecutableBlocks) | ✅ | ✅ | ❌ |
+| Premade item library | ✅ 120+ | ✅ | ✅ | ✅ |
+| Plugin integrations | ✅ 30+ | ✅ | ⚠️ Growing | ✅ (MythicCraft) |
+| Free tier | ✅ Generous | ✅ Limited | ❌ | ✅ |
+| One-time price (premium) | **€19.99** | ~€20 | ~€15–25 | ~€20 |
+| 5+ year track record | ✅ | ✅ | ⚠️ Newer | ✅ |
+
+---
+
+## Real-World Use Cases
+
+### "I want a grappling hook and a veinminer pickaxe on my survival server."
+
+**ExecutableItems.** Both come premade in the default item library. Drop them in, reload, done.
+
+### "I want custom armor sets with unique textures and set bonuses."
+
+**ExecutableItems + resource pack.** EI handles the set bonus logic (armor set bonus activator, conditions per slot); your resource pack handles the visuals. ItemsAdder can handle the textures too if you're already using it.
+
+### "I need a full cosmetic shop with custom hats, backpacks, and pets."
+
+**ItemsAdder** or **Nexo.** These are built for visual-first content and have ecosystems of pre-made cosmetic packs.
+
+### "My server runs MythicMobs and I need items with +15% crit chance and gem slots."
+
+**MMOItems.** Designed exactly for this.
+
+### "I want a sword that fires a projectile on right-click, has a 3-second cooldown, and only works in a specific WorldGuard region."
+
+**ExecutableItems.** Three YAML lines and a region condition. No other plugin in this list handles this as cleanly.
+
+---
+
+## Upgrading and Migration
+
+Already using one of EI's competitors? ExecutableItems can **read ItemsAdder item IDs** directly inside its `detailedItems` conditions — meaning you can add EI abilities on top of ItemsAdder items without replacing your asset pipeline.
+
+---
+
+## Final Recommendation
+
+**For the vast majority of Minecraft servers — survival, RPG, prison, minigames, or creative — ExecutableItems is the best custom items plugin in 2026.**
+
+It wins on:
+
+- **Flexibility** — 100+ activators cover every use case without needing a companion plugin
+- **Ease of use** — YAML config + in-game GUI, no resource pack setup required to get started
+- **Price** — €19.99 one-time with a genuinely usable free tier
+- **Track record** — 5+ years, 4,000+ servers, 280+ five-star reviews
+- **Integrations** — plays well with your existing stack rather than fighting it
+
+If your primary goal is **custom textures and resource-pack content**, look at ItemsAdder or Nexo.
+If you're already deep in the MythicCraft ecosystem, MMOItems fits naturally.
+Otherwise, start with ExecutableItems — the free version alone is enough to see why it's the community's first recommendation.
+
+---
+
+## Get Started with ExecutableItems
+
+- [Download free on Modrinth](https://modrinth.com/plugin/executableitems)
+- [Download free on Spigot](https://www.spigotmc.org/resources/custom-items-plugin-executable-items.77578/)
+- [Buy premium (€19.99)](https://builtbybit.com/resources/custom-items-plugin-executable-items.18673/)
+- [Full documentation →](https://docs.ssomar.com/executableitems/information-ei)
+- [Join the Discord →](https://discord.com/invite/TRmSwJaYNv)
+- [Explore the activator list →](https://docs.ssomar.com/executableitems/configurations/activator-configuration/list-of-the-activators)
+- [Free vs Premium comparison →](https://docs.ssomar.com/executableitems/questions-or-guides/frequently-asked-questions/free-vs-premium)

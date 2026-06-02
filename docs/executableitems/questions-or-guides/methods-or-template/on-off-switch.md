@@ -1,287 +1,180 @@
 ---
 description: >-
-  Special mention to Orange#0513 for the idea to revamp the method ever since
-  variables were implemented
+  Create an EI item that toggles between an ON and OFF state using a variable
+  and two activators with placeholder conditions — right-click to toggle,
+  each state runs different commands. Full YAML included.
 ---
 
 # On / Off Switch
 
-## Requirements+
+An On/Off Switch item uses a **variable** to track state (0 = OFF, 1 = ON) and
+**two activators** that each check the current state before running. Only the
+activator matching the current state fires; the other is blocked by its condition.
 
-* ExecutableItems **Premium**
-
-## NOTE: CREATE 2 ACTIVATORS FIRST.
-
-## First activator
-
-### Create a variable
-
-* A variable needs to be created so we can have an identifier if the switch is on/off
-
-![You click on this icon to open the variables editor](https://imgur.com/nrkKIxb.png)
-
-![You basically just create a variable](https://imgur.com/JUbywre.png)
-
-![For the id, there's nothing really specific. for this guide, we will label our variable as "x"](https://imgur.com/ua4VmPu.png)
-
-![It doesn't really matter if it's a number or string](https://imgur.com/nut1h4h.png)
-
-![For this tutorial we will use the value of 0](https://imgur.com/Bj4CpF7.png)
-
-### Create your item, and add an activator
-
-* In this case it will be a PLAYER\_ALL\_CLICK
-
-![](</img/image (94).png>)
-
-### Commands
-
-* Type what commands you want to type
-
-### Variables Modification
-
-![First click this icon in the activator editor](https://imgur.com/LVCMrRl.png)
-
-![Create a variable modification](https://imgur.com/r50hLwy.png)
-
-![Select the variable that we created earlier](https://imgur.com/sksRDkO.png)
-
-![Set the type of modification to SET](https://imgur.com/BBWjzw8.png)
-
-![We will be setting the value other than 0 so the same activator can't run for the 2nd time](https://imgur.com/Av856uf.png)
-
-### Placeholder Condition
-
-* This is needed to control what activator is going to run 
-
-![First we go to conditions](</img/image (419).png>)
-
-![Then to placeholder conditions](</img/image (303).png>)
-
-![Of course, we have to create a placeholder condition](</img/image (429).png>)
-
-![PLAYER\_STRING is an option too](https://imgur.com/NXUYpmm.png)
-
-![We will use the placeholder for the variable we created. Use %var\_x\_int% if you still used PLAYER\_STRING](https://imgur.com/0qDthRo.png)
-
-![We will use this comparator](https://imgur.com/UrVtgM8.png)
-
-![We will use 0 value as the "off" option](https://imgur.com/CUoRRfg.png)
-
-### Add the other item cooldown to the item itself
-
-* For example, the id of the ei item is `onoff-demo`. You would then have to go to this icon then follow the pictures.
-
-![](https://imgur.com/mmHsaP4.png)
-
-![](https://imgur.com/AnnDswf.png)
-
-![](https://imgur.com/Q6VJClp.png)
-
-For example, the id of the on/off switch is "faker", so select "faker".
-
-![](https://imgur.com/X1DTqww.png)
-
-Ever since 5.0 dropped, activator ids start from "activator0" instead of "activator1". Anyway, you would want to select the second activator as activators run from top to bottom. 
-
-:::info
-This option is important because if there's no cooldown, it will ram through the the 2nd activator that's supposed to turn off the activator
+:::info Premium required
+`otherEICooldowns` (used to prevent both activators from firing on the same click)
+requires ExecutableItems **Premium**.
 :::
 
-![Set the cooldown to 1 or 2. You decide](https://imgur.com/zv8iOie.png)
+---
 
-![](https://imgur.com/IZxLfQ9.png)
+## How it works
 
-This is suggested to be set to true if you want the item to be spammable. One tick is enough to prevent the ramming mentioned above.
+1. **Activator 0** (Turn ON): fires only when `%var_x% == 0`. Runs "ON" commands.
+   Sets `x = 1`. Puts a 1-tick cooldown on activator 1 to prevent it firing too.
+2. **Activator 1** (Turn OFF): fires only when `%var_x% == 1`. Runs "OFF" commands.
+   Sets `x = 0`. Puts a 1-tick cooldown on activator 0.
 
-![](https://imgur.com/GB5OuD0.png)
+The 1-tick cooldown via `otherEICooldowns` is critical — without it, both activators
+fire on the same click (since both `PLAYER_ALL_CLICK` activators see the same event).
 
-## Second activator
+---
 
-* We will use again **`PLAYER_ALL_CLICK`**
-
-![](</img/image (165).png>)
-
-###
-
-### Commands
-
-* Type what commands you want to type
-
-### Variables Modification
-
-![First click this icon in the activator editor](https://imgur.com/LVCMrRl.png)
-
-![Create a variable modificationng](https://imgur.com/r50hLwy.png)
-
-![Select the variable that we created earlier](https://imgur.com/sksRDkO.png)
-
-![Set the type of modification to SET](https://imgur.com/BBWjzw8.png)
-
-![We will be setting the value other than 1 so the same activator can't run for the 2nd time](https://imgur.com/0KzktPE.png)
-
-### Placeholder Condition
-
-* This is needed to control what activator is going to run 
-
-![First we go to conditions](</img/image (419).png>)
-
-![Then to placeholder conditions](</img/image (303).png>)
-
-![Of course, we have to create a placeholder condition](</img/image (429).png>)
-
-![PLAYER\_STRING is an option too](https://imgur.com/NXUYpmm.png)
-
-![We will use the placeholder for the variable we created. Use %var\_x\_int% if you still used PLAYER\_STRING](https://imgur.com/0qDthRo.png)
-
-![We will use this comparator](https://imgur.com/UrVtgM8.png)
-
-![We will use 1 value as the "on" option](https://imgur.com/bJKV5hy.png)
-
-### Add the other item cooldown to the item itself
-
-* For example, the id of the ei item is `onoff-demo`. You would then have to go to this icon then follow the pictures.
-
-![](https://imgur.com/mmHsaP4.png)
-
-![](https://imgur.com/AnnDswf.png)
-
-![](https://imgur.com/Q6VJClp.png)
-
-For example, the id of the on/off switch is "faker", so select "faker".
-
-![](https://imgur.com/tFly1dt.png)
-
-Ever since 5.0 dropped, activator ids start from "activator0" instead of "activator1". Anyway, you would want to select the second activator as activators run from top to bottom. 
-
-:::info
-This option is important because if there's no cooldown, it will ram through the the 2nd activator that's supposed to turn off the activator
-:::
-
-![Set the cooldown to 1 or 2. You decide](https://imgur.com/zv8iOie.png)
-
-![](https://imgur.com/IZxLfQ9.png)
-
-This is suggested to be set to true if you want the item to be spammable. One tick is enough to prevent the ramming mentioned above.
-
-![](https://imgur.com/GB5OuD0.png)
-
-##
-
-### Save the EI Item
-
-* It should look like this (We added on commands to say ON (activator1) and OFF (activator2) to show you how it is working :p
-
-## Item config
+## Full YAML
 
 ```yaml
 name: '&e&lOn/Off Demo'
-lore: []
+lore:
+  - '&7State: &f%var_x%'
 material: LEVER
 glow: true
+disableStack: false
+keepItemOnDeath: false
+canBeUsedOnlyByTheOwner: false
+cancelEventIfNotOwner: false
 usage: 1
 usageLimit: -1
-hiders:
-  hideEnchantments: false
-  hideUnbreakable: false
-  hideAttributes: false
-  hidePotionEffects: false
-  hideUsage: true
-  hideDye: false
-enchantments: {}
-restrictions:
-  cancel-item-place: false
 variables:
   x:
     variableName: x
     type: NUMBER
     default: 0.0
-attributes: {}
+
 activators:
+  # Activator 0 — fires when OFF (x = 0), toggles to ON
   activator0:
     name: '&eToggle-On'
     option: PLAYER_ALL_CLICK
-    typeTarget: NO_TYPE_TARGET
     usageModification: 0
     cancelEvent: true
     silenceOutput: false
-    autoUpdateItem: false
+    autoUpdateItem: true
+    updateName: false
+    updateLore: true
+    # Put a 1-tick cooldown on activator1 so it can't also fire this click
     otherEICooldowns:
       cd0:
-        executableItem: onoff-demo
+        executableItem: onoff-demo     # Replace with your item's ID
         activators:
-        - activator1
+          - activator1
         cooldown: 1
         isCooldownInTicks: true
-    requiredItems:
-      errorMessage: ''
-    requiredExecutableItems:
-      errorMessage: ''
-    detailedSlots:
-    - -1
-    playerCommands:
-    - SENDMESSAGE Toggled On
-    playerConditions: {}
-    worldConditions: {}
-    itemConditions: {}
-    customConditions: {}
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    # Only fires when x == 0 (OFF state)
     placeholdersConditions:
-      plchC1:
-        type: PLAYER_NUMBER
-        comparator: EQUALS
-        part1: '%var_x%'
-        part2: '0.0'
-        cancelEventIfNotValid: true
-        messageIfNotValid: '&e'
+      plcd0:
+        placeholder: '%var_x%'
+        comparator: '=='
+        value: '0.0'
+        messageIfNotValid: ''
+    commands:
+      - SEND_MESSAGE &a✦ Toggled ON
+      # Add your ON commands here
     variablesModification:
       varModif0:
         variableName: x
         type: SET
-        modification: 1.0
+        modification: 1.0    # Switch to ON state
+
+  # Activator 1 — fires when ON (x = 1), toggles to OFF
   activator1:
     name: '&eToggle-Off'
     option: PLAYER_ALL_CLICK
-    typeTarget: NO_TYPE_TARGET
     usageModification: 0
     cancelEvent: true
     silenceOutput: false
-    autoUpdateItem: false
+    autoUpdateItem: true
+    updateName: false
+    updateLore: true
+    # Put a 1-tick cooldown on activator0 so it can't also fire this click
     otherEICooldowns:
       cd0:
-        executableItem: onoff-demo
+        executableItem: onoff-demo     # Replace with your item's ID
         activators:
-        - activator0
+          - activator0
         cooldown: 1
         isCooldownInTicks: true
-    requiredItems:
-      errorMessage: ''
-    requiredExecutableItems:
-      errorMessage: ''
-    detailedSlots:
-    - -1
-    playerCommands:
-    - SENDMESSAGE Toggled Off
-    playerConditions: {}
-    worldConditions: {}
-    itemConditions: {}
-    customConditions: {}
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    # Only fires when x == 1 (ON state)
     placeholdersConditions:
-      plchC1:
-        type: PLAYER_NUMBER
-        comparator: EQUALS
-        part1: '%var_x%'
-        part2: '1.0'
-        cancelEventIfNotValid: true
-        messageIfNotValid: '&e'
+      plcd0:
+        placeholder: '%var_x%'
+        comparator: '=='
+        value: '1.0'
+        messageIfNotValid: ''
+    commands:
+      - SEND_MESSAGE &c✦ Toggled OFF
+      # Add your OFF commands here
     variablesModification:
       varModif0:
         variableName: x
         type: SET
-        modification: 0.0
-
+        modification: 0.0    # Switch to OFF state
 ```
 
-## Last comment
+:::tip
+Replace `onoff-demo` in both `otherEICooldowns` sections with your actual EI item ID.
+:::
 
-If you have any question or you think the guide wasn't clear enough, feel free to ask in Discord.\
-We will help you ! 😁😁
+---
+
+## Practical example — Fly toggle
+
+Combine the ON/OFF pattern with `FLY_ON` and `FLY_OFF` commands:
+
+```yaml
+# In activator0 (turn ON):
+commands:
+  - FLY_ON
+  - SEND_MESSAGE &a✦ Flight enabled!
+
+# In activator1 (turn OFF):
+commands:
+  - FLY OFF
+  - SEND_MESSAGE &c✦ Flight disabled!
+```
+
+---
+
+## Tips
+
+- **Lore display**: use `%var_x%` or a placeholder condition in the lore to show the
+  current state. Enable `autoUpdateItem: true` on both activators so the lore refreshes.
+- **More than 2 states**: extend the pattern to 3+ states by adding more activators,
+  each gated on a different value of `x` (0, 1, 2, ...).
+- **Without premium**: if you don't have premium, use a 1-tick `cooldownOptions.cooldown`
+  on each activator and rely on sequential activator ordering (activator0 fires first and
+  immediately changes `x`, so activator1's condition `x == 1` isn't met yet on the same
+  tick... but this can be unreliable — premium's `otherEICooldowns` is the clean solution).
