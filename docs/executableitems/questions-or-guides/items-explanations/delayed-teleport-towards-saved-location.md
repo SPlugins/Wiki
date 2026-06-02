@@ -1,130 +1,197 @@
 ---
 description: >-
-  This should give you basic understanding on how to utilize variables for good
-  combinations
+  An item that saves your current location on right-click and teleports you
+  back to it 30 seconds later — teaching the two-activator variable pattern
+  where one activator saves and the next reads the saved value.
 ---
 
 # Delayed Teleport Towards Saved Location
 
-## Tutorial:
+This item teaches an important EI pattern: using **two activators** to save a
+variable and then consume it in a delayed command. Both fire on the same right-click,
+but because `variablesModification` runs **after** commands, the save must happen in
+activator 0 so that activator 1's commands can read the freshly saved value.
 
-Ok for starters, we will create an item that once right clicked, it will teleport as back to that very location.
+---
 
-### 1) Create an ei item
+## How it works
 
-![](https://imgur.com/DqSxIbx.png)
+| Step | What happens |
+|---|---|
+| Right-click | Activator 0 fires first: saves `%player_x%`, `%player_y%`, `%player_z%` into variables |
+| Right-click | Activator 1 fires second: `DELAY 30` waits 30 seconds, then `TELEPORT` uses the saved variables |
+| 30 seconds later | Player is teleported back to the saved location |
 
-This is important as usual. Because how would you make the item without the item itself?
+:::warning Two activators are required
+Commands run **before** `variablesModification` within the same activator. If you put
+both the save and the teleport in one activator, the teleport command runs with the
+**old** variable values (before the save). The two-activator split ensures the save
+completes before the teleport reads it.
+:::
 
-### 2) Go to the variables editor
+---
 
-![](https://imgur.com/iRfOaWY.png)
+## YAML
 
-### 3) Create a new variable
+```yaml
+name: '&b⏱ Return Stone'
+lore:
+  - '&7Right-click to save your location.'
+  - '&7Teleports you back in 30 seconds.'
+  - '&8Saved: &7%var_save_x% %var_save_y% %var_save_z%'
+material: ENDER_PEARL
+glow: true
+disableStack: false
+keepItemOnDeath: false
+canBeUsedOnlyByTheOwner: false
+cancelEventIfNotOwner: false
+usage: 0
+usageLimit: -1
+variables:
+  save_x:
+    type: STRING
+    default: '0'
+  save_y:
+    type: STRING
+    default: '0'
+  save_z:
+    type: STRING
+    default: '0'
+  save_world:
+    type: STRING
+    default: 'world'
 
-![](https://imgur.com/yknAsG7.png)
+activators:
+  # Activator 0 — save current location into variables (fires first)
+  activator0:
+    name: '&eSave location'
+    option: PLAYER_RIGHT_CLICK
+    usageModification: 0
+    cancelEvent: false
+    silenceOutput: true
+    autoUpdateItem: true          # Refreshes lore to show saved coords
+    updateName: false
+    updateLore: true
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    commands: []         # No commands — variablesModification runs here after commands
+    variablesModification:
+      varUpdt0:
+        variableName: save_x
+        type: SET
+        modification: '%player_x%'
+      varUpdt1:
+        variableName: save_y
+        type: SET
+        modification: '%player_y%'
+      varUpdt2:
+        variableName: save_z
+        type: SET
+        modification: '%player_z%'
+      varUpdt3:
+        variableName: save_world
+        type: SET
+        modification: '%player_world%'
+    playerConditions: {}
+    worldConditions: {}
 
-### 4) Set up the variable
+  # Activator 1 — reads saved vars and teleports after delay (fires second)
+  activator1:
+    name: '&eTeleport after delay'
+    option: PLAYER_RIGHT_CLICK
+    usageModification: 0
+    cancelEvent: false
+    silenceOutput: true
+    autoUpdateItem: false
+    cooldownOptions:
+      cooldown: 35        # Slightly longer than the delay to avoid overlapping teleports
+      isCooldownInTicks: false
+      cooldownMsg: '&cAlready returning! &e%time_S%s remaining.'
+      displayCooldownMessage: true
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    commands:
+      - SEND_MESSAGE &7Location saved. &bReturning in 30 seconds...
+      - DELAY 30
+      - TELEPORT %var_save_world% %var_save_x% %var_save_y% %var_save_z%
+      - SEND_MESSAGE &b✓ Teleported back to your saved location!
+    variablesModification: {}
+    playerConditions: {}
+    worldConditions: {}
+```
 
-![](https://imgur.com/SPY6bT7.png)
+:::note
+`%var_save_x%` etc. are resolved **when the TELEPORT command runs** (after the
+30-second delay). Because those values were already written into the item's NBT by
+activator 0, they reflect the location at the moment the player right-clicked — not
+where the player is after the delay expires.
+:::
 
-For this part, we will set the variable name's to "x" to make things simple
+---
 
-### 5) Set the variable type to STRING
+## Why the activator order matters
 
-![](https://imgur.com/naNmaen.png)
+Activators execute sequentially by ID: `activator0` → `activator1`.
 
-### 6) Don't mind too much about the value
+Within each activator: **commands run first**, then `variablesModification`.
 
-![](https://imgur.com/rhTVie0.png)
+So the full sequence when the player right-clicks is:
 
-We will be dealing with the value later.
+```
+activator0: commands (empty) → variablesModification (saves x/y/z/world)
+activator1: commands (DELAY 30 → TELEPORT %var_save_x%) → variablesModification (empty)
+```
 
-### 7) Save the variable. Do not forget or else you might have to go back to the top
+When activator1's `TELEPORT` command finally fires (30 seconds later), it reads
+`%var_save_x%` from the item NBT — the value activator0 already wrote. Reversing the
+activator order would mean activator1 reads the **previously saved** location (from
+the last use), not the current one.
 
-![](https://imgur.com/EgYwbAq.png)
+---
 
-### 8) Go back to the main item editor by pressing the back button
+## Variations
 
-![](https://imgur.com/c0PZVjl.png)
+### Instant recall (no delay)
 
-![](https://imgur.com/IOxGLSP.png)
+Remove the `DELAY 30` line from activator1:
 
-### 9) Go to the activator editor
+```yaml
+commands:
+  - SEND_MESSAGE &b✓ Teleported back to saved location!
+  - TELEPORT %var_save_world% %var_save_x% %var_save_y% %var_save_z%
+```
 
-![](https://imgur.com/dcsImOz.png)
+### Separate save and return triggers
 
-### 10) Create a new activator
+Bind the save to right-click and the return to shift+right-click:
 
-![](https://imgur.com/Liulvko.png)
+```yaml
+activator0:
+  option: PLAYER_RIGHT_CLICK
+  playerConditions:
+    ifSneaking: false
+  # saves coordinates ...
 
-### 11) Create a PLAYER\_RIGHT\_CLICK\_ACTIVATOR
-
-![](https://imgur.com/U5QgSwz.png)
-
-### 12) Go to the variables editor of the activator
-
-![](https://imgur.com/qjuzvez.png)
-
-Ok so here's the explanation. First, we will create a variable update which will save our coordinates. Further explanation ahead.
-
-### 13) Click this icon 
-
-![](https://imgur.com/Wjym249.png)
-
-### 14) Click this icon to go to the chat editor and type the name of the variable we created at step 4)
-
-![](https://imgur.com/OPy88ld.png)
-
-You see, the default value for this is "var" and we are editing a variable under the name of "x". Back then in pre 5.0, we get to just click the icon to scroll through the list of variables under this item but now, we have to manually type it.
-
-### 15) Set the type to "SET"
-
-![](https://imgur.com/OoUQPPK.png)
-
-### 16) Type "%x% %y% %z%" in this icon
-
-![](https://imgur.com/Ux6L15l.png)
-
-In the string update option, the placeholders in it is parsed before it gets displayed or used somewhere else.
-
-### 17) Press the save button
-
-![](https://imgur.com/vSAlHjj.png)
-
-### 18) Go back to the activator editor and save
-
-![](https://imgur.com/Fa3QsOX.png)
-
-### 19) Create a 2nd activator
-
-![](https://imgur.com/Liulvko.png)
-
-### 20) Create another activator with the same kind
-
-![](https://imgur.com/U5QgSwz.png)
-
-You might be curious, why the heck did we create another right click activator? Because the first activator's task is to save our coordinates via variable update. 
-
-You might say, "Can't we just do everything in one activator?" Nope. Commands run first then the variables. Try doing it in one activator and it will not produce the wanted results. 
-
-### 21) Go to the commands editor
-
-![](https://imgur.com/B2NzuHH.png)
-
-### 22) Add the following commands in the chat editor
-
-![](https://imgur.com/BhJhESg.png)
-
-Ok. Here's the explanation. \
-`DELAY 30` will delay the command for 30 seconds. When it comes to variables, the activator order matters A LOT. Reversing the order of the 2 activators will break the item. 
-
-As said in the placeholders page, placeholders from the plugin will be parsed immediately meaning that any changes that are bound to happen will not affect the values. With the variable update in step 16, %var\_x% will transform into the xyz coordinates of where you used the item so after 30 seconds, you will be teleported back to the exact location properly (unless you changed worlds but that's not the goal here.)
-
-After typing the commands, of course press the exit button.
-
-### 23) Save the item and try it out
-
-![](https://imgur.com/Ib09XI6.png)
-
-Save the item and try it out!
+activator1:
+  option: PLAYER_RIGHT_CLICK
+  playerConditions:
+    ifSneaking: true
+    ifSneakingMsg: ''
+  commands:
+    - TELEPORT %var_save_world% %var_save_x% %var_save_y% %var_save_z%
+```
