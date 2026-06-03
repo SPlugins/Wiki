@@ -79,7 +79,15 @@ const config = {
             });
           },
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          blogTitle: 'Ssomar Plugins Blog',
+          blogDescription: 'Minecraft plugin guides, comparisons, and server setup tips from the Ssomar dev team.',
+          blogSidebarCount: 5,
+          blogSidebarTitle: 'Recent posts',
+          routeBasePath: 'blog',
+          authorsMapPath: 'authors.yml',
+        },
         gtag: {
           trackingID: 'G-JNS4Y63DCS',
         },
@@ -172,6 +180,11 @@ const config = {
             position: 'left',
             label: 'AI Assistant',
             target: '_blank',
+          },
+          {
+            to: '/blog',
+            position: 'left',
+            label: 'Blog',
           },
           // {
           //   to: '/ssomar-services',

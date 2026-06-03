@@ -1,0 +1,297 @@
+---
+title: "How to Add Custom Abilities to Minecraft Items (No Coding Required)"
+description: "Step-by-step guide to adding custom abilities to Minecraft items using ExecutableItems — right-click effects, cooldowns, conditions, and more."
+slug: how-to-add-custom-abilities-minecraft-items
+authors: [ssomar]
+tags: [executableitems, tutorial, minecraft-plugins, custom-abilities, no-coding]
+date: 2026-06-03
+image: /img/blog/custom-abilities-guide-2026.png
+keywords:
+  - how to add custom abilities minecraft
+  - minecraft custom item abilities
+  - executableitems tutorial
+  - minecraft right click effects
+  - custom item plugin minecraft
+  - no coding minecraft plugin
+---
+
+Want Minecraft items that actually *do something* when you use them — a wand that fires fireballs, boots that let you double-jump, a sword that steals health on hit?
+
+You can build all of this in under 10 minutes, with no coding, using **ExecutableItems**.
+This guide walks you through the core concepts and shows you three complete examples you can drop straight onto your server.
+
+{/* truncate */}
+
+---
+
+## What Is ExecutableItems?
+
+[ExecutableItems](https://docs.ssomar.com/executableitems/information-ei) is a Minecraft plugin that lets you attach **event-driven abilities** to any item using simple YAML configuration files.
+
+Every time something happens — a player right-clicks, breaks a block, gets hit, jumps, sprints — ExecutableItems can intercept that event and run whatever commands you've configured: teleport the player, deal damage, spawn mobs, give potion effects, launch projectiles, or anything else the server can do.
+
+No Java, no scripting language, no plugin development experience required.
+
+---
+
+## The Three Building Blocks
+
+Before diving into examples, understand these three concepts:
+
+### 1. Activators (Triggers)
+
+An **activator** is the event that causes your ability to fire. ExecutableItems has **100+ activators**, including:
+
+| Activator | When it fires |
+|---|---|
+| `PLAYER_RIGHT_CLICK` | Player right-clicks in air or on a block |
+| `PLAYER_HIT_ENTITY` | Player hits a mob or animal |
+| `PLAYER_RECEIVE_HIT_BY_ENTITY` | Player takes damage from any entity |
+| `PLAYER_BEFORE_DEATH` | Player is about to die |
+| `PLAYER_ENABLE_SPRINT` | Player starts sprinting |
+| `LOOP` | Repeatedly, every N ticks (premium) |
+
+Each item can have **multiple activators** — a sword can have one ability on hit and a different ability on right-click.
+
+### 2. Commands
+
+When an activator fires, it runs a list of **commands**. These can be:
+
+- **SCore custom commands**: `LAUNCH`, `FRONTDASH`, `DAMAGE`, `PICKUP_MAGNET`, `SET_HEALTH`, etc.
+- **Vanilla commands** prefixed with `[CONSOLE]`: `[CONSOLE] effect give %player% speed 100 1`
+- **Delays** and **conditional branching**: `DELAY 5`, `DELAYTICK 20`, `IF`
+
+### 3. Conditions
+
+Before running commands, activators can check conditions:
+- Player health, level, food, permissions
+- World, region (WorldGuard), time of day
+- Whether the player is sneaking, gliding, swimming
+- Placeholder values from any PAPI expansion
+- Random chance (`%rng_1,4%` for 25% probability)
+
+---
+
+## Example 1 — Healing Staff (right-click to restore health)
+
+A simple wand that restores 4 hearts on right-click with a 10-second cooldown.
+
+**Create the item:**
+
+```
+/ei create healing_staff
+```
+
+**Edit the YAML** (`plugins/ExecutableItems/items/healing_staff.yml`):
+
+```yaml
+name: '&d✦ Healing Staff'
+lore:
+  - '&7Right-click to restore &a4 hearts&7.'
+material: BLAZE_ROD
+glow: true
+usage: 0
+usageLimit: -1
+
+activators:
+  activator0:
+    name: '&eHeal'
+    option: PLAYER_RIGHT_CLICK
+    cancelEvent: true
+    cooldownOptions:
+      cooldown: 10
+      isCooldownInTicks: false
+      cooldownMsg: '&cStaff recharging! &e%time_S%s remaining.'
+      displayCooldownMessage: true
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    commands:
+      - REGAIN_HEALTH 8          # 8 half-hearts = 4 full hearts
+      - SEND_MESSAGE &d✦ &fHealed for &a4 hearts&f!
+      - [CONSOLE] playsound minecraft:entity.experience_orb.pickup player %player% ~ ~ ~ 1 1.5
+```
+
+**Reload and give:**
+
+```
+/ei reload
+/ei give <yourName> healing_staff 1
+```
+
+---
+
+## Example 2 — Vampiric Sword (life steal on hit)
+
+Deals bonus damage and steals 15% of the target's max health back for the attacker.
+
+```yaml
+name: '&4🩸 Vampiric Blade'
+lore:
+  - '&7Steals &c15% &7of the target''s max HP on hit.'
+material: IRON_SWORD
+glow: true
+usage: 0
+usageLimit: -1
+
+activators:
+  activator0:
+    name: '&eLife steal on hit'
+    option: PLAYER_HIT_ENTITY
+    cancelEvent: false
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    # Steal health from entity
+    entityCommands:
+      - DAMAGE 4                  # Deal 2 extra hearts on top of base weapon damage
+    # Restore health to attacker
+    commands:
+      - REGAIN_HEALTH %math_(%entity_max_health%)*0.15%
+```
+
+:::info
+`%math_(%entity_max_health%)*0.15%` reads the target's max health and returns 15% of it.
+This requires **PlaceholderAPI** with the **Math** or **Player** expansion.
+:::
+
+---
+
+## Example 3 — Rocket Boots (double-jump)
+
+Boots that launch the player upward when they jump a second time in the air.
+
+```yaml
+name: '&e🚀 Rocket Boots'
+lore:
+  - '&7Jump again in the air to boost upward!'
+material: GOLDEN_BOOTS
+glow: true
+usage: 0
+usageLimit: -1
+
+activators:
+  activator0:
+    name: '&eDouble jump'
+    option: PLAYER_ALL_CLICK      # Right or left click in the air while jumping
+    cancelEvent: false
+    cooldownOptions:
+      cooldown: 3
+      isCooldownInTicks: false
+      cooldownMsg: '&cBooster cooling down! &e%time_S%s.'
+      displayCooldownMessage: true
+      cancelEventIfInCooldown: false
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: ''
+      displayCooldownMessage: false
+      cancelEventIfInCooldown: false
+    # Only fire when player is airborne (not on the ground)
+    playerConditions:
+      ifNotOnGround: true
+      ifNotOnGroundMsg: ''
+    detailedSlots:
+      - 36    # Boots slot — only works when worn
+    commands:
+      - LAUNCH 0 1.5 0            # Launch straight up
+      - [CONSOLE] playsound minecraft:entity.firework_rocket.launch player %player% ~ ~ ~ 0.7 1.2
+```
+
+---
+
+## Extending Your Items
+
+Once you have the basics, you can layer in more features:
+
+### Add a usage limit
+
+```yaml
+usage: 5          # Starts with 5 uses
+usageLimit: -1
+
+activators:
+  activator0:
+    usageModification: -1   # Each use removes 1 charge
+```
+
+### Add a permission requirement
+
+```yaml
+playerConditions:
+  ifHasPermission:
+    - vip.items.vampiric
+  ifHasPermissionMsg: '&cVIP only!'
+```
+
+### Add a random chance (25% to trigger)
+
+```yaml
+placeholdersConditions:
+  plcd0:
+    placeholder: '%rng_1,4%'
+    comparator: '=='
+    value: '1'
+```
+
+### Make it work only in specific worlds
+
+```yaml
+worldConditions:
+  ifInWorld:
+    - pvp_world
+  ifInWorldMsg: '&cThis item only works in the PvP world!'
+```
+
+---
+
+## Using the In-Game GUI
+
+You don't have to edit YAML manually. Run `/ei gui` (or `/ei editor`) to open the item editor where you can:
+
+- Browse all your items and create new ones
+- Choose activators from a menu
+- Set conditions, cooldowns, and commands by clicking GUI buttons
+- Preview and test changes instantly
+
+The GUI generates the YAML automatically, so you can study the files it creates to learn the syntax.
+
+---
+
+## Free vs Premium
+
+| Feature | Free | Premium |
+|---|:---:|:---:|
+| Max items | 500 | Unlimited |
+| Activators per item | 1 | Unlimited |
+| Available activators | ~14 | 100+ |
+| Variables | ❌ | ✅ |
+| LOOP activator | ❌ | ✅ |
+| Lore watermark | ✅ | ❌ |
+| Price | €0 | **€19.99 one-time** |
+
+The free tier is enough to build the three examples above. Premium unlocks the full activator list and variables (which enable toggles, counters, and stateful items like the vampiric sword combo tracker).
+
+---
+
+## What's Next?
+
+- **[Download ExecutableItems free](https://modrinth.com/plugin/executableitems)** — works on Paper/Spigot 1.16+
+- **[Full documentation](https://docs.ssomar.com/executableitems/information-ei)** — complete activator list, all commands, conditions, and YAML reference
+- **[120+ premade items](https://docs.ssomar.com/executableitems/information-ei)** — veinminer pickaxes, grappling hooks, explosive bows, custom totems — all included with premium
+- **[Discord community](https://discord.com/invite/TRmSwJaYNv)** — get help, share your items, or browse the showcase channel
+
+The three examples above are just the beginning. Once you understand the activator→condition→command pipeline, you can build almost anything: guns with reloads, armor set bonuses, region-based buffs, skill trees stored in variables, and more.
