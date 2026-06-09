@@ -1,0 +1,293 @@
+---
+title: "Minecraft Custom Events Plugin Guide 2026: Make Your Server React to Everything"
+description: "Learn how to use a Minecraft custom events plugin to react to player joins, mining, boss spawns, and more. Full YAML examples using ExecutableEvents — no coding required."
+slug: minecraft-custom-events-plugin-guide-2026
+authors: [ssomar]
+tags: [executableevents, server-events, minecraft-plugins, tutorial, 2026]
+date: 2026-06-09
+image: /img/blog/custom-events-guide-2026.png
+keywords:
+  - minecraft custom events plugin
+  - server events minecraft
+  - executableevents tutorial
+  - minecraft server automation
+  - custom server events no coding
+  - minecraft plugin events 2026
+---
+
+Imagine your Minecraft server doing this: a new player joins and instantly receives a welcome kit. A miner breaks diamond ore and has a 1-in-10 chance of getting a bonus reward with a firework pop. A Wither spawns and every player on the server gets a screen-wide warning title with a dramatic sound.
+
+None of this requires code, a developer, or even a plugin with a GUI. It just requires a **custom events plugin** — and five minutes with a YAML file.
+
+This guide explains what custom server events are, why they're the most underrated tool for server admins in 2026, and how to build all three of the examples above using **ExecutableEvents**.
+
+{/* truncate */}
+
+---
+
+## What Are Custom Server Events?
+
+Every time something happens on a Minecraft server — a player logs in, breaks a block, kills a mob, types a command — Bukkit fires an *event*. By default, the server handles these events in vanilla ways: the block drops its item, the kill counts toward statistics, the chat logs the message.
+
+A **custom events plugin** intercepts those same events and lets you attach your own logic. You decide what commands run, under what conditions, with what cooldowns and delays. The server still processes the original event normally (unless you tell it not to), and your custom actions fire on top.
+
+This is different from:
+- **Custom item plugins** (like ExecutableItems) — those attach logic to *items* that a player is holding.
+- **Custom block plugins** (like ExecutableBlocks) — those attach logic to *specific placed blocks*.
+- **Custom events plugins** — these attach logic to *server-wide events* regardless of which item or block is involved.
+
+The result is server-level automation. Events can fire for every player, every mob, every block break — or only when very specific conditions are met.
+
+---
+
+## Why Custom Events Are Game-Changing
+
+Most server admins manage events through a patchwork of individual plugins: a join-message plugin, a first-join kit plugin, a kill-streak plugin, a boss-announce plugin. Each one is a separate install, a separate config, a separate source of conflicts.
+
+A custom events plugin replaces all of them with a single, unified system.
+
+Here's what becomes possible:
+
+- **Onboarding flows** — first-join kits, tutorial triggers, welcome messages, starter permission assignments
+- **Economy events** — bonus drops on specific blocks, luck-based rewards, daily login bonuses
+- **Progression milestones** — announcements when a player reaches a kill streak, mines 1000 blocks, earns an advancement
+- **World events** — reactions when the Wither spawns, when it rains, when a raid starts, when a player enters a WorldGuard region
+- **Scheduled server loops** — hourly events, server-wide effects, day/night cycles with custom behavior
+
+All of this configured in plain YAML, running on your existing server with no coding required.
+
+---
+
+## ExecutableEvents vs Skript vs Alternatives
+
+Before building anything, it's worth knowing what your options are.
+
+| Tool | Syntax | Learning curve | Performance | Minecraft version support |
+|---|---|---|---|---|
+| **ExecutableEvents** | YAML | Low | High (Java plugin) | 1.17 – 1.21+ |
+| Skript | Skript DSL | Medium | Medium | 1.9 – 1.21 |
+| CommandBlock chains | Vanilla | Low | Low (tick-heavy) | All versions |
+| Custom Java plugin | Java | High | Highest | Any |
+
+**ExecutableEvents** wins for server admins who want reliability and speed without learning a scripting language. Its YAML format is identical to the rest of the Ssomar plugin ecosystem (ExecutableItems, ExecutableBlocks), so if you already know one, you know all of them.
+
+**Skript** is a good alternative if you enjoy scripting and need very custom control flow — loops with complex logic, string manipulation, dynamic variable names. Its syntax is readable but has a steeper initial curve and can have performance overhead with many concurrent scripts.
+
+**Command block chains** work for simple triggers but don't scale — they're hard to maintain, can't handle async conditions, and have no support for placeholders or external plugin integrations.
+
+**Custom Java plugins** offer maximum flexibility but require a developer and maintenance across Minecraft updates.
+
+For most server owners in 2026, ExecutableEvents is the correct choice: **YAML config, zero dependencies beyond SCore, free tier available, premium at €12.29**.
+
+---
+
+## Example 1 — Welcome Kit for First-Time Players
+
+The classic server onboarding flow: a player joins for the very first time and receives a kit, a message, and a short speed buff to help them get moving.
+
+Create a new file at `plugins/ExecutableEvents/events/welcome-kit.yml`:
+
+```yaml
+enabled: true
+editorIcon: NETHER_STAR
+name: '&6Welcome Kit'
+disabledWorlds: []
+activators:
+  activator0:
+    name: '&eFirst Join Gift'
+    option: PLAYER_FIRST_CONNECTION
+    cancelEvent: false
+    silenceOutput: false
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      displayCooldownMessage: false
+    placeholdersConditions: {}
+    playerConditions: {}
+    commands:
+    - 'SENDMESSAGE &6&lWelcome to the server, &e%player%&6&l!'
+    - 'SENDMESSAGE &7You have received a starter kit. Survive and thrive!'
+    - '[CONSOLE] give %player% cooked_beef 16'
+    - '[CONSOLE] give %player% iron_sword 1'
+    - '[CONSOLE] give %player% torch 32'
+    - '[CONSOLE] effect give %player% speed 200 1'
+    - 'DELAYTICK 20'
+    - '[BROADCAST] &e%player% &7just joined the server for the first time! Say hello!'
+```
+
+**What this does:**
+- Activator `PLAYER_FIRST_CONNECTION` fires *only once per player*, on their very first login — not on every login.
+- The player gets food, a sword, torches, and a 10-second speed boost.
+- After a 1-second delay (`DELAYTICK 20`), a broadcast announces their arrival to the server.
+
+Reload with `/ee reload` and test by logging in with a fresh account.
+
+---
+
+## Example 2 — Lucky Mining Bonus
+
+Players who break blocks have a 10% chance to receive a bonus diamond with a particle effect. Great for survival servers that want to reward active miners without changing ore generation.
+
+Create `plugins/ExecutableEvents/events/lucky-mining.yml`:
+
+```yaml
+enabled: true
+editorIcon: DIAMOND_ORE
+name: '&bLucky Mining Bonus'
+disabledWorlds: []
+activators:
+  activator0:
+    name: '&eLucky Break'
+    option: PLAYER_BLOCK_BREAK
+    cancelEvent: false
+    silenceOutput: false
+    cooldownOptions:
+      cooldown: 30
+      isCooldownInTicks: false
+      cooldownMsg: '&7(Lucky Mining on cooldown: &e%time_S%s&7 remaining)'
+      displayCooldownMessage: false
+    placeholdersConditions:
+      rngCondition:
+        type: PLAYER
+        placeholder: '%rng_1,10%'
+        comparator: EQUALS
+        value: '1'
+    playerConditions: {}
+    commands:
+    - 'SENDMESSAGE &b&lLucky! &7You found a bonus diamond while mining!'
+    - '[CONSOLE] give %player% diamond 1'
+    - 'PARTICLE FIREWORK %player_x% %player_y% %player_z%'
+```
+
+**Key points:**
+- `%rng_1,10%` generates a random integer between 1 and 10. `EQUALS 1` means exactly a 10% chance.
+- The 30-second cooldown prevents the bonus from triggering on every block in a rapid-break sequence.
+- `displayCooldownMessage: false` keeps the cooldown silent — players just don't get the bonus, no spam.
+- `PARTICLE FIREWORK` is a SCore command that fires a burst of firework particles at the given coordinates.
+
+To narrow this to only diamond ores, add a `placeholdersConditions` entry checking `%block_name%` against `diamond_ore` or `deepslate_diamond_ore` — or use the `detailedBlocks` field in the activator configuration.
+
+---
+
+## Example 3 — Boss Spawn Warning *(Premium)*
+
+When a Wither spawns anywhere in the world, broadcast a server-wide alert with a title overlay and the ominous Wither sound. Requires ExecutableEvents premium for the `ENTITY_SPAWN` activator.
+
+Create `plugins/ExecutableEvents/events/wither-alert.yml`:
+
+```yaml
+enabled: true
+editorIcon: WITHER_SKELETON_SKULL
+name: '&4Wither Alert'
+disabledWorlds: []
+activators:
+  activator0:
+    name: '&cWither Spawn Warning'
+    option: ENTITY_SPAWN
+    detailedEntities:
+    - WITHER
+    cancelEvent: false
+    silenceOutput: false
+    cooldownOptions:
+      cooldown: 10
+      isCooldownInTicks: false
+      displayCooldownMessage: false
+    placeholdersConditions: {}
+    commands:
+    - '[BROADCAST] &4&l⚠ A WITHER HAS SPAWNED! &cPrepare yourselves!'
+    - '[CONSOLE] execute as @a run title @s times 10 70 20'
+    - '[CONSOLE] execute as @a run title @s title {"text":"⚠ WITHER SPAWNED","color":"dark_red","bold":true}'
+    - '[CONSOLE] execute as @a run playsound minecraft:entity.wither.spawn master @s'
+```
+
+**What this does:**
+- `ENTITY_SPAWN` with `detailedEntities: [WITHER]` fires *only* when a Wither is summoned.
+- A broadcast message hits the chat of every online player.
+- `execute as @a` runs the title and sound commands for all players simultaneously.
+- The 10-second cooldown prevents double-firing if the spawn event triggers more than once (rare but possible).
+
+The same pattern works for Elder Guardian (`ELDER_GUARDIAN`), Ender Dragon, Trial Spawner bosses, or any entity type you want to announce.
+
+---
+
+## Quick Start — Get ExecutableEvents Running in 5 Minutes
+
+### Step 1: Download and install
+
+1. Download [SCore](https://www.spigotmc.org/resources/score.96696/) — required dependency.
+2. Download [ExecutableEvents (free)](https://www.spigotmc.org/resources/custom-events-plugin-executableevents.107622/) or [ExecutableEvents (premium)](https://www.spigotmc.org/resources/%E2%AD%90-executableevents-%E2%AD%90-customize-your-events-very-easily.106537/).
+3. Drop both JARs in your `plugins/` folder and restart the server.
+
+### Step 2: Create your first event
+
+Events live in `plugins/ExecutableEvents/events/`. Create a new `.yml` file — the filename is just a label for you.
+
+The minimal valid event structure is:
+
+```yaml
+enabled: true
+editorIcon: LEVER
+name: '&eMy First Event'
+disabledWorlds: []
+activators:
+  activator0:
+    option: PLAYER_CONNECTION
+    cancelEvent: false
+    silenceOutput: false
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+    commands:
+    - 'SENDMESSAGE &aWelcome back, %player%!'
+```
+
+### Step 3: Reload and test
+
+Run `/ee reload` in-game or from the console. The event is now live — the next time the activator fires (in this case, a player connecting), your commands run.
+
+### Step 4: Add conditions and complexity
+
+- **Conditions** go under `placeholdersConditions` — check any PlaceholderAPI value, including custom SCore variables, player stats, permission groups.
+- **Cooldowns** prevent spam. Set `cooldown: 60` for a 60-second per-player cooldown.
+- **Multiple activators** in the same file let you chain behaviors — one file can handle both join and leave logic.
+- **SCore variables** let you track state across events (kill counts, login streaks, daily bonuses). See the [SCore Variables docs](https://docs.ssomar.com/tools-for-all-plugins-score/variables) for the full pattern.
+
+### Available activators
+
+ExecutableEvents ships with **100+ activators** across four categories:
+
+- **Player** — `PLAYER_CONNECTION`, `PLAYER_FIRST_CONNECTION`, `PLAYER_DEATH`, `PLAYER_BLOCK_BREAK`, `PLAYER_ADVANCEMENT`, `PLAYER_KILL_ENTITY`, `PLAYER_JUMP`, `PLAYER_WRITE_COMMAND`, and dozens more.
+- **Entity** *(premium)* — `ENTITY_SPAWN`, `ENTITY_DEATH`, `ENTITY_DAMAGE_BY_PLAYER`, `ENTITY_BREED`, `ENTITY_TRANSFORM`.
+- **Block** *(premium)* — `BLOCK_BURN`, `CROP_GROW`, `TNT_PRIME`, `REDSTONE_BLOCK_ACTIVATION`.
+- **Server** — `LOOP_SERVER` (recurring server tick), `WEATHER_CHANGE`, `WORLD_DAY`, `WORLD_NIGHT`, `RAID_TRIGGER`, `LIGHTNING_STRIKE`.
+
+The full list with descriptions and per-activator placeholders is in the [ExecutableEvents activators documentation](https://docs.ssomar.com/executableevents/configurations/activator-configuration/list-of-the-activators).
+
+---
+
+## What to Build Next
+
+These three examples scratch the surface of what's possible. Here are practical ideas that server owners ship with ExecutableEvents:
+
+- **Daily login bonus** — `PLAYER_CONNECTION` + SCore date variable + cooldown = one reward per day per player.
+- **Kill streak announcements** — `PLAYER_KILL_ENTITY` + SCore counter variable → broadcast on 5/10/25 kills.
+- **Raid defense reward** — `RAID_FINISH` → give emeralds and XP to players in the raid zone.
+- **Night curfew warning** — `WORLD_NIGHT` → warn all players, trigger mob cap changes via console.
+- **AFK detection loop** — `LOOP_SERVER` + position-tracking variables → detect and tag AFK players.
+
+Each of these is a single `.yml` file with one or two activators.
+
+---
+
+## Get ExecutableEvents
+
+| Version | Price | Where |
+|---|---|---|
+| **Free** | €0 | [Spigot](https://www.spigotmc.org/resources/custom-events-plugin-executableevents.107622/) · [Modrinth](https://modrinth.com/plugin/executableevents) |
+| **Premium** | **€12.29** | [Spigot](https://www.spigotmc.org/resources/%E2%AD%90-executableevents-%E2%AD%90-customize-your-events-very-easily.106537/) · [Polymart](https://polymart.org/resource/executableevents.3198) · [BuiltByBit](https://builtbybit.com/resources/executable-events.30657/) |
+
+Premium unlocks entity activators, block activators, and server-side event activators — the `ENTITY_SPAWN`, `CROP_GROW`, `WORLD_NIGHT`, and `RAID_TRIGGER` events shown in this guide all require the premium version.
+
+If you're running the full Ssomar plugin suite (ExecutableItems + ExecutableBlocks + ExecutableEvents), consider the **bundle** — all three plugins at a reduced price — available on the Discord server.
+
+Need help configuring an event? Join the [Discord community](https://discord.com/invite/TRmSwJaYNv) — the #support channel has answers to most common patterns within the hour.
