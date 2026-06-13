@@ -90,7 +90,7 @@ The question is, does it solve the issue? Not entirely. The cause of such issue 
 
 ### Q: I input the customModelData value to a chestplate. The inv custom texture works except the worn armor render. What happened?
 
-A: Configure the equip model at https://docs.ssomar.com/executableitems/configurations/item-configuration/item-features#equippable-features
+A: Configure the equip model at https://docs.splugins.net/executableitems/configurations/item-configuration/item-features#equippable-features
 :::info
 Snippet of the ei item config 
 ```yml

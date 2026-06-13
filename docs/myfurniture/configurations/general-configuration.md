@@ -15,7 +15,7 @@ On this page you will learn the configuration of MyFurniture that is on config.y
 # -
 # ----------------------------------
 # -
-# WIKI HERE : https://docs.ssomar.com/myfurniture/information-mf
+# WIKI HERE : https://docs.splugins.net/myfurniture/information-mf
 # DISCORD HERE : https://discord.com/invite/TRmSwJaYNv
 # -
 checkVersionMsg: true

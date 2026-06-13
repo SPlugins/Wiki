@@ -61,7 +61,7 @@ We need to take note of the activator ids of the 2 PLAYER_HIT_ENTITY activators.
 That is where we will add the EICOOLDOWN command.
 
 #### Add the EICOOLDOWN command
-[Click here to visit the command's page](https://docs.ssomar.com/tools-for-all-plugins-score/custom-commands/player-and-target-commands#eicooldown)
+[Click here to visit the command's page](https://docs.splugins.net/tools-for-all-plugins-score/custom-commands/player-and-target-commands#eicooldown)
 
 We will write the command like this:
 ```
