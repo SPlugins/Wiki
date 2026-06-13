@@ -4,7 +4,7 @@ import CustomTag from '@site/src/components/CustomTag';
 
 Commands are a list of commands that are run from the console when the activator if it meet all conditions and requirements.  You can use vanilla commands here, SCore commands and another plugin commands.
 
-* All the command lines of this command list are placeholder parsed first with placeholders from Ssomar Plugins and then its parsed through PAPI. 
+* All the command lines of this command list are placeholder parsed first with placeholders from SPlugins and then its parsed through PAPI. 
   * Its recommended to check [Placeholders](/tools-for-all-plugins-score/placeholders) to see what placeholders can you run on each activator.
 * There are three type of entity targets on commands
   * Player: Its the player/user who triggered the activator on the ExecutableItem

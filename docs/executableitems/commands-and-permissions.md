@@ -47,8 +47,8 @@ To give the permissions of all items, I advice you to download a permission plug
 
 Here you will learn about commands of ExecutableItems, there will be some words that will be repeaten through the explanation, here they are:
 
-* SsomarPluginsItem: Its the ID of an ExecutableItem that its created, the same way it can be "Excalibur", "SuperPickaxe", "turtle", "12345", we stablished this name.
-* SsomarPluginsPlayer: Its the name of a player, the same way there is "Vayk\_", "Ssomar", "Special70", "Tidal\_Flame" there is also this name.
+* SPluginsItem: Its the ID of an ExecutableItem that its created, the same way it can be "Excalibur", "SuperPickaxe", "turtle", "12345", we stablished this name.
+* SPluginsPlayer: Its the name of a player, the same way there is "Vayk\_", "Ssomar", "Special70", "Tidal\_Flame" there is also this name.
 
 The format of the commands will have different symbols:
 
@@ -67,14 +67,14 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 * Command: **/ei create \{id\}**
   * `id`: ID of the ExecutableItem.
   * If you want **copy the item of another plugin**, or a custom vanilla item (Banner, Shield, ...), it's simple ! Take it in your main hand and execute this create command.
-* Example: `/ei create SsomarPluginsItem`
+* Example: `/ei create SPluginsItem`
 * Permission: `ei.cmd.create`
 
 #### Create a new ExecutableItem from a targeted block
 
 * Command: /ei create-from\_block \{id\}
   * `id`: ID of the ExecutableItem.
-* Example: `/ei create-from_block SsomarPluginsItem`
+* Example: `/ei create-from_block SPluginsItem`
 * Permission: `ei.cmd.create-from-block`
 
 #### Open the editor / menu
@@ -91,7 +91,7 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 
 * Command: **/ei reload \{id\}**
   * `id` : ID of the ExecutableItem.
-* Example: `/ei reload SsomarPluginsItem`
+* Example: `/ei reload SPluginsItem`
 * Permission: `ei.cmd.reload`
 
 **Reload a folder**
@@ -108,14 +108,14 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 
 * Command: **/ei delete \{id\}**
   * `id`: ID of the ExecutableItem.
-* Example: `/ei delete SsomarPluginsItem`
+* Example: `/ei delete SPluginsItem`
 * Permission: `ei.cmd.create`
 
 #### Edit an ExecutableItem with a command
 
 * Command: **/ei edit \{id\}**
   * `id` : ID of the ExecutableItem.
-* Example: `/ei edit SsomarPluginsItem`
+* Example: `/ei edit SPluginsItem`
 * Permission: `ei.cmd.edit`
 
 #### Clear all cooldowns and delayed commands of ExecutableItems
@@ -129,7 +129,7 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
     * DELAYED\_COMMANDS: Resets all delayed commands caused by DELAY and DELAYTICK.
     * COOLDOWNS: Resets all player's cooldowns across all items.
     * ACTIONBARS - Resets all player's actionbars from the ACTIONBAR custom command.
-* Example: `/ei clear SsomarPluginsPlayer COOLDOWNS`
+* Example: `/ei clear SPluginsPlayer COOLDOWNS`
 * Permission: `ei.cmd.clear`
 
 #### Enable / Disable actionbar of ExecutableItems
@@ -163,7 +163,7 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
   * `player`: Name of the player to take the item from
   * `id`: Id of the ExecutableItems
   * `quantity`: Integer value of the amount to remove
-* Example: `/ei take SsomarPluginsPlayer SsomarPluginsItem 1`
+* Example: `/ei take SPluginsPlayer SPluginsItem 1`
 * Permission: `ei.cmd.take`
 
 #### Refresh the ExecutableItem(s) of your player(s) with their last config version
@@ -246,7 +246,7 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 * Examples: (On all this examples the commands is being run inside an ExecutableItems in order to parse placeholders such as %player%,%var\_name% and %usage%)
   * `/ei give %player% Genesis_Crystal{Variables:{vibraniun:10,proton:30},Usage:10} 3` 
   * `/ei give %player% SurgeBlade{Variables:{charge:%var_charge%+1},Usage:%usage%-1} 1`
-  * `/ei give SsomarPluginsPlayer BoneBlade 1`
+  * `/ei give SPluginsPlayer BoneBlade 1`
   * `/ei give edp445 cupcake{Durability:12} 1`
 * Permission: `ei.cmd.give`
 
@@ -275,8 +275,8 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
   * `slot`: Player slot where this item will be given to.
   * `override`: Boolean value to override the slot if there is already an item in that slot. If its the case it will be moved, and if the player has the inventory full it will be dropped to the ground.
 * Examples: 
-  * **`/ei giveslot`**`SsomarPluginsPlayer`**`test{Variables:{x:"Hey",world:"Island"},Usage:50} 1 0`**  
-  * **`/ei giveslot`**`SsomarPluginsPlayer`**`rum{Usage:69420,Variables:{tell_me:"why",aint_nothing:"BUT A HEARTBREAK"}} 1 %slot%`**
+  * **`/ei giveslot`**`SPluginsPlayer`**`test{Variables:{x:"Hey",world:"Island"},Usage:50} 1 0`**  
+  * **`/ei giveslot`**`SPluginsPlayer`**`rum{Usage:69420,Variables:{tell_me:"why",aint_nothing:"BUT A HEARTBREAK"}} 1 %slot%`**
 * Permission: `ei.cmd.giveslot`
 
 **Give every EI in a specific folder to a player**
