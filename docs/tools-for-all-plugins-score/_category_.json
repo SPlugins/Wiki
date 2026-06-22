@@ -3,6 +3,6 @@
   "label": "Tools for all Plugins [SCore]",
   "position": 2,
   "customProps": {
-    "icon": "/img/logo_score.png"
+    "icon": "https://media.ssomar.com/m/docs-img-logo-score.png"
   }
 }

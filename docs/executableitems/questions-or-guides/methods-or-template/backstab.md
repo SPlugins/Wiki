@@ -23,7 +23,7 @@ If you plan to use this condition of an activator PLAYER\_PLACE\_BLOCK, it won't
 
 Add a condition PLAYER\_NUMBER
 
-![](</img/image (358).png>)
+![](https://media.ssomar.com/m/docs-img-image-358.png)
 
 In PART1 we will be comparing the two directions of the player and target/entity
 

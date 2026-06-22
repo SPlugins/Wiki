@@ -48,13 +48,13 @@ Activator features are features that are exclusive to that activator.
 
 * Info: Activates when the Executable Block is a crop and it grows.
 
-![](</img/image (406).png>)
+![](https://media.ssomar.com/m/docs-img-image-406.png)
 
 ### CROP\_PLACE\_BLOCK <CustomTag type="premium" />
 
 * Info: Activates when the Executable Block is a crop that places block
 
-![](</img/image (381).png>)
+![](https://media.ssomar.com/m/docs-img-image-381.png)
 
 
 ### DESTROYED\_BY\_LIQUIQ <CustomTag type="premium" />

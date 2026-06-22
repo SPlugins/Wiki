@@ -12,7 +12,7 @@ If you'd like your EB to have a specific state, for example:
 
 You have to create your EB, set the things you want, etc and then create an activator PLAYER\_PLACE
 
-![](</img/image (289).png>)
+![](https://media.ssomar.com/m/docs-img-image-289.png)
 
 After that, go to commands and add a setblock command, in my case I want to setblock a **lit furnace**, so the setblock command will refeer to that block.
 
@@ -30,11 +30,11 @@ The example is placing a lit furnace, to place another stuff the block will have
 
 So once I place it, even though in my inventory it looks like a normal furnace
 
-![](</img/image (277).png>)
+![](https://media.ssomar.com/m/docs-img-image-277.png)
 
 Once I place it, it looks like:
 
-![](</img/image (347).png>)
+![](https://media.ssomar.com/m/docs-img-image-347.png)
 
 And that's it, the idea is ready, now there are some problems that we will tell you below.
 

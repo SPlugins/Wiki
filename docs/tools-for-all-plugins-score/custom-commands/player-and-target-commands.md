@@ -481,7 +481,7 @@ activators:
     - FORMAT_ENCHANTMENTS %slot%
 ```
 
-![](</img/image (393).png>) -> ![](</img/image (382).png>)
+![](https://media.ssomar.com/m/docs-img-image-393.png) -> ![](https://media.ssomar.com/m/docs-img-image-382.png)
 
 ### GIVE\_MONEY
 
@@ -724,7 +724,7 @@ activators:
 * Command settings:
   * `{modification}`: Positive value to increase the durability. Negative value to decrease the durability
   * `{slot}`: The slot number of the item (-1 for the held slot)
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{supportUnbreaking}`: (true or false) If it supports the unbreaking enchantment or not
 * Example:
 
@@ -868,7 +868,7 @@ activators:
 * Info: Remove an enchantment from a slot
 * Command settings:
   * `{slot}`: Slot to remove the enchantment from (-1 for held slot)
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{enchantment}`: Enchantment to remove (ALL for every enchantment)
 * Example:
 
@@ -885,7 +885,7 @@ activators:
 * Info: Remove a lore line
 * Command settings:
   * `{slot}`: Slot to remove the lore from (-1 for held slot)
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{line}`: The line that you want to remove
 * Example:
 
@@ -966,7 +966,7 @@ activators:
 * Info: Set the specific armor trim with the specific pattern for the specified slot
 * Command settings:
   * `{slot}`: The slot to apply the command (slot -1 for main hand)
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{pattern}`: The pattern of the trim (if 'null' or 'remove' it will remove the current pattern). [TrimPattern list](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/meta/trim/TrimPattern.html)
   * `{patternMaterial}`: The material of the pattern. [TrimMaterial list](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/meta/trim/TrimMaterial.html)
 * Example:
@@ -1063,7 +1063,7 @@ activators:
 *  Command settings:
   * `{slot}`: The slot where it will be applied. (-1 for mainhand)
 
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{color}`: number value of the color. [Coloer picker website](https://www.tydac.ch/color/)
 * Example:
 
@@ -1080,7 +1080,7 @@ activators:
 * Info: It sets an attribute to an item.
 * Command settings:
   * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{attribute}`: The attribute you want to add. [Attributes](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/Attribute.html)
   * `{value}`: The value for the operation
   * `{equipmentSlot}`: The slot for the attribute [EquipmentSlots](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html)
@@ -1124,7 +1124,7 @@ activators:
 * Info: Sets a specific custom model data to the specific item
 * Command settings:
   * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-    ![](</img/slots_info.png>)
+    ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{customModelData}`: value of the customModelData
 * Example:
 
@@ -1142,7 +1142,7 @@ activators:
 * Command settings:
   * `{slot}`: Slot number (-1 for mainhand)
 
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
 * `{line}` : If you want to set the lore of the first type 1
 * `{text}`: The new line text
 * Example:
@@ -1162,7 +1162,7 @@ activators:
 * Command settings:
   * `{slot}`: Slot number (-1 for mainhand)
 
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{material}`: The material you want the item to become into
 * Example:
 
@@ -1179,7 +1179,7 @@ activators:
 * Info: Sets a custom model for your item in a specific slot
 * Command settings:
   * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-    ![](</img/slots_info.png>)
+    ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{model}`: the model value you want to apply to the target item
 * Example:
 
@@ -1196,7 +1196,7 @@ activators:
 * Info: Sets a custom name for your item in a specific slot
 * Command settings:
   * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-    ![](</img/slots_info.png>)
+    ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{name}`: the new name of the item
 * Example:
 
@@ -1213,7 +1213,7 @@ activators:
 * Info: Sets a custom color to an item potion color in a specific slot
 * Command settings:
   * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-    ![](</img/slots_info.png>)
+    ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{color}`: The color you want to apply. For the color, go to `https://www.tydac.ch/color/` and get the `MapInfo Color` value of the color of your choice.
 * Example:
 
@@ -1230,7 +1230,7 @@ activators:
 * Info: Sets the custom tooltip style of the item in slot.
 * Command settings:
   * `{slot}`: The slot where it will be applied. (-1 for mainhand)
-    ![](</img/slots_info.png>)
+    ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{tooltipModel}`: (Default value: `namespace:id`) The tooltip id.
 * Example:
 
@@ -1396,7 +1396,7 @@ activators:
   * `{slot of launcher}`: Target slot for slot no.1
   * `{slot of receiver}`: Target slot for slot no.2
   
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `[boolean drop]`: (Optional) (default = false) Whether slot of launcher gets dropped during the swap or not
 
 ### XP_BOOST

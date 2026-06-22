@@ -11,26 +11,26 @@ In this page you will learn how to timer stuff to happen in your block, for exam
 ### Variable
 
 * You first have to create a variable, let's call this timer
-  * ![](</img/image (331).png>)
-  * ![](</img/image (368).png>)
-  * ![](</img/image (90).png>)
+  * ![](https://media.ssomar.com/m/docs-img-image-331.png)
+  * ![](https://media.ssomar.com/m/docs-img-image-368.png)
+  * ![](https://media.ssomar.com/m/docs-img-image-90.png)
   * TYPE: NUMBER because it it will be a TIMER, so it is an integer value.
-  * ![](</img/image (243).png>)
-  * ![](</img/image (376).png>)
+  * ![](https://media.ssomar.com/m/docs-img-image-243.png)
+  * ![](https://media.ssomar.com/m/docs-img-image-376.png)
 
 ### TITLE
 
 *   Go to Title features and display the variable there using the placeholder %var\_\<variablename>\_int%
 
-    * ![](</img/image (301).png>)
-    * ![](</img/image (283).png>)
+    * ![](https://media.ssomar.com/m/docs-img-image-301.png)
+    * ![](https://media.ssomar.com/m/docs-img-image-283.png)
 
 ### LOOP ACTIVATOR
 
 * Now create a LOOP activator with variableModification timer MODIFICATION -1 and placeholderCondition PLAYER\_NUMBER %var\_timer% SUPERIOR than 0.
-  * ![](</img/image (311).png>)
-  * ![](</img/image (339).png>)
-  * ![](</img/image (314).png>)
+  * ![](https://media.ssomar.com/m/docs-img-image-311.png)
+  * ![](https://media.ssomar.com/m/docs-img-image-339.png)
+  * ![](https://media.ssomar.com/m/docs-img-image-314.png)
 
 ### ACTION
 

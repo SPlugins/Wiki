@@ -752,7 +752,7 @@ activators:
   * `slot:`: number, -1 for main hand (default: -1). See slot reference image below.
   * `ei_id:`: the ID of the ExecutableItem to drop (overrides slot mode when provided)
 
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
 
 * Examples:
 
@@ -830,7 +830,7 @@ activators:
 HITSCAN_ENTITIES range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throughBlocks:true throughEntities:true HEAL 10 <+> BACKDASH 5
 ```
 * Image to understand:
-![](</img/hitscan_entities.png>)
+![](https://media.ssomar.com/m/docs-img-hitscan-entities.png)
 
 ### HITSCAN\_PLAYERS
 
@@ -859,7 +859,7 @@ HITSCAN_ENTITIES range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throug
 - HITSCAN_PLAYERS range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throughBlocks:true throughEntities:true DAMAGE 5 <+> JUMP 5
 ```
 * Image to understand:
-  ![](</img/hitscan_players.png>)
+  ![](https://media.ssomar.com/m/docs-img-hitscan-players.png)
 
 ### INVULNERABILITY
 
@@ -1243,7 +1243,7 @@ A: run **`SPIN {duration} 0`** for example
 - STEAL 10
 ```
 
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
 
 ### STRIKELIGHTNING
 
@@ -1308,7 +1308,7 @@ This is not the same as essential's smite command. If you want to smite your tar
 * Command settings:
   * `{slot of launcher}`: Slot of the item who is going to move
   * `{slot of receiver}`: Slot where the item will land
-  ![](</img/slots_info.png>)
+  ![](https://media.ssomar.com/m/docs-img-slots-info.png)
 * Example:
 
 ```yaml

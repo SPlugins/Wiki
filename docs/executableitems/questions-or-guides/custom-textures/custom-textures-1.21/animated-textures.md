@@ -18,11 +18,11 @@ The texture size is something important because we must do some maths after crea
 
 * They will have a order, so take care your animation makes sense for you.
 
-![](</img/image (373).png>)
+![](https://media.ssomar.com/m/docs-img-image-373.png)
 
 In this case they are 16x16, we have to make a texture file where they all are in a row, so it will have 16x(6x16) -> 16x96 , then put all them in row in correct order and it will look like this
 
-![](</img/image (233).png>)
+![](https://media.ssomar.com/m/docs-img-image-233.png)
 
 ### Files
 
@@ -44,7 +44,7 @@ In this case they are 16x16, we have to make a texture file where they all are i
 The name of the file .mcmeta should be equals as the name of the png texture, so it will look like this
 :::
 
-![](</img/image (128).png>)
+![](https://media.ssomar.com/m/docs-img-image-128.png)
 
 :::info
 Both files must be together, so if the animatedtexture**.png** is inside "customtextures" folder, the animatedtexture.png**.mcmeta** must be there too
@@ -52,6 +52,6 @@ Both files must be together, so if the animatedtexture**.png** is inside "custom
 
 * then just save your texture pack and test.
 
-![](</img/2022-07-15 16-52-08.gif>)
+![](https://media.ssomar.com/m/docs-img-2022-07-15-16-52-08.gif)
 
 * And that's it, make the thing you would want, it is the same for blocks if you want animated blocks. I hope you understood everything and if have any question (that wasn't explained in the last tutorials) feel free to ask it in Discord. Have a nice day !!

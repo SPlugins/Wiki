@@ -69,7 +69,7 @@ Captures player values at activator trigger time (won't change during execution)
 
 **Special:** `%usage_bar(amount:30,color1:&d,color2:&5,symbol:|)%`
 
-![](</img/usage-bar.jpg>)
+![](https://media.ssomar.com/m/docs-img-usage-bar.jpg)
 - Creates a visual usage bar
 - Parameters: amount (bar count), color1 (used), color2 (unused), symbol
 

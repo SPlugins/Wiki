@@ -13,41 +13,41 @@ This guide should be of help in terms of expanding your competency in understand
 
 **Scroll down to the very bottom to copypaste the config of the item.**
 
-![](https://media.giphy.com/media/2VOFCuwez3xKRT3LGm/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-2vofcuwez3xkrt3lgm.gif)
 
 ## Steps:
 
 ### 1) Create an ExecutableItem
 
-![Don't skip this step :)](https://imgur.com/0seK7Oy.png)
+![Don't skip this step :)](https://media.ssomar.com/m/docs-img-imgur-0sek7oy.png)
 
 ### 2) Create a variable
 
-![Click this icon](https://imgur.com/xp084fo.png)
+![Click this icon](https://media.ssomar.com/m/docs-img-imgur-xp084fo.png)
 
-![](https://imgur.com/CkwS1WW.png)
+![](https://media.ssomar.com/m/docs-img-imgur-ckws1ww.png)
 
-![For this guide, we will be naming our variable as "x"](https://imgur.com/lYZz56B.png)
+![For this guide, we will be naming our variable as "x"](https://media.ssomar.com/m/docs-img-imgur-lyzz56b.png)
 
-![](https://imgur.com/PmzEF8i.png)
+![](https://media.ssomar.com/m/docs-img-imgur-pmzef8i.png)
 
-![This isn't necessary but you can type 0 if you want.](https://imgur.com/zMHjlHb.png)
+![This isn't necessary but you can type 0 if you want.](https://media.ssomar.com/m/docs-img-imgur-zmhjlhb.png)
 
 ### 3) Save the variable and return to the main activator editor
 
-![](https://imgur.com/QlbFleQ.png)
+![](https://media.ssomar.com/m/docs-img-imgur-qlbfleq.png)
 
-![](https://imgur.com/LHze4Hg.png)
+![](https://media.ssomar.com/m/docs-img-imgur-lhze4hg.png)
 
 ### 4) Create an activator
 
-![](https://imgur.com/EN0xynk.png)
+![](https://media.ssomar.com/m/docs-img-imgur-en0xynk.png)
 
-![](https://imgur.com/8Z6d2Ph.png)
+![](https://media.ssomar.com/m/docs-img-imgur-8z6d2ph.png)
 
 ### 5) Select what kind of activator do you want
 
-![](https://imgur.com/hiGNioI.png)
+![](https://media.ssomar.com/m/docs-img-imgur-hignioi.png)
 
 In this guide, I will be using this activator. 
 
@@ -59,23 +59,23 @@ In this method, all activators created during this method tutorial has to be the
 
 Only this first activator will have the variable update in this whole method. What this does is that when you trigger the left click activator, it will set the variable to 1. This value will be used later.
 
-![](https://imgur.com/pc6XdsB.png)
+![](https://media.ssomar.com/m/docs-img-imgur-pc6xdsb.png)
 
-![](https://imgur.com/cMhl3fk.png)
+![](https://media.ssomar.com/m/docs-img-imgur-cmhl3fk.png)
 
-![](https://imgur.com/QuY7xXK.png)
+![](https://media.ssomar.com/m/docs-img-imgur-quy7xxk.png)
 
 The name of the variable we created is called "x" so we need to type "x" in here.
 
-![](https://imgur.com/pVMqvMJ.png)
+![](https://media.ssomar.com/m/docs-img-imgur-pvmqvmj.png)
 
-![](https://imgur.com/h2W83oZ.png)
+![](https://media.ssomar.com/m/docs-img-imgur-h2w83oz.png)
 
-![](https://imgur.com/43MnSST.png)
+![](https://media.ssomar.com/m/docs-img-imgur-43mnsst.png)
 
-![](https://imgur.com/tztBfqK.png)
+![](https://media.ssomar.com/m/docs-img-imgur-tztbfqk.png)
 
-![](https://imgur.com/DYXeHnP.png)
+![](https://media.ssomar.com/m/docs-img-imgur-dyxehnp.png)
 
 ### 7) Create the main activators
 
@@ -83,97 +83,97 @@ The activators here are the ones that will run the commands and various things y
 
 In this guide, I will follow the example I made. This item will search for a diamond or an executable item. But since orders matter, I will put diamonds as the priority.
 
-![](https://imgur.com/G3ThQRF.png)
+![](https://media.ssomar.com/m/docs-img-imgur-g3thqrf.png)
 
-![](https://imgur.com/4Jh8kOh.png)
+![](https://media.ssomar.com/m/docs-img-imgur-4jh8koh.png)
 
-![](https://imgur.com/2dxKmrV.png)
+![](https://media.ssomar.com/m/docs-img-imgur-2dxkmrv.png)
 
-![I won't be posting the steps for setting up the required items as you have to learn it how to do it yourself. Explore the plugin more if you haven't.](https://imgur.com/vCUgctg.png)
+![I won't be posting the steps for setting up the required items as you have to learn it how to do it yourself. Explore the plugin more if you haven't.](https://media.ssomar.com/m/docs-img-imgur-vcugctg.png)
 
 ### Add the placeholder condition
 
-![](https://imgur.com/lWUVLeT.png)
+![](https://media.ssomar.com/m/docs-img-imgur-lwuvlet.png)
 
-![](https://imgur.com/g7xGSCl.png)
+![](https://media.ssomar.com/m/docs-img-imgur-g7xgscl.png)
 
 We need to create a placeholder condition for each of the activators that will run commands and such for us. The first main activator won't need it so you can kind of skip this part but I will still write this part for the second and more activators
 
-![](https://imgur.com/WyilzZS.png)
+![](https://media.ssomar.com/m/docs-img-imgur-wyilzzs.png)
 
-![](https://imgur.com/H7ZF0aZ.png)
+![](https://media.ssomar.com/m/docs-img-imgur-h7zf0az.png)
 
 We need to type the placeholder of the variable so we could check for it's values to see if changes are made
 
-![](https://imgur.com/1IJK0Jc.png)
+![](https://media.ssomar.com/m/docs-img-imgur-1ijk0jc.png)
 
-![](https://imgur.com/7sd84Lg.png)
+![](https://media.ssomar.com/m/docs-img-imgur-7sd84lg.png)
 
 The value of 1 represents that no activator before it has yet to trigger. 
 
-![](https://imgur.com/8Mxj3bM.png)
+![](https://media.ssomar.com/m/docs-img-imgur-8mxj3bm.png)
 
 ### Add the variable update
 
-![](https://imgur.com/pc6XdsB.png)
+![](https://media.ssomar.com/m/docs-img-imgur-pc6xdsb.png)
 
-![](https://imgur.com/cMhl3fk.png)
+![](https://media.ssomar.com/m/docs-img-imgur-cmhl3fk.png)
 
-![](https://imgur.com/QuY7xXK.png)
+![](https://media.ssomar.com/m/docs-img-imgur-quy7xxk.png)
 
-![](https://imgur.com/pVMqvMJ.png)
+![](https://media.ssomar.com/m/docs-img-imgur-pvmqvmj.png)
 
-![](https://imgur.com/NB5aIU8.png)
+![](https://media.ssomar.com/m/docs-img-imgur-nb5aiu8.png)
 
 With this set to 0, for example, activator1, activator2, and activator3 is present. activator0 will set the variable to 1 every time you do a left click and if activator1 manages to trigger, activator2 and activator3 will no longer trigger.
 
-![](https://imgur.com/43MnSST.png)
+![](https://media.ssomar.com/m/docs-img-imgur-43mnsst.png)
 
-![](https://imgur.com/tztBfqK.png)
+![](https://media.ssomar.com/m/docs-img-imgur-tztbfqk.png)
 
-![](https://imgur.com/DYXeHnP.png)
+![](https://media.ssomar.com/m/docs-img-imgur-dyxehnp.png)
 
 ### 8) Create the activator that will return the error message
 
 This activator will trigger if any of the previous activators that are supposed to set the variable to 0 once triggered.
 
-![](https://imgur.com/G3ThQRF.png)
+![](https://media.ssomar.com/m/docs-img-imgur-g3thqrf.png)
 
-![](https://imgur.com/4Jh8kOh.png)
+![](https://media.ssomar.com/m/docs-img-imgur-4jh8koh.png)
 
 ### Add the placeholder condition
 
-![](https://imgur.com/lWUVLeT.png)
+![](https://media.ssomar.com/m/docs-img-imgur-lwuvlet.png)
 
-![](https://imgur.com/g7xGSCl.png)
+![](https://media.ssomar.com/m/docs-img-imgur-g7xgscl.png)
 
 We need to create a placeholder condition for each of the activators that will run commands and such for us. The first main activator won't need it so you can kind of skip this part but I will still write this part for the second and more activators
 
-![](https://imgur.com/WyilzZS.png)
+![](https://media.ssomar.com/m/docs-img-imgur-wyilzzs.png)
 
-![](https://imgur.com/H7ZF0aZ.png)
+![](https://media.ssomar.com/m/docs-img-imgur-h7zf0az.png)
 
 We need to type the placeholder of the variable so we could check for it's values to see if changes are made
 
-![](https://imgur.com/1IJK0Jc.png)
+![](https://media.ssomar.com/m/docs-img-imgur-1ijk0jc.png)
 
-![](https://imgur.com/7sd84Lg.png)
+![](https://media.ssomar.com/m/docs-img-imgur-7sd84lg.png)
 
 The value of 1 represents that no activator before it has yet to trigger. 
 
-![](https://imgur.com/8Mxj3bM.png)
+![](https://media.ssomar.com/m/docs-img-imgur-8mxj3bm.png)
 
 ### Add the SENDMESSAGE command for the error message
 
 Because none of the main activators managed to run, the last activator will run instead, sending the message that you failed to meet the requirements/conditions to at least trigger one of the activators.
 
-![](https://imgur.com/5xBTeQw.png)
+![](https://media.ssomar.com/m/docs-img-imgur-5xbteqw.png)
 
 ### Save the item
 
 Save the item then you could try it out!
 
-![](https://imgur.com/7UchWuA.png)
+![](https://media.ssomar.com/m/docs-img-imgur-7uchwua.png)
 
 Config:
 

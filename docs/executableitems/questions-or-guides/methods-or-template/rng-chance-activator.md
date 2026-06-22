@@ -12,50 +12,50 @@ This tutorial will be related to the example said above, but the idea is you to 
 The **item** itself needs premium version + PlaceholderAPI + RNG Expansion
 :::
 
-![](</img/image (204).png>)
+![](https://media.ssomar.com/m/docs-img-image-204.png)
 
 * After adding the name, lore and material..
 
-![](</img/image (237).png>)
+![](https://media.ssomar.com/m/docs-img-image-237.png)
 
 ### Let's create the activator that will make the magic
 
 * So first, the idea is to make a RECEIVE\_HIT\_BY\_GLOBAL and cancel event.
 
-<img src="https://imgur.com/yWpuDSL.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-ywpudsl.png" alt="" />
 
-<img src="https://imgur.com/QJ9rwav.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-qj9rwav.png" alt="" />
 
-<img src="https://imgur.com/tpgPdsS.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-tpgpdss.png" alt="" />
 
-<img src="https://imgur.com/yI878ll.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-yi878ll.png" alt="" />
 
-<img src="https://imgur.com/4wtKxti.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-4wtkxti.png" alt="" />
 
-<img src="https://imgur.com/Bw6ZCZo.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-bw6zczo.png" alt="" />
 
 * So now, it is cancelling EVERY received hit, to make it to sometimes cancel and sometimes doesn't cancel, we have to make the activator itself to run sometimes, so, we will add a condition related with RNG, the nutshell is, a random number between 1 and 4, if it matches 1, the activator will run, it has a probability of 25% -> that is the probability we want, let's add it.
 *
 
-    <img src="https://imgur.com/RIqfiAO.png" alt="" />
+    <img src="https://media.ssomar.com/m/docs-img-imgur-riqfiao.png" alt="" />
 
-<img src="https://imgur.com/6q81HPL.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-6q81hpl.png" alt="" />
 
 PLAYER\_NUMBER
 
-![](</img/image (178).png>)
+![](https://media.ssomar.com/m/docs-img-image-178.png)
 
 And in the first part we will add "%rng\_1,4%" (this require PlaceholderAPI and RNG Expansion)
 
-![](</img/image (111).png>)
+![](https://media.ssomar.com/m/docs-img-image-111.png)
 
 EQUALS
 
-![](</img/image (175).png>)
+![](https://media.ssomar.com/m/docs-img-image-175.png)
 
 "1" (because we want it to trigger only if the random number between 1 and 4 matches 1)
 
-![](</img/image (224).png>)
+![](https://media.ssomar.com/m/docs-img-image-224.png)
 
 And the item is ready
 
@@ -65,7 +65,7 @@ FOR DEBUG PURPOSES I WILL ADD THAT THE ACTIVATOR SAYS "dodge" AND IF THE PLACEHO
 So once we test it, we will know if it is working properly.
 :::
 
-![](</img/image (378).png>)
+![](https://media.ssomar.com/m/docs-img-image-378.png)
 
 And it worked, the activator only runs 1 over 4 times.
 

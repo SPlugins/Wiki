@@ -12,97 +12,97 @@ Ok for starters, we will create an item that once right clicked, it will telepor
 
 ### 1) Create an ei item
 
-![](https://imgur.com/DqSxIbx.png)
+![](https://media.ssomar.com/m/docs-img-imgur-dqsxibx.png)
 
 This is important as usual. Because how would you make the item without the item itself?
 
 ### 2) Go to the variables editor
 
-![](https://imgur.com/iRfOaWY.png)
+![](https://media.ssomar.com/m/docs-img-imgur-irfoawy.png)
 
 ### 3) Create a new variable
 
-![](https://imgur.com/yknAsG7.png)
+![](https://media.ssomar.com/m/docs-img-imgur-yknasg7.png)
 
 ### 4) Set up the variable
 
-![](https://imgur.com/SPY6bT7.png)
+![](https://media.ssomar.com/m/docs-img-imgur-spy6bt7.png)
 
 For this part, we will set the variable name's to "x" to make things simple
 
 ### 5) Set the variable type to STRING
 
-![](https://imgur.com/naNmaen.png)
+![](https://media.ssomar.com/m/docs-img-imgur-nanmaen.png)
 
 ### 6) Don't mind too much about the value
 
-![](https://imgur.com/rhTVie0.png)
+![](https://media.ssomar.com/m/docs-img-imgur-rhtvie0.png)
 
 We will be dealing with the value later.
 
 ### 7) Save the variable. Do not forget or else you might have to go back to the top
 
-![](https://imgur.com/EgYwbAq.png)
+![](https://media.ssomar.com/m/docs-img-imgur-egywbaq.png)
 
 ### 8) Go back to the main item editor by pressing the back button
 
-![](https://imgur.com/c0PZVjl.png)
+![](https://media.ssomar.com/m/docs-img-imgur-c0pzvjl.png)
 
-![](https://imgur.com/IOxGLSP.png)
+![](https://media.ssomar.com/m/docs-img-imgur-ioxglsp.png)
 
 ### 9) Go to the activator editor
 
-![](https://imgur.com/dcsImOz.png)
+![](https://media.ssomar.com/m/docs-img-imgur-dcsimoz.png)
 
 ### 10) Create a new activator
 
-![](https://imgur.com/Liulvko.png)
+![](https://media.ssomar.com/m/docs-img-imgur-liulvko.png)
 
 ### 11) Create a PLAYER\_RIGHT\_CLICK\_ACTIVATOR
 
-![](https://imgur.com/U5QgSwz.png)
+![](https://media.ssomar.com/m/docs-img-imgur-u5qgswz.png)
 
 ### 12) Go to the variables editor of the activator
 
-![](https://imgur.com/qjuzvez.png)
+![](https://media.ssomar.com/m/docs-img-imgur-qjuzvez.png)
 
 Ok so here's the explanation. First, we will create a variable update which will save our coordinates. Further explanation ahead.
 
 ### 13) Click this icon 
 
-![](https://imgur.com/Wjym249.png)
+![](https://media.ssomar.com/m/docs-img-imgur-wjym249.png)
 
 ### 14) Click this icon to go to the chat editor and type the name of the variable we created at step 4)
 
-![](https://imgur.com/OPy88ld.png)
+![](https://media.ssomar.com/m/docs-img-imgur-opy88ld.png)
 
 You see, the default value for this is "var" and we are editing a variable under the name of "x". Back then in pre 5.0, we get to just click the icon to scroll through the list of variables under this item but now, we have to manually type it.
 
 ### 15) Set the type to "SET"
 
-![](https://imgur.com/OoUQPPK.png)
+![](https://media.ssomar.com/m/docs-img-imgur-oouqppk.png)
 
 ### 16) Type "%x% %y% %z%" in this icon
 
-![](https://imgur.com/Ux6L15l.png)
+![](https://media.ssomar.com/m/docs-img-imgur-ux6l15l.png)
 
 In the string update option, the placeholders in it is parsed before it gets displayed or used somewhere else.
 
 ### 17) Press the save button
 
-![](https://imgur.com/vSAlHjj.png)
+![](https://media.ssomar.com/m/docs-img-imgur-vsalhjj.png)
 
 ### 18) Go back to the activator editor and save
 
-![](https://imgur.com/Fa3QsOX.png)
+![](https://media.ssomar.com/m/docs-img-imgur-fa3qsox.png)
 
 ### 19) Create a 2nd activator
 
-![](https://imgur.com/Liulvko.png)
+![](https://media.ssomar.com/m/docs-img-imgur-liulvko.png)
 
 ### 20) Create another activator with the same kind
 
-![](https://imgur.com/U5QgSwz.png)
+![](https://media.ssomar.com/m/docs-img-imgur-u5qgswz.png)
 
 You might be curious, why the heck did we create another right click activator? Because the first activator's task is to save our coordinates via variable update. 
 
@@ -110,11 +110,11 @@ You might say, "Can't we just do everything in one activator?" Nope. Commands ru
 
 ### 21) Go to the commands editor
 
-![](https://imgur.com/B2NzuHH.png)
+![](https://media.ssomar.com/m/docs-img-imgur-b2nzuhh.png)
 
 ### 22) Add the following commands in the chat editor
 
-![](https://imgur.com/BhJhESg.png)
+![](https://media.ssomar.com/m/docs-img-imgur-bhjhesg.png)
 
 Ok. Here's the explanation. \
 `DELAY 30` will delay the command for 30 seconds. When it comes to variables, the activator order matters A LOT. Reversing the order of the 2 activators will break the item. 
@@ -125,6 +125,6 @@ After typing the commands, of course press the exit button.
 
 ### 23) Save the item and try it out
 
-![](https://imgur.com/Ib09XI6.png)
+![](https://media.ssomar.com/m/docs-img-imgur-ib09xi6.png)
 
 Save the item and try it out!

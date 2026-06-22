@@ -5,11 +5,11 @@
 * Every projectile from Score is launched by an ExecutableItem item, so you need that first
 * `/ei create <id>`
 
-![](/img/create-base-proj.png)
+![](https://media.ssomar.com/m/docs-img-create-base-proj.png)
 
 * Edit everything you want, as the material, item name, lore, etc.
 
-![](/img/star-shooter.png)
+![](https://media.ssomar.com/m/docs-img-star-shooter.png)
 
 * Now, let's create the way we are going to launch the projectile, in this case I want it to be when right clicking, that means, Activator: `PLAYER_RIGHT_CLICK`
 
@@ -23,7 +23,7 @@ The order explained here isn't the best, you can do it in the order you want, it
 
 * Remember, we have the EI Item ready, it is just waiting for our projectile, to create it use the command `/score projectiles-create <id>`
 
-![](</img/projectiles-create.png>)
+![](https://media.ssomar.com/m/docs-img-projectiles-create.png)
 
 * You can select there the type of projectile, edit the particles, edit a lot of features, just do it as you want, edit everything you want, until your projectile is done, in this case I did:
   * Projectile: SNOWBALL
@@ -42,12 +42,12 @@ The order explained here isn't the best, you can do it in the order you want, it
 
     In this case, the ID is the id of the projectile, I set it to "ThisIsTheIdOfMyProjectile" so the command part would look like:
 
-![](/img/proj-launch.png)
+![](https://media.ssomar.com/m/docs-img-proj-launch.png)
 
 
 * Then press FINISH, save the activator, and save the item and.. TEST !
 
-![](/img/test-proj.gif)
+![](https://media.ssomar.com/m/docs-img-test-proj.gif)
 
 ## Related Documentation
 

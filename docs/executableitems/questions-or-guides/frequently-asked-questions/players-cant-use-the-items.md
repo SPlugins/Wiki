@@ -2,7 +2,7 @@
 
 If its the case that you already make your items, and want to test with a player without op, without perms, they try and receive this message:
 
-![](</img/image (109).png>)
+![](https://media.ssomar.com/m/docs-img-image-109.png)
 
 That is because they don't have permissions to use the items, since nobody would like to give op to players, you have to give the correct permissions to your default players, for this, just check the section of [**Permissions**](https://docs.ssomar.com/executableitems/commands-and-permissions#permissions), and read the Tip on the top of the page ^^
 

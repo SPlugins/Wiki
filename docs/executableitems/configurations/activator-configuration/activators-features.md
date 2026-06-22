@@ -37,7 +37,7 @@ Premium features are labeled with the tag:  <CustomTag type="premium" />
 
 * Info: List of integer values that represents slots of the inventory where the activator will be able to work. This means, if the event occurs in one slot that is not from here then the activator won't be triggered. 
 
-![](</img/slots_info.png>)
+![](https://media.ssomar.com/m/docs-img-slots-info.png)
 * Example:
 
 ```yaml

@@ -133,7 +133,7 @@ You need to know the Minecraft ID of the base item:
 2. Hover over the item to see its ID (e.g., `minecraft:diamond_pickaxe`)
 3. Use the part after the colon for file names (e.g., `diamond_pickaxe`)
 
-![Item ID shown with Advanced Tooltips](</img/image (185).png>)
+![Item ID shown with Advanced Tooltips](https://media.ssomar.com/m/docs-img-image-185.png)
 
 :::warning Critical: Use the Minecraft ID
 The file name MUST match the Minecraft item ID, not:
@@ -243,9 +243,9 @@ The most common mistake is setting the wrong path in `layer0`. Double-check that
 2. Compress to ZIP using built-in compression
 3. Or place in a folder and use as-is for local testing
 
-![Creating ZIP file](</img/image (244).png>)
+![Creating ZIP file](https://media.ssomar.com/m/docs-img-image-244.png)
 
-![Change to .ZIP format](</img/image (158).png>)
+![Change to .ZIP format](https://media.ssomar.com/m/docs-img-image-158.png)
 
 ### Step 11: Install the Resource Pack
 
@@ -266,11 +266,11 @@ Edit your ExecutableItem:
 
 Navigate to the `customModelData` configuration and set it to match your override:
 
-![Custom Model Data setting](</img/image (163).png>)
+![Custom Model Data setting](https://media.ssomar.com/m/docs-img-image-163.png)
 
 Set the value to `1` (or whatever number you used in the override):
 
-![Setting value to 1](</img/image (61).png>)
+![Setting value to 1](https://media.ssomar.com/m/docs-img-image-61.png)
 
 **In the config file, it looks like:**
 
@@ -288,9 +288,9 @@ Give yourself the item:
 
 You should now see your custom texture!
 
-![Custom texture in inventory](</img/image (364).png>)
+![Custom texture in inventory](https://media.ssomar.com/m/docs-img-image-364.png)
 
-![Custom texture when held](</img/image (392).png>)
+![Custom texture when held](https://media.ssomar.com/m/docs-img-image-392.png)
 
 ## Troubleshooting
 

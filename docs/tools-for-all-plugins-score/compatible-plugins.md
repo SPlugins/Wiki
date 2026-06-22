@@ -197,7 +197,7 @@ activators:
 ### Advanced Enchantments
 
 * ExecutableItems
-  * Due the way Advanced Enchantments plugin works, their enchants are not present in the enchantments list. So it can't be added with the enchants feature:![](</img/image (256).png>)
+  * Due the way Advanced Enchantments plugin works, their enchants are not present in the enchantments list. So it can't be added with the enchants feature:![](https://media.ssomar.com/m/docs-img-image-256.png)
   * But it's possible to add their enchants on your ExecutableItems by using NBTAPI plugin and following one of this ways:
     * The first way is by creating a vanilla item , then adding the AdvancedEnchantment on it and then while holding it do /ei create \<id>, the ExecutableItem output will automatically have the Advanced enchantments imported.
     *   The second way is by adding the NBT Tag manually on the ExecutableItems config file. Here is an example:

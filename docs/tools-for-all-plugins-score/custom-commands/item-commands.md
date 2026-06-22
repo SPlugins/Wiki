@@ -78,7 +78,7 @@ activators:
     itemCommands:
     - FORMAT_ENCHANTMENTS
 ```
-![](</img/image (382).png>)
+![](https://media.ssomar.com/m/docs-img-image-382.png)
 
 ### MODIFY\_DURABILITY
 

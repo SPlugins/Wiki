@@ -11,7 +11,7 @@ In this case the item will be related with breaking blocks, but you can adapt it
 * Type /ei create \<id> to create the item.
 * Set the material, name and lore.
 
-![](</img/image (400).png>)
+![](https://media.ssomar.com/m/docs-img-image-400.png)
 
 * Now, let's create the activator that will trigger the function to make the mechanic, in this case it will be PLAYER\_BREAK\_BLOCK (Premium Activator, as I said, you can adapt it to your needs, using another activator.)
 * And in commands we will add:
@@ -28,6 +28,6 @@ In this case the item will be related with breaking blocks, but you can adapt it
 
 * And that's all, save the commands, save the activator and then save the item, and test yourself it will work like this:
 
-![I don't know what happened with the quality, just look the mechanic 🤪🤪](</img/2022-07-30 18-10-24.gif>)
+![I don't know what happened with the quality, just look the mechanic 🤪🤪](https://media.ssomar.com/m/docs-img-2022-07-30-18-10-24.gif)
 
 * If have any question feel free to ask in the discord, have a nice day 🥳🥳

@@ -18,21 +18,21 @@ description: >-
 
 * A variable needs to be created so we can have an identifier if the switch is on/off
 
-![You click on this icon to open the variables editor](https://imgur.com/nrkKIxb.png)
+![You click on this icon to open the variables editor](https://media.ssomar.com/m/docs-img-imgur-nrkkixb.png)
 
-![You basically just create a variable](https://imgur.com/JUbywre.png)
+![You basically just create a variable](https://media.ssomar.com/m/docs-img-imgur-jubywre.png)
 
-![For the id, there's nothing really specific. for this guide, we will label our variable as "x"](https://imgur.com/ua4VmPu.png)
+![For the id, there's nothing really specific. for this guide, we will label our variable as "x"](https://media.ssomar.com/m/docs-img-imgur-ua4vmpu.png)
 
-![It doesn't really matter if it's a number or string](https://imgur.com/nut1h4h.png)
+![It doesn't really matter if it's a number or string](https://media.ssomar.com/m/docs-img-imgur-nut1h4h.png)
 
-![For this tutorial we will use the value of 0](https://imgur.com/Bj4CpF7.png)
+![For this tutorial we will use the value of 0](https://media.ssomar.com/m/docs-img-imgur-bj4cpf7.png)
 
 ### Create your item, and add an activator
 
 * In this case it will be a PLAYER\_ALL\_CLICK
 
-![](</img/image (94).png>)
+![](https://media.ssomar.com/m/docs-img-image-94.png)
 
 ### Commands
 
@@ -40,47 +40,47 @@ description: >-
 
 ### Variables Modification
 
-![First click this icon in the activator editor](https://imgur.com/LVCMrRl.png)
+![First click this icon in the activator editor](https://media.ssomar.com/m/docs-img-imgur-lvcmrrl.png)
 
-![Create a variable modification](https://imgur.com/r50hLwy.png)
+![Create a variable modification](https://media.ssomar.com/m/docs-img-imgur-r50hlwy.png)
 
-![Select the variable that we created earlier](https://imgur.com/sksRDkO.png)
+![Select the variable that we created earlier](https://media.ssomar.com/m/docs-img-imgur-sksrdko.png)
 
-![Set the type of modification to SET](https://imgur.com/BBWjzw8.png)
+![Set the type of modification to SET](https://media.ssomar.com/m/docs-img-imgur-bbwjzw8.png)
 
-![We will be setting the value other than 0 so the same activator can't run for the 2nd time](https://imgur.com/Av856uf.png)
+![We will be setting the value other than 0 so the same activator can't run for the 2nd time](https://media.ssomar.com/m/docs-img-imgur-av856uf.png)
 
 ### Placeholder Condition
 
 * This is needed to control what activator is going to run 
 
-![First we go to conditions](</img/image (419).png>)
+![First we go to conditions](https://media.ssomar.com/m/docs-img-image-419.png)
 
-![Then to placeholder conditions](</img/image (303).png>)
+![Then to placeholder conditions](https://media.ssomar.com/m/docs-img-image-303.png)
 
-![Of course, we have to create a placeholder condition](</img/image (429).png>)
+![Of course, we have to create a placeholder condition](https://media.ssomar.com/m/docs-img-image-429.png)
 
-![PLAYER\_STRING is an option too](https://imgur.com/NXUYpmm.png)
+![PLAYER\_STRING is an option too](https://media.ssomar.com/m/docs-img-imgur-nxuypmm.png)
 
-![We will use the placeholder for the variable we created. Use %var\_x\_int% if you still used PLAYER\_STRING](https://imgur.com/0qDthRo.png)
+![We will use the placeholder for the variable we created. Use %var\_x\_int% if you still used PLAYER\_STRING](https://media.ssomar.com/m/docs-img-imgur-0qdthro.png)
 
-![We will use this comparator](https://imgur.com/UrVtgM8.png)
+![We will use this comparator](https://media.ssomar.com/m/docs-img-imgur-urvtgm8.png)
 
-![We will use 0 value as the "off" option](https://imgur.com/CUoRRfg.png)
+![We will use 0 value as the "off" option](https://media.ssomar.com/m/docs-img-imgur-cuorrfg.png)
 
 ### Add the other item cooldown to the item itself
 
 * For example, the id of the ei item is `onoff-demo`. You would then have to go to this icon then follow the pictures.
 
-![](https://imgur.com/mmHsaP4.png)
+![](https://media.ssomar.com/m/docs-img-imgur-mmhsap4.png)
 
-![](https://imgur.com/AnnDswf.png)
+![](https://media.ssomar.com/m/docs-img-imgur-anndswf.png)
 
-![](https://imgur.com/Q6VJClp.png)
+![](https://media.ssomar.com/m/docs-img-imgur-q6vjclp.png)
 
 For example, the id of the on/off switch is "faker", so select "faker".
 
-![](https://imgur.com/X1DTqww.png)
+![](https://media.ssomar.com/m/docs-img-imgur-x1dtqww.png)
 
 Ever since 5.0 dropped, activator ids start from "activator0" instead of "activator1". Anyway, you would want to select the second activator as activators run from top to bottom. 
 
@@ -88,19 +88,19 @@ Ever since 5.0 dropped, activator ids start from "activator0" instead of "activa
 This option is important because if there's no cooldown, it will ram through the the 2nd activator that's supposed to turn off the activator
 :::
 
-![Set the cooldown to 1 or 2. You decide](https://imgur.com/zv8iOie.png)
+![Set the cooldown to 1 or 2. You decide](https://media.ssomar.com/m/docs-img-imgur-zv8ioie.png)
 
-![](https://imgur.com/IZxLfQ9.png)
+![](https://media.ssomar.com/m/docs-img-imgur-izxlfq9.png)
 
 This is suggested to be set to true if you want the item to be spammable. One tick is enough to prevent the ramming mentioned above.
 
-![](https://imgur.com/GB5OuD0.png)
+![](https://media.ssomar.com/m/docs-img-imgur-gb5oud0.png)
 
 ## Second activator
 
 * We will use again **`PLAYER_ALL_CLICK`**
 
-![](</img/image (165).png>)
+![](https://media.ssomar.com/m/docs-img-image-165.png)
 
 ###
 
@@ -110,47 +110,47 @@ This is suggested to be set to true if you want the item to be spammable. One ti
 
 ### Variables Modification
 
-![First click this icon in the activator editor](https://imgur.com/LVCMrRl.png)
+![First click this icon in the activator editor](https://media.ssomar.com/m/docs-img-imgur-lvcmrrl.png)
 
-![Create a variable modificationng](https://imgur.com/r50hLwy.png)
+![Create a variable modificationng](https://media.ssomar.com/m/docs-img-imgur-r50hlwy.png)
 
-![Select the variable that we created earlier](https://imgur.com/sksRDkO.png)
+![Select the variable that we created earlier](https://media.ssomar.com/m/docs-img-imgur-sksrdko.png)
 
-![Set the type of modification to SET](https://imgur.com/BBWjzw8.png)
+![Set the type of modification to SET](https://media.ssomar.com/m/docs-img-imgur-bbwjzw8.png)
 
-![We will be setting the value other than 1 so the same activator can't run for the 2nd time](https://imgur.com/0KzktPE.png)
+![We will be setting the value other than 1 so the same activator can't run for the 2nd time](https://media.ssomar.com/m/docs-img-imgur-0kzktpe.png)
 
 ### Placeholder Condition
 
 * This is needed to control what activator is going to run 
 
-![First we go to conditions](</img/image (419).png>)
+![First we go to conditions](https://media.ssomar.com/m/docs-img-image-419.png)
 
-![Then to placeholder conditions](</img/image (303).png>)
+![Then to placeholder conditions](https://media.ssomar.com/m/docs-img-image-303.png)
 
-![Of course, we have to create a placeholder condition](</img/image (429).png>)
+![Of course, we have to create a placeholder condition](https://media.ssomar.com/m/docs-img-image-429.png)
 
-![PLAYER\_STRING is an option too](https://imgur.com/NXUYpmm.png)
+![PLAYER\_STRING is an option too](https://media.ssomar.com/m/docs-img-imgur-nxuypmm.png)
 
-![We will use the placeholder for the variable we created. Use %var\_x\_int% if you still used PLAYER\_STRING](https://imgur.com/0qDthRo.png)
+![We will use the placeholder for the variable we created. Use %var\_x\_int% if you still used PLAYER\_STRING](https://media.ssomar.com/m/docs-img-imgur-0qdthro.png)
 
-![We will use this comparator](https://imgur.com/UrVtgM8.png)
+![We will use this comparator](https://media.ssomar.com/m/docs-img-imgur-urvtgm8.png)
 
-![We will use 1 value as the "on" option](https://imgur.com/bJKV5hy.png)
+![We will use 1 value as the "on" option](https://media.ssomar.com/m/docs-img-imgur-bjkv5hy.png)
 
 ### Add the other item cooldown to the item itself
 
 * For example, the id of the ei item is `onoff-demo`. You would then have to go to this icon then follow the pictures.
 
-![](https://imgur.com/mmHsaP4.png)
+![](https://media.ssomar.com/m/docs-img-imgur-mmhsap4.png)
 
-![](https://imgur.com/AnnDswf.png)
+![](https://media.ssomar.com/m/docs-img-imgur-anndswf.png)
 
-![](https://imgur.com/Q6VJClp.png)
+![](https://media.ssomar.com/m/docs-img-imgur-q6vjclp.png)
 
 For example, the id of the on/off switch is "faker", so select "faker".
 
-![](https://imgur.com/tFly1dt.png)
+![](https://media.ssomar.com/m/docs-img-imgur-tfly1dt.png)
 
 Ever since 5.0 dropped, activator ids start from "activator0" instead of "activator1". Anyway, you would want to select the second activator as activators run from top to bottom. 
 
@@ -158,13 +158,13 @@ Ever since 5.0 dropped, activator ids start from "activator0" instead of "activa
 This option is important because if there's no cooldown, it will ram through the the 2nd activator that's supposed to turn off the activator
 :::
 
-![Set the cooldown to 1 or 2. You decide](https://imgur.com/zv8iOie.png)
+![Set the cooldown to 1 or 2. You decide](https://media.ssomar.com/m/docs-img-imgur-zv8ioie.png)
 
-![](https://imgur.com/IZxLfQ9.png)
+![](https://media.ssomar.com/m/docs-img-imgur-izxlfq9.png)
 
 This is suggested to be set to true if you want the item to be spammable. One tick is enough to prevent the ramming mentioned above.
 
-![](https://imgur.com/GB5OuD0.png)
+![](https://media.ssomar.com/m/docs-img-imgur-gb5oud0.png)
 
 ##
 

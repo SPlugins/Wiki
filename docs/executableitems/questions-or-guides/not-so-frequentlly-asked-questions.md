@@ -79,12 +79,12 @@ Based on the first few lines of the error, it mentioned things like armor trim a
 
 To know which item exactly caused the error, check the rightmost item in the display.
 
-![](</img/image (451).png>) The id is berserker\_blade. Now go to your items folder and find the item next to berserker\_blade.
+![](https://media.ssomar.com/m/docs-img-image-451.png) The id is berserker\_blade. Now go to your items folder and find the item next to berserker\_blade.
 
-![](</img/image (452).png>) Now you know that this file in specific caused the issue.
+![](https://media.ssomar.com/m/docs-img-image-452.png) Now you know that this file in specific caused the issue.
 
 How to fix it?\
-![](</img/image (453).png>) Try to remove these 4 lines and reload the plugin.
+![](https://media.ssomar.com/m/docs-img-image-453.png) Try to remove these 4 lines and reload the plugin.
 
 The question is, does it solve the issue? Not entirely. The cause of such issue may vary from case-to-case. Please create a new post at the bugs-errors-issues channel in the discord so this issue can at least be prevented in the future updates.
 

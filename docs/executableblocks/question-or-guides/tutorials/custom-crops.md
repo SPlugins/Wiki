@@ -16,9 +16,9 @@ Let's create a pumpkin seed that instead of placing a pumpkin block, it will pla
 
     
 * And you will see that we have 3 different zones of commands
-* ![](</img/image (409).png>)
-* ![](</img/image (78).png>)
-* ![](</img/image (84).png>)
+* ![](https://media.ssomar.com/m/docs-img-image-409.png)
+* ![](https://media.ssomar.com/m/docs-img-image-78.png)
+* ![](https://media.ssomar.com/m/docs-img-image-84.png)
   * Block commands is for running the commands from the block itself
   * Target Block commands the same as the last one but from the block PLACED itself (in this case, the pumpkin PLACED)
   * And owner commands the commands of the owner (if you want something to happen to the owner when this crop grows and place a block)
@@ -36,9 +36,9 @@ Let's create a carrots that each time it grows has a 50% of dropping a golden ca
 
 * First let's create the block /eb create \<id>
 * Let's set the material to CARROT
-* ![](</img/image (118).png>)
+* ![](https://media.ssomar.com/m/docs-img-image-118.png)
 * Let's create the activator CROP\_GROW
-* ![](</img/image (330).png>)
+* ![](https://media.ssomar.com/m/docs-img-image-330.png)
 * And in the commands using RANDOM RUN (command already explained in utilities commands) let's use the DROPITEM command to drop a golden carrot with 50% of probability.
 
 And that's it, let's save and test

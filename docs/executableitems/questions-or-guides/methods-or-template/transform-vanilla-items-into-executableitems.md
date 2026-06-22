@@ -4,35 +4,35 @@
 First of all you have to know that this method is only available to PREMIUM VERSION
 :::
 
-![](</img/Executable Items Color3.png>)
+![](https://media.ssomar.com/m/docs-img-executable-items-color3.png)
 
 ### Let's create it, first decide what vanilla item you want to transform.
 
 * For this tutorial it will be the **diamond\_sword**
 
-![](</img/image (96).png>)
+![](https://media.ssomar.com/m/docs-img-image-96.png)
 
 ### **Then, we have to create the item that it will be replaced for**
 
 * To create an item type `/ei create <id>` command
 
-![](</img/image (194).png>)
+![](https://media.ssomar.com/m/docs-img-image-194.png)
 
 * Change the Material of the Item to the vanilla-item you are going to change (In this case diamond\_sword)
 
-![](</img/image (168).png>)
+![](https://media.ssomar.com/m/docs-img-image-168.png)
 
 * Let's create an activator
 
-![](</img/image (92).png>)
+![](https://media.ssomar.com/m/docs-img-image-92.png)
 
 * For this example it will be `PLAYER_CLICK_ON_ENTITY`
 
-![](</img/image (213).png>)
+![](https://media.ssomar.com/m/docs-img-image-213.png)
 
 * Detailed click to left, to only work when hitting
 
-![](</img/image (272).png>)
+![](https://media.ssomar.com/m/docs-img-image-272.png)
 
 * And on commands I'll put this:
 
@@ -55,7 +55,7 @@ entityCommands:
 It is in plugins/ExecutableItems/items/\<itemID>.yml
 :::
 
-![](</img/image (195).png>)
+![](https://media.ssomar.com/m/docs-img-image-195.png)
 
 * Open it and add these lines. (they must be without ident/spaces on the left side)
 
@@ -71,11 +71,11 @@ recognitions:
 
 * If we did every step fine, now we have to take a diamond\_sword from vanilla, get close to a cow, and hit it -> It should burn for 4 seconds, some particle will show up and you will recieve a message.
 
-![](</img/image (245).png>)
+![](https://media.ssomar.com/m/docs-img-image-245.png)
 
-![](</img/image (105).png>)
+![](https://media.ssomar.com/m/docs-img-image-105.png)
 
-![](</img/image (73).png>)![](</img/image (181).png>)
+![](https://media.ssomar.com/m/docs-img-image-73.png)![](https://media.ssomar.com/m/docs-img-image-181.png)
 
 * Tested and works ! Yup !!
 

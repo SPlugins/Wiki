@@ -3,7 +3,7 @@
   "label": "ExecutableItems",
   "position": 3,
   "customProps": {
-    "icon": "/img/Executable%20Items%20Color3.png"
+    "icon": "https://media.ssomar.com/m/docs-img-executable-items-color3.png"
   },
   "link": {
     "type": "doc",

@@ -10,7 +10,7 @@ First of all we have to explain that inside the activator you create for your Ex
 
 The server will output in your chat what you are doing and will look like this:
 
-![\[Server: \<action>\]](</img/image (150).png>)
+![\[Server: \<action>\]](https://media.ssomar.com/m/docs-img-image-150.png)
 
 If you want to disable this, you have to **set broadcast-console-to-ops to false in your server.properties file.**
 

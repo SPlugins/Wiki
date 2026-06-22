@@ -6,7 +6,7 @@
 
 * First of all you'll need to create each item that the **Morph tool** will cycle through.
 
-![](</img/image (297).png>)
+![](https://media.ssomar.com/m/docs-img-image-297.png)
 
 ### Let's edit the items
 
@@ -16,21 +16,21 @@
 
 ### First, set the item's usage to 0
 
-![](</img/image (333).png>)
+![](https://media.ssomar.com/m/docs-img-image-333.png)
 
 ### Plan how the tool will cycle between states
 
-![](</img/image (196).png>)
+![](https://media.ssomar.com/m/docs-img-image-196.png)
 
 ### Create the activator
 
 * This will be the activator that will allow us to cycle.
 
-![](</img/image (91).png>)
+![](https://media.ssomar.com/m/docs-img-image-91.png)
 
 * Set the **Usage Modification** to -1
 
-![](</img/image (121).png>)
+![](https://media.ssomar.com/m/docs-img-image-121.png)
 
 :::info
 When Usage is 0 and it is modified by -1 the item disappears.
@@ -38,15 +38,15 @@ When Usage is 0 and it is modified by -1 the item disappears.
 
 * Set the sneak condition (**In this example we want the cycle starts when SHIFT+RIGHT CLICK**)
 
-![](</img/image (173).png>)
+![](https://media.ssomar.com/m/docs-img-image-173.png)
 
-![](</img/image (103).png>)
+![](https://media.ssomar.com/m/docs-img-image-103.png)
 
-![](</img/image (87).png>)
+![](https://media.ssomar.com/m/docs-img-image-87.png)
 
 * Don't forget that you can remove the condition message.
 
-![](</img/image (395).png>)
+![](https://media.ssomar.com/m/docs-img-image-395.png)
 
 ### Add the commands
 

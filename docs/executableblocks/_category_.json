@@ -3,7 +3,7 @@
   "label": "ExecutableBlocks",
   "position": 4,
   "customProps": {
-    "icon": "/img/ExecutableBlocks (64x64)px.png"
+    "icon": "https://media.ssomar.com/m/docs-img-executableblocks-64x64-px.png"
   },
   "link": {
     "type": "doc",

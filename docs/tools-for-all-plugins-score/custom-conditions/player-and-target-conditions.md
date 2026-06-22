@@ -60,7 +60,7 @@ playerConditions:
   * If the player is flying and descends by pressing the sneak button, the activator will activate. for ifSneaking
 * Required: NO (Default: false)
 
-![](https://media.giphy.com/media/sYGM0wxk3y1c0U4u3D/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-sygm0wxk3y1c0u4u3d.gif)
 
 :::danger
 Do not enable ifNotSneaking if the condition ifSneaking is enabled as it does not make sense having both enabled
@@ -100,7 +100,7 @@ playerConditions:
   * If the player toggles flight by double-clicking the jump button and (not) flies, the activator will activate.
 * Required: NO (Default: false)
 
-![](https://media.giphy.com/media/gqP59l3zK78Sas94uo/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-gqp59l3zk78sas94uo.gif)
 
 ### ifBlocking - Not
 
@@ -119,7 +119,7 @@ playerConditions:
   * If the player is (not) blocking with a shield, the activator will activate
 * Required: NO (Default: false)
 
-![](https://media.giphy.com/media/xIhlvWPzNViU4C7786/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-xihlvwpznviu4c7786.gif)
 
 ### ifGliding - Not
 
@@ -138,7 +138,7 @@ playerConditions:
   * If the player (not) glides midair with an elytra, the activator will activate.
 * Required: NO (Default: false)
 
-![](https://media.giphy.com/media/F3pX7d1AWBUDmRJ0Va/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-f3px7d1awbudmrj0va.gif)
 
 ### ifSwimming - Not
 
@@ -157,7 +157,7 @@ playerConditions:
   * If the player jumps into the water and starts swimming in a freestyle position, the activator will activate.
 * Required: NO (Default: false)
 
-![](https://media.giphy.com/media/1cfAmbQwL4J9mMrpBG/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-1cfambqwl4j9mmrpbg.gif)
 
 ### ifStunned - Not
 
@@ -219,7 +219,7 @@ playerConditions:
   * If the player has (no) blocks under its feet, the activator will activate.
 * Required: NO (Default: false)
 
-![It will check the block under your feet. It will also properly check slabs.](https://media.giphy.com/media/DjJTjPZL1PmKbjnqvU/giphy.gif)
+![It will check the block under your feet. It will also properly check slabs.](https://media.ssomar.com/m/docs-img-giphy-djjtjpzl1pmkbjnqvu.gif)
 
 ### ifLineOfSight
 
@@ -349,7 +349,7 @@ playerConditions:
   * In `"<5"`, if there are air blocks 5 blocks ahead of you, the activator will not activate
 * Required: NO
 
-![](https://media.giphy.com/media/MKe7ZYoe63jBPg2239/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-mke7zyoe63jbpg2239.gif)
 
 ### ifLightLevel <a href="#iflightlevel" id="iflightlevel"></a>
 
@@ -374,7 +374,7 @@ playerConditions:
 ​If the value is `==13`, the activator will only activate if the light level in the player's location is 13. 
 
 ![If the value is ==13, the activator will only activate if the light level in the player's location is 13. 
-The message in chat runs a SENDMESSAGE %player\_light\_level% to indicate the light level in my location](https://media.giphy.com/media/KRDTyJiMuGaf88PEwk/giphy.gif?cid=790b7611542d805a0347988a22c47bc5ac6465a91eb5d5d8\&rid=giphy.gif\&ct=g)
+The message in chat runs a SENDMESSAGE %player\_light\_level% to indicate the light level in my location](https://media.ssomar.com/m/docs-img-giphy-krdtyjimugaf88pewk.gif)
 
 ### ifPlayerExp
 
@@ -452,7 +452,7 @@ playerConditions:
   * If the value is `>=10`, the activator will only activate if the player's health is 10 and above.
 * Required: NO
 
-![Demo showing health condition](https://media.giphy.com/media/lMfxM0LLvaeUfJSJ80/giphy.gif)
+![Demo showing health condition](https://media.ssomar.com/m/docs-img-giphy-lmfxm0llvaeufjsj80.gif)
 
 _If the value is `<=10`, the activator will only activate if the player's health is 10 and below._
 
@@ -588,7 +588,7 @@ playerConditions:
 **To test it, it'es better to not be OP because if you are OP, you have all permissions**
 :::
 
-![](https://media.giphy.com/media/Iti1B991tSkAaVjoy7/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-iti1b991tskaavjoy7.gif)
 
 ### ifHasTag - Not
 
@@ -624,7 +624,7 @@ playerConditions:
   * If the player is hovering his/her cursour into sand, the activator will activate.
 * Required: NO
 
-![](https://media.giphy.com/media/hgONtSUWXflzmTgxNY/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-hgontsuwxflzmtgxny.gif)
 
 ### ifIsInTheBlock - Not
 
@@ -671,7 +671,7 @@ playerConditions:
   * As long as the player is not more than 1 block higher from the block the player is standing at, the activator will activate
 * Required: NO (Default: false)
 
-![](https://media.giphy.com/media/774FPGZUcmhoX69swW/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-774fpgzucmhox69sww.gif)
 
 <details>
 
@@ -755,7 +755,7 @@ playerConditions:
 
 * Required: NO
 
-![](https://media.giphy.com/media/HeSzwX2lkTnuT8AbDX/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-heszwx2lktnut8abdx.gif)
 
 ### ifInRegion - Not
 
@@ -777,7 +777,7 @@ playerConditions:
   * If the player is in the "area1" region and the "area1" region is listed in the list of worlds in the `ifInRegion:` condition, the activator will activate.
 * Required: NO
 
-![](https://media.giphy.com/media/rn75FB0fGshRjIzBce/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-rn75fb0fgshrjizbce.gif)
 
 ### ifInWorld - Not
 
@@ -799,7 +799,7 @@ playerConditions:
   * If the player is in the nether and the nether is listed in the list of worlds in the `ifInWorld:` condition, the activator activates.
 * Required: NO
 
-![](https://media.giphy.com/media/zgHTF0hlK1NPSywmnZ/giphy.gif)
+![](https://media.ssomar.com/m/docs-img-giphy-zghtf0hlk1npsywmnz.gif)
 
 ### ifPlayerHasEffect
 
@@ -908,7 +908,7 @@ playerConditions:
   * You must have an ei item with the id "ddx" on slot 40
 * Required: NO
 
-![](https://i.imgur.com/KAwW8N0.png)
+![](https://media.ssomar.com/m/docs-img-imgur-kaww8n0.png)
 
 :::info
 Copy correctly the index of the example, some people have asked support, all of them didn't copy correctly the format.

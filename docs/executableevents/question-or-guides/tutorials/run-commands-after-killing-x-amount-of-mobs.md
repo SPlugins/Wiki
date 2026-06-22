@@ -8,27 +8,27 @@ description: >-
 
 ## 1) Create SCore variables
 
-<img src="https://imgur.com/ktpvy5T.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-ktpvy5t.png" alt="" />
 
-<img src="https://imgur.com/cyk8yKt.png" alt="" />
+<img src="https://media.ssomar.com/m/docs-img-imgur-cyk8ykt.png" alt="" />
 
 ## 2) Set the values of the two SCore variables
 
 * Set the `TYPE` to `NUMBER`
 
-![](</img/image (12) (1).png>)
+![](https://media.ssomar.com/m/docs-img-image-12-1.png)
 
 * Set the `FOR` to `PLAYER`
 
-![](</img/image (13) (1).png>)
+![](https://media.ssomar.com/m/docs-img-image-13-1.png)
 
 * Set the `Default Value` to `0`
 
-![](</img/image (14) (1).png>)
+![](https://media.ssomar.com/m/docs-img-image-14-1.png)
 
 * Save the settings
 
-![](</img/image (15) (1).png>)
+![](https://media.ssomar.com/m/docs-img-image-15-1.png)
 
 ## 4) Create the first EE event
 

@@ -47,12 +47,12 @@ graph TD;
 ### 1) Create an EI Item
 
 ### 2) Create a PLAYER_RIGHT_CLICK activator for now
-![](</img/temporary-ability-001.jpg>)  
+![](https://media.ssomar.com/m/docs-img-temporary-ability-001.jpg)  
 We will come back to this later.
 ### 3) Create 2 PLAYER_HIT_ENTITY activators
-![](</img/temporary-ability-002.jpg>)  
-![](</img/temporary-ability-003.jpg>)  
-![](</img/temporary-ability-004.jpg>)  
+![](https://media.ssomar.com/m/docs-img-temporary-ability-002.jpg)  
+![](https://media.ssomar.com/m/docs-img-temporary-ability-003.jpg)  
+![](https://media.ssomar.com/m/docs-img-temporary-ability-004.jpg)  
 :::info
 We need to take note of the activator ids of the 2 PLAYER_HIT_ENTITY activators.
 :::
@@ -77,13 +77,13 @@ The activator we are trying to put in a 60 second cooldown is an activator that 
 ability functions.
 
 ### 5) Note down the id of the 3rd/last activator
-![](</img/temporary-ability-006.jpg>)  
+![](https://media.ssomar.com/m/docs-img-temporary-ability-006.jpg)  
 
 We need to know the id of the 3rd activator so we can put it in cooldown if the temporary ability isn't up yet.
 
 
 ### 6) Go to the 2nd activator and disable cooldown messages
-![](</img/temporary-ability-005.jpg>)  
+![](https://media.ssomar.com/m/docs-img-temporary-ability-005.jpg)  
 
 You'd really wanna disable this option because it's going to spam a LOT depending on the situation
 

@@ -56,11 +56,11 @@ With this explanation should be enough, anyways, if you don't understand, we wil
 * Type: STRING
 * String value: "no"
 
-![](</img/image (59).png>)
+![](https://media.ssomar.com/m/docs-img-image-59.png)
 
-![](</img/image (385).png>)
+![](https://media.ssomar.com/m/docs-img-image-385.png)
 
-![](</img/image (386).png>)
+![](https://media.ssomar.com/m/docs-img-image-386.png)
 
 * Then save and let's go to the next step
 
@@ -70,21 +70,21 @@ With this explanation should be enough, anyways, if you don't understand, we wil
 
 * Variable update
 
-![](</img/image (328).png>)
+![](https://media.ssomar.com/m/docs-img-image-328.png)
 
-![](</img/image (162).png>)
+![](https://media.ssomar.com/m/docs-img-image-162.png)
 
-![](</img/image (184).png>)
+![](https://media.ssomar.com/m/docs-img-image-184.png)
 
 * And this will only work if the variable is "no", so let's create a placeholder condition
 
-![](</img/image (149).png>)
+![](https://media.ssomar.com/m/docs-img-image-149.png)
 
-![](</img/image (68).png>)
+![](https://media.ssomar.com/m/docs-img-image-68.png)
 
-![](</img/image (287).png>)
+![](https://media.ssomar.com/m/docs-img-image-287.png)
 
-![](</img/image (387).png>)
+![](https://media.ssomar.com/m/docs-img-image-387.png)
 
 * And the last thing the command to add a scoreboard value to the player, in this case I will only add a command "say ADDED" as a debug command.
 
@@ -92,81 +92,81 @@ With this explanation should be enough, anyways, if you don't understand, we wil
 
 Its the same idea, so this will be faster than the previous one.
 
-![](</img/image (140).png>)
+![](https://media.ssomar.com/m/docs-img-image-140.png)
 
 * Working on every slot except mainhand
 
-![](</img/image (167).png>)
+![](https://media.ssomar.com/m/docs-img-image-167.png)
 
 * Variable update
 
-![](</img/image (230).png>)
+![](https://media.ssomar.com/m/docs-img-image-230.png)
 
-![](</img/image (63).png>)
+![](https://media.ssomar.com/m/docs-img-image-63.png)
 
-![](</img/image (279).png>)
+![](https://media.ssomar.com/m/docs-img-image-279.png)
 
 * Placeholder condition:
 
-![](</img/image (410).png>)
+![](https://media.ssomar.com/m/docs-img-image-410.png)
 
-![](</img/image (372).png>)
+![](https://media.ssomar.com/m/docs-img-image-372.png)
 
-![](</img/image (360).png>)
+![](https://media.ssomar.com/m/docs-img-image-360.png)
 
-![](</img/image (415).png>)
+![](https://media.ssomar.com/m/docs-img-image-415.png)
 
 * The second placeholder, that is a playerCondition (and the condition is on the 2nd page)
 
-![](</img/image (138).png>)
+![](https://media.ssomar.com/m/docs-img-image-138.png)
 
-![](</img/image (317).png>)
+![](https://media.ssomar.com/m/docs-img-image-317.png)
 
 * In this case the name of my item is asd
 
-![](</img/image (337).png>)
+![](https://media.ssomar.com/m/docs-img-image-337.png)
 
-![](</img/image (187).png>)
+![](https://media.ssomar.com/m/docs-img-image-187.png)
 
-![](</img/image (383).png>)
+![](https://media.ssomar.com/m/docs-img-image-383.png)
 
-![](</img/image (295).png>)
+![](https://media.ssomar.com/m/docs-img-image-295.png)
 
 * Then save and delete the error message, it is annoying
 
-![](</img/image (398).png>)
+![](https://media.ssomar.com/m/docs-img-image-398.png)
 
 * And the command
 
-![](</img/image (286).png>)
+![](https://media.ssomar.com/m/docs-img-image-286.png)
 
 ### Drop activator
 
 * Add another activator
 
-![](</img/image (74).png>)
+![](https://media.ssomar.com/m/docs-img-image-74.png)
 
 * Placeholder condition to make it only work if the value is already added
 
-![](</img/image (207).png>)
+![](https://media.ssomar.com/m/docs-img-image-207.png)
 
-![](</img/image (192).png>)
+![](https://media.ssomar.com/m/docs-img-image-192.png)
 
-![](</img/image (130).png>)
+![](https://media.ssomar.com/m/docs-img-image-130.png)
 
-![](</img/image (305).png>)
+![](https://media.ssomar.com/m/docs-img-image-305.png)
 
 * The command
 
-![](</img/image (197).png>)
+![](https://media.ssomar.com/m/docs-img-image-197.png)
 
 * And the variable update
 
-![](</img/image (89).png>)
+![](https://media.ssomar.com/m/docs-img-image-89.png)
 
-![](</img/image (325).png>)
+![](https://media.ssomar.com/m/docs-img-image-325.png)
 
-![](</img/image (428).png>)
+![](https://media.ssomar.com/m/docs-img-image-428.png)
 
 And that's it, save everything and test
 

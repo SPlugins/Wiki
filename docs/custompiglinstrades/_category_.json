@@ -3,7 +3,7 @@
   "label": "CustomPiglinsTrades",
   "position": 9,
   "customProps": {
-    "icon": "/img/logo_cpt.png"
+    "icon": "https://media.ssomar.com/m/docs-img-logo-cpt.png"
   },
   "link": {
     "type": "doc",

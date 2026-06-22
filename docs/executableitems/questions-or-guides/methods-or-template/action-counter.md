@@ -10,11 +10,11 @@ This example will be with the "how many blocks the item has broke", so, let's do
 
 * Using the /ei create command, we will create the item.
 
-![](</img/image (290).png>)
+![](https://media.ssomar.com/m/docs-img-image-290.png)
 
 * Once the item is created you can change the name, lore, item, etc. In this case my item looks like this:
 
-![Item display](</img/image (148).png>)
+![Item display](https://media.ssomar.com/m/docs-img-image-148.png)
 
 * So, the idea is to trigger something when the pickaxe has broken 15 blocks, this "something" could be whatever you want, in this case I'll give another EI item to the player (The pickaxe level 2).
 
@@ -32,7 +32,7 @@ This example will be with the "how many blocks the item has broke", so, let's do
 
 * So, just because the trigger is "breaking blocks" the activator will be `PLAYER_BLOCK_BREAK`
 
-![](</img/image (413).png>)
+![](https://media.ssomar.com/m/docs-img-image-413.png)
 
 * And the idea is that each time you break a block store "1" in the variable we just created, so, let's go to variablesModification.
 
@@ -43,15 +43,15 @@ This example will be with the "how many blocks the item has broke", so, let's do
 
 * Ok, the "saving" part is ready, we're going to setup something just to check it is working fine. We're going to add the "blocks broken" in the lore.
 
-![](</img/image (108).png>)
+![](https://media.ssomar.com/m/docs-img-image-108.png)
 
 * This is how it looks in my inventory
 
-![](</img/image (235).png>)
+![](https://media.ssomar.com/m/docs-img-image-235.png)
 
 * And.. ¿What if I break a block?
 
-![](</img/image (276).png>)
+![](https://media.ssomar.com/m/docs-img-image-276.png)
 
 * Boom ! Now the blocks broken is 1, the store is readdyy
 
@@ -59,34 +59,34 @@ This example will be with the "how many blocks the item has broke", so, let's do
 
 * Well the reward part will be another activator, since I want it to be triggered when breaking block it will be also a break block activator (2nd, the 1st stores the information)
 
-![](</img/image (350).png>)
+![](https://media.ssomar.com/m/docs-img-image-350.png)
 
 * Let's add in the commands the reward
 
-![](</img/image (326).png>)
+![](https://media.ssomar.com/m/docs-img-image-326.png)
 
 * I have an item called "breakblockcounter2" its the same pickaxe but level 2
 * Now let's add the CONDITION to only work when the pickaxe has broken 15 blocks.
 
-![](</img/image (379).png>)
+![](https://media.ssomar.com/m/docs-img-image-379.png)
 
-![](</img/image (64).png>)
+![](https://media.ssomar.com/m/docs-img-image-64.png)
 
 * The type will be PLAYER\_NUMBER
 
-![](</img/image (262).png>)
+![](https://media.ssomar.com/m/docs-img-image-262.png)
 
 * We're going to compare the variable
 
-![](</img/image (79).png>)
+![](https://media.ssomar.com/m/docs-img-image-79.png)
 
 * To be EQUALS
 
-![](</img/image (336).png>)
+![](https://media.ssomar.com/m/docs-img-image-336.png)
 
 * To 15
 
-![](</img/image (80).png>)
+![](https://media.ssomar.com/m/docs-img-image-80.png)
 
 * And that's all, let's test it.
 
@@ -94,7 +94,7 @@ This example will be with the "how many blocks the item has broke", so, let's do
 
 I setup a ei take command to delete the pickaxe, and the 2nd pickaxe was created outside this tutorial.
 
-![gg](</img/2022-05-14 18-31-01.gif>)
+![gg](https://media.ssomar.com/m/docs-img-2022-05-14-18-31-01.gif)
 
 * If have any question feel free to ask in the Discord !! ^^
 

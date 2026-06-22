@@ -3,7 +3,7 @@
   "label": "ExecutableEvents",
   "position": 5,
   "customProps": {
-    "icon": "/img/Executable_Events_Icon-removebg-preview.png"
+    "icon": "https://media.ssomar.com/m/docs-img-executable-events-icon-removebg-preview.png"
   },
   "link": {
     "type": "doc",

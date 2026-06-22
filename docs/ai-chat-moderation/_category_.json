@@ -3,7 +3,7 @@
   "label": "AI Chat Moderation",
   "position": 8,
   "customProps": {
-    "icon": "/img/logo_aicm.png"
+    "icon": "https://media.ssomar.com/m/docs-img-logo-aicm.png"
   },
   "link": {
     "type": "doc",

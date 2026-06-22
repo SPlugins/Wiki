@@ -2,7 +2,7 @@
 
 This tutorial covers the basics of creating a throwable diamond axe using ExecutableItems and SCore's Custom Projectiles system. This guide focuses specifically on the launching mechanic. For advanced features like Thor-style lightning, piercing enemies, or making the axe return to you, you'll need to build upon this foundation using additional commands and activators.
 
-![](</img/firstsnowball.gif>)
+![](https://media.ssomar.com/m/docs-img-firstsnowball.gif)
 
 ## Overview
 
