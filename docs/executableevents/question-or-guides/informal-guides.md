@@ -110,7 +110,7 @@ BUFF WOULD WORK:
 the correct action (Ex: To check for swimming, enable if swimmong player condition)
 
 FINALLY, TO MAKE THE STAMINA REGENERATION STOP WHILE DOING ACTIONS, USE EECOOLDOWN
-https://docs.ssomar.com/tools-for-all-plugins-score/custom-commands/player-and-target-commands#eecooldown
+https://docs.splugins.net/tools-for-all-plugins-score/custom-commands/player-and-target-commands#eecooldown
 TO MAKE THE LOOP ACTIVATOR RESPONSIBLE FOR STAMINA REGEN TO NOT EXECUTE.
 
 ===============================================================================

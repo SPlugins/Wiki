@@ -21,11 +21,11 @@ Etcetera, **every command that supports the name of a player is "compatible" wit
 
 This section is for compatible plugins that works with Ssomar plugins, there are some features that we have that its compatible with the other plugins.
 
-* Before starting you must know that compatible ≠ usable, allmost all plugins are usable for Ssomar Plugins, this is because all commands are run by the console.
+* Before starting you must know that compatible ≠ usable, allmost all plugins are usable for SPlugins, this is because all commands are run by the console.
 
 ### MythicMobs
 
-#### You can make your MythicMobs mobs drop Ssomar Plugins Items in these ways:
+#### You can make your MythicMobs mobs drop SPlugins Items in these ways:
 
 *   ExecutableItems:
 
@@ -39,7 +39,7 @@ This section is for compatible plugins that works with Ssomar plugins, there are
 * ExecutableBlocks:
   * The same idea but instead of using ExecutableItem use the ExecutableBlock, and on the command from skill use "eb" instead of "ei".
 
-#### You can specify the activators from SsomarPlugins to only work with specific MythicMobs using the feature [detailedEntities](/executableitems/configurations/activator-configuration/activators-features#p_e-detailedentities).
+#### You can specify the activators from SPlugins to only work with specific MythicMobs using the feature [detailedEntities](/executableitems/configurations/activator-configuration/activators-features#p_e-detailedentities).
 
 * Example : Creating an ExecutableItem that makes more damage to a list of MythicMobs
 * Example: Creating an ExecutableBlock  that damages a specific MythicMob when it walks above the block
@@ -59,7 +59,7 @@ activators:
 
 * ⭐You can use this idea with ExecutableBlocks and LOOP activator to create custom MythicMobs spawner.
 
-#### Run MythicMobs skill from Ssomar Plugins features
+#### Run MythicMobs skill from SPlugins features
 
 * You can use on commands section  `SUDOOP mm test cast <skill>` to run a skill from MythicMobs.
 
@@ -76,7 +76,7 @@ activators:
 
 ### AuraSkills (prev AureliumSkills)
 
-* Ssomar Plugins have the activator feature of [requiredMana](/executableitems/configurations/activator-configuration/activators-features#requiredmana) in order to have as requirement for the activator to work.
+* SPlugins have the activator feature of [requiredMana](/executableitems/configurations/activator-configuration/activators-features#requiredmana) in order to have as requirement for the activator to work.
 * Aurelium Skills commands
   * Also you can use AureliumSkills commands on your plugin, such as giving mana to the player, giving mana to the players around (Like a supporter), etc.
 * ExecutableItems
@@ -240,7 +240,7 @@ activators:
 
 ### BlocksToCommand
 
-* Plugin that allows you to import structures that can be placed with Ssomar Plugins.
+* Plugin that allows you to import structures that can be placed with SPlugins.
 
 ### Terra
 

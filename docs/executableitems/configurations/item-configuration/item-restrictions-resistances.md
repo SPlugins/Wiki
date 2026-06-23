@@ -17,7 +17,7 @@ On this page you will learn about item restrictions and some resistances, this w
 # -
 # ----------------------------------
 # -
-# WIKI HERE : https://docs.ssomar.com/executableitems/information-ei
+# WIKI HERE : https://docs.splugins.net/executableitems/information-ei
 # DISCORD HERE : https://discord.com/invite/TRmSwJaYNv
 # -
 

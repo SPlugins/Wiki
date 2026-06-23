@@ -50,7 +50,7 @@ Check [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
 ### Player commands
 
-* Info: Command that allows outside and inside Ssomar Plugins to run a custom command from SCore to a specific player.
+* Info: Command that allows outside and inside SPlugins to run a custom command from SCore to a specific player.
 * When using this command, all the command line is parsed through PlaceholdersAPI so you add placeholders to it.
 
 * Command: /score run-player-command player:\{player\} \{command\}
@@ -58,13 +58,13 @@ Check [SCore Variables](/tools-for-all-plugins-score/score-variables)
   * `command`: SCore player command that will be applied to \{player\}
 
 * Examples:
-  * /score run-player-command player:SsomarPluginsPlayer SENDMESSAGE &eHello
-  * /score run-player-command player:SsomarPluginsPlayer SENDMESSAGE &eHello player:Ssomar +++ DELAY 10 +++ SWING_MAIN_HAND
-  * /score run-player-command player:SsomarPluginsPlayer SENDMESSAGE &eHello my name is %player% and my life is %player_health%
+  * /score run-player-command player:SPluginsPlayer SENDMESSAGE &eHello
+  * /score run-player-command player:SPluginsPlayer SENDMESSAGE &eHello player:Ssomar +++ DELAY 10 +++ SWING_MAIN_HAND
+  * /score run-player-command player:SPluginsPlayer SENDMESSAGE &eHello my name is %player% and my life is %player_health%
 
 ### Block commands
 
-* Info: Command that allows outside and inside Ssomar Plugins to run a custom command from SCore for a specific block.
+* Info: Command that allows outside and inside SPlugins to run a custom command from SCore for a specific block.
 
 * Command: /score run-block-command \[player:\{player\}\] block:\{world\},\{x\},\{y\},\{z\} \{command\}
   * `player`: Player who is involved in this activator
@@ -83,11 +83,11 @@ Check [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
 * Examples:
   * /score run-block-command block:world,-23,-61,27 BREAK
-  * /score run-block-command player:SsomarPluginsPlayer block:world,-23,-61,27 MINEINCUBE 1 false
+  * /score run-block-command player:SPluginsPlayer block:world,-23,-61,27 MINEINCUBE 1 false
 
 ### Entity commands
 
-* Info: Command that allows outside and inside Ssomar Plugins to run a custom command from SCore for a specific entity
+* Info: Command that allows outside and inside SPlugins to run a custom command from SCore for a specific entity
 
 * Command: /score run-entity-command entity:\{entityUUID\} \{command\}
   * `entityUUID`: UUID of the entity targeted

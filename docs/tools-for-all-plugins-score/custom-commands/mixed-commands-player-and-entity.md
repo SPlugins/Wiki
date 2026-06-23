@@ -144,7 +144,7 @@ Example: `SEND_MESSAGE &cYou will be damaged in 5 seconds <+> DELAY 5 <+> DAMAGE
 :::
 
 :::info
-**Placeholders:** The placeholders are the same that the [Player Placeholders](https://docs.ssomar.com/tools-for-all-plugins-score/placeholders#player-placeholders) but you need to replace "player" by "around\_target"
+**Placeholders:** The placeholders are the same that the [Player Placeholders](https://docs.splugins.net/tools-for-all-plugins-score/placeholders#player-placeholders) but you need to replace "player" by "around\_target"
 
 Example: %around\_target%, %around\_target\_uuid%
 :::
@@ -954,7 +954,7 @@ Example: `minecraft:effect give .. <+> DELAY 5 <+>  DAMAGE 5`
 :::
 
 :::info
-**Placeholders:** The placeholders are the same that the [Entity Placeholders](https://docs.ssomar.com/tools-for-all-plugins-score/placeholders#entity-placeholders) but you need to replace "player" by "around\_target"
+**Placeholders:** The placeholders are the same that the [Entity Placeholders](https://docs.splugins.net/tools-for-all-plugins-score/placeholders#entity-placeholders) but you need to replace "player" by "around\_target"
 
 Example: %around\_target%, %around\_target\_uuid%
 :::
