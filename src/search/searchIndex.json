@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-03T01:47:06.153Z",
+  "generatedAt": "2026-07-09T08:58:00.577Z",
   "items": [
     {
       "source": "@site/docs/_partials/block-features.md",
@@ -3947,6 +3947,16 @@
         "How It Works",
         "Application configuration",
         "YAML Validator"
+      ]
+    },
+    {
+      "source": "@site/docs/tools-for-all-plugins-score/non-obvious-mechanics.md",
+      "content": "🧩 Non-Obvious Mechanics - Despite some plugins like ExecutableItems being clear about their features, some are hidden due to being difficult to explain on a general way. ExecutableItems Furnace Usage If you give an ExecutableItem usage, it will be reusable in the furnace. For example, if you give coal 3 usage, it will last for 3 fuel burn cycles until it vanishes. If you try to put 2 ei items that has more than 1 usage in it, the furnace will refuse to work. Keep Item On Death using NBT If an itemstack with the PDC NBT of and KeepInventory gamerule is disabled, it will allow the item to be retained on the player's inventory upon respawn. This can be achieved By using ADD ITEM NBT command. Example: Once all of the item's keepitemondeath charges are exhaused, the nbt will be removed from the itemstack.",
+      "headings": [
+        "🧩 Non-Obvious Mechanics",
+        "ExecutableItems",
+        "Furnace Usage",
+        "Keep Item On Death using NBT"
       ]
     },
     {
