@@ -33,5 +33,4 @@ Premium ExecutableEvents:
 * Purchase on [Spigot](https://www.spigotmc.org/resources/%E2%AD%90-executableevents-%E2%AD%90-customize-your-events-very-easily.106537/)
 * Purchase on [Polymart](https://polymart.org/resource/executableevents.3198)
 * Purchase on [BuiltByBit](https://builtbybit.com/resources/executable-events.30657/)
-* Purchase using RUB on Boosty (Contact Ssomar on the discord)
-* Purchase on Ssomar Website (then go on the discord to get the plugin.[ Download Premium](https://discord.com/channels/701066025516531753/1134158681769005076))
+* Purchase on [SsomarWebsite](https://splugins.net)
