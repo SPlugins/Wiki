@@ -17,7 +17,8 @@ If you integrated with the SsomarDev plugins before the public Maven repository 
 
 ```xml
 <repository>
-    <id>ssomar</id>
+    <id>splugins-repository-releases</id>
+    <name>SPlugins Repository</name>
     <url>https://repo.ssomar.com/releases</url>
 </repository>
 

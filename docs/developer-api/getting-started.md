@@ -17,7 +17,8 @@ Maven:
 ```xml
 <repositories>
     <repository>
-        <id>ssomar</id>
+        <id>splugins-repository-releases</id>
+        <name>SPlugins Repository</name>
         <url>https://repo.ssomar.com/releases</url>
     </repository>
 </repositories>
@@ -36,7 +37,10 @@ Gradle:
 
 ```groovy
 repositories {
-    maven { url = uri("https://repo.ssomar.com/releases") }
+    maven {
+        name = "spluginsRepositoryReleases"
+        url = uri("https://repo.ssomar.com/releases")
+    }
 }
 
 dependencies {
