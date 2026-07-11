@@ -16,4 +16,3 @@ In the result of the trade you can run the command you want ! Give a custom obje
 
 * Purchase on [Spigot](https://www.spigotmc.org/resources/%E2%AD%90-custom-piglins-trades-%E2%AD%90-add-new-trades-in-the-game.81003/)
 * Purchase on [Polymart](https://polymart.org/resource/custom-piglins-trades.3197)
-* Purchase using RUB on Boosty (Contact Ssomar on the discord)
