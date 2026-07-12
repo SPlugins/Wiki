@@ -33,4 +33,4 @@ Premium ExecutableEvents:
 * Purchase on [Spigot](https://www.spigotmc.org/resources/%E2%AD%90-executableevents-%E2%AD%90-customize-your-events-very-easily.106537/)
 * Purchase on [Polymart](https://polymart.org/resource/executableevents.3198)
 * Purchase on [BuiltByBit](https://builtbybit.com/resources/executable-events.30657/)
-* Purchase on [SsomarWebsite](https://splugins.net)
+* Purchase on [SPlugins (official website)](https://splugins.net/resources/906)

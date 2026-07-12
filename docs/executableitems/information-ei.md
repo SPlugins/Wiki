@@ -49,7 +49,7 @@ Premium ExecutableItems:
 * Purchase on  [Spigot (Paypal only)](https://www.spigotmc.org/resources/83070)
 * Purchase on [BuiltByBit](https://builtbybit.com/resources/custom-items-plugin-executable-items.18673/)
 * Purchase on [Polymart](https://polymart.org/resource/executableitems.2858)
-* Purchase on [SsomarWebsite](https://splugins.net)
+* Purchase on [SPlugins (official website)](https://splugins.net/resources/900)
 
 :::tip
 **Examples of what you can do with ExecutableItems Premium. These are simply examples as there are way more things that can be done with the help of your imagination.**

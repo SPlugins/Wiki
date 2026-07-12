@@ -31,7 +31,7 @@ Premium ExecutableBlocks:
 * Purchase on [Spigot](https://www.spigotmc.org/resources/%E2%AD%90-executable-blocks-%E2%AD%90-add-activators-on-your-blocks.94696/)
 * Purchase on [Polymart](https://polymart.org/resource/executableblocks.3196)
 * Purchase on [BuiltByBit](https://builtbybit.com/resources/executable-blocks.30656/)
-* Purchase on [SsomarWebsite](https://splugins.net)
+* Purchase on [SPlugins (official website)](https://splugins.net/resources/905)
 
 :::tip
 **Examples of what you can do with ExecutableBlocks Premium. These are simply examples as there are way more things that can be done with the help of your imagination.**
