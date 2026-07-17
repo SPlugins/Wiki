@@ -438,6 +438,18 @@ This activator only works if you have the **CustomFishing** plugin installed. It
   * [DetailedDamageCauses](/executableitems/configurations/activator-configuration/activators-features#s_a_l-detaileddamagecauses)
   * [Target commands](/executableitems/configurations/activator-configuration/activators-features#p_t-targetcommands)
 
+### PLAYER\_HIT\_SHIELD\_OF\_PLAYER <CustomTag type="premium" />
+
+* Info: Activator that gets triggered when the player hits another player (usually called target) and the hit is fully blocked by the target's shield. This is the attacker-side counterpart of [PLAYER_BLOCK_HIT_OF_PLAYER](#player_block_hit_of_player).
+  * Placeholders available in this activator: `%damage_blocked_base%` (the base damage that was blocked) and `%damage_blocked_base_int%` (same value truncated to an integer).
+* activatorFeatures: Normally all activators shares features, but there are some that are exclusive for some activators, if its the case, the feature(s) will be listed here.
+  * [DetailedDamageCauses](/executableitems/configurations/activator-configuration/activators-features#s_a_l-detaileddamagecauses)
+  * [Target commands](/executableitems/configurations/activator-configuration/activators-features#p_t-targetcommands)
+* Examples:
+  * Shield Piercer – When your hit gets blocked by a shield, deal true damage to the blocker equal to half of the blocked damage.
+  * Guard Breaker – Hitting a blocking player has a 25% chance to disable their shield for 3 seconds.
+  * Rebound Strike – When your attack is blocked, gain Speed II for 3 seconds to reposition.
+
 ### PLAYER\_INPUT <CustomTag type="premium" /> <CustomTag type="version" version="1.21.3" />
 
 * Info: Activator that gets triggered when the player input a key. (forward, backward, left, right, jump, sprint, sneak)

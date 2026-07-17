@@ -39,6 +39,12 @@ name: '&cEpic Sword'
   * With that hex color code you have to add "#" at the beginning and that is what will be before what you want to color. #\<HEX\_COLOR\_CODE>\<What you want to color>
   * Finally you will have something like **`#DB6725&lPractice`** and it will look with the color you selected [in game](https://imgur.com/a/7umxduF).
 
+* The display name also supports [MiniMessage](https://docs.advntr.dev/minimessage/format.html) tags, for example:
+
+```yaml
+name: '<gradient:#FF0000:#FFD700>Epic Sword</gradient>'
+```
+
 ### Lore or description of the item
 
 * Info: The lore or description of the item
@@ -245,6 +251,10 @@ itemRarity:
   * `dispensable`: Boolean that selects if the item can be disposed of (removed/dropped)
   * `swappable`: Boolean that selects if the item can be swapped with another item
   * `allowedEntities`: List of entities permitted to equip this item
+  * `equipOnInteract`: <CustomTag type="version" version="1.21.6" compact /> Boolean that allows equipping the item on an entity by right-clicking it (like a saddle)
+  * `canBeSheared`: <CustomTag type="version" version="26.1" compact /> Boolean that allows the item to be sheared off the entity wearing it
+  * `enableShearingSound`: <CustomTag type="version" version="26.1" compact /> Boolean to play a sound when the item is sheared off
+  * `shearingSound`: <CustomTag type="version" version="26.1" compact /> Sound effect to play when sheared (default: ENTITY_SHEEP_SHEAR)
 * Example:
 
 ```yaml
@@ -263,6 +273,13 @@ equippableFeatures:
 
     allowedEntities:
      - PLAYER
+
+    # 1.21.6+
+    equipOnInteract: false
+    # 26.1+
+    canBeSheared: false
+    enableShearingSound: false
+    shearingSound: ENTITY_SHEEP_SHEAR
 ```
 
 ### Repairable features <CustomTag type="version" version="1.21.2" />
@@ -1083,4 +1100,117 @@ Each damage reduction entry has the following settings:
 :::tip
 You can create custom "shields" with different materials using this feature. For example, you could make a book that blocks magic damage or a diamond that blocks physical attacks!
 :::
+
+### Attack range features <CustomTag type="version" version="1.21.11" /> <CustomTag type="paper" />
+
+* Info: Feature that allows you to customize the melee reach of a weapon.
+  * `enable`: Boolean value that enables or disables the attack range features
+  * `minReach`: Double value, minimum reach of the weapon (default: 0.0)
+  * `maxReach`: Double value, maximum reach of the weapon (default: 3.0)
+  * `minCreativeReach`: Double value, minimum reach in creative mode (default: 0.0)
+  * `maxCreativeReach`: Double value, maximum reach in creative mode (default: 6.0)
+  * `hitboxMargin`: Double value, extra margin added around the target's hitbox (default: 1.0)
+  * `mobFactor`: Double value, reach multiplier applied when the holder is a mob (default: 2.0)
+* Example:
+
+```yaml
+attackRangeFeatures:
+  enable: true
+  minReach: 0.0
+  maxReach: 5.0
+  minCreativeReach: 0.0
+  maxCreativeReach: 6.0
+  hitboxMargin: 1.0
+  mobFactor: 2.0
+```
+
+### Piercing weapon features <CustomTag type="version" version="1.21.11" /> <CustomTag type="paper" />
+
+* Info: Feature that makes the weapon pierce through entities, like a spear.
+  * `enable`: Boolean value that enables or disables the piercing weapon features
+  * `dealsKnockback`: Boolean that selects if the piercing attack deals knockback (default: true)
+  * `dismounts`: Boolean that selects if the piercing attack dismounts the target from its vehicle (default: false)
+  * `enableSound` + `sound`: Sound played when attacking (default: ITEM_SPEAR_ATTACK)
+  * `enableHitSound` + `hitSound`: Sound played when hitting an entity (default: ITEM_SPEAR_HIT)
+* Example:
+
+```yaml
+piercingWeaponFeatures:
+  enable: true
+  dealsKnockback: true
+  dismounts: false
+  enableSound: false
+  sound: ITEM_SPEAR_ATTACK
+  enableHitSound: false
+  hitSound: ITEM_SPEAR_HIT
+```
+
+### Kinetic weapon features <CustomTag type="version" version="1.21.11" /> <CustomTag type="paper" />
+
+* Info: Feature that gives the weapon a charge/lunge attack based on the holder's movement speed (like a spear charge). The dismount, knockback and damage effects each have their own speed and duration thresholds.
+  * `enable`: Boolean value that enables or disables the kinetic weapon features
+  * `contactCooldownTicks`: Integer value, cooldown in ticks between two kinetic contacts (default: 20)
+  * `delayTicks`: Integer value, delay in ticks before the kinetic effect starts (default: 0)
+  * `forwardMovement`: Double value, forward movement applied during the lunge (default: 1.0)
+  * `damageMultiplier`: Double value, multiplier applied to the damage dealt (default: 1.0)
+  * Dismount thresholds: `dismountMaxDurationTicks` (default: 20), `dismountMinSpeed` (default: 0.0), `dismountMinRelativeSpeed` (default: 0.0)
+  * Knockback thresholds: `knockbackMaxDurationTicks` (default: 20), `knockbackMinSpeed` (default: 0.0), `knockbackMinRelativeSpeed` (default: 0.0)
+  * Damage thresholds: `damageMaxDurationTicks` (default: 20), `damageMinSpeed` (default: 0.0), `damageMinRelativeSpeed` (default: 0.0)
+  * `enableSound` + `sound`: Sound played when the lunge starts (default: ITEM_SPEAR_LUNGE_1)
+  * `enableHitSound` + `hitSound`: Sound played when hitting an entity (default: ITEM_SPEAR_HIT)
+* Example:
+
+```yaml
+kineticWeaponFeatures:
+  enable: true
+  contactCooldownTicks: 20
+  delayTicks: 0
+  forwardMovement: 1.0
+  damageMultiplier: 1.5
+
+  dismountMaxDurationTicks: 20
+  dismountMinSpeed: 0.0
+  dismountMinRelativeSpeed: 0.0
+
+  knockbackMaxDurationTicks: 20
+  knockbackMinSpeed: 0.0
+  knockbackMinRelativeSpeed: 0.0
+
+  damageMaxDurationTicks: 20
+  damageMinSpeed: 0.0
+  damageMinRelativeSpeed: 0.0
+
+  enableSound: false
+  sound: ITEM_SPEAR_LUNGE_1
+  enableHitSound: false
+  hitSound: ITEM_SPEAR_HIT
+```
+
+### Dye features <CustomTag type="version" version="26.1" /> <CustomTag type="paper" />
+
+* Info: Feature that makes the item usable as a dye.
+  * `enable`: Boolean value that enables or disables the dye features
+  * `dyeColor`: The dye color, one of the 16 vanilla colors. See [DyeColor](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/DyeColor.html) for available values.
+* Example:
+
+```yaml
+dyeFeatures:
+  enable: true
+  dyeColor: WHITE
+```
+
+### Sulfur cube content features <CustomTag type="version" version="26.2" /> <CustomTag type="paper" />
+
+* Info: Feature that stores the item absorbed by a sulfur cube mob inside the item.
+  * `enable`: Boolean value that enables or disables the sulfur cube content features
+  * `absorbedItem`: The item stored inside the sulfur cube (full item configuration)
+* Example:
+
+```yaml
+sulfurCubeContentFeatures:
+  enable: true
+  absorbedItem:
+    material: DIAMOND
+    amount: 1
+```
 

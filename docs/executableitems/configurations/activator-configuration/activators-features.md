@@ -167,6 +167,7 @@ To make the features more understandable on where activators do they work, we wi
   * PLAYER\_CLICK\_ON\_PLAYER
   * PLAYER\_FISH\_PLAYER <CustomTag type="premium" compact />
   * PLAYER\_HIT\_PLAYER
+  * PLAYER\_HIT\_SHIELD\_OF\_PLAYER <CustomTag type="premium" compact />
   * PLAYER\_KILL\_PLAYER <CustomTag type="premium" compact />
   * PLAYER\_RECEIVE\_HIT\_BY\_PLAYER <CustomTag type="premium" compact />
   * PLAYER\_SHIELD\_BREAK\_BY\_PLAYER <CustomTag type="premium" compact />
