@@ -17,7 +17,7 @@ The free version of ExecutableItems is like a free-trial of it, to know how it w
 
 ### Activators
 
-* In the free version you can only work with **\~******14 activators****, but there are ****+40 activators**** to make your items in the **premium version**, so you could trigger a block of commands depending on almost every action the player does.
+* In the free version you can only work with **\~******14 activators****, but there are ****90+ activators**** (see the [full list](/docs/executableitems/configurations/activator-configuration/list-of-the-activators)) to make your items in the **premium version**, so you could trigger a block of commands depending on almost every action the player does.
 * Besides you will unlock every activator, you will also unlock the possibility to have as many ****activators as you want per item****, that means creating multi functional tools, that does a lot of abilities, mechanics and complex constructor of skills.
 
 ### All features

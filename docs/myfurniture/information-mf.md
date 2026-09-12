@@ -1,6 +1,16 @@
+---
+title: Information MF
+description: >-
+  MyFurniture is a Minecraft plugin for Spigot, Paper and Folia adding
+  custom furniture with precise hitboxes via YAML or GUI. Needs SCore.
+  Premium: 4.99€/month.
+---
+
 # 📌 Information MF
 
 ## Description
+
+MyFurniture is a Minecraft server plugin for Spigot, Paper and Folia that lets you add custom furniture to your server, with unique activators on each piece. It is configured through YAML files or an in-game GUI, without writing any code. It requires the free SCore library plugin to run. A free version is available, and the premium version is unlocked through a 4.99€/month subscription bundle that also covers other SPlugins products.
 
 MyFurniture allows you to add a bunch of Furniture to your server, and adding unique activators on them! With this plugin, the possibilities are truly endless. 
 
@@ -37,4 +47,3 @@ You want the access to all the features, and support my work ?
 
  You can subscribe on the discord into the [channel subscription](https://discord.com/channels/701066025516531753/1333041782010937385).
 :::
-

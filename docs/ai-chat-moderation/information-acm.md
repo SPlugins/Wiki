@@ -1,6 +1,16 @@
+---
+title: Information ACM
+description: >-
+  AI Chat Moderation is a Minecraft plugin using AI to filter harmful chat
+  across 12 categories, set up via one YAML file, no coding, no OpenAI key
+  needed.
+---
+
 # 📌 Information ACM
 
 ## Description
+
+AI Chat Moderation is a Minecraft server plugin that uses artificial intelligence to detect and filter harmful messages in your server chat. It is configured through a single YAML file, without writing any code, and it does not require an OpenAI or MistralAI key of your own. Detection covers 12 categories of harmful content, with customizable confidence levels and response actions per category.
 
 #### **Keep your Minecraft server chat clean and safe with advanced AI technology!**
 

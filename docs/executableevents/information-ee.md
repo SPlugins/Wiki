@@ -1,8 +1,17 @@
+---
+description: >-
+  ExecutableEvents is a Minecraft plugin for Spigot, Paper and Folia to
+  customize server events via YAML or GUI, no coding. Needs SCore. Premium:
+  12.29€ (2026).
+---
+
 # 📌 Information EE
 
 ## Description
 
-A plugin that allows you to customize the events that occur on your server. it contains a lot of pre-made custom conditions and custom commands which will make your life easier to customize your server!
+ExecutableEvents is a Minecraft server plugin for Spigot, Paper and Folia that lets you customize the events that occur on your server, using premade custom conditions and custom commands. It is configured through YAML files or an in-game GUI, without writing any code. It requires the free SCore library plugin to run. A free version and a premium version are available, the premium version priced at 12.29€ as of September 2026.
+
+It contains a lot of pre-made custom conditions and custom commands which will make your life easier to customize your server!
 
 Let's take a look at the events that you can customize here: 
 
@@ -33,4 +42,4 @@ Premium ExecutableEvents:
 * Purchase on [Spigot](https://www.spigotmc.org/resources/%E2%AD%90-executableevents-%E2%AD%90-customize-your-events-very-easily.106537/)
 * Purchase on [Polymart](https://polymart.org/resource/executableevents.3198)
 * Purchase on [BuiltByBit](https://builtbybit.com/resources/executable-events.30657/)
-* Purchase on [SPlugins (official website)](https://splugins.net/resources/906)
+* Purchase on [SPlugins (official website)](https://splugins.net/resources/906-executableevents)

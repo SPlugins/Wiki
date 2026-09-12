@@ -11,7 +11,7 @@
 # -
 # ----------------------------------
 # -
-# WIKI HERE : https://docs.ssomar.com
+# WIKI HERE : https://splugins.net/docs
 # DISCORD HERE : https://discord.com/invite/TRmSwJaYNv
 # -
 

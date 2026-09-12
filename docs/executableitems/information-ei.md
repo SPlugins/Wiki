@@ -1,6 +1,15 @@
+---
+description: >-
+  ExecutableItems is a Minecraft plugin for Spigot, Paper and Folia to
+  create custom items via YAML or GUI, no coding. Needs SCore. Premium:
+  19.99€ (Sept. 2026).
+---
+
 # 📌 Information EI
 
 ## Description 
+
+ExecutableItems is a Minecraft server plugin for Spigot, Paper and Folia that lets you create fully custom items, from weapons to tools to consumables, with custom abilities triggered by in-game events. It is configured through YAML files or an in-game GUI, without writing any code. It requires the free SCore library plugin to run. A free version and a premium version are available, the premium version priced at 19.99€ as of September 2026.
 
 ExecutableItems is the most powerful and flexible custom items plugin available for Minecraft servers. With over 5 years of active development, 4,000+ servers trusting our plugin, and 280+ five-star reviews, ExecutableItems has become the industry standard for custom item creation.
 
@@ -49,7 +58,7 @@ Premium ExecutableItems:
 * Purchase on  [Spigot (Paypal only)](https://www.spigotmc.org/resources/83070)
 * Purchase on [BuiltByBit](https://builtbybit.com/resources/custom-items-plugin-executable-items.18673/)
 * Purchase on [Polymart](https://polymart.org/resource/executableitems.2858)
-* Purchase on [SPlugins (official website)](https://splugins.net/resources/900)
+* Purchase on [SPlugins (official website)](https://splugins.net/resources/900-executableitems)
 
 :::tip
 **Examples of what you can do with ExecutableItems Premium. These are simply examples as there are way more things that can be done with the help of your imagination.**

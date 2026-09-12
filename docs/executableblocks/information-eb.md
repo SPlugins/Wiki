@@ -1,6 +1,15 @@
+---
+description: >-
+  ExecutableBlocks is a Minecraft plugin for Spigot, Paper and Folia adding
+  custom block activators via YAML or GUI. Needs SCore. Premium: 14.49€
+  (2026).
+---
+
 # 📌 Information EB
 
 ## Description 
+
+ExecutableBlocks is a Minecraft server plugin for Spigot, Paper and Folia that lets you add custom activators and behaviors to blocks, such as build blocks, traps, boost blocks or crates. It is configured through YAML files or an in-game GUI, without writing any code. It requires the free SCore library plugin to run. A free version and a premium version are available, the premium version priced at 14.49€ as of September 2026.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3gD_c-axpWI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -31,7 +40,7 @@ Premium ExecutableBlocks:
 * Purchase on [Spigot](https://www.spigotmc.org/resources/%E2%AD%90-executable-blocks-%E2%AD%90-add-activators-on-your-blocks.94696/)
 * Purchase on [Polymart](https://polymart.org/resource/executableblocks.3196)
 * Purchase on [BuiltByBit](https://builtbybit.com/resources/executable-blocks.30656/)
-* Purchase on [SPlugins (official website)](https://splugins.net/resources/905)
+* Purchase on [SPlugins (official website)](https://splugins.net/resources/905-executableblocks)
 
 :::tip
 **Examples of what you can do with ExecutableBlocks Premium. These are simply examples as there are way more things that can be done with the help of your imagination.**
