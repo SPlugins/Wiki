@@ -5,6 +5,7 @@ The utility commands can be places in all type of commands, so in entity , playe
 ### DELAY
 
 * Info: Delays a command line for seconds
+  * The delay must be its own line (or start a `+++` part). A `DELAY` or `DELAYTICK` written inside the text of another command (for example a command that stores commands to run later) belongs to that command and is not applied to the line.
 * Command settings:
   * `{amount}`: To how long you want commands to be delayed (In seconds)
 * Example:
