@@ -332,6 +332,7 @@ Activator features are features that are exclusive to that activator.
 ### PLAYER\_EQUIP\_THE\_EI <CustomTag type="premium" />
 
 * Info: Activator that gets triggered if you wear/put the armorpiece into the armor slot.
+  * `detailedSlots` can restrict it to one armor slot: 36 boots, 37 leggings, 38 chestplate, 39 helmet (the slot the piece goes into), in addition to -1 for the hand it came from.
   * Be careful ! The plugin CMI can make this activator not work due to cmi.inventoryhat permission to true. If you want this activator to work set it the permission to false. 
   * Fabric addons can bypass this activator.
 
@@ -613,6 +614,7 @@ The event is only triggered when someone force the player to open its inventory 
 ### PLAYER\_UNEQUIP\_THE\_EI <CustomTag type="premium" />
 
 * Info: Activator that gets triggered when the player unequips the ExecutableItem. 
+  * `detailedSlots` can restrict it to one armor slot: 36 boots, 37 leggings, 38 chestplate, 39 helmet (the slot the piece comes from).
   * Be careful ! The plugin CMI can make this activator not work due to cmi.inventoryhat permission to true. If you want this activator to work set it the permission to false.
   * Fabric addons can bypass this activator.
 
@@ -676,6 +678,7 @@ The event is only triggered when someone force the player to open its inventory 
 
 * Info: Activator that gets triggered when the ExecutableItem enters to the player's inventory.
   * If you are using another plugin that manages give items and an ExecutableItem is given and this activator doesn't run then go onto their support and ask them to call this method.
+  * Moves inside the inventory also count: offhand swap (F key), number key swap and, on Paper servers, pick block / pick item (middle click). For those moves EI\_LEAVE\_THE\_PLAYER\_INVENTORY always runs before this activator.
 
 ### EI\_LEAVE\_THE\_PLAYER\_INVENTORY <CustomTag type="premium" />
 

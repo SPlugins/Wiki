@@ -44,6 +44,7 @@ logs:
   dropped: true
   spawned: true
 debugOnlyRun: false # /ei debug will only display the run debug message
+disableActivatorsInSpectator: false # true: players in spectator mode do not trigger activators
 itemCheckWithNBTAPI: false
 config_12_04_2024: true
 silentGive: false
@@ -211,6 +212,16 @@ logs:
 
 ```yaml
 debugOnlyRun: false
+```
+
+#### disableActivatorsInSpectator
+
+* Info: Boolean value, `false` by default. With `true`, a player in spectator mode does not trigger the activators of his ExecutableItems (loops, sneak, equip, hits...) and does not consume usages or cooldowns.
+  * These activators still run in spectator mode, so the item keeps its state: PLAYER\_CONNECTION, PLAYER\_DISCONNECT, PLAYER\_DEATH, PLAYER\_RESPAWN, PLAYER\_WRITE\_COMMAND, EI\_ENTER\_IN\_THE\_PLAYER\_INVENTORY and EI\_LEAVE\_THE\_PLAYER\_INVENTORY.
+* Example:
+
+```yaml
+disableActivatorsInSpectator: true
 ```
 
 #### itemCheckWithNBTAPI
