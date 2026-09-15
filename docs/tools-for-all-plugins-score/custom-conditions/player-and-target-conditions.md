@@ -834,7 +834,7 @@ playerConditions:
 
 ### ifCanBreakTargetedBlock
 
-* Description: Checks if the player can break the targeted block
+* Description: Checks if the player can break the targeted block. When the activator has a block (block break, block place, click on a block…) that block is checked; otherwise the block the player is looking at (5 blocks max).
 * Example:
 
 ```yaml
