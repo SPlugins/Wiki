@@ -23,6 +23,10 @@ import CustomTag from '@site/src/components/CustomTag';
 
 Here you have the list of activators available with their description and some examples. The activators allow you to execute custom actions,  it can have conditions, run commands, have cooldown, etc.
 
+:::warning
+An activator whose `option:` is not in this list (typo, activator of another plugin…) is **disabled**: it never runs, and the console shows an error with the closest option names when the item is loaded.
+:::
+
 Premium activators are labelled with the tag: <CustomTag type="premium" />
 
 Activator features are features that are exclusive to that activator.

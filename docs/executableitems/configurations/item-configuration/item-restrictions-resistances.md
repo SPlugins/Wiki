@@ -48,6 +48,7 @@ On this section you will learn how to add an individual restriction only for the
 ### Cancel the drop of the item
 
 * Info: Boolean value that prevents the player from dropping the executable item.
+* Note: when the item cannot go back into the inventory (for example it was on the cursor while the inventory was closed and every slot is full), the drop is allowed instead of the item being deleted.
 * Example:
 
 ```yaml

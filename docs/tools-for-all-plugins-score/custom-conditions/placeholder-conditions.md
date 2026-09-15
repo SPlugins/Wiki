@@ -11,6 +11,8 @@
     * `TARGET_NUMBER`: Same as `TARGET_STRING` but you can use INFERIOR/SUPERIOR related comparators
     * `TARGET_TARGET`: Same as `TARGET_STRING` but you can use placeholders in the second part and can use INFERIOR/SUPERIOR related comparators
     * `PLAYER_TARGET`: Parses the given placeholder in the first part with the item user and compares it to the second part which parses the target with the given placeholder and can use INFERIOR/SUPERIOR related comparators
+  * part1 / part2: the two values to compare. SCore placeholders (`%var_...%`, `%player_...%`, `%time_...%`…) are parsed in **both** parts for every type. PlaceholderAPI placeholders are parsed in part1 for every type, and in part2 only with the `PLAYER_PLAYER`, `TARGET_TARGET` and `PLAYER_TARGET` types.
+  * On the `_NUMBER` types (and on `PLAYER_PLAYER` / `TARGET_TARGET` / `PLAYER_TARGET` when both parts are numbers) a part can be a small arithmetic expression: `part2: '%player_y%-0.2'`, `'(%var_level%+1)*10'` (`+ - * /` and parentheses).
   * comparator: Used to compare the given placeholder to the second part in numbers
     * `EQUALS`: Compares if the given placeholder gives the exact value as the given value in the second part
     * `DIFFERENT`: Compares if the given placeholder doesn't give the exact value as the given value in the second part

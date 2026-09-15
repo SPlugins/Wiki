@@ -118,7 +118,7 @@ Block placeholders are available in the activators where a block is involved. Wh
 | `%block%` | Block type (UPPERCASE) | `SEND_MESSAGE &7You broke %block%` |
 | `%block_lower%` | Block type (lowercase) | `SEND_MESSAGE &7You broke %block_lower%` |
 | `%block_live%`, `%block_live_lower%` | Current block type | `SEND_MESSAGE &7Current block: %block_live%` |
-| `%block_item_material%` | Item form of block | Used to give the matching item for a placed block |
+| `%block_item_material%` | Item form of block (crops give their seeds, `WALL_TORCH` gives `TORCH`, `OAK_WALL_SIGN` gives `OAK_SIGN`, `POTTED_DANDELION` gives `DANDELION`…) | Used to give the matching item for a placed block |
 | `%block_x%`, `%block_y%`, `%block_z%` | Coordinates (add `_int` for integers) | `execute at %player% run setblock %block_x_int% %block_y_int%+1 %block_z_int% air` |
 | `%blockface%` | Selected block face | `SEND_MESSAGE &7Face: %blockface%` |
 | `%block_world%` | World name | `execute in <<%block_world%>> run setblock %block_x_int% %block_y_int% %block_z_int% air` |
