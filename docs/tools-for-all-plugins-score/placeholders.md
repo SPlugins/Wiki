@@ -85,7 +85,7 @@ Entity placeholders are available in the activators where an entity is involved.
 | `%entity_pitch%`, `%entity_yaw%` | Rotation values | `SEND_MESSAGE &7Yaw: %entity_yaw%` |
 | `%entity_team%` | Entity's team (if any) | `SEND_MESSAGE &7Team: %entity_team%` |
 | `%entity_serialized%` | Full entity definition | Used to copy/restore an entity in advanced commands |
-| `%entity_last_damage_taken%`, `%entity_last_damage_taken_final%`, `%entity_last_damage_taken_final_with_booster%` | Last damage received (add `_int` for integers) | `SEND_MESSAGE &cTarget took %entity_last_damage_taken_final_int% damage` |
+| `%entity_last_damage_taken%` | Last damage received (add `_int` for integers). The `_final` variants only exist in the ExecutableEvents entity damage events, see [activator placeholders](#event-specific-placeholders) | `SEND_MESSAGE &cTarget took %entity_last_damage_taken_int% damage` |
 | `%entity_x_velocity%`, `%entity_y_velocity%`, `%entity_z_velocity%` | Current X, Y, Z Velocity (`_int` for integer) | `SEND_MESSAGE &7Target Y velocity: %entity_y_velocity%` |
 
 ## Item Placeholders
@@ -296,6 +296,7 @@ These placeholders are only available inside the matching event activator.
 | **PLUGIN_ENABLE/DISABLE** | `%plugin_name%` |
 | **PLAYER_ADVANCEMENT** | `%advancement%` (Only for 1.19+) |
 | **PLAYER_RECEIVE_HIT_GLOBAL, PLAYER_RECEIVE_HIT_BY_PLAYER, PLAYER_RECEIVE_HIT_BY_ENTITY** | `%last_damage_taken_nonfinal%`, `%last_damage_taken_nonfinal_int%` refer to the raw damage taken. `%last_damage_taken_final%`, `%last_damage_taken_final_int%` refer to the damage taken after defense buffs (attributes, resistance effect, armor). Only direct hits give the correct value; receiving hits from projectiles returns 0 |
+| **ENTITY_DAMAGE_BY_PLAYER, ENTITY_DAMAGE_BY_ENTITY, ENTITY_DAMAGE_BY_BLOCK** (EE) | `%entity_last_damage_taken_final%`, `%entity_last_damage_taken_final_int%` refer to the damage taken after defense buffs (armor, resistance…). ENTITY_DAMAGE_BY_PLAYER also gives `%entity_last_damage_taken_final_with_booster%` and `%entity_last_damage_taken_final_with_booster_int%`, the final damage including the damage boosts |
 | **PLAYER_BLOCK_HIT_OF_PLAYER, PLAYER_BLOCK_HIT_OF_ENTITY** | `%damage_blocked_base%`, `%damage_blocked_base_int%` returns the raw damage blocked by the shield |
 | **PLAYER_PICKUP_ITEM** (EE) | 1.13+: `%item_type%`, `%item_name%`, `%item_amount%`. 1.14-1.21.3: `%item_cmdata%` (-1 if null). 1.21.4+: `%item_cmdata_s_0%` ("null" if empty), `%item_cmdata_f_0%` (-1 if empty) (first string/float custom model data value, since 1.21.4+ custom model data is stored in an array) |
 | **PLAYER_INVENTORY_CLICK** (EE) | `%is_shift_click%`, `%is_mouse_click%`, `%is_left_click%`, `%is_right_click%`, `%is_keyboard_click%`, `%is_creative_action%`, `%get_action%` ([Reference Enum Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/inventory/InventoryAction.html)), `%before_slot%`, `%after_slot%`, `%inventory_type%` ([Reference Enum Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/inventory/InventoryType.html)), `%inventory_title%` (1.21+) |
