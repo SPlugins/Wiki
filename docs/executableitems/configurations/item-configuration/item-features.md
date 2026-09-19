@@ -1056,7 +1056,7 @@ weaponFeatures:
 * Example:
 
 ```yaml
-blocksAttacksFeatures:
+blockAttacksFeatures:
   enable: true
   blockDelay: 1
   blockSound: ITEM_SHIELD_BLOCK
