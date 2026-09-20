@@ -81,6 +81,7 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 
 * Command: **/ei editor** or **/ei show**
 * Permission: `ei.cmd.editor` or `ei.cmd.show`
+* In the list, the icon of each item shows a preview of its display name, lore, enchantments and attributes. It can be disabled with [editorIconPreview](/tools-for-all-plugins-score/score/general-config#editoriconpreview) in the SCore config.
 
 #### Reload the plugin
 
