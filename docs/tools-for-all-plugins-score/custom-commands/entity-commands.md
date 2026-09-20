@@ -64,6 +64,27 @@ it only works for 1.16.5+
 - AWARENESS value:true
 ```
 
+### CHANGE\_INTO\_ITEM
+
+* Info: Replaces the item of a dropped item entity by a vanilla item or an ExecutableItem. It does nothing if the target entity is not a dropped item.
+* Made for the activator `PLAYER_FISH_FISH`, where the target entity is the caught item: the loot is changed before it is reeled in, so the player keeps the normal fishing animation (no need for `/ei give`).
+* Command settings:
+  * `item`: A material (`DIAMOND`) or the id of an ExecutableItem. If an ExecutableItem and a material have the same name, the ExecutableItem wins. You can write `EI:my_id` to accept only an ExecutableItem.
+  * `amount`: (Optional) The amount of the new item, default 1
+* Example:
+
+```
+activators:
+  activator0:
+    option: PLAYER_FISH_FISH
+    entityCommands:
+    - CHANGE_INTO_ITEM item:my_custom_fish amount:1
+```
+
+```
+- CHANGE_INTO_ITEM item:DIAMOND amount:3
+```
+
 ### CHANGE\_TO
 
 * Info: Replaces the mob with an entity of another type. It will keep the current velocity of the current entity.
