@@ -45,6 +45,7 @@ logs:
   spawned: true
 debugOnlyRun: false # /ei debug will only display the run debug message
 disableActivatorsInSpectator: false # true: players in spectator mode do not trigger activators
+keepNameInAnvil: true # true: an item that goes through an anvil without being renamed keeps its styled name
 itemCheckWithNBTAPI: false
 config_12_04_2024: true
 silentGive: false
@@ -222,6 +223,18 @@ debugOnlyRun: false
 
 ```yaml
 disableActivatorsInSpectator: true
+```
+
+#### keepNameInAnvil
+
+* Info: Boolean value, `true` by default. An ExecutableItem that goes through an anvil **without being renamed** (enchant with a book, repair) keeps its display name with its colors / gradient.
+  * Why it is needed: when an item is placed in an anvil, the game compares the text of the name field with the name of the item. Some names can't be written in that field (for example a name whose text holds a `§`), so the game believed the item was renamed and rewrote its name as plain text: the gradient was lost.
+  * If the player really types a new name, the item is renamed like in vanilla (plain text). To forbid that, use the restriction `cancel-rename-anvil` of the item.
+  * If the option is not in your `config.yml`, it is enabled. Set it to `false` to get the old behaviour back.
+* Example:
+
+```yaml
+keepNameInAnvil: true
 ```
 
 #### itemCheckWithNBTAPI
