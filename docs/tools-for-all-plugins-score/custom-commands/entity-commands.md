@@ -64,6 +64,35 @@ it only works for 1.16.5+
 - AWARENESS value:true
 ```
 
+### CHANGE\_INTO\_ITEM
+
+* Info: Replaces a dropped item (an item entity on the ground or in the air) by a vanilla item or an ExecutableItem. The entity stays the same, only the item it carries changes.
+* Made for the activator `PLAYER_FISH_FISH` of ExecutableItems: there, the entity targeted by `entityCommands` is the caught item. It is changed before it is reeled in, so the player keeps the normal fishing animation and receives your item instead of the fish. No `/ei give`, no `DELAYTICK`, no `data merge` needed.
+* Command settings:
+  * `item`: A material (`DIAMOND`) or the id of an ExecutableItem (`my_custom_fish`).
+  * `amount`: (Optional) The amount of the new item. Default: 1
+* Example:
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_FISH_FISH
+    entityCommands:
+    - CHANGE_INTO_ITEM item:my_custom_fish amount:1
+```
+
+```
+- CHANGE_INTO_ITEM item:DIAMOND amount:3
+- CHANGE_INTO_ITEM item:EI:my_custom_fish
+```
+
+:::info
+* If an ExecutableItem and a material have the same name, the ExecutableItem is used. Write `EI:my_id` to accept only an ExecutableItem.
+* The ExecutableItem is built for the player who triggered the activator (owner, placeholders of the item).
+* The command does nothing if the target entity is not a dropped item (a mob, a player...), and it prints a message in the console if `item` is neither a material nor a loaded ExecutableItem.
+* Full example with a random loot table: [Custom fishing loot](/executableitems/questions-or-guides/methods-or-template/custom-fishing-loot)
+:::
+
 ### CHANGE\_TO
 
 * Info: Replaces the mob with an entity of another type. It will keep the current velocity of the current entity.

@@ -383,6 +383,10 @@ Activator features are features that are exclusive to that activator.
   * [Entity commands](/executableitems/configurations/activator-configuration/activators-features#p_e-entitycommands/executableitems/configurations/activator-configuration/activators-features#p_e-detailedentities)
   * [DetailedEntities](/executableitems/configurations/activator-configuration/activators-features#p_e-entitycommands/executableitems/configurations/activator-configuration/activators-features#p_e-detailedentities)
 
+:::tip
+The entity targeted by `entityCommands` is the **caught item**. Use the entity command [CHANGE\_INTO\_ITEM](/tools-for-all-plugins-score/custom-commands/entity-commands#change_into_item) to turn the catch into a vanilla item or an ExecutableItem, see the guide [Custom fishing loot](/executableitems/questions-or-guides/methods-or-template/custom-fishing-loot).
+:::
+
 ### PLAYER\_FISH\_NOTHING <CustomTag type="premium" />
 
 * Info: Activator that gets triggered when the player fishes nothing, that means, the bobber wasn't on neither block nor entity nor player.
