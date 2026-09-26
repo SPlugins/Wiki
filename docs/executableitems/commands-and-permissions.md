@@ -224,6 +224,12 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 * Command: **/ei debug**
 * Permission: `ei.cmd.debug`
 
+#### List the sets and what a player wears
+
+* Info: Lists the loaded [sets](/executableitems/configurations/sets-configuration) (`plugins/ExecutableItems/sets`). With a player: the pieces he wears and his active tier for each set.
+* Command: **/ei sets** **[player]**
+* Permission: `ei.cmd.sets`
+
 #### Trigger one activator (to test an item)
 
 * Info: Runs one activator of an ExecutableItem that the player carries, without doing the gesture (click, hit, jump...). Useful to test a config. Everything else works as usual: detailed slots, conditions, cooldowns, usage and commands. The item is looked for in the given slot, else in the main hand, the off hand, the armor, then the whole inventory.
