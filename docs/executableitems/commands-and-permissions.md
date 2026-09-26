@@ -224,6 +224,17 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 * Command: **/ei debug**
 * Permission: `ei.cmd.debug`
 
+#### Trigger one activator (to test an item)
+
+* Info: Runs one activator of an ExecutableItem that the player carries, without doing the gesture (click, hit, jump...). Useful to test a config. Everything else works as usual: detailed slots, conditions, cooldowns, usage and commands. The item is looked for in the given slot, else in the main hand, the off hand, the armor, then the whole inventory.
+* Command: **/ei trigger \{player\} \{item id\} \{activator id\}** **[slot:N] [target:nearest|\{player\}|\{uuid\}] [block:x,y,z] [click:left|right] [input:JUMP_PRESS...]**
+  * `target`: the entity or player of the activators that have a target (hit, click on entity...). By default, the one the player looks at.
+  * `block`: the block of the activators that have a target block. By default, the block the player looks at.
+  * `click`: for the activators with a detailed click. By default `right` (`left` for `PLAYER_LEFT_CLICK`).
+  * `input`: required for `PLAYER_INPUT`.
+* Tip: if nothing happens, run **/ei debug** to see which check stops the activator.
+* Permission: `ei.cmd.trigger`
+
 ### Give commands
 
 #### Give command
