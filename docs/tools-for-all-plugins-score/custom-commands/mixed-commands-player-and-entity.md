@@ -829,6 +829,10 @@ activators:
 ```yaml
 HITSCAN_ENTITIES range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throughBlocks:true throughEntities:true HEAL 10 <+> BACKDASH 5
 ```
+
+:::info
+The commands after `HITSCAN_ENTITIES` (and after each `<+>`) run on **each entity hit**, like entity commands: `REGAIN_HEALTH 4` heals the entity hit, not the caster. To act on the caster, use a vanilla command with `%player%`, for example `HITSCAN_ENTITIES range:8 DAMAGE 4 <+> effect give %player% instant_health 1 0 true`.
+:::
 * Image to understand:
 ![](https://media.ssomar.com/m/docs-img-hitscan-entities.png)
 

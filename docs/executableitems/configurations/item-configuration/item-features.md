@@ -183,6 +183,10 @@ keepDefaultAttributes: true
 ignoreKeepDefaultAttributesFeature: false
 ```
 
+:::warning
+On 1.21+, an item without attributes of its own that does not have these two lines **loses the default attributes of its material**: a sword hits like a fist, an armor piece gives no armor. ExecutableItems lists these items in the console after each load. To fix all your items at once: `/ei util-set-keepdefaultattributes-all-ei true`.
+:::
+
 * On this link there is a tutorial for attributes, and its features.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HqyF0QBYIY4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
