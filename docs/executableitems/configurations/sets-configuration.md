@@ -2,7 +2,11 @@
 sidebar_position: 3
 ---
 
-# 🛡️ Sets (bonus by pieces worn)
+# 🛡️ Sets (bonus by pieces worn) <CustomTag type="premium" />
+
+:::info Premium
+Sets need the premium version of ExecutableItems. With the free version, the files of the `sets` folder are not loaded (the console says so at each reload) and `/ei sets` explains it.
+:::
 
 A **set** gives bonuses to a player who wears several ExecutableItems together: 2 pieces give a first bonus, 4 pieces a stronger one, and so on. The bonuses are active only while the pieces are worn, and they are removed cleanly as soon as a piece is taken off.
 

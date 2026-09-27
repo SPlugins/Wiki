@@ -262,7 +262,7 @@ For `PLAYER_WRITE_COMMAND` and `PLAYER_SEND_MESSAGE`:
 
 <hr/>
 
-- `%executableitems_set_<id>%` - Number of pieces of the [set](/executableitems/configurations/sets-configuration) `<id>` the player wears
+- `%executableitems_set_<id>%` <CustomTag type="premium" /> - Number of pieces of the [set](/executableitems/configurations/sets-configuration) `<id>` the player wears
 - `%executableitems_set_<id>_tier%` - Highest active tier of the set (number of pieces), `0` if none
 
 :::info
