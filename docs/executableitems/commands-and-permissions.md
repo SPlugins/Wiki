@@ -226,7 +226,7 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 
 #### List the sets and what a player wears <CustomTag type="premium" />
 
-* Info: Lists the loaded [sets](/executableitems/configurations/sets-configuration) (`plugins/ExecutableItems/sets`). With a player: the pieces he wears and his active tier for each set.
+* Info: Lists the loaded [sets](/executableitems/configurations/sets-configuration) (`plugins/ExecutableItems/sets`). With a player: the pieces worn and the active tier for each set.
 * Command: **/ei sets** **[player]**
 * Permission: `ei.cmd.sets`
 
