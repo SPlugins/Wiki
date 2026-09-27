@@ -702,5 +702,7 @@ The event is only triggered when someone force the player to open its inventory 
 ### LOOP <CustomTag type="premium" />
 
 * Info: Activator that gets triggered in repeat as long as the item is in the player's inventory. Its basically a cycle, it runs the commands each \<delay> \<seconds/ticks> depending on the configuration of this activator.
+* When a condition of a LOOP is not valid, the default error message (`You can't activate this item > invalid condition`) is not sent: the player did not activate anything. A custom message (`{theCondition}Msg`) is still sent.
+* For a bonus while several pieces are worn, use the [sets](/executableitems/configurations/sets-configuration) instead of a LOOP.
 * activatorFeatures: Normally all activators shares features, but there are some that are exclusive for some activators, if its the case, the feature(s) will be listed here.
   * [Delay](/executableitems/configurations/activator-configuration/activators-features#s_a_l-delay-and-delaytick)

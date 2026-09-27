@@ -1,5 +1,9 @@
 # Armor Set Bonus
 
+:::tip New: native sets
+ExecutableItems now has native [sets](/executableitems/configurations/sets-configuration): one file per set, several tiers (2 pieces, 4 pieces...), effects and attributes removed cleanly when a piece is taken off, and no LOOP running all the time. Use them for new sets. The method below still works.
+:::
+
 ## Let's create it !
 
 ### First we have to create the armor set pieces

@@ -9,7 +9,7 @@ description: >-
 ## Condition settings
 All conditions are formated the same, you have:
 * `{theCondition}`
-* `{theCondition}Msg`: The message to send if the condition is invalid
+* `{theCondition}Msg`: The message to send if the condition is invalid (without it, a default error message is sent, except for the LOOP activator of ExecutableItems)
 * `{theCondition}Cancel`: Whether or not the event should be cancelled if the condition is invalid
 * `{theCondition}Cmds`: The command(s) to run if the condition is invalid
 * Example:

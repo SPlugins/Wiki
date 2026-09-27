@@ -82,6 +82,10 @@ Create custom items with unique abilities and commands.
 - [Item Features](/executableitems/configurations/item-configuration/item-features)
 - [Item Restrictions and Resistances](/executableitems/configurations/item-configuration/item-restrictions-resistances)
 
+#### Sets
+
+- [Sets (bonus by pieces worn)](/executableitems/configurations/sets-configuration)
+
 ### Questions and Guides
 
 - [Informal Guides](/executableitems/questions-or-guides/informal-guides)
@@ -161,7 +165,7 @@ Create custom items with unique abilities and commands.
 ### Methods and Templates
 
 - [Action Counter](/executableitems/questions-or-guides/methods/action-counter)
-- [Armor Set Bonus](/executableitems/questions-or-guides/methods/armor-set-bonus)
+- [Armor Set Bonus](/executableitems/questions-or-guides/methods-or-template/armor-set-bonus)
 - [Backstab](/executableitems/questions-or-guides/methods/backstab)
 - [Break Blocks Not Depending on Item](/executableitems/questions-or-guides/methods/break-blocks-not-depending-on-item)
 - [Cancel a Delayed Command](/executableitems/questions-or-guides/methods/cancel-a-delayed-command)

@@ -260,6 +260,11 @@ For `PLAYER_WRITE_COMMAND` and `PLAYER_SEND_MESSAGE`:
   - `%executableitems_checkvar_slot:-1,40_var:atk_bonus%`
   - `%executableitems_checkvar_var:defense,bonus_defense%`
 
+<hr/>
+
+- `%executableitems_set_<id>%` - Number of pieces of the [set](/executableitems/configurations/sets-configuration) `<id>` the player wears
+- `%executableitems_set_<id>_tier%` - Highest active tier of the set (number of pieces), `0` if none
+
 :::info
 - If the first detected variable value is a string, the value will be returned immediately.
 - If the rest of the detected variable value is a number, it will add them all up and return the total value.

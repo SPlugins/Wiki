@@ -24,6 +24,10 @@ editorIconPreview: true # In the list editors (/ei editor, /eb editor ...), show
 hologramsPlugin: "NONE" # The holograms plugin you want to use. By default None , it uses the vanilla holograms. You can use CMI, HOLOGRAPHIC_DISPLAYS or DECENT_HOLOGRAMS
 ```
 
+:::warning silenceOutputs / globalSilenceOutputs
+A console line is hidden when it **contains** one of these sentences. Keep them precise: a very short sentence hides many lines, and an empty entry (`- ""`) would hide the whole console. Empty entries are ignored, with a warning at startup.
+:::
+
 ## editorIconPreview
 
 In the list of `/ei editor` (and the other editors that list files), the icon of each object shows a preview under its ID and its activators, so you can check an item without opening it:
