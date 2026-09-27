@@ -111,6 +111,19 @@ activators:
 
 * `/ei sets`: the loaded sets. `/ei sets <player>`: what this player wears and the active tier of each set. Permission `ei.cmd.sets`.
 
+## When a piece is lost
+
+The bonus follows the pieces, whatever the way they leave or come back:
+
+| Situation | What happens |
+|---|---|
+| Piece taken off, dropped, broken, moved to a chest, removed by a command or another plugin | The tier is lost at once (`leaveCommands` run). |
+| Hand piece thrown (trident), put in an item frame, consumed by its usage | The tier is lost within half a second. |
+| Death without keepInventory | The pieces drop: the tier is lost (`leaveCommands` run). |
+| Death with keepInventory, totem of undying | The bonus comes back after the respawn / the totem, without commands. |
+| World change, teleport | Nothing changes (per-world inventory plugins are followed too). |
+| Quit / join, `/ei reload`, server restart | Nothing changes for the player and no command runs; the health above 20 given by a max health bonus is kept. |
+
 ## Performance
 
-Nothing runs for every player at every tick. An equipment change marks the player and the pieces are counted once on the next tick, only in the slots the sets use. On Paper the armor change event catches every change; on Spigot, and when a set uses the hands, a light check runs every 2 seconds, spread over the players. The `loopCommands` of all players share one task. Without any file in `sets/`, nothing runs at all.
+Nothing runs for every player at every tick. An equipment change marks the player and the pieces are counted once on the next tick, only in the slots the sets use, and the item id is read without going through the whole item list. On Paper the armor change event catches every armor change; the hands (when a set uses them), and the armor on Spigot, get a light check every half second, spread over the players, that only recounts when something changed. The `loopCommands` of all players share one task. Without any file in `sets/`, nothing runs at all.
