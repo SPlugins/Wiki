@@ -101,15 +101,15 @@ If you've created a model in [Blockbench](https://www.blockbench.net/), you can 
 
 In Blockbench, use **File → Save Model** (or **Save a Copy**) to save the `.bbmodel` file. Do **not** export as a Java Block/Item model — the plugin parses `.bbmodel` format directly.
 
-### Step 2 — Drop the file into `__textures__`
+### Step 2 — Drop the file into `animations`
 
 Place the `.bbmodel` file inside:
 
 ```
-plugins/MyFurniture/__textures__/
+plugins/MyFurniture/animations/
 ```
 
-You can put multiple files here.
+You can put multiple files here. (`__textures__` is for resource pack folders, see Method 3: a `.bbmodel` placed there is not read.)
 
 ### Step 3 — Import the pack
 
