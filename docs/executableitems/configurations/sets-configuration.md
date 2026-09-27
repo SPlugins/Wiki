@@ -21,6 +21,16 @@ Sets replace the old method with a LOOP on one piece and `ifHasExecutableItems` 
 
 An `Example_Set.yml` (with `enabled: false`) is created the first time ExecutableItems starts. The items must exist: the sets are loaded after the items.
 
+## Default set: Tempest
+
+The premium version comes with a ready set made of default items (1.21+): **Tempest**, four dyed leather armor pieces with a copper bolt trim and a Loyalty trident (items `Prem_Tempest_*_v1_21`, file `sets/Tempest.yml`).
+
+* 2 pieces: Speed I
+* 4 pieces: +2 hearts, +4 armor, Jump Boost I, storm sparks
+* 5 pieces, the trident in a hand: Strength I and Conduit Power. Throw the trident: the bonus leaves with it and comes back when it returns.
+
+It is installed with the default items: on a new server, or with `/ei default_items` on an existing one. Give yourself the pieces with `/ei give <player> Prem_Tempest_Hood_v1_21` (`_Mantle`, `_Greaves`, `_Treads`, `_Trident`).
+
 ## Example
 
 ```yaml
