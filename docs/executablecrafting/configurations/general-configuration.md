@@ -22,6 +22,8 @@ recipeConfig:
     eventsPriority: NORMAL #In case some plugin is causing problems you can set this to NORMAL, HIGH or HIGHEST
   craftingTable:
     castResultAsMaxAmount: false #If you want the result to stack on the result slot of the crafting inventory
+#If true, the CRAFTER block refuses the recipes that have player conditions (a Crafter has no player, so they can't be checked)
+crafterRefusesPlayerConditionRecipes: false
 
 #Configuration related to recipe books
 locale: EN_US
@@ -33,6 +35,15 @@ recipeBook:
   plchdShowAll: true #If you want the items to show all not meeting conditions in the recipe book
   playerCanOpenNotMeetingCondition: false #If you want the players to be able to open recipes in the recipe book even if they don't meet the conditions
 ```
+
+## Crafter block and player conditions
+
+The vanilla **Crafter** (1.21+) crafts ExecutableCrafting recipes too, with their per-slot amounts, block conditions and placeholder conditions.
+A Crafter has no player, so the **player conditions** of a recipe (for example `ifPlayerLevel: '>=50'`) can't be checked:
+by default they are skipped and the Crafter crafts the recipe anyway.
+
+Set `crafterRefusesPlayerConditionRecipes: true` to make the Crafter refuse every recipe that has player conditions, on the recipe
+itself or on one of its [recipe groups](recipe-groups.md). Players still craft these recipes at a crafting table when they meet the conditions.
 
 ## Visual configuration of recipeBook
 
