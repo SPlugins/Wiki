@@ -46,6 +46,7 @@ logs:
 debugOnlyRun: false # /ei debug will only display the run debug message
 disableActivatorsInSpectator: false # true: players in spectator mode do not trigger activators
 keepNameInAnvil: true # true: an item that goes through an anvil without being renamed keeps its styled name
+loreNotItalicByDefault: false # true: the lore lines are not italic unless they ask for it
 itemCheckWithNBTAPI: false
 config_12_04_2024: true
 silentGive: false
@@ -235,6 +236,18 @@ disableActivatorsInSpectator: true
 
 ```yaml
 keepNameInAnvil: true
+```
+
+#### loreNotItalicByDefault
+
+* Info: Boolean value, `false` by default. Minecraft shows the lore in *italic* unless a line says otherwise. With `true`, every lore line is **straight** unless it asks for italic itself.
+  * Works with legacy colors (`&7My line`) and MiniMessage (`<gray>My line`), on Paper and Spigot.
+  * A line can still be italic with `&o` or `<italic>`.
+  * Without the option you can do the same line by line with `<italic:false>` (MiniMessage).
+* Example:
+
+```yaml
+loreNotItalicByDefault: true
 ```
 
 #### itemCheckWithNBTAPI
