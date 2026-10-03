@@ -96,6 +96,17 @@ restrictions:
   cancel-decorated-pot: true
 ```
 
+### Cancel putting the item on a shelf
+
+* Info: Boolean value that prevents the player from putting the ExecutableItem on a shelf (Minecraft 1.21.9+, every wood type).
+  * Useful for an item that gives itself back through its activators (for example an "infinite" water bucket): without it, the item put on the shelf stays there while the activator gives a new one.
+* Example:
+
+```yaml
+restrictions:
+  cancel-shelf: true
+```
+
 ### Cancel depositing the item into a storage
 
 * Info: Boolean value that prevents the player from putting the ExecutableItem in the following list:
