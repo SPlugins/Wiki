@@ -1,0 +1,134 @@
+{
+  "sidebar.mainSidebar.category.Documentation": {
+    "message": "Documentación",
+    "description": "The label for category Documentation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.AI Chat Moderation": {
+    "message": "AI Chat Moderation",
+    "description": "The label for category AI Chat Moderation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.CustomPiglinsTrades": {
+    "message": "CustomPiglinsTrades",
+    "description": "The label for category CustomPiglinsTrades in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.🧑‍💻 Developer API": {
+    "message": "🧑‍💻 API para Desarrolladores",
+    "description": "The label for category 🧑‍💻 Developer API in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableBlocks": {
+    "message": "ExecutableBlocks",
+    "description": "The label for category ExecutableBlocks in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Configurations": {
+    "message": "📚 Configuraciones",
+    "description": "The label for category 📚 Configurations in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Activator Configuration": {
+    "message": "Configuración de Activador",
+    "description": "The label for category Activator Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Block Configuration": {
+    "message": "Configuración de Bloque",
+    "description": "The label for category Block Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Questions | Guides": {
+    "message": "📚 Preguntas | Guías",
+    "description": "The label for category 📚 Questions | Guides in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Frequently Asked Questions": {
+    "message": "Preguntas Frecuentes",
+    "description": "The label for category Frequently Asked Questions in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Methods or Template": {
+    "message": "Métodos o Plantilla",
+    "description": "The label for category Methods or Template in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Tutorials": {
+    "message": "Tutoriales",
+    "description": "The label for category Tutorials in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableCrafting": {
+    "message": "ExecutableCrafting",
+    "description": "The label for category ExecutableCrafting in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Recipe Configuration": {
+    "message": "Configuración de Receta",
+    "description": "The label for category Recipe Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Install & Update Errors": {
+    "message": "Errores de Instalación y Actualización",
+    "description": "The label for category Install & Update Errors in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableEvents": {
+    "message": "ExecutableEvents",
+    "description": "The label for category ExecutableEvents in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableItems": {
+    "message": "ExecutableItems",
+    "description": "The label for category ExecutableItems in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Item Configuration": {
+    "message": "Configuración de Ítem",
+    "description": "The label for category Item Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Projectiles Implementation": {
+    "message": "Implementación de Proyectiles Personalizados",
+    "description": "The label for category Custom Projectiles Implementation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Textures": {
+    "message": "Texturas Personalizadas",
+    "description": "The label for category Custom Textures in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Textures 1.21 -": {
+    "message": "Texturas Personalizadas 1.21 -",
+    "description": "The label for category Custom Textures 1.21 - in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Textures 1.21.4 +": {
+    "message": "Texturas Personalizadas 1.21.4 +",
+    "description": "The label for category Custom Textures 1.21.4 + in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Items Explanations": {
+    "message": "Explicaciones de Ítems",
+    "description": "The label for category Items Explanations in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Durability": {
+    "message": "Durabilidad Personalizada",
+    "description": "The label for category Custom Durability in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.MyFurniture": {
+    "message": "MyFurniture",
+    "description": "The label for category MyFurniture in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Furniture Configuration": {
+    "message": "Configuración de Muebles",
+    "description": "The label for category Furniture Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ScreenShop": {
+    "message": "ScreenShop",
+    "description": "The label for category ScreenShop in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.The Team": {
+    "message": "El Equipo",
+    "description": "The label for category The Team in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Tools for all Plugins [SCore]": {
+    "message": "Herramientas para todos los Plugins [SCore]",
+    "description": "The label for category Tools for all Plugins [SCore] in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Custom Commands": {
+    "message": "📚 Comandos Personalizados",
+    "description": "The label for category 📚 Custom Commands in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Custom Conditions": {
+    "message": "📚 Condiciones Personalizadas",
+    "description": "The label for category 📚 Custom Conditions in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 General Questions or Guides": {
+    "message": "📚 Preguntas Generales o Guías",
+    "description": "The label for category 📚 General Questions or Guides in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📑​ SCore": {
+    "message": "📑​ SCore",
+    "description": "The label for category 📑​ SCore in sidebar mainSidebar"
+  }
+}
