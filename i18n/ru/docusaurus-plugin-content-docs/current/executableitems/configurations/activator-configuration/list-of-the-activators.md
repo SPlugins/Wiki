@@ -91,7 +91,7 @@ import CustomTag from '@site/src/components/CustomTag';
 * Примеры:
   * Кирка Бустера Руды (Ore Booster Pickaxe) - при ломании блока руды есть 20% шанс удвоить дроп.
   * Топор Гнева Природы (Nature's Wrath Axe) - ломание бревна с 10% шансом призывает враждебного духа дерева (кастомный моб).
-  * Проклятая Добыча (Cursed Excavation) - при ломании камня есть 5% шанс появления жужелиц или наложения Mining Fatigue на 5 секунд.
+  * Проклятая Добыча (Cursed Excavation) - при ломании камня есть 5% шанс появления чешуйниц или наложения Mining Fatigue на 5 секунд.
   * Взрывной Молот Сноса (Explosive Demolition Hammer) - при ломании блоков окружающие блоки тоже ломаются, можно ломать 3x3.
 
 ### PLAYER\_BLOCK\_HIT\_OF\_ENTITY <CustomTag type="premium" />
@@ -334,7 +334,7 @@ import CustomTag from '@site/src/components/CustomTag';
 
 ### PLAYER\_ENTER\_IN\_THEIR\_PLOT <CustomTag type="premium" />
 
-* Инфо: Активатор срабатывает, если вы входите на плот.
+* Инфо: Активатор срабатывает, если вы входите на участок (plot).
   * Поддерживаемые плагины:
     * PlotSquared 
 
@@ -499,7 +499,7 @@ import CustomTag from '@site/src/components/CustomTag';
 
 ### PLAYER\_LEAVE\_THEIR\_PLOT <CustomTag type="premium" />
 
-* Инфо: Активатор срабатывает, если вы покидаете плот.
+* Инфо: Активатор срабатывает, если вы покидаете участок (plot).
   * Поддерживаемые плагины:
     * PlotSquared 
 
@@ -695,7 +695,7 @@ import CustomTag from '@site/src/components/CustomTag';
 
 ### EI\_LEAVE\_THE\_PLAYER\_INVENTORY <CustomTag type="premium" />
 
-* Инфо: Ак��иватор срабатывает, когда предмет покидает инвентарь игрока.
+* Инфо: Активатор срабатывает, когда предмет покидает инвентарь игрока.
   * Требует ProtocolLib для корректной работы этого активатора. 
 
 ### INVENTORY\_CLICK <CustomTag type="premium" />

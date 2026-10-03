@@ -17,7 +17,7 @@ Las funcionalidades premium están marcadas con la etiqueta: <CustomTag type="pr
 ### Activadores
 
 * Funcionalidades muy importantes que te permiten añadir habilidades a tu ítem
-* Wiki dedicada a esta funcionalidad: [EI Activators list](../activator-configuration/list-of-the-activators.md) y [EI Activators features](/executableitems/configurations/activator-configuration/activators-features.md)
+* Wiki dedicada a esta funcionalidad: [lista de activadores de EI](../activator-configuration/list-of-the-activators.md) y [funciones de activadores de EI](/executableitems/configurations/activator-configuration/activators-features.md)
 
 
 ### Material del ítem
@@ -527,8 +527,8 @@ Esta sección explicará qué es usage y sus funcionalidades.
     * ```yaml
       usage: 1
       ```
-  * Usage as we said, don't think like its just a durability system, because it can go up too ! .  For example if we have an activator that instead of having a negative value on usageModification it has a positive value, then our usage will increase once the activator is triggered ^^
-  * Now, if you want your item neither increase nor decrease, basically don't use this custom value storage. You can set the usage to -1.
+  * Como dijimos, no pienses en usage como un simple sistema de durabilidad, porque también puede subir. Por ejemplo, si tienes un activador que, en lugar de un valor negativo en usageModification, tiene un valor positivo, el usage aumentará cada vez que se active.
+  * Si no quieres que tu ítem aumente ni disminuya, simplemente no uses este almacenamiento de valor personalizado. Puedes poner usage en -1.
     * ```yaml
       usage: -1
       ```
@@ -664,12 +664,12 @@ Aquí puedes seleccionar la configuración para los ajustes de cabeza, es decir,
     headValue: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTk4ZGY0MmY0NzdmMjEzZmY1ZTlkN2ZhNWE0Y2M0YTY5ZjIwZDljZWYyYjkwYzRhZTRmMjliZDE3Mjg3YjUifX19
     ```
 
-#### If you have the plugin Head Database <CustomTag type="version" version="1.12" />
+#### Si tienes el plugin Head Database <CustomTag type="version" version="1.12" />
 
-* If you want to add a custom head for 1.12++ and you have the plugin head databases you can follow the next steps:
-  * Open the GUI of your plugin and get the ID of the head you want
-  * Then paste it inside the head features on headDBID
-  * Example:
+* Si quieres añadir una cabeza personalizada en 1.12 o superior y tienes el plugin Head Database, sigue estos pasos:
+  * Abre la GUI del plugin y copia el ID de la cabeza que quieras
+  * Pégalo en las opciones de la cabeza, en headDBID
+  * Ejemplo:
   * ```yaml
     headDBID: 44328
     ```
@@ -795,9 +795,9 @@ customStackSize: 32
         type: NUMBER
         default: 10.0
       var1:
-        variableName: anotherVariable # Esta variable es de tipo string
+        variableName: anotherVariable # This variable is type string
         type: STRING
-        default: '' #Empieza sin valor, luego podemos cambiarlo desde un activador o usando comandos
+        default: '' #It starts with no value, we can then change it from an activator or using commands
       var0:
         variableName: nameOfVariable
         type: LIST

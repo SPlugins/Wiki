@@ -257,7 +257,7 @@ require-resource-pack=true
 ## Documentación relacionada
 
 - [Formato de Resource Pack (Minecraft Wiki)](https://minecraft.wiki/w/Resource_Pack)
-- [Lista de Activators](/executableitems/configurations/activator-configuration/list-of-the-activators)
+- [Lista de Activadores](/executableitems/configurations/activator-configuration/list-of-the-activators)
 
 ## Recursos adicionales
 

@@ -12,7 +12,7 @@ translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ## Activators
 
 * Funciones muy importantes que te permiten añadir habilidades a tus bloques
-* Wiki dedicada a esta función: [lista de EB Activators](/executableblocks/configurations/activator-configuration/list-of-the-activators.md) y [funciones de EB Activators](/executableblocks/configurations/activator-configuration/activators-features.md)
+* Wiki dedicada a esta función: [lista de activadores de EB](/executableblocks/configurations/activator-configuration/list-of-the-activators.md) y [funciones de activadores de EB](/executableblocks/configurations/activator-configuration/activators-features.md)
 
 
 ## Configuración básica
@@ -205,7 +205,7 @@ titleFeatures:
 
 #### USAGE
 
-* Info: El valor de cuántas veces se puede usar. Se utiliza sobre todo para la función de modificación de usos de los activators.
+* Info: El valor de cuántas veces se puede usar. Se utiliza sobre todo para la función de modificación de usos de los activadores.
 * Ejemplo: 
 
 ```yaml

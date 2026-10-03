@@ -288,7 +288,7 @@ customModelData: 1
 
 ### Paso 13: Prueba tu Textura Personalizada
 
-Dáte el ítem a ti mismo:
+Date el ítem a ti mismo:
 
 ```
 /ei give my_custom_pickaxe

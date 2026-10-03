@@ -164,7 +164,7 @@ Exemplo: `ADD_ITEM_LORE &7Defense: %var_defense%`
 
 ### SCore Variables (Globais / Por Player)
 
-O SCore também tem seu próprio sistema de variables globais ou por player, independente das variables de item/block. Veja [SCore Variables](/tools-for-all-plugins-score/score-variables) para os comandos `/score variables`. Depois que o [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) estiver instalado, essas variables são expostas como:
+O SCore também tem seu próprio sistema de variáveis globais ou por player, independente das variáveis de item/block. Veja [SCore Variables](/tools-for-all-plugins-score/score-variables) para os comandos `/score variables`. Depois que o [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) estiver instalado, essas variáveis são expostas como:
 - `%score_variables_<variable-id>%`
 - `%score_variables_<variable-id>_int%`
 - `%score_variables_<variable-id>_<index>%` (lista, valor no índice)
@@ -256,7 +256,7 @@ Para `PLAYER_WRITE_COMMAND` e `PLAYER_SEND_MESSAGE`:
 - Argumentos (use vírgulas entre os valores para fornecer múltiplos valores):
   - `slot`: Slots a verificar. Não use este argumento se quiser que todos os slots sejam avaliados.
   - `id`: ID do item ei que você quer verificar.
-  - `var`: O id da variable que você quer verificar.
+  - `var`: O id da variável que você quer verificar.
 - Exemplos:
   - `%executableitems_checkvar_id:star_man_var:defense%`
   - `%executableitems_checkvar_slot:-1,40_var:atk_bonus%`
@@ -268,9 +268,9 @@ Para `PLAYER_WRITE_COMMAND` e `PLAYER_SEND_MESSAGE`:
 - `%executableitems_set_<id>_tier%` - Tier ativo mais alto do set (número de peças), `0` se nenhum
 
 :::info
-- Se o primeiro valor de variable detectado for uma string, o valor será retornado imediatamente.
-- Se o restante dos valores de variable detectados for um número, eles serão somados e o valor total será retornado.
-- Atualmente não há suporte para list variables.
+- Se o primeiro valor de variável detectado for uma string, o valor será retornado imediatamente.
+- Se o restante dos valores de variável detectados for um número, eles serão somados e o valor total será retornado.
+- Atualmente não há suporte para variáveis de lista.
 :::
 
 ### ExecutableBlocks
@@ -331,7 +331,7 @@ Os próprios placeholders do SCore são interpretados **antes** dos placeholders
 ## Dúvidas?
 
 **O SCore é compatível com o PlaceholderAPI?**
-Sim. Qualquer placeholder do PlaceholderAPI funciona em lore, comandos, mensagens e variables em ExecutableItems, ExecutableBlocks e ExecutableEvents. Os próprios placeholders do SCore são interpretados primeiro, então as duas sintaxes podem ser combinadas na mesma linha sem conflito.
+Sim. Qualquer placeholder do PlaceholderAPI funciona em lore, comandos, mensagens e variáveis em ExecutableItems, ExecutableBlocks e ExecutableEvents. Os próprios placeholders do SCore são interpretados primeiro, então as duas sintaxes podem ser combinadas na mesma linha sem conflito.
 
 **Posso fazer operações matemáticas com placeholders?**
 Incremento/decremento simples funciona diretamente: `%amount%+6` ou `%amount%-8`. Para multiplicação, divisão ou expressões aninhadas, envolva o placeholder do SCore no placeholder de math do PlaceholderAPI, ex.: `%math_0_(%usage%)*10%`.
@@ -340,7 +340,7 @@ Incremento/decremento simples funciona diretamente: `%amount%+6` ou `%amount%-8`
 Escreva exatamente como qualquer placeholder do SCore, inline na string do comando, por exemplo `SEND_MESSAGE &7Balance: %vault_eco_balance%`. Funciona em comandos, condições, lore e todos os tipos de mensagem, sem configuração extra além de ter o PlaceholderAPI e o plugin de origem instalados.
 
 **Qual é a diferença entre `%var_X%` e `%score_variables_X%`?**
-`%var_X%` lê uma variable com escopo de item/block armazenada diretamente naquele ExecutableItem ou ExecutableBlock. `%score_variables_<id>%` lê uma SCore variable global ou por player, gerenciada com `/score variables` e exposta através do PlaceholderAPI.
+`%var_X%` lê uma variável com escopo de item/block armazenada diretamente naquele ExecutableItem ou ExecutableBlock. `%score_variables_<id>%` lê uma SCore variable global ou por player, gerenciada com `/score variables` e exposta através do PlaceholderAPI.
 
 **Por que `%around_target%` às vezes não funciona?**
 Em alguns ativadores, o target não é resolvido na primeira referência. Use `%around_target::step1%` em vez disso, que é o fallback documentado para comandos AROUND/NEAREST.

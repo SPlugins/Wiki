@@ -196,7 +196,7 @@ Na 1.21+, um item sem atributos próprios que não tenha estas duas linhas **per
 :::
 
 :::info Mesa de ferraria
-Com `keepDefaultAttributes: true`, um item atualizado na mesa de ferraria (diamante para netherite) recebe os atributos padrão do seu novo material (armadura de netherite, resistência e resistência ao recuo). Os atributos do próprio item são mantidos.
+Com `keepDefaultAttributes: true`, um item atualizado na mesa de ferraria (diamante para netherite) recebe os atributos padrão do seu novo material (armadura de netherite, robustez e resistência ao recuo). Os atributos do próprio item são mantidos.
 :::
 
 * Neste link há um tutorial sobre atributos, e suas funcionalidades.
@@ -285,7 +285,7 @@ equippableFeatures:
 
 * Info: Funcionalidades relacionadas a quando o ExecutableItem é reparado.
   * `enable`: Valor booleano que seleciona se a funcionalidade está habilitada ou não
-  * `repairCost`: Valor integer que representa o custo de repará-lo na bancada (Anvil)
+  * `repairCost`: Valor integer que representa o custo de repará-lo na bigorna (Anvil)
 * Exemplo:
 
 ```yaml
@@ -305,7 +305,7 @@ glider: false
 
 ### itemModel <CustomTag type="version" version="1.21.2" />
 
-* Info: Caminho de um modelo de item personalizado no texture pack no formato de \<mynamespace\:model\_id> que vai apontar para dentro de assets/\<mynamespace>/models/item/\<model\_id>.
+* Info: Caminho de um modelo de item personalizado no pacote de texturas no formato de \<mynamespace\:model\_id> que vai apontar para dentro de assets/\<mynamespace>/models/item/\<model\_id>.
 * Exemplo:
 
 ```yaml
@@ -314,7 +314,7 @@ itemModel: "" # "mynamespace:mymodel"
 
 ### tooltipModel <CustomTag type="premium" /> <CustomTag type="version" version="1.21.2" />
 
-* Info: Caminho de um modelo de tooltip personalizado no texture pack no formato de \<mynamespace\:model\_id> que vai apontar para dentro de /assets/\<mynamespace>/textures/gui/sprites/tooltip/\<id>\_frame
+* Info: Caminho de um modelo de tooltip personalizado no pacote de texturas no formato de \<mynamespace\:model\_id> que vai apontar para dentro de /assets/\<mynamespace>/textures/gui/sprites/tooltip/\<id>\_frame
 * Exemplo:
 
 ```yaml
@@ -527,8 +527,8 @@ Esta seção vai explicar o que é usage e suas funcionalidades.
     * ```yaml
       usage: 1
       ```
-  * Usage as we said, don't think like its just a durability system, because it can go up too ! .  For example if we have an activator that instead of having a negative value on usageModification it has a positive value, then our usage will increase once the activator is triggered ^^
-  * Now, if you want your item neither increase nor decrease, basically don't use this custom value storage. You can set the usage to -1.
+  * Como dissemos, não pense no usage como um simples sistema de durabilidade, porque ele também pode subir. Por exemplo, se você tem um ativador que, em vez de um valor negativo em usageModification, tem um valor positivo, o usage vai aumentar toda vez que o ativador for acionado.
+  * Se você não quer que o item aumente nem diminua, simplesmente não use esse armazenamento de valor personalizado. Você pode definir o usage como -1.
     * ```yaml
       usage: -1
       ```
@@ -664,12 +664,12 @@ Aqui você pode selecionar a configuração para as configurações de head, ou 
     headValue: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTk4ZGY0MmY0NzdmMjEzZmY1ZTlkN2ZhNWE0Y2M0YTY5ZjIwZDljZWYyYjkwYzRhZTRmMjliZDE3Mjg3YjUifX19
     ```
 
-#### If you have the plugin Head Database <CustomTag type="version" version="1.12" />
+#### Se você tem o plugin Head Database <CustomTag type="version" version="1.12" />
 
-* If you want to add a custom head for 1.12++ and you have the plugin head databases you can follow the next steps:
-  * Open the GUI of your plugin and get the ID of the head you want
-  * Then paste it inside the head features on headDBID
-  * Example:
+* Se você quer adicionar uma cabeça personalizada na 1.12 ou superior e tem o plugin Head Database, siga estes passos:
+  * Abra a GUI do plugin e copie o ID da cabeça que você quer
+  * Depois cole nas opções da cabeça, em headDBID
+  * Exemplo:
   * ```yaml
     headDBID: 44328
     ```
@@ -795,9 +795,9 @@ customStackSize: 32
         type: NUMBER
         default: 10.0
       var1:
-        variableName: anotherVariable # Esta variable é do tipo string
+        variableName: anotherVariable # This variable is type string
         type: STRING
-        default: '' #Ela começa sem valor, podemos então mudá-la a partir de um ativador ou usando comandos
+        default: '' #It starts with no value, we can then change it from an activator or using commands
       var0:
         variableName: nameOfVariable
         type: LIST
@@ -851,7 +851,7 @@ recognitions:
 
 ## Funcionalidade de use cooldown <CustomTag type="version" version="1.21.2" />
 
-* Info: Funcionalidade que adiciona um cooldown de uso no estilo vanilla ao item, similar ao cooldown de pérolas de ender ou fruta corus.
+* Info: Funcionalidade que adiciona um cooldown de uso no estilo vanilla ao item, similar ao cooldown de pérolas de ender ou fruta do coro.
   * `cooldownGroup`: Valor string que define um grupo de cooldown. Itens com o mesmo grupo de cooldown vão compartilhar o mesmo cooldown. Deve estar em minúsculas e seguir o formato NamespacedKey (ex.: "mygroup" ou "namespace:mygroup")
   * `vanillaUseCooldown`: Valor integer que representa a duração do cooldown em segundos
 * Exemplo:

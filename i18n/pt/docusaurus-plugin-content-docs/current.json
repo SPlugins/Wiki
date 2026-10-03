@@ -100,7 +100,7 @@
     "description": "The label for category MyFurniture in sidebar mainSidebar"
   },
   "sidebar.mainSidebar.category.Furniture Configuration": {
-    "message": "Configuração de Móveis",
+    "message": "Configuração de Furniture",
     "description": "The label for category Furniture Configuration in sidebar mainSidebar"
   },
   "sidebar.mainSidebar.category.ScreenShop": {

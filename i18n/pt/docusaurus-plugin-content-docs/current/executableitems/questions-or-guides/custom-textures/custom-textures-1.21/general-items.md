@@ -34,7 +34,7 @@ Se você preferir o formato vídeo, este tutorial é baseado no seguinte vídeo:
 - **Conhecimento básico de JSON** (útil, mas não obrigatório)
 
 :::tip Extensões de Arquivo
-Nenhum dos arquivos que você cria são arquivos `.txt`. Certifique-se de que seu editor consiga salvar tipos de arquivo específicos como `.json`, `.mcmeta`, e `.png`.
+Nenhum dos arquivos que você cria é um arquivo `.txt`. Certifique-se de que seu editor consiga salvar tipos de arquivo específicos como `.json`, `.mcmeta`, e `.png`.
 :::
 
 ## Parte 1: Configurando seu ExecutableItem

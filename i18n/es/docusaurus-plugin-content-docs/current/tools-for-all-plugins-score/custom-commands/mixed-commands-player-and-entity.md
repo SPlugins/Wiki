@@ -709,9 +709,9 @@ activators:
 
 ### EQUIPMENT\_VISUAL\_REPLACE
 
-* Info: Reemplaza VISUALMENTE (no hay riesgo de perder ítems) una ranura de equipamiento con cierto material
+* Info: Reemplaza VISUALMENTE (no hay riesgo de perder ítems) un slot de equipamiento con cierto material
 * Ajustes del comando:
-  * `{EquipmentSlot}`: La ranura
+  * `{EquipmentSlot}`: El slot
     * Opciones:
       * -1
       * 40
@@ -736,7 +736,7 @@ activators:
 
 * Info: Cancela el comando EQUIPMENT\_VISUAL\_REPLACE
 * Ajuste del comando:
-  * `{EquipmentSlot}`: La ranura
+  * `{EquipmentSlot}`: El slot
     * Opciones:
       * -1
       * 40
@@ -754,10 +754,10 @@ activators:
 
 * Alias: `FORCEDROP`, `DROPSPECIFICEI`
 * Info: Fuerza al jugador/entidad a soltar un ítem. Admite dos modos:
-  * **Modo slot**: suelta el ítem en la ranura de inventario especificada
+  * **Modo slot**: suelta el ítem en el slot de inventario especificado
   * **Modo EI ID**: suelta todos los ítems que coincidan con el ID de ExecutableItem indicado desde el inventario (solo jugador)
 * Ajustes del comando:
-  * `slot:`: número, -1 para la mano principal (por defecto: -1). Consulta la imagen de referencia de ranuras a continuación.
+  * `slot:`: número, -1 para la mano principal (por defecto: -1). Consulta la imagen de referencia de slots a continuación.
   * `ei_id:`: el ID del ExecutableItem a soltar (anula el modo slot cuando se proporciona)
 
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
@@ -1247,7 +1247,7 @@ R: ejecuta **`SPIN {duration} 0`** por ejemplo
 
 * Info: Roba un ítem del inventario del objetivo
 * Ajustes del comando:
-  * `{slot}`: -1 para la mano principal. Consulta la referencia de ranuras a continuación.
+  * `{slot}`: -1 para la mano principal. Consulta la referencia de slots a continuación.
   * `[remove item]`: (Opcional) (por defecto = true)
 * Ejemplo:
 
@@ -1318,8 +1318,8 @@ Esto no es lo mismo que el comando smite de Essentials. Si quieres fulminar a tu
 
 * Info: Transfiere un ítem en el inventario
 * Ajustes del comando:
-  * `{slot of launcher}`: Ranura del ítem que se va a mover
-  * `{slot of receiver}`: Ranura donde aterrizará el ítem
+  * `{slot of launcher}`: Slot del ítem que se va a mover
+  * `{slot of receiver}`: Slot donde aterrizará el ítem
   ![](https://media.ssomar.com/m/docs-img-slots-info.png)
 * Ejemplo:
 

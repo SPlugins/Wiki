@@ -240,7 +240,7 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
 
 #### Acionar um ativador (para testar um item)
 
-* Info: Executa um ativador de um ExecutableItem que o jogador carrega, sem fazer o gesto (clique, golpe, salto...). Útil para testar uma configuração. Todo o resto funciona normalmente: slots detalhados, condições, cooldowns, usage e comandos. O item é procurado no slot informado, senão na mão principal, na mão secundária, na armadura, e depois em todo o inventário.
+* Info: Executa um ativador de um ExecutableItem que o jogador carrega, sem fazer o gesto (clique, golpe, pulo...). Útil para testar uma configuração. Todo o resto funciona normalmente: slots detalhados, condições, cooldowns, usage e comandos. O item é procurado no slot informado, senão na mão principal, na mão secundária, na armadura, e depois em todo o inventário.
 * Comando: **/ei trigger \{player\} \{item id\} \{activator id\}** **[slot:N] [target:nearest|\{player\}|\{uuid\}] [block:x,y,z] [click:left|right] [input:JUMP_PRESS...]**
   * `target`: a entidade ou jogador dos ativadores que possuem um target (golpe, clique em entidade...). Por padrão, aquele que o jogador está olhando.
   * `block`: o bloco dos ativadores que possuem um bloco como target. Por padrão, o bloco que o jogador está olhando.
@@ -405,19 +405,19 @@ A saída deste comando é enviada ao **console**, não ao jogador dentro do jogo
 Itens com reconhecimento personalizado podem impactar o desempenho. O comando mostrará quantos itens estão usando este recurso. Se você tiver problemas de desempenho, considere reduzir a quantidade de itens com reconhecimento personalizado ativado.
 :::
 
-### Comandos do Resource Pack
+### Comandos do Pacote de Texturas
 
-#### Atualizar o resource pack do ExecutableItems
+#### Atualizar o pacote de texturas do ExecutableItems
 
 * Comando: **/ei refresh-pack**
-* Info: Atualiza e recarrega o resource pack do ExecutableItems para todos os jogadores online. Útil após fazer alterações em texturas personalizadas.
+* Info: Atualiza e recarrega o pacote de texturas do ExecutableItems para todos os jogadores online. Útil após fazer alterações em texturas personalizadas.
 * Permissão: `ei.cmd.refresh-pack`
 
-#### Baixar o resource pack padrão do ExecutableItems
+#### Baixar o pacote de texturas padrão do ExecutableItems
 
 * Comando: **/ei download-default-pack**
-* Info: Baixa o resource pack padrão do ExecutableItems do repositório oficial e extrai automaticamente o arquivo. Se `selfHostPack` estiver ativado no config.yml, o pack será automaticamente registrado e hospedado no seu servidor. Isso é útil para:
-  * Configurar o resource pack pela primeira vez
+* Info: Baixa o pacote de texturas padrão do ExecutableItems do repositório oficial e extrai automaticamente o arquivo. Se `selfHostPack` estiver ativado no config.yml, o pack será automaticamente registrado e hospedado no seu servidor. Isso é útil para:
+  * Configurar o pacote de texturas pela primeira vez
   * Restaurar o pack padrão após modificações
   * Atualizar para a versão mais recente do pack padrão
 * Requisitos:

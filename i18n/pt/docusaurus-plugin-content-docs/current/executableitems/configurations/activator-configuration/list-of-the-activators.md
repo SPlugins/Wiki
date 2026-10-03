@@ -162,7 +162,7 @@ Activator features são funcionalidades exclusivas daquele ativador.
   * [Entity commands](/executableitems/configurations/activator-configuration/activators-features#p_e-entitycommands/executableitems/configurations/activator-configuration/activators-features#p_e-detailedentities)
   * [DetailedEntities](/executableitems/configurations/activator-configuration/activators-features#p_e-entitycommands/executableitems/configurations/activator-configuration/activators-features#p_e-detailedentities)
 * Exemplos:
-  * Instant Fillet: em vez de capturar um peixe em um balde, o jogador recebe instantaneamente peixe crudo em seu inventário, como se tivesse filetado especialistamente no local.
+  * Instant Fillet: em vez de capturar um peixe em um balde, o jogador recebe instantaneamente peixe cru em seu inventário, como se o tivesse filetado com habilidade no local.
   * Essence Extraction: ao usar um balde em um axolote, em vez de capturá-lo, o jogador recebe uma poção de "Muco de Axolote", que concede Regeneration I por 10 segundos.
 
 ### PLAYER\_CHANGE\_WORLD
@@ -265,7 +265,7 @@ Activator features são funcionalidades exclusivas daquele ativador.
 * 
 ### PLAYER\_DISCONNECT
 
-* Info: Ativador que é acionado quando o jogador saí do servidor.
+* Info: Ativador que é acionado quando o jogador sai do servidor.
 
 ### PLAYER\_DISMOUNT
 
@@ -462,8 +462,8 @@ Este ativador só funciona se você tiver o plugin **CustomFishing** instalado. 
 
 ### PLAYER\_JUMP <CustomTag type="premium" />
 
-* Info: Ativador que é acionado quando o jogador salta.
-  * <CustomTag type="version" version="1.21.2" /> pode ser acionado mesmo se o jogador tentou saltar no meio do ar.
+* Info: Ativador que é acionado quando o jogador pula.
+  * <CustomTag type="version" version="1.21.2" /> pode ser acionado mesmo se o jogador tentou pular no meio do ar.
 
 ### PLAYER\_KICK
 
@@ -514,7 +514,7 @@ Este ativador só funciona se você tiver o plugin **CustomFishing** instalado. 
 
 ### PLAYER\_MEND\_THE\_EI
 
-* Info: Ativador que é acionado quando o jogador reparar o ExecutableItem pelo encantamento de reparo (mending).
+* Info: Ativador que é acionado quando o jogador repara o ExecutableItem pelo encantamento de reparo (mending).
 
 ### PLAYER\_OPEN\_INVENTORY
 

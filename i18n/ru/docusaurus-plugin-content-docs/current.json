@@ -44,7 +44,7 @@
     "description": "The label for category Methods or Template in sidebar mainSidebar"
   },
   "sidebar.mainSidebar.category.Tutorials": {
-    "message": "Руководства",
+    "message": "Туториалы",
     "description": "The label for category Tutorials in sidebar mainSidebar"
   },
   "sidebar.mainSidebar.category.ExecutableCrafting": {

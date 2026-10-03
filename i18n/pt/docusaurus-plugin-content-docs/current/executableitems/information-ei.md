@@ -92,7 +92,7 @@ Executable Items Premium:
 * Combos de cliques onde você precisa pressionar, por exemplo, Esquerdo+Esquerdo+Direito para ativar o ativador
 * Auto Crafter / Auto Compactor
 * Lista de permissão/bloqueio de blocos que sua picareta personalizada pode quebrar
-* Balestras (crossbows) que não precisam ser recarregadas para disparar
+* Bestas (crossbows) que não precisam ser recarregadas para disparar
 * Itens que requerem combustível
 * Chuva de projéteis
 * Armadura que te ajuda a esquivar de golpes inimigos
@@ -103,7 +103,7 @@ Executable Items Premium:
 * Condições personalizadas para determinar se partículas apareceriam quando você ainda não acertou nada por um período de tempo
 * Itens que permitem causar dano de queda (plunge damage), avançar através de inimigos e causar dano
 * Itens que têm 5 habilidades ao mesmo tempo
-* Salto no ar, pulo duplo, pulo triplo e mais
+* Pulo no ar, pulo duplo, pulo triplo e mais
 * Beacon portátil no qual você pode mudar os buffs primários e usar buffs secundários
 * Atribua uma placa para exibir suas coordenadas em tempo real
 * Puxe mobs alvo em sua direção
@@ -121,7 +121,7 @@ Executable Items Premium:
 * Itens que causam dano aos alvos ao longo do tempo
 * Itens que, quando lançados, destroem uma área de blocos e você pode especificar quais blocos serão destruídos
 * Itens que atraem mobs próximos para um ponto e os empurram em uma direção
-* Itens que permitem saltar e causar dano em área ao pousar
+* Itens que permitem pular e causar dano em área ao pousar
 * Itens que permitem avançar através de alvos (dash)
 * Itens que permitem ter 2 formas de ataque e alternar entre a 1ª e a 2ª forma de ataque
 * Itens que permitem parar o movimento de projéteis enquanto está agachado

@@ -71,7 +71,7 @@ Premium ExecutableItems:
 
 Executable Items Premium:
 
-* Herramientas de trinchera que respetan las regiones protegidas
+* Herramientas de excavación en área que respetan las regiones protegidas
 * Picos de minería por vetas (Veinminer)
 * Ítems de arma de fuego con cooldown
 * Esponja para agua y lava
@@ -116,7 +116,7 @@ Executable Items Premium:
 * Ítems que, al lanzarse al suelo, hacen que todos los jugadores cercanos pierdan todos sus efectos
 * Harina de hueso que hace crecer los cultivos al instante
 * Ítems que detectan el movimiento del jugador
-* Ítems que fundan automáticamente el bloque que rompen y permiten especificar cuáles se van a fundir
+* Ítems que funden automáticamente el bloque que rompen y permiten especificar cuáles se van a fundir
 * Ítems que dañan a los atacantes o les dan efectos
 * Ítems que dañan a los objetivos a lo largo del tiempo
 * Ítems que, al lanzarse, rompen un área de bloques y puedes especificar cuáles se destruyen
