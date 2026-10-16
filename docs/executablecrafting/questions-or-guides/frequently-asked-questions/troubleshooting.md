@@ -67,6 +67,21 @@ the item string contains the EI ID in its NBT).
 
 ---
 
+## The vanilla recipe book shows a wrong craftable state
+
+**Symptom:** In the vanilla recipe book, an EC recipe looks craftable when the player only has
+the plain materials, or not craftable when he has the right custom items (enchanted, renamed,
+ExecutableItems...).
+
+**Cause:** The client computes this state by itself with the item types only, and ignores the
+enchanted, renamed or damaged items.
+
+**Fix:** On Paper 1.21.2+, set `accurateRecipeBook: true` in `config.yml` (only once in the
+file), then `/ec reload`. See
+[Accurate vanilla recipe book](/executablecrafting/configurations/general-configuration#accurate-vanilla-recipe-book).
+
+---
+
 ## Players receive duplicate output / multiple items at once
 
 **Symptom:** Crafting once produces 2, 4, or more output items.
