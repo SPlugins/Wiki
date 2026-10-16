@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+import CustomTag from '@site/src/components/CustomTag';
+
 # 🛡️ Sets (bonus by pieces worn) <CustomTag type="premium" />
 
 :::info Premium
