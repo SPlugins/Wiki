@@ -30,6 +30,7 @@ displayDefaultTransform: NONE
 
 selfHostPack: true # Set it to true to host the textures pack yourself
 texturesPackUrl: '' # Set it to "" to disable
+texturesPackRequired: true # Set it to false to propose the textures pack without forcing it, the players can decline it
 maxFurniturePlacedUsingCommand: 500
 
 obfuscatePack: false # Set it to true to obfuscate resource pack file names
@@ -132,6 +133,16 @@ Self-hosting may not work on all hosting providers due to firewall/NAT restricti
 
 ```yaml
 texturesPackUrl: "https://github.com/Ssomar-Developement/MyFurniture-pack/raw/main/MyFurniture_Pack_1_21_4.zip"
+```
+
+#### texturesPackRequired
+
+* Info: Boolean value, `true` by default. With `true`, the players must accept the resource pack of MyFurniture (the self-hosted pack of `selfHostPack: true`, or the pack of `texturesPackUrl`): a player who declines it is disconnected. With `false`, the pack is proposed to the players but they can decline it and keep playing, without the custom textures.
+  * The option is read each time the pack is sent: after `/mf reload`, the new value applies to the players who join next.
+* Example:
+
+```yaml
+texturesPackRequired: false
 ```
 
 #### maxFurniturePlacedUsingCommand

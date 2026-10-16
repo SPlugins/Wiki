@@ -2,8 +2,8 @@
 description: >-
   Полный список команд для блоков в плагине ExecutableBlocks: AROUND,
   MINEINCUBE, LAUNCH, SETBLOCK и другие с настройками.
-source_hash: 86f65c32a7acba4b
-translated_at: '2026-10-03T10:30:39.833Z'
+source_hash: 03a7c058f04e398e
+translated_at: '2026-10-16T21:01:36.000Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import LinkPreview from '@site/src/components/LinkPreview';
@@ -222,12 +222,18 @@ _Отсортировано в алфавитном порядке_
 * Настройки команды
   * `{radius}`: Радиус в блоках (лимит 9), вы можете обойти лимит, добавив * перед вашим радиусом (на свой риск).
   * `{drainType}`: LAVA или WATER (не нужно, если хотите оба)
+  * `[waterlogged]`: (Опционально) (по умолчанию = false) Если true и осушается вода (`WATER` или без `{drainType}`), также осушает затопленные (waterlogged) блоки куба (плиты, ступеньки, заборы...) и удаляет блоки `KELP`, `KELP_PLANT`, `SEAGRASS`, `TALL_SEAGRASS` и `BUBBLE_COLUMN`, ничего не выбрасывая, как это делает губка. Только для серверов 1.13+.
 * Пример:
 
 ```
 DRAININCUBE 4 WATER
 DRAININCUBE *12 WATER
+DRAININCUBE 4 WATER waterlogged:true
 ```
+
+:::info
+Без `waterlogged:true` затопленные блоки сохраняют свою воду, и она может снова растечься по осушенной области.
+:::
 
 ### DROPITEM
 
@@ -262,14 +268,16 @@ DRAININCUBE *12 WATER
 * Информация: Разрушает все посевы в заданном радиусе
 * Настройки команды
   * `{radius}`: Радиус того, насколько большая область посевов, которую вы хотите разрушить. **(ЛИМИТ 9)**
-  * `{drop}`: Выпадает ли из блока добыча или нет
-  * `{onlyMaxAge}`: Будет разрушать только посевы с максимальным возрастом
-  * `{replant}`: Будет ли посев пересажен снова или нет
-  * `{event}`: Будет ли посев генерировать событие или нет.
+  * `{drop}`: (по умолчанию = true) Выпадает ли из блока добыча или нет
+  * `{onlyMaxAge}`: (по умолчанию = true) Будет разрушать только посевы с максимальным возрастом
+  * `{replant}`: (по умолчанию = false) Будет ли посев пересажен снова или нет
+  * `{event}`: (по умолчанию = false, true с `runActivatorOnBlocks:true`) Будет ли посев генерировать событие разрушения блока или нет.
+  * `[runActivatorOnBlocks]`: (Опционально) (по умолчанию = false) Только для ExecutableItems. Если true, посевы, разрушенные командой, также запускают активатор, который её запустил, см. [runActivatorOnBlocks](#runactivatoronblocks). Можно написать в любом месте команды; включает `{event}`, если только `{event}` не указан как false.
 * Пример:
 
 ```
 - FARMINCUBE 9 true true true false
+- FARMINCUBE 4 true true true runActivatorOnBlocks:true
 ```
 
 ### FERTILIZEINCUBE
@@ -336,16 +344,18 @@ DRAININCUBE *12 WATER
 
 * Информация: Разрушает блоки в радиусе в форме куба. Каждый блок, разрушенный этой командой, засчитывается как событие разрушения блока игроком.
 * Настройки команды
-  * `{radius}`: Радиус того, насколько большая область посевов, которую вы хотите разрушить **(ЛИМИТ 9)**
+  * `{radius}`: Радиус куба блоков, которые вы хотите разрушить **(ЛИМИТ 9)**
   * `{droploot}`: Выпадает ли из блока добыча или нет
   * `{createEvent}`: будет ли плагин генерировать blockBreakEvent для каждого блока, разрушенного MINEINCUBE (по умолчанию true)
   * `{offsetBreak}`: Начинает ли область блоков разрушаться от разрушенного блока или от "центра", чтобы область действительно работала с выбранным "радиусом". (по умолчанию false)
   * `[smelt]`: (Опционально) (по умолчанию = false) Использует логику команды SMELT. Если блок можно переплавить, вместо него выпадет переплавленная версия. В противном случае будет выпадать правильно разрушенный блок.
+  * `[runActivatorOnBlocks]`: (Опционально) (по умолчанию = false) Только для ExecutableItems. Если true, блоки, разрушенные командой, также запускают активатор, который её запустил, см. [runActivatorOnBlocks](#runactivatoronblocks). Оставьте `{createEvent}` равным true.
 * Пример:
 
 ```
 - MINEINCUBE 4 true false
 - MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false smelt:false
+- MINEINCUBE radius:1 droploot:true createEvent:true runActivatorOnBlocks:true
 ```
 
 ### MINEINSPHERE
@@ -670,12 +680,42 @@ DRAININCUBE *12 WATER
 
 * Информация: Разрушает блоки в жилах за одно разрушение блока
 * Настройки команды
-  * `{maxVeinSize}`: Максимальное количество блоков, которое может разрушить команда
+  * `{maxVeinSize}`: (по умолчанию = 10) Максимальное количество блоков, которое может разрушить команда
   * `[createBBEvent]`: (Опционально) (по умолчанию = true) Генерирует ли событие разрушения блока или нет
   * `[smelt]`: (Опционально) (по умолчанию = false) Использует логику команды SMELT. Если блок можно переплавить, вместо него выпадет переплавленная версия. В противном случае будет выпадать правильно разрушенный блок.
+  * `[runActivatorOnBlocks]`: (Опционально) (по умолчанию = false) Только для ExecutableItems. Если true, блоки жилы также запускают активатор, который запустил команду, см. [runActivatorOnBlocks](#runactivatoronblocks). Оставьте `createBBEvent` равным true.
 * Пример:
 
 ```
 - VEIN_BREAKER 20
-- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:true
+- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:false runActivatorOnBlocks:false
+- VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+```
+
+:::info
+`triggerEvent` не является настройкой VEIN\_BREAKER. Старый шаблон внутриигрового редактора записывал `VEIN_BREAKER maxVeinSize:10 triggerEvent:true`: часть `triggerEvent:true` ни на что не влияет, её можно удалить. Чтобы выбрать, генерирует ли команда события разрушения блоков, используйте `createBBEvent`.
+:::
+
+#### runActivatorOnBlocks
+
+`runActivatorOnBlocks` — настройка команд VEIN\_BREAKER, [MINEINCUBE](#mineincube) и [FARMINCUBE](#farmincube). Её читает только ExecutableItems.
+
+* Без неё (по умолчанию `false`) блоки, разрушенные командой, не запускают активатор, в котором находится эта команда: именно это предотвращает цикл разрушений блоков. Другие активаторы ваших предметов (те, в которых нет команды разрушения) по-прежнему срабатывают для этих блоков.
+* С `runActivatorOnBlocks:true` каждый блок, разрушенный командой, также запускает активатор, который её запустил, как если бы его разрушил игрок: его условия, `desactiveDrops` (без ванильного лута), другие его команды (например, `DROPITEM`), его `usageModification` и изменения переменных применяются к каждому блоку. `cancelEvent: true` тоже применяется: тогда эти блоки не разрушаются.
+* Команда разрушения не запускается повторно для этих блоков, поэтому цикла нет.
+* Кулдауны, лимит использований в день и требования (`requiredItems`, `requiredExecutableItems`, `requiredMoney`...) для этих блоков не проверяются: они проверяются и применяются один раз, для блока, который запустил активатор. Иначе кулдаун остановил бы жилу после первого блока.
+* Активатор получает эти блоки через их события разрушения блока: оставьте `createBBEvent` (VEIN\_BREAKER) или `{createEvent}` (MINEINCUBE) равными `true`, это их значение по умолчанию. FARMINCUBE сам генерирует события с `runActivatorOnBlocks:true`, если только его аргумент `{event}` не равен `false`.
+* Эти события являются разрушениями блоков, поэтому это работает, только когда команда находится в активаторе PLAYER\_BLOCK\_BREAK.
+
+Пример: каждый блок жилы вместо ванильного лута выбрасывает 1 алмаз и тратит 1 usage.
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_BLOCK_BREAK
+    desactiveDrops: true
+    usageModification: -1
+    blockCommands:
+    - VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+    - DROPITEM DIAMOND 1
 ```

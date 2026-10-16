@@ -40,6 +40,7 @@ enableGarbageCollectorAfterReload: false # <- It will enable the garbage collect
 giveLimit: 100
 enableTexturesPack: false # Only for 1.20.5+ servers
 texturesPackUrl: https://github.com/Ssomar-Developement/items/raw/main/__textures__/ExecutableItems_Pack.zip # Only for 1.20.5+ servers
+texturesPackRequired: true # false: the textures pack is proposed to the players, they can decline it
 logs:
   dropped: true
   spawned: true
@@ -192,6 +193,16 @@ enableTexturesPack: false
 
 ```yaml
 texturesPackUrl: https://github.com/Ssomar-Developement/items/raw/main/__textures__/ExecutableItems_Pack.zip
+```
+
+#### texturesPackRequired
+
+* Info: Boolean value, `true` by default. With `true`, the players must accept the textures pack of ExecutableItems (the self-hosted pack of `selfHostPack: true`, or the pack of `texturesPackUrl`): a player who declines it is disconnected. With `false`, the pack is proposed to the players but they can decline it and keep playing, without the custom textures.
+  * The option is read each time the pack is sent: after `/ei reload`, the new value applies to the players who join next.
+* Example:
+
+```yaml
+texturesPackRequired: false
 ```
 
 #### logs
