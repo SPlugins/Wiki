@@ -36,6 +36,7 @@ giveLimit: 100
 enableTexturesPack: true #Only for 1.20.5+ servers
 texturesPackUrl: "" #Only for 1.20.5+ servers
 selfHostPack: true
+texturesPackRequired: true # false: the textures pack is proposed to the players, they can decline it
 downloadTexturesPackAtTheNextLoading: true # Technical setting
 logs:
   dropped: true
@@ -44,6 +45,10 @@ debugOnlyRun: false # /ei debug will only display the run debug message
 itemCheckWithNBTAPI: false # Deprecated. Will not receive further updates
 muteModification: false # It will mute the outputs of /ei modification or /ei console modification
 ```
+
+## Only make the pack optional
+
+If you want to keep the textures but let the players refuse them, set `texturesPackRequired: false` instead: the pack is still proposed when they join, and a player who declines it can keep playing. See [texturesPackRequired](/executableitems/configurations/general-configuration#texturespackrequired).
 
 ## Disable enableTexturesPack
 

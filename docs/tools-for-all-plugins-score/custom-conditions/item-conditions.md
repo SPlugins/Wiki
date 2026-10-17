@@ -95,6 +95,8 @@ itemConditions:
 ### ifHasEnchant
 
 * Description: Checks if the item has the whitelisted enchantment.[Enchantments](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html)
+  * Write each enchantment as `ENCHANTMENT:LEVEL`. Without level (`LOYALTY`, or `LOYALTY:*`), any level of the enchantment is accepted.
+  * The item must have **every** enchantment of the list. You can write several levels of the same enchantment (`LOYALTY:2` and `LOYALTY:3`): the item must have one of them.
 * Example:
 
 ```yaml
@@ -104,13 +106,24 @@ itemConditions:
     ifHasEnchantMsg: '' #<- Here is where you will add the custom message.
 ```
 
+```yaml
+itemConditions:
+    ifHasEnchant: 
+    - LOYALTY:2
+    - LOYALTY:3
+    - IMPALING # any level
+```
+
 * Example Situations:
-  * If the EI item has the Flame enchantment and you have the condition in the example part, the activator activates
+  * If the EI item has the Flame enchantment and you have the condition in the first example, the activator activates
+  * With the second example, the activator activates if the item has Loyalty II or Loyalty III, and Impaling at any level
 * Required: NO
 
 ### ifHasNotEnchant
 
 * Description: Checks if the item has the blacklisted enchantment.[Enchantments](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html)
+  * Write each enchantment as `ENCHANTMENT:LEVEL`. Without level (`LOYALTY`, or `LOYALTY:*`), every level of the enchantment is blocked.
+  * The activator does not activate if the item has **one** of the enchantments of the list at one of the levels written. Every level written counts: `LOYALTY:1`, `LOYALTY:2` and `LOYALTY:3` block Loyalty I, II and III.
 * Example:
 
 ```yaml
@@ -120,8 +133,17 @@ itemConditions:
     ifHasNotEnchantMsg: '' #<- Here is where you will add the custom message.
 ```
 
+```yaml
+itemConditions:
+    ifHasNotEnchant: 
+    - LOYALTY:1
+    - LOYALTY:2
+    - RIPTIDE # any level
+```
+
 * Example Situations:
-  * If the EI item has the Power VI enchantment and you have the condition in the example part, the activator does not activate
+  * If the EI item has the Power VI enchantment and you have the condition in the first example, the activator does not activate
+  * With the second example, the activator does not activate if the item has Loyalty I, Loyalty II or Riptide (any level). With Loyalty III, it activates.
 * Required: NO
 
 ### ifCrossbowMustBeCharged - Not

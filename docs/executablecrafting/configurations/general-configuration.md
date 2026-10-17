@@ -24,6 +24,8 @@ recipeConfig:
     castResultAsMaxAmount: false #If you want the result to stack on the result slot of the crafting inventory
 #If true, the CRAFTER block refuses the recipes that have player conditions (a Crafter has no player, so they can't be checked)
 crafterRefusesPlayerConditionRecipes: false
+#If true, the vanilla recipe book shows the EC recipes as craftable only when the player has the right items (custom, enchanted or renamed ones included). Paper 1.21.2+
+accurateRecipeBook: false
 
 #Configuration related to recipe books
 locale: EN_US
@@ -44,6 +46,30 @@ by default they are skipped and the Crafter crafts the recipe anyway.
 
 Set `crafterRefusesPlayerConditionRecipes: true` to make the Crafter refuse every recipe that has player conditions, on the recipe
 itself or on one of its [recipe groups](recipe-groups.md). Players still craft these recipes at a crafting table when they meet the conditions.
+
+## Accurate vanilla recipe book
+
+The vanilla recipe book (the green book of the crafting table and of the inventory) shows each recipe as craftable or not craftable.
+The client decides it alone and only compares the item types: it ignores the enchanted, renamed or damaged items. So an EC recipe with
+custom ingredients (enchanted or renamed items, ExecutableItems, Nexo items...) looks craftable when the player has the plain
+materials, and not craftable when he has the right items.
+
+Set `accurateRecipeBook: true` (default `false`, Paper 1.21.2+) to let EC decide it: the vanilla book shows an EC crafting recipe
+as craftable only when the player really has its ingredients, compared with the `itemCheckers` of the recipe, in his inventory or
+in the crafting grid. The state is updated live when the inventory changes. The vanilla recipes are not changed.
+
+* The recipe conditions are not taken into account in the book, like in vanilla: it only shows whether the player has the ingredients.
+* On Spigot or before 1.21.2, the option is ignored with a warning in the console.
+
+To enable it:
+
+1. Set `accurateRecipeBook: true` in `plugins/ExecutableCrafting/config.yml`. If your config.yml was created by an older version
+   of EC, EC added the line `accurateRecipeBook: false` at the end of the file: change this line, don't add a second one. If the
+   key is written twice, the last one wins.
+2. Run `/ec reload`. The console shows `accurateRecipeBook enabled: the vanilla recipe book shows the real craftable state of the EC recipes`.
+3. To see what the book receives, run `/ec debug` and put the ingredients of a recipe in a crafting grid: the `[EC debug]` line ends
+   with `| recipe book: craftable`, `not craftable`, `not tracked yet` (the recipe is not in the player's book yet),
+   `accurateRecipeBook off (vanilla state)` or `accurateRecipeBook unsupported here`.
 
 ## Visual configuration of recipeBook
 

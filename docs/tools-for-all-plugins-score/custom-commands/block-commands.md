@@ -215,12 +215,18 @@ It works with ItemsAdder
 * Command settings
   * `{radius}`: The radius in blocks (9 is the limit), you can bypass the limit by adding a * before your radius (as your own risks).
   * `{drainType}`: LAVA or WATER (no need if you want both)
+  * `[waterlogged]`: (Optional) (default = false) If true and the water is drained (`WATER` or no `{drainType}`), it also dries the waterlogged blocks of the cube (slabs, stairs, fences...) and removes the `KELP`, `KELP_PLANT`, `SEAGRASS`, `TALL_SEAGRASS` and `BUBBLE_COLUMN` blocks without dropping anything, like a sponge does. Only for 1.13+ servers.
 * Example:
 
 ```
 DRAININCUBE 4 WATER
 DRAININCUBE *12 WATER
+DRAININCUBE 4 WATER waterlogged:true
 ```
+
+:::info
+Without `waterlogged:true`, the waterlogged blocks keep their water and it can flow back into the drained area.
+:::
 
 ### DROPITEM
 
@@ -255,14 +261,16 @@ DRAININCUBE *12 WATER
 * Information: Breaks all crops in a given radius
 * Command settings
   * `{radius}`: Radius of how big the area of the crops you want to break. **(LIMIT IS 9)**
-  * `{drop}`: Whether the block drops loot or not
-  * `{onlyMaxAge}`: It will only break crops with max age
-  * `{replant}`: Whether the crop will be replanted or not
-  * `{event}`: Whether the crop will generate the event or not.
+  * `{drop}`: (default = true) Whether the block drops loot or not
+  * `{onlyMaxAge}`: (default = true) It will only break crops with max age
+  * `{replant}`: (default = false) Whether the crop will be replanted or not
+  * `{event}`: (default = false, true with `runActivatorOnBlocks:true`) Whether the crop will generate the block break event or not.
+  * `[runActivatorOnBlocks]`: (Optional) (default = false) ExecutableItems only. If true, the crops broken by the command also run the activator that launched it, see [runActivatorOnBlocks](#runactivatoronblocks). It can be written anywhere in the command, and it turns `{event}` on unless `{event}` is written false.
 * Example:
 
 ```
 - FARMINCUBE 9 true true true false
+- FARMINCUBE 4 true true true runActivatorOnBlocks:true
 ```
 
 ### FERTILIZEINCUBE
@@ -329,16 +337,18 @@ Example: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 
 * Info: Destroys blocks in a radius in a cuboid shape. Each block broken by this command gets counted as a player block break event.
 * Command settings
-  * `{radius}`: Radius of how big the area of the crops you want to break **(LIMIT IS 9)**
+  * `{radius}`: Radius of the cube of blocks you want to break **(LIMIT IS 9)**
   * `{droploot}`: Whether the block drops loot or not
   * `{createEvent}`: if the plugin will generate a blockBreakEvent for each broken block by the MINEINCUBE (default true)
   * `{offsetBreak}`: If the area of block starts to break from the block broken, or from the "center" to make the area really works the "radius" selected. (default false)
   * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
+  * `[runActivatorOnBlocks]`: (Optional) (default = false) ExecutableItems only. If true, the blocks broken by the command also run the activator that launched it, see [runActivatorOnBlocks](#runactivatoronblocks). Keep `{createEvent}` true.
 * Example:
 
 ```
 - MINEINCUBE 4 true false
 - MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false smelt:false
+- MINEINCUBE radius:1 droploot:true createEvent:true runActivatorOnBlocks:true
 ```
 
 ### MINEINSPHERE
@@ -663,12 +673,42 @@ And of course the vanilla spawners.
 
 * Info: Breaks blocks in veins in one block break
 * Command settings
-  * `{maxVeinSize}`: Max amount of blocks the command can break
+  * `{maxVeinSize}`: (default = 10) Max amount of blocks the command can break
   * `[createBBEvent]`: (Optional) (default = true) Whether or not it generates a block break event
   * `[smelt]`: (Optional) (default = false) Uses the SMELT command's logic. If the block is smeltable, it drops the smelt version instead. Otherwise, it will drop the broken block properly.
+  * `[runActivatorOnBlocks]`: (Optional) (default = false) ExecutableItems only. If true, the blocks of the vein also run the activator that launched the command, see [runActivatorOnBlocks](#runactivatoronblocks). Keep `createBBEvent` true.
 * Example:
 
 ```
 - VEIN_BREAKER 20
-- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:true
+- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:false runActivatorOnBlocks:false
+- VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+```
+
+:::info
+`triggerEvent` is not a setting of VEIN\_BREAKER. The old template of the in-game editor wrote `VEIN_BREAKER maxVeinSize:10 triggerEvent:true`: the `triggerEvent:true` part has no effect, you can remove it. To choose whether the command generates block break events, use `createBBEvent`.
+:::
+
+#### runActivatorOnBlocks
+
+`runActivatorOnBlocks` is a setting of VEIN\_BREAKER, [MINEINCUBE](#mineincube) and [FARMINCUBE](#farmincube). It is read by ExecutableItems only.
+
+* Without it (default `false`), the blocks broken by the command do not run the activator that contains the command: this is what prevents a loop of block breaks. The other activators of your items (the ones without a break command) still run for these blocks.
+* With `runActivatorOnBlocks:true`, each block broken by the command also runs the activator that launched it, as if the player had broken it: its conditions, `desactiveDrops` (no vanilla drops), its other commands (for example `DROPITEM`), its `usageModification` and its variables modifications apply to every block. `cancelEvent: true` applies too: these blocks are then not broken.
+* The break command is not run again for these blocks, so there is no loop.
+* The cooldowns, the uses per day and the required features (`requiredItems`, `requiredExecutableItems`, `requiredMoney`...) are not checked for these blocks: they are checked and taken once, for the block that ran the activator. Otherwise a cooldown would stop the vein after the first block.
+* The activator receives these blocks through their block break events: keep `createBBEvent` (VEIN\_BREAKER) or `{createEvent}` (MINEINCUBE) on `true`, their default. FARMINCUBE generates the events by itself with `runActivatorOnBlocks:true`, unless its `{event}` argument is `false`.
+* These events are block breaks, so it only works when the command is in a PLAYER\_BLOCK\_BREAK activator.
+
+Example: every block of the vein drops 1 diamond instead of its vanilla drops, and costs 1 usage.
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_BLOCK_BREAK
+    desactiveDrops: true
+    usageModification: -1
+    blockCommands:
+    - VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+    - DROPITEM DIAMOND 1
 ```

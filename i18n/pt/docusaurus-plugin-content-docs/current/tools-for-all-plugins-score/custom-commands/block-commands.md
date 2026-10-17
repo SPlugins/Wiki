@@ -2,8 +2,8 @@
 description: >-
   Guia completo dos comandos de bloco do ExecutableBlocks no plugin SPlugins:
   sintaxe, configurações e exemplos de uso.
-source_hash: 86f65c32a7acba4b
-translated_at: '2026-10-03T10:31:24.449Z'
+source_hash: 03a7c058f04e398e
+translated_at: '2026-10-16T21:01:36.000Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import LinkPreview from '@site/src/components/LinkPreview';
@@ -223,12 +223,18 @@ Funciona com ItemsAdder
 * Configurações do comando
   * `{radius}`: O raio em blocos (9 é o limite), você pode ultrapassar o limite adicionando um * antes do seu raio (por sua conta e risco).
   * `{drainType}`: LAVA ou WATER (não precisa se você quiser ambos)
+  * `[waterlogged]`: (Opcional) (padrão = false) Se for true e a água for drenada (`WATER` ou sem `{drainType}`), também seca os blocos alagados (waterlogged) do cubo (lajes, escadas, cercas...) e remove os blocos `KELP`, `KELP_PLANT`, `SEAGRASS`, `TALL_SEAGRASS` e `BUBBLE_COLUMN` sem dropar nada, como uma esponja faz. Só para servidores 1.13+.
 * Exemplo:
 
 ```
 DRAININCUBE 4 WATER
 DRAININCUBE *12 WATER
+DRAININCUBE 4 WATER waterlogged:true
 ```
+
+:::info
+Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a escorrer para a área drenada.
+:::
 
 ### DROPITEM
 
@@ -263,14 +269,16 @@ DRAININCUBE *12 WATER
 * Informação: Quebra todos os cultivos em um raio determinado
 * Configurações do comando
   * `{radius}`: Raio de quão grande é a área dos cultivos que você quer quebrar. **(O LIMITE É 9)**
-  * `{drop}`: Se o bloco dropa loot ou não
-  * `{onlyMaxAge}`: Só vai quebrar cultivos com idade máxima
-  * `{replant}`: Se o cultivo será replantado ou não
-  * `{event}`: Se o cultivo vai gerar o evento ou não.
+  * `{drop}`: (padrão = true) Se o bloco dropa loot ou não
+  * `{onlyMaxAge}`: (padrão = true) Só vai quebrar cultivos com idade máxima
+  * `{replant}`: (padrão = false) Se o cultivo será replantado ou não
+  * `{event}`: (padrão = false, true com `runActivatorOnBlocks:true`) Se o cultivo vai gerar o evento de quebra de bloco ou não.
+  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Só para o ExecutableItems. Se for true, os cultivos quebrados pelo comando também rodam o ativador que o lançou, veja [runActivatorOnBlocks](#runactivatoronblocks). Pode ser escrito em qualquer lugar do comando e liga o `{event}`, a não ser que o `{event}` esteja escrito como false.
 * Exemplo:
 
 ```
 - FARMINCUBE 9 true true true false
+- FARMINCUBE 4 true true true runActivatorOnBlocks:true
 ```
 
 ### FERTILIZEINCUBE
@@ -337,16 +345,18 @@ Exemplo: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 
 * Info: Destrói blocos em um raio em formato de cuboide. Cada bloco quebrado por este comando é contado como um evento de quebra de bloco do jogador.
 * Configurações do comando
-  * `{radius}`: Raio de quão grande é a área dos cultivos que você quer quebrar **(O LIMITE É 9)**
+  * `{radius}`: Raio do cubo de blocos que você quer quebrar **(O LIMITE É 9)**
   * `{droploot}`: Se o bloco dropa loot ou não
   * `{createEvent}`: se o plugin vai gerar um blockBreakEvent para cada bloco quebrado pelo MINEINCUBE (padrão true)
   * `{offsetBreak}`: Se a área de blocos começa a quebrar a partir do bloco quebrado, ou a partir do "centro" para fazer a área realmente respeitar o "radius" selecionado. (padrão false)
   * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco for fundível, ele dropa a versão fundida em vez disso. Caso contrário, dropará o bloco quebrado normalmente.
+  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Só para o ExecutableItems. Se for true, os blocos quebrados pelo comando também rodam o ativador que o lançou, veja [runActivatorOnBlocks](#runactivatoronblocks). Mantenha `{createEvent}` em true.
 * Exemplo:
 
 ```
 - MINEINCUBE 4 true false
 - MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false smelt:false
+- MINEINCUBE radius:1 droploot:true createEvent:true runActivatorOnBlocks:true
 ```
 
 ### MINEINSPHERE
@@ -671,12 +681,42 @@ E claro, os spawners vanilla.
 
 * Info: Quebra blocos em veias com uma única quebra de bloco
 * Configurações do comando
-  * `{maxVeinSize}`: Quantidade máxima de blocos que o comando pode quebrar
+  * `{maxVeinSize}`: (padrão = 10) Quantidade máxima de blocos que o comando pode quebrar
   * `[createBBEvent]`: (Opcional) (padrão = true) Se gera ou não um evento de quebra de bloco
   * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco for fundível, ele dropa a versão fundida em vez disso. Caso contrário, dropará o bloco quebrado normalmente.
+  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Só para o ExecutableItems. Se for true, os blocos da veia também rodam o ativador que lançou o comando, veja [runActivatorOnBlocks](#runactivatoronblocks). Mantenha `createBBEvent` em true.
 * Exemplo:
 
 ```
 - VEIN_BREAKER 20
-- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:true
+- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:false runActivatorOnBlocks:false
+- VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+```
+
+:::info
+`triggerEvent` não é uma configuração do VEIN\_BREAKER. O antigo template do editor do jogo escrevia `VEIN_BREAKER maxVeinSize:10 triggerEvent:true`: a parte `triggerEvent:true` não tem nenhum efeito, você pode removê-la. Para escolher se o comando gera eventos de quebra de bloco, use `createBBEvent`.
+:::
+
+#### runActivatorOnBlocks
+
+`runActivatorOnBlocks` é uma configuração do VEIN\_BREAKER, do [MINEINCUBE](#mineincube) e do [FARMINCUBE](#farmincube). Só o ExecutableItems a lê.
+
+* Sem ela (padrão `false`), os blocos quebrados pelo comando não rodam o ativador que contém o comando: é isso que evita um loop de quebras de blocos. Os outros ativadores dos seus itens (os que não têm um comando de quebra) continuam rodando para esses blocos.
+* Com `runActivatorOnBlocks:true`, cada bloco quebrado pelo comando também roda o ativador que o lançou, como se o jogador o tivesse quebrado: as condições dele, o `desactiveDrops` (sem drops vanilla), os outros comandos dele (por exemplo `DROPITEM`), o `usageModification` e as modificações de variáveis dele se aplicam a cada bloco. `cancelEvent: true` também se aplica: esses blocos então não são quebrados.
+* O comando de quebra não roda de novo para esses blocos, então não há loop.
+* Os cooldowns, os usos por dia e as funcionalidades obrigatórias (`requiredItems`, `requiredExecutableItems`, `requiredMoney`...) não são verificados para esses blocos: eles são verificados e aplicados uma única vez, para o bloco que rodou o ativador. Senão, um cooldown pararia a veia depois do primeiro bloco.
+* O ativador recebe esses blocos pelos eventos de quebra de bloco deles: mantenha `createBBEvent` (VEIN\_BREAKER) ou `{createEvent}` (MINEINCUBE) em `true`, o padrão deles. O FARMINCUBE gera os eventos sozinho com `runActivatorOnBlocks:true`, a não ser que o argumento `{event}` dele seja `false`.
+* Esses eventos são quebras de bloco, então só funciona quando o comando está em um ativador PLAYER\_BLOCK\_BREAK.
+
+Exemplo: cada bloco da veia dropa 1 diamante em vez dos drops vanilla dele e custa 1 de usage.
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_BLOCK_BREAK
+    desactiveDrops: true
+    usageModification: -1
+    blockCommands:
+    - VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+    - DROPITEM DIAMOND 1
 ```

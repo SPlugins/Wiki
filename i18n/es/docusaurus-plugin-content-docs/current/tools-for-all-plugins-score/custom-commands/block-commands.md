@@ -2,8 +2,8 @@
 description: >-
   Guía de SPlugins sobre los Comandos de Bloque de ExecutableBlocks: sintaxis,
   ajustes y ejemplos de cada comando disponible.
-source_hash: 86f65c32a7acba4b
-translated_at: '2026-10-03T10:30:06.537Z'
+source_hash: 03a7c058f04e398e
+translated_at: '2026-10-16T21:01:36.000Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import LinkPreview from '@site/src/components/LinkPreview';
@@ -223,12 +223,18 @@ Funciona con ItemsAdder
 * Ajustes del comando
   * `{radius}`: El radio en bloques (9 es el límite), puedes saltarte el límite añadiendo un * antes de tu radio (bajo tu propia responsabilidad).
   * `{drainType}`: LAVA o WATER (no es necesario si quieres ambas)
+  * `[waterlogged]`: (Opcional) (por defecto = false) Si es true y se drena el agua (`WATER` o sin `{drainType}`), también seca los bloques anegados (waterlogged) del cubo (losas, escaleras, vallas...) y elimina los bloques `KELP`, `KELP_PLANT`, `SEAGRASS`, `TALL_SEAGRASS` y `BUBBLE_COLUMN` sin soltar nada, como hace una esponja. Solo para servidores 1.13+.
 * Ejemplo:
 
 ```
 DRAININCUBE 4 WATER
 DRAININCUBE *12 WATER
+DRAININCUBE 4 WATER waterlogged:true
 ```
+
+:::info
+Sin `waterlogged:true`, los bloques anegados conservan su agua y esta puede volver a fluir hacia la zona drenada.
+:::
 
 ### DROPITEM
 
@@ -263,14 +269,16 @@ DRAININCUBE *12 WATER
 * Información: Rompe todos los cultivos en un radio determinado
 * Ajustes del comando
   * `{radius}`: Radio de lo grande que será el área de los cultivos que quieres romper. **(EL LÍMITE ES 9)**
-  * `{drop}`: Si el bloque suelta loot o no
-  * `{onlyMaxAge}`: Solo romperá cultivos con la edad máxima
-  * `{replant}`: Si el cultivo se replantará o no
-  * `{event}`: Si el cultivo generará el evento o no
+  * `{drop}`: (por defecto = true) Si el bloque suelta loot o no
+  * `{onlyMaxAge}`: (por defecto = true) Solo romperá cultivos con la edad máxima
+  * `{replant}`: (por defecto = false) Si el cultivo se replantará o no
+  * `{event}`: (por defecto = false, true con `runActivatorOnBlocks:true`) Si el cultivo generará el evento de rotura de bloque o no
+  * `[runActivatorOnBlocks]`: (Opcional) (por defecto = false) Solo para ExecutableItems. Si es true, los cultivos rotos por el comando también ejecutan el activador que lo lanzó, consulta [runActivatorOnBlocks](#runactivatoronblocks). Puede escribirse en cualquier parte del comando y activa `{event}`, salvo si `{event}` está escrito en false.
 * Ejemplo:
 
 ```
 - FARMINCUBE 9 true true true false
+- FARMINCUBE 4 true true true runActivatorOnBlocks:true
 ```
 
 ### FERTILIZEINCUBE
@@ -337,16 +345,18 @@ Ejemplo: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 
 * Info: Destruye bloques en un radio con forma de cuboide. Cada bloque roto por este comando se cuenta como un evento de rotura de bloque del jugador.
 * Ajustes del comando
-  * `{radius}`: Radio de lo grande que será el área de los cultivos que quieres romper **(EL LÍMITE ES 9)**
+  * `{radius}`: Radio del cubo de bloques que quieres romper **(EL LÍMITE ES 9)**
   * `{droploot}`: Si el bloque suelta loot o no
   * `{createEvent}`: Si el plugin generará un blockBreakEvent por cada bloque roto por el MINEINCUBE (por defecto true)
   * `{offsetBreak}`: Si el área de bloques empieza a romperse desde el bloque roto, o desde el "centro" para que el área funcione realmente con el "radio" seleccionado (por defecto false)
   * `[smelt]`: (Opcional) (por defecto = false) Usa la lógica del comando SMELT. Si el bloque es fundible, soltará la versión fundida en su lugar. De lo contrario, soltará el bloque roto normalmente.
+  * `[runActivatorOnBlocks]`: (Opcional) (por defecto = false) Solo para ExecutableItems. Si es true, los bloques rotos por el comando también ejecutan el activador que lo lanzó, consulta [runActivatorOnBlocks](#runactivatoronblocks). Mantén `{createEvent}` en true.
 * Ejemplo:
 
 ```
 - MINEINCUBE 4 true false
 - MINEINCUBE radius:3 droploot:true createEvent:true offsetBreak:false smelt:false
+- MINEINCUBE radius:1 droploot:true createEvent:true runActivatorOnBlocks:true
 ```
 
 ### MINEINSPHERE
@@ -671,12 +681,42 @@ Y por supuesto los spawners vanilla.
 
 * Info: Rompe bloques en vetas con una sola rotura de bloque
 * Ajustes del comando
-  * `{maxVeinSize}`: Cantidad máxima de bloques que el comando puede romper
+  * `{maxVeinSize}`: (por defecto = 10) Cantidad máxima de bloques que el comando puede romper
   * `[createBBEvent]`: (Opcional) (por defecto = true) Si genera o no un evento de rotura de bloque
   * `[smelt]`: (Opcional) (por defecto = false) Usa la lógica del comando SMELT. Si el bloque es fundible, soltará la versión fundida en su lugar. De lo contrario, soltará el bloque roto normalmente.
+  * `[runActivatorOnBlocks]`: (Opcional) (por defecto = false) Solo para ExecutableItems. Si es true, los bloques de la veta también ejecutan el activador que lanzó el comando, consulta [runActivatorOnBlocks](#runactivatoronblocks). Mantén `createBBEvent` en true.
 * Ejemplo:
 
 ```
 - VEIN_BREAKER 20
-- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:true
+- VEIN_BREAKER maxVeinSize:10 createBBEvent:true smelt:false runActivatorOnBlocks:false
+- VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+```
+
+:::info
+`triggerEvent` no es un ajuste de VEIN\_BREAKER. La antigua plantilla del editor del juego escribía `VEIN_BREAKER maxVeinSize:10 triggerEvent:true`: la parte `triggerEvent:true` no tiene ningún efecto, puedes quitarla. Para elegir si el comando genera eventos de rotura de bloque, usa `createBBEvent`.
+:::
+
+#### runActivatorOnBlocks
+
+`runActivatorOnBlocks` es un ajuste de VEIN\_BREAKER, [MINEINCUBE](#mineincube) y [FARMINCUBE](#farmincube). Solo lo lee ExecutableItems.
+
+* Sin él (por defecto `false`), los bloques rotos por el comando no ejecutan el activador que contiene el comando: es lo que evita un bucle de roturas de bloques. Los demás activadores de tus ítems (los que no tienen un comando de rotura) se siguen ejecutando para estos bloques.
+* Con `runActivatorOnBlocks:true`, cada bloque roto por el comando también ejecuta el activador que lo lanzó, como si el jugador lo hubiera roto: sus condiciones, `desactiveDrops` (sin drops vanilla), sus demás comandos (por ejemplo `DROPITEM`), su `usageModification` y sus modificaciones de variables se aplican a cada bloque. `cancelEvent: true` también se aplica: estos bloques entonces no se rompen.
+* El comando de rotura no se vuelve a ejecutar para estos bloques, así que no hay bucle.
+* Los cooldowns, los usos por día y los requisitos (`requiredItems`, `requiredExecutableItems`, `requiredMoney`...) no se comprueban para estos bloques: se comprueban y se aplican una sola vez, para el bloque que ejecutó el activador. Si no, un cooldown detendría la veta después del primer bloque.
+* El activador recibe estos bloques a través de sus eventos de rotura de bloque: mantén `createBBEvent` (VEIN\_BREAKER) o `{createEvent}` (MINEINCUBE) en `true`, su valor por defecto. FARMINCUBE genera los eventos por sí mismo con `runActivatorOnBlocks:true`, salvo si su argumento `{event}` es `false`.
+* Estos eventos son roturas de bloque, así que solo funciona cuando el comando está en un activador PLAYER\_BLOCK\_BREAK.
+
+Ejemplo: cada bloque de la veta suelta 1 diamante en lugar de sus drops vanilla y cuesta 1 de uso.
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_BLOCK_BREAK
+    desactiveDrops: true
+    usageModification: -1
+    blockCommands:
+    - VEIN_BREAKER maxVeinSize:16 runActivatorOnBlocks:true
+    - DROPITEM DIAMOND 1
 ```

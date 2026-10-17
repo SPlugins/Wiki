@@ -21,6 +21,7 @@ disableCustomMetadataOnEntities: false # to disable the metadata fromSpawner and
 configVerbosity: "NORMAL" # "NORMAL" or "MIN" or "MAX"
 enableCommentsInConfig: true # It will add a description of each setting in comment in the yaml config file.
 editorIconPreview: true # In the list editors (/ei editor, /eb editor ...), shows a preview of each object on its icon: display name, lore, enchantments and attributes. Set it to false to hide it.
+breakChains: true # A block broken by a command (score run-block-command ... BREAK) runs the activators of the item again, which can break other blocks, and so on (stopped at 64 levels / 512 blocks). false: only the blocks broken by the commands of the activator itself, like BREAK
 hologramsPlugin: "NONE" # The holograms plugin you want to use. By default None , it uses the vanilla holograms. You can use CMI, HOLOGRAPHIC_DISPLAYS or DECENT_HOLOGRAMS
 ```
 
@@ -38,3 +39,12 @@ In the list of `/ei editor` (and the other editors that list files), the icon of
 * `Attributes`: up to 4
 
 Long lines are cut at 40 characters. It is only a display: nothing is written in your files. If the option is not in your `config.yml`, it is enabled.
+
+## breakChains
+
+A block broken by a command (`BREAK`, `score run-block-command ... BREAK`) sends a break event, so the `PLAYER_BLOCK_BREAK` activators of the item run again for it. When those activators break other blocks by command, each new block runs them again: a pickaxe that mines in a + shape with `score run-block-command` keeps digging block after block.
+
+* `breakChains: true` (default): these chains run. A block is broken once per chain, and a chain that goes past 64 levels or 512 blocks stops, with one warning in the console. A tree felled log by log stays far below these limits.
+* `breakChains: false`: only the blocks broken by the commands of the activator itself are broken, like the `BREAK` command. The + shape pickaxe mines its 5 blocks, and a tree felled log by log by `score run-block-command` stops at its second log.
+
+An empty air block is never broken by a command: it runs no activator. If the option is not in your `config.yml`, it is enabled: add the line yourself to change it.
