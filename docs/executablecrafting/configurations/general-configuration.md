@@ -22,6 +22,8 @@ recipeConfig:
     eventsPriority: NORMAL #In case some plugin is causing problems you can set this to NORMAL, HIGH or HIGHEST
   craftingTable:
     castResultAsMaxAmount: false #If you want the result to stack on the result slot of the crafting inventory
+#If false, the CRAFTER block crafts the EC recipes like vanilla: it ignores their amounts and conditions
+enableCrafterBlockSupport: true
 #If true, the CRAFTER block refuses the recipes that have player conditions (a Crafter has no player, so they can't be checked)
 crafterRefusesPlayerConditionRecipes: false
 #If true, the vanilla recipe book shows the EC recipes as craftable only when the player has the right items (custom, enchanted or renamed ones included). Paper 1.21.2+
@@ -41,6 +43,10 @@ recipeBook:
 ## Crafter block and player conditions
 
 The vanilla **Crafter** (1.21+) crafts ExecutableCrafting recipes too, with their per-slot amounts, block conditions and placeholder conditions.
+This support is the option `enableCrafterBlockSupport: true` (default; EC adds the line at the end of your config.yml if it is missing).
+With `enableCrafterBlockSupport: false`, the Crafter crafts the EC recipes like vanilla: it ignores their amounts and their conditions, so a
+recipe that asks for 32 items per slot is crafted with 1 item per slot, and `crafterRefusesPlayerConditionRecipes` has no effect.
+
 A Crafter has no player, so the **player conditions** of a recipe (for example `ifPlayerLevel: '>=50'`) can't be checked:
 by default they are skipped and the Crafter crafts the recipe anyway.
 
