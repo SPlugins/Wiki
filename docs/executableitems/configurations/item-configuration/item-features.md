@@ -251,7 +251,7 @@ itemRarity:
   * `cameraOverlay`: (Optional) custom camera overlay when the item is equipped
   * `damageableOnHurt`: Boolean that selects if the item loses durability when the wearer is hurt
   * `dispensable`: Boolean that selects if the item can be disposed of (removed/dropped)
-  * `swappable`: Boolean that selects if the item can be swapped with another item
+  * `swappable`: Boolean that selects if the item can be equipped with a right click (it is swapped with the item worn in that slot)
   * `allowedEntities`: List of entities permitted to equip this item
 * Example:
 
@@ -629,9 +629,10 @@ potionFeatures:
       hasIcon: false
 ```
 
-### Leather armor color
+### Armor color
 
 * Info: If your ExecutableItem its an instance of leathers armors then here you can select a value of MapInfo Color that you can get from this website [https://www.tydac.ch/color/](https://www.tydac.ch/color/) to change the color.
+  * <CustomTag type="version" version="1.21.3" /> On Paper, `armorColor` is also available on the other armor pieces (helmet, chestplate, leggings, boots of any material, horse and wolf armor) and on the elytra. It sets their vanilla `dyed_color` component, which custom models (Nexo, ItemsAdder...) use for their tint: without it such a model can be invisible. `/ei create` keeps this color from the item in your hand.
 * Example:
 
 ```yaml

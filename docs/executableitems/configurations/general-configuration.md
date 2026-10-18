@@ -240,6 +240,7 @@ disableActivatorsInSpectator: true
 #### keepNameInAnvil
 
 * Info: Boolean value, `true` by default. An ExecutableItem that goes through an anvil **without being renamed** (enchant with a book, repair) keeps its display name with its colors / gradient.
+  * It is an option of `plugins/ExecutableItems/config.yml` and applies to all your ExecutableItems. It is not an item setting: written in an item file, it does nothing.
   * Why it is needed: when an item is placed in an anvil, the game compares the text of the name field with the name of the item. Some names can't be written in that field (for example a name whose text holds a `§`), so the game believed the item was renamed and rewrote its name as plain text: the gradient was lost.
   * If the player really types a new name, the item is renamed like in vanilla (plain text). To forbid that, use the restriction `cancel-rename-anvil` of the item.
   * If the option is not in your `config.yml`, it is enabled. Set it to `false` to get the old behaviour back.

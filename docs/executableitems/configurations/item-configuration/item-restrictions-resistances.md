@@ -196,6 +196,10 @@ restrictions:
   cancel-rename-anvil: true
 ```
 
+:::tip
+An item that is repaired or enchanted in an anvil **without being renamed** keeps its colored / gradient name thanks to [keepNameInAnvil](/executableitems/configurations/general-configuration#keepnameinanvil) (enabled by default). That option goes in `plugins/ExecutableItems/config.yml`, not in the item file.
+:::
+
 ### Cancel enchant action using an anvil
 
 * Info: Boolean value that prevents the player from enchanting the ExecutableItem using an anvil.

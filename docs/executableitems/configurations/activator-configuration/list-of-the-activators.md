@@ -337,6 +337,7 @@ Activator features are features that are exclusive to that activator.
 
 * Info: Activator that gets triggered if you wear/put the armorpiece into the armor slot.
   * `detailedSlots` can restrict it to one armor slot: 36 boots, 37 leggings, 38 chestplate, 39 helmet (the slot the piece goes into), in addition to -1 for the hand it came from.
+  * <CustomTag type="version" version="1.21.3" /> An item with [equippable features](/executableitems/configurations/item-configuration/item-features#equippable-features-) goes into the `slot` of these features, even when it is not the slot of its material: a carved pumpkin equippable on the legs counts as leggings (37). With a right click, it is put on only if its `swappable` is true.
   * Be careful ! The plugin CMI can make this activator not work due to cmi.inventoryhat permission to true. If you want this activator to work set it the permission to false. 
   * Fabric addons can bypass this activator.
 
