@@ -23,6 +23,10 @@ import CustomTag from '@site/src/components/CustomTag';
 
 Here you have the list of activators available with their description and some examples. The activators allow you to execute custom actions,  it can have conditions, run commands, have cooldown, etc.
 
+:::warning
+An activator whose `option:` is not in this list (typo, activator of another plugin…) is **disabled**: it never runs, and the console shows an error with the closest option names when the ExecutableBlock config is loaded.
+:::
+
 Premium activators are labelled with the tag: <CustomTag type="premium" />
 
 Activator features are features that are exclusive to that activator.
@@ -99,10 +103,12 @@ Activator features are features that are exclusive to that activator.
 ### PLAYER\_BREAK\_BLOCK\_ABOVE\_THE\_EB
 
 * Info: Activates when a player breaks the block above the Executable Block.
+  * It also activates when the broken block is itself an Executable Block (an EB placed on this EB).
 
 ### PLAYER\_BREAK\_BLOCK\_UNDER\_THE\_EB
 
 * Info: Activates when a player breaks the block under the Executable Block.
+  * It also activates when the broken block is itself an Executable Block (an EB under this EB).
 
 ### PLAYER\_BRUSH\_BLOCK
 

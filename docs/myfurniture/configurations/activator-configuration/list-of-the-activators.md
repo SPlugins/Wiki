@@ -71,6 +71,22 @@ displayCommands:
   - "STOP_ANIMATION"
 ```
 
+### AROUND and MOB\_AROUND
+
+* Info: [AROUND](/tools-for-all-plugins-score/custom-commands/mixed-commands-player-and-entity#around) and [MOB\_AROUND](/tools-for-all-plugins-score/custom-commands/mixed-commands-player-and-entity#mob_around) work in `displayCommands`, centred on the furniture, in its world. With a LOOP activator, a furniture can have an aura: effects on the players or on the mobs around it.
+* Example: every 4 seconds, the players within 5 blocks get Regeneration I, and the zombies, skeletons, creepers and spiders within 6 blocks get Weakness I.
+
+```yaml
+activators:
+  aura:
+    option: LOOP
+    delay: 4
+    delayInTick: false
+    displayCommands:
+      - "AROUND distance:5 displayMsgIfNoPlayer:false effect give %around_target% regeneration 5 0 true"
+      - "MOB_AROUND distance:6 displayMsgIfNoEntity:false WHITELIST(ZOMBIE,SKELETON,CREEPER,SPIDER) effect give %around_target_uuid% weakness 5 0 true"
+```
+
 ### Animation Activator Example
 
 A typical animated furniture setup with right-click to start and left-click to stop:

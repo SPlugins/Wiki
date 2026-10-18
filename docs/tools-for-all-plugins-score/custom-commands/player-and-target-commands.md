@@ -619,6 +619,7 @@ This command supports stacking multiple boosts multiplicatively.
   * `[angleRotationVertical]`: (Optional) (default = 0) <CustomTag type="version" version="1.14" /> (in degrees) Define the direction where the entity will be launched
   * `[angleRotationHorizontal]`: (Optional) (default = 0) <CustomTag type="version" version="1.14" /> (in degrees) Define the direction where the entity will be launched
   * `[velocity]`: (Optional) (default = 1) To customize the velocity of the projectile
+    * <CustomTag type="version" version="1.20.5" /> It also changes the speed of the fireballs (FIREBALL, SIZEDFIREBALL, LARGEFIREBALL, DRAGONFIREBALL, WITHERSKULL): `velocity:2` flies twice as fast, `velocity:1` keeps the vanilla speed. Before 1.20.5 they keep their vanilla speed.
 * Example:
 
 ```yaml

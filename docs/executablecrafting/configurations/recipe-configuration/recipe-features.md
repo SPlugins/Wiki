@@ -148,6 +148,10 @@ itemCommands:
 The fuel can't be edited currently
 :::
 
+:::info
+When the conditions of a furnace recipe are not met and its input also has a vanilla furnace recipe (raw iron, for example), the furnace smelts the vanilla recipe instead: vanilla result and cooking time. Without a vanilla recipe for the input, nothing is smelted.
+:::
+
 ### Input
 
 * Info: Define the items requirement

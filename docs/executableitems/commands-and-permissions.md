@@ -241,6 +241,13 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 * Tip: if nothing happens, run **/ei debug** to see which check stops the activator.
 * Permission: `ei.cmd.trigger`
 
+#### Make all ExecutableItems keep the default attributes of their material
+
+* Info: Sets [Keep default attributes](/executableitems/configurations/item-configuration/item-features#keep-default-attributes) on **every** loaded ExecutableItem (`keepDefaultAttributes: true`, `ignoreKeepDefaultAttributesFeature: false`) and saves their files. On 1.21+, ExecutableItems lists in the console after each load the items that lose the damage / armor of their material without it. With `false`, every item gets `keepDefaultAttributes: false`.
+* Command: **/ei util-set-keepdefaultattributes-all-ei \{true or false\}**
+* Example: `/ei util-set-keepdefaultattributes-all-ei true`
+* Permission: `ei.cmd.util-set-keepdefaultattributes-all-ei`
+
 ### Give commands
 
 #### Give command

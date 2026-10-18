@@ -22,8 +22,10 @@ description: >-
    ```
    /ec debug
    ```
-   Then try to craft. The server console will print a line for each slot comparison.
-   Look for `Mismatch detected` to find the problematic slot.
+   Then put the ingredients in the crafting grid. An `[EC debug]` line in your chat tells you which EC recipe
+   matches the grid (`none` if no recipe matches: check the inputs and the `itemCheckers`), what is left in the
+   result slot, and the plugins that act on the craft after EC (one of them can empty the result). See
+   [/ec debug](/executablecrafting/commands-and-permissions#activate-the-debug-mode-for-yourself).
 5. **Check `itemCheckers`.** If `checkMaterial: false` *and* `checkDisplayName: false`
    *and* all other checks are `false`, the plugin treats every item as matching and
    your recipe may match unintended inputs (or match nothing because the check-all-false

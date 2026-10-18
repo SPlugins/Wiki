@@ -10,6 +10,10 @@ import CustomTag from '@site/src/components/CustomTag';
 
 Here you have the complete list of activators available in ExecutableEvents with their description and specific placeholders. Activators are what trigger your executable event configurations — each activator corresponds to a real Minecraft server event.
 
+:::warning
+An activator whose `option:` is not in this list (typo, activator of another plugin…) is **disabled**: it never runs, and the console shows an error with the closest option names when the ExecutableEvent config is loaded.
+:::
+
 Premium activators are labelled with the tag: <CustomTag type="premium" />
 
 ## Miscellaneous activators
@@ -339,6 +343,7 @@ Premium activators are labelled with the tag: <CustomTag type="premium" />
 ### PLAYER\_FISH\_FISH
 
 * Info: Activates when a player reels in and successfully catches something (item or fish).
+  * The target entity is the **caught item**: `targetEntityCommands` run on it, one tick after the catch (once the item exists). With the entity command [CHANGE\_INTO\_ITEM](/tools-for-all-plugins-score/custom-commands/entity-commands#change_into_item) you can turn every catch of the server into your own loot, see [Custom fishing loot](/executableitems/questions-or-guides/methods-or-template/custom-fishing-loot#every-fishing-rod-of-the-server-executableevents).
 
 ### PLAYER\_FISH\_NOTHING
 
