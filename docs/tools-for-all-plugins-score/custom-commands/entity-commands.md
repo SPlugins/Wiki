@@ -68,6 +68,7 @@ it only works for 1.16.5+
 
 * Info: Replaces a dropped item (an item entity on the ground or in the air) by a vanilla item or an ExecutableItem. The entity stays the same, only the item it carries changes.
 * Made for the activator `PLAYER_FISH_FISH` of ExecutableItems: there, the entity targeted by `entityCommands` is the caught item. It is changed before it is reeled in, so the player keeps the normal fishing animation and receives your item instead of the fish. No `/ei give`, no `DELAYTICK`, no `data merge` needed.
+  * In ExecutableEvents (every fishing rod of the server), write it in the `targetEntityCommands` of `PLAYER_FISH_FISH`.
 * Command settings:
   * `item`: A material (`DIAMOND`) or the id of an ExecutableItem (`my_custom_fish`).
   * `amount`: (Optional) The amount of the new item. Default: 1

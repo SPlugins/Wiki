@@ -9,7 +9,7 @@ This guide shows how to make a fishing rod that catches your own loot. The playe
 It uses the activator `PLAYER_FISH_FISH` and the entity command [CHANGE\_INTO\_ITEM](/tools-for-all-plugins-score/custom-commands/entity-commands#change_into_item).
 
 :::danger
-THIS TUTORIAL IS FOR EXECUTABLEITEMS: the custom loot only applies to the players who fish with **your ExecutableItem rod**, not to every fishing rod of the server.
+THIS TUTORIAL IS FOR EXECUTABLEITEMS: the custom loot only applies to the players who fish with **your ExecutableItem rod**, not to every fishing rod of the server. For every fishing rod, use [ExecutableEvents](#every-fishing-rod-of-the-server-executableevents).
 :::
 
 ## How it works
@@ -60,6 +60,24 @@ Here the player has 2 chances out of 4 to get a cod, 1 out of 4 to get 3 diamond
 :::tip
 To tell the player what they caught, use `playerCommands` of the same activator (for example `SEND_MESSAGE`), or give your custom item a clear name: it is shown when it is picked up.
 :::
+
+## Every fishing rod of the server (ExecutableEvents)
+
+With ExecutableEvents, the loot applies to every player who fishes, whatever the rod. In an event, the activator `PLAYER_FISH_FISH` has the caught item as **target entity**: write the commands in `targetEntityCommands`.
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_FISH_FISH
+    targetEntityCommands:
+    - RANDOM_RUN selectionCount:1
+    - CHANGE_INTO_ITEM item:COD amount:1
+    - CHANGE_INTO_ITEM item:DIAMOND amount:3
+    - CHANGE_INTO_ITEM item:EI:my_custom_fish amount:1
+    - RANDOM_END
+```
+
+The `targetEntityCommands` of `PLAYER_FISH_FISH` run one tick after the catch, once the caught item exists: no `DELAYTICK` needed here either.
 
 ## Good to know
 
