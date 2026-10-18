@@ -14,6 +14,7 @@ silenceOutputs: # You can blacklist sentences that are sent to the console by Th
 globalSilenceOutputs: # You can blacklist sentences that are sent to the console by any plugin
   - "blacklist the sentence here"
 disableCustomMetadataOnEntities: false # to disable the metadata fromSpawner and bowForce to be added to entities
+beforeDeathIgnoreCancelledDamage: false # true: PLAYER_BEFORE_DEATH and ENTITY_BEFORE_DEATH are checked after the other plugins and don't run when one of them cancelled the damage (a damage cap, a protected region...)
 
 #MIN : it will save only the modified settings
 #NORMAL : it will save modified settings + frequently used settings
@@ -48,3 +49,12 @@ A block broken by a command (`BREAK`, `score run-block-command ... BREAK`) sends
 * `breakChains: false`: only the blocks broken by the commands of the activator itself are broken, like the `BREAK` command. The + shape pickaxe mines its 5 blocks, and a tree felled log by log by `score run-block-command` stops at its second log.
 
 An empty air block is never broken by a command: it runs no activator. If the option is not in your `config.yml`, it is enabled: add the line yourself to change it.
+
+## beforeDeathIgnoreCancelledDamage
+
+The activators `PLAYER_BEFORE_DEATH` and `ENTITY_BEFORE_DEATH` (a custom totem, for example) run when a damage is about to kill a player or an entity.
+
+* `beforeDeathIgnoreCancelledDamage: false` (default): the damage is checked at the same time as the damage listeners of the other plugins, so the result depends on the order of the plugins. A damage that another plugin cancels or lowers (a protected region, a damage cap made with an ExecutableEvents event with `cancelEvent` and `DAMAGE 8`...) can still run these activators, and the totem is used for nothing.
+* `beforeDeathIgnoreCancelledDamage: true`: the damage is checked after the other plugins, with the damage they leave, and a damage that one of them cancelled never runs these activators.
+
+If the option is not in your `config.yml`, it is disabled. To ignore a cancelled event for one activator only, use [noActivatorRunIfTheEventIsCancelled](/executableitems/configurations/activator-configuration/activators-features#noactivatorruniftheeventiscancelled).
