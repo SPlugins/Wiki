@@ -386,9 +386,3 @@ Create custom crafting recipes.
 ### ScreenShop
 
 - [Information](/screenshop/information-screenshop)
-
----
-
-## Support
-
-- [Contact and Support Us](/team-and-donations/contact-support-us)

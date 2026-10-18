@@ -2,9 +2,7 @@
 sidebar_position: 3
 ---
 
-import CustomTag from '@site/src/components/CustomTag';
-
-# 🛡️ Sets (bonus by pieces worn) <CustomTag type="premium" />
+# 🛡️ Sets (bonus by pieces worn)
 
 :::info Premium
 Sets need the premium version of ExecutableItems. With the free version, the files of the `sets` folder are not loaded (the console says so at each reload) and `/ei sets` explains it.
