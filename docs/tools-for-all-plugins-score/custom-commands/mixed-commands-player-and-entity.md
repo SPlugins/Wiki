@@ -702,6 +702,9 @@ activators:
 ### EQUIPMENT\_VISUAL\_REPLACE
 
 * Info: Replaces VISUALLY (there is no risk for losing items) a equipment slot with certain material
+  * It requires [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/).
+  * The visual is shown to the players who see the player / entity (and to the player himself). A player who comes closer later sees it too.
+  * An entity has one visual per slot: a new EQUIPMENT\_VISUAL\_REPLACE on the same slot replaces the previous one, with its new time. The visual ends after `{timeinticks}`, with EQUIPMENT\_VISUAL\_CANCEL, or when the entity dies, despawns or the player leaves.
 * Command settings:
   * `{EquipmentSlot}`: The slot
     * Options:
@@ -727,6 +730,7 @@ activators:
 ### EQUIPMENT\_VISUAL\_CANCEL
 
 * Info: Cancel the EQUIPMENT\_VISUAL\_REPLACE command
+  * It works on players and on mobs: the players who see the entity get its real item back in this slot.
 * Command setting:
   * `{EquipmentSlot}`: The slot
     * Options:

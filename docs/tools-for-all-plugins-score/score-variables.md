@@ -51,6 +51,8 @@ ID of the variables can't have underscores, points or spaces but - is ok
 * /score variables clear \{type\_of\_variable\} \{variable-id\} \[player]
   * Clear the value of the variable (Optional: for a specific player)
   * If you replace \[player] by **all,** it will clear the value for all players
+* /score variables set-default \{variable-id\} \{value\}
+  * Change the default value of the variable (one word, no spaces). It is saved in the variable file, so it stays after a reload
 * /score variables \{modification\_type\} \{variable\_scope\} \{variable-id\} \{value\} \[player]
   * Allow you to modify the value of an existing variable.
   * Examples:
@@ -99,6 +101,7 @@ Since SCore variable placeholders are supported by PlaceholderAPI, you can use t
 
 * %score\_variables\_\<variable-id>\_\<index>%
   * Return the value at the specific index of the list
+  * The index can come from another placeholder written in brackets, it is parsed first: `%score_variables_myList_{score_variables_myIndex_int}%`
 * %score\_variables\_\<variable-id>%
   * Return all the elements of the list
 * %score\_variables-contains\_\<variable-name>\_\<value>%

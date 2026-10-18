@@ -36,6 +36,10 @@ activators:
     - command2
 ```
 
+:::info Delayed commands and server restarts
+The commands that wait for a `DELAY` or a `DELAY_TICK` are saved when the server stops and resume after the restart. The time left keeps running while the server is off: a delay that ended meanwhile runs right after the start. Block commands (an ExecutableBlock put back after a delay, for example) and player commands with `[<OFFLINE>]` start without waiting for anyone; the other player commands wait for their player to join, like when the player is offline.
+:::
+
 ## **IF**
 
 The custom utilify command IF only works in player or entity related commands.

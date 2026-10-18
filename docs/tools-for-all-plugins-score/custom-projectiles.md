@@ -133,6 +133,7 @@ gravity: true
 ### Velocity
 
 * How fast the projectile will be
+  * <CustomTag type="version" version="1.20.5" /> It also works on FIREBALL, WITHER\_SKULL and DRAGON\_FIREBALL: `2.0` flies twice as fast, `1` keeps the vanilla speed. Before 1.20.5 they keep their vanilla speed.
 * Example:
 
 ```yaml

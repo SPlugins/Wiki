@@ -80,6 +80,7 @@ Check [SCore Variables](/tools-for-all-plugins-score/score-variables)
       * `y`: Y coordinates of the block
       * `z`: Z coordinates of the block
   * `command`: Block command who will be run against the block and, if exists, by the player.
+    * The [block placeholders](/tools-for-all-plugins-score/placeholders#block-placeholders) (`%block%`, `%block_lower%`, `%block_x%`...) of the command are the ones of this block.
 
 * Examples:
   * /score run-block-command block\:world,-23,-61,27 BREAK
