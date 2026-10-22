@@ -84,7 +84,31 @@ Activator features are features that are exclusive to that activator.
 
 ### LOOP <CustomTag type="premium" /> 
 
-* Info: Activates in repeat as long as the block is placed.
+* Info: Activates in repeat as long as the block is placed, every `delay` seconds (or ticks with `delayInTick: true`).
+* By default, the countdown belongs to the **activator**, not to each block: all the placed blocks of the same ExecutableBlock run together, on the same beat, and placing a block does **not** restart the countdown. A block placed 8 seconds into a 10 seconds loop runs 2 seconds later.
+* `loopTimerPerBlock: true` (default `false`) gives **each placed block its own countdown**, started when the block is placed. A block removed and placed again (for example with `eb remove` then `eb place`) starts a full countdown again. Use it for blocks that "regenerate" one by one: a harvested bee nest, a picked bush, a mined ore...
+  * The countdown of each block is kept in memory only: after a server restart, every placed block waits a full `delay` before its first run.
+  * A block whose chunk is not loaded when its countdown ends runs as soon as its chunk is loaded again.
+  * The option is also in the in-game editor of the activator, next to the loop settings.
+  * It only exists on the `LOOP` activator of ExecutableBlocks. The `LOOP` activators of ExecutableItems and ExecutableEvents keep one countdown per activator.
+* Example: a bee nest that fills itself again 4 hours after it was placed. The block is removed and placed again, so the [beehiveFeatures](/executableblocks/configurations/block-configuration/block-features#beehive-features) refill it, and its own 4 hours start again.
+
+```yaml
+# File: regen_bee_nest.yml (the ID of the ExecutableBlock is regen_bee_nest)
+creationType: BASIC_CREATION
+material: BEE_NEST
+beehiveFeatures:
+  honeyLevel: 5 # full of honey when placed
+  bees: 2
+activators:
+  regen:
+    option: LOOP
+    delay: 14400            # 4 hours
+    loopTimerPerBlock: true # each bee nest counts its own 4 hours from the moment it is placed
+    blockCommands:
+    - 'eb remove %block_x_int% %block_y_int% %block_z_int% %block_world%'
+    - 'eb place regen_bee_nest %block_x_int% %block_y_int% %block_z_int% %block_world%'
+```
 
 ![](https://camo.githubusercontent.com/6991c6761725247065c863ae008a2451c514405afe1c185e3d04b56b6ad5e2b2/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f4b6d7a6a627567686a4f52715269415770532f67697068792e676966)
 
