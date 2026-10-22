@@ -64,6 +64,12 @@ _Sorted by alphabetical order_
 
 * This summons lightning at players in a 20 block radius around the clicked block.
 
+:::info
+**Number of targets:** `%around_target_count%` gives the number of players selected by the command. It is the same for every target, and it counts the targets kept after `distance`, `affectThePlayerThatActivatesTheActivator`, `throughBlocks`, `regionCheck` and `limit`. The `CONDITIONS(...)` checked on each target are not taken into account. It accepts the `+N` / `-N` shorthand: `%around_target_count%-1`.
+
+Example: `AROUND 10 SEND_MESSAGE &e%around_target_count% players are around the block`
+:::
+
 #### You can add conditions to AROUND command
 
 * The condition looks like AROUND \<distance> CONDITIONS(\<conditions>) \<command>

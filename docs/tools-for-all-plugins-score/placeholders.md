@@ -99,6 +99,7 @@ Entity placeholders are available in the activators where an entity is involved.
 | `%usage_roman%` | Usage in Roman numerals | `ADD_ITEM_LORE &7Usage: %usage_roman%` |
 | `%usage_bar(amount:30,color1:&d,color2:&5,symbol:I)%` | Visual usage bar, more info below | `ADD_ITEM_LORE %usage_bar(amount:30,color1:&d,color2:&5,symbol:I)%` |
 | `%usage_limit%` | Maximum usage limit | `SEND_MESSAGE &7Usage: %usage%/%usage_limit%` |
+| `%usage_raw%`, `%usage_limit_raw%` | ExecutableItems, in the name and the lore of the item only: the usage and the usage limit as plain numbers, more info below | `lore: ['&7Damage: %math_0_%usage_raw%*2%']` |
 | `%durability%` | Item durability (1.14+) | `SEND_MESSAGE &7Durability left: %durability%` |
 | `%max_use_per_day_item%` | Daily usage limit (item) | Condition: `part1: '%max_use_per_day_item%'`, `type: PLAYER_NUMBER`, `comparator: SUPERIOR`, `part2: '0'` |
 | `%max_use_per_day_activator%` | Daily usage limit (activator) | Condition: `part1: '%max_use_per_day_activator%'`, `type: PLAYER_NUMBER`, `comparator: SUPERIOR`, `part2: '0'` |
@@ -108,6 +109,13 @@ Entity placeholders are available in the activators where an entity is involved.
 ![](https://media.ssomar.com/m/docs-img-usage-bar.jpg)
 - Creates a visual usage bar
 - Parameters: amount (bar count), color1 (used), color2 (unused), symbol
+
+**Raw usage placeholders:** `%usage_raw%` and `%usage_limit_raw%`
+
+- In the name and the lore of an ExecutableItem, `%usage%` and `%usage_limit%` come with an invisible tag (when `isRefreshableClean` is enabled, the default) that lets the plugin update the value later. Inside a PlaceholderAPI placeholder this tag breaks the expression, for example in `%math_0_%usage%*2%`.
+- `%usage_raw%` and `%usage_limit_raw%` give the same value without any tag, so they can be used in the math placeholders of PlaceholderAPI: `%math_0_%usage_raw%*2%`.
+- They accept the `+N` / `-N` shorthand, like the other numerical placeholders: `%usage_raw%-1`.
+- Limit: as they have no tag, they are only updated when the lore is rebuilt from the config. When the lore of the item is kept as it is (for example after lines were added to it), the value written in the lore stays the same, while `%usage%` keeps being updated.
 
 ## Block Placeholders
 
@@ -187,6 +195,7 @@ All numerical SCore placeholders support inline arithmetic directly after the ta
 For anything beyond a single `+`/`-` operation (multiplication, division, nested expressions), use [PlaceholderAPI's math placeholder](https://github.com/PlaceholderAPI/PlaceholderAPI/wiki/Placeholders#math) around a SCore placeholder:
 
 - `%math_0_(%usage%)*10%` multiplies the item's `%usage%` by 10.
+  - In the name or the lore of an ExecutableItem, use [`%usage_raw%`](#item-placeholders) instead: `%math_0_(%usage_raw%)*10%`.
 - `%math_{score_variables_userLevel}*10%` multiplies the SCore variable `userLevel` by 10 (see [Using PlaceholderAPI Placeholders in SCore](#using-placeholderapi-placeholders-in-score)).
 
 :::info
@@ -209,6 +218,7 @@ Use player/entity placeholders with the `around_target` prefix:
 - `%around_target_health%`
 - `%around_target_uuid%`
 - If `%around_target%` fails, use `%around_target::step1%`
+- `%around_target_count%`: the number of targets of the `AROUND` / `MOB_AROUND` command, see [AROUND](/tools-for-all-plugins-score/custom-commands/mixed-commands-player-and-entity#around)
 
 Example: `AROUND 10 execute at %around_target% run summon lightning_bolt ~ ~ ~ <+> SEND_MESSAGE &cYou got smited!`
 
