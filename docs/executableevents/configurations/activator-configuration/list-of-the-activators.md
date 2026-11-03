@@ -809,3 +809,34 @@ If the entity is summoned via command, this event fires before the entity fully 
 ### ENTITY\_TRANSFORM <CustomTag type="premium" />
 
 * Info: Activates when an entity transforms into another entity (e.g., zombie → drowned, villager → zombie villager, mooshroom variant change).
+
+### LOOP\_ENTITY <CustomTag type="premium" />
+
+* Info: Activates **for each entity** of the server, at a regular interval: every `delay` seconds (or ticks with `delayInTick: true`), the activator runs once for every entity that passes its filters, with the entity as target.
+* Players are never included (use [LOOP](#loop) for them), nor the NPCs (Citizens...).
+* Features of the activator:
+  * `detailedEntities`: the entity types to run on (`ZOMBIE`, `!ARMOR_STAND`, `MM-<id>` for MythicMobs, NBT `ZOMBIE{CustomName:"Boss"}`...). **Empty = every entity of the server**, dropped items and arrows included: a warning is shown in the console when the activator is loaded without any type.
+  * `entityConditions` and `entityCommands`: checked and run on each entity.
+  * `cooldownFeatures`: one cooldown **per entity**. `globalCooldownFeatures`: one cooldown shared by all the entities.
+  * The worlds of `disabledWorlds` are skipped.
+* Placeholders: the [entity placeholders](/tools-for-all-plugins-score/placeholders#target--entity-placeholders) (`%entity%`, `%entity_name%`, `%entity_uuid%`, `%entity_x%`, `%entity_world%`, `%entity_health%`...).
+* Example: zombies and husks burn when they are in water, checked every 2 seconds.
+
+```yaml
+activators:
+  activator0:
+    option: LOOP_ENTITY
+    delay: 2
+    delayInTick: false
+    detailedEntities:
+    - ZOMBIE
+    - HUSK
+    entityConditions:
+      ifEntityIsInWater: true
+    entityCommands:
+    - BURN 3
+```
+
+:::tip Performance
+Always set `detailedEntities`: the type is checked first, so the entities of other types cost almost nothing. All the `LOOP_ENTITY` activators due on the same loop share one pass over the entities of each world. Keep the `delay` as long as your feature allows, and the number of matching entities small. On Folia, each activation runs on the region of its entity.
+:::

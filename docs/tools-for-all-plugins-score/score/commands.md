@@ -90,10 +90,25 @@ Check [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
 * Info: Command that allows outside and inside Ssomar Plugins to run a custom command from SCore for a specific entity
 
-* Command: /score run-entity-command entity:\{entityUUID\} \{command\}
+* Command: /score run-entity-command \[player:\{player\}\] entity:\{entityUUID\} \{command\}
+  * `player`: (Optional) name or UUID of a player involved: the player placeholders (`%player%`, `%player_health%`...) can then be used in the command, for example in an `IF`.
   * `entityUUID`: UUID of the entity targeted
   * `command`: Entity command who will be run against the entity.
 * Example:
   * /score run-entity-command entity\:c4d5338b-6f8e-4b97-9f18-9dbc47f60131 JUMP 1
   * /score run-entity-command entity:%entity_uuid% JUMP 1
+  * /score run-entity-command player:Steve entity:%entity_uuid% IF %player_health%>10 SET_ENTITY_NAME name:&cTamed
+
+### Item commands
+
+* Info: Command that allows outside and inside Ssomar Plugins to run a custom [item command](/tools-for-all-plugins-score/custom-commands/item-commands) on an item of a player's inventory.
+
+* Command: /score run-item-command player:\{player\} slot:\{slot\} \{command\}
+  * `player`: name or UUID of the player who has the item
+  * `slot`: slot of the item in the inventory of the player: `0` to `8` for the hotbar, `9` to `35` for the rest of the inventory, `36` to `39` for the armor (boots to helmet), `40` for the off hand
+  * `command`: Item command who will be run on this item. The player placeholders can be used in it.
+  * Nothing happens when the player is offline or when the slot is empty.
+* Examples:
+  * /score run-item-command player:Steve slot:0 SET_ITEM_NAME name:&6Excalibur
+  * /score run-item-command player:Steve slot:0 IF %player_health%>=20 ADD_ITEM_ENCHANTMENT enchantment:sharpness level:5
 

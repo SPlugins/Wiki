@@ -616,9 +616,12 @@ This command supports stacking multiple boosts multiplicatively.
 
 * Command settings:
   * `{projectile}`: the type of the projectile or the custom projectile ID from SCore ( [Reference](/ExecutableItems/wiki/%E2%9E%A4-Custom-Projectiles#type) )
-  * `[angleRotationVertical]`: (Optional) (default = 0) <CustomTag type="version" version="1.14" /> (in degrees) Define the direction where the entity will be launched
-  * `[angleRotationHorizontal]`: (Optional) (default = 0) <CustomTag type="version" version="1.14" /> (in degrees) Define the direction where the entity will be launched
-  * `[velocity]`: (Optional) (default = 1) To customize the velocity of the projectile
+  * `[angleRotationVertical]`: (Optional) (default = 0) (in degrees) Define the direction where the entity will be launched
+  * `[angleRotationHorizontal]`: (Optional) (default = 0) (in degrees) Define the direction where the entity will be launched
+  * `[velocity]`: (Optional) (default = 1) To customize the velocity of the projectile (it also works on 1.8 to 1.12)
+  * `[name]`: (Optional) Custom name given to the launched projectile, for example to recognize it later in a condition (`name:&cFire_ball`).
+  * `[strictYaw]`: (Optional) (in degrees) Horizontal direction of the launch, used instead of the direction the player looks at (`0` = south, `90` = west, `180` = north, `-90` = east). The `angleRotation...` settings are added to it.
+  * `[strictPitch]`: (Optional) (in degrees) Vertical direction of the launch, used instead of the direction the player looks at (`0` = straight ahead, `-90` = up, `90` = down). The `angleRotation...` settings are added to it.
     * <CustomTag type="version" version="1.20.5" /> It also changes the speed of the fireballs (FIREBALL, SIZEDFIREBALL, LARGEFIREBALL, DRAGONFIREBALL, WITHERSKULL): `velocity:2` flies twice as fast, `velocity:1` keeps the vanilla speed. Before 1.20.5 they keep their vanilla speed.
 * Example:
 
@@ -640,6 +643,16 @@ activators:
     - LAUNCH projectile:WITHERSKULL
     - LAUNCH projectile:WITHERSKULL angleRotationVertical:20
     - LAUNCH projectile:WITHERSKULL angleRotationVertical:-20
+```
+
+* Example: always throw straight ahead (horizontally), whatever the player looks up or down, with a named projectile:
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_RIGHT_CLICK
+    playerCommands:
+    - LAUNCH projectile:SNOWBALL strictPitch:0 name:Frost_Ball
 ```
 
 :::info
