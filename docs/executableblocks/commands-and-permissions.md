@@ -105,8 +105,14 @@ It supports entities too just use the entity UUID instead of player name
 
 #### Place an EB at a specific position
 
-* Command: **/eb place \{id\} \{x\} \{y\} \{z\} \{world\}**
+* Command: **/eb place \{id\} \{x\} \{y\} \{z\} \{world\}** \[direction]
 * Permission: `eb.cmd.place`
+* `[direction]`: (Optional) `NORTH`, `SOUTH`, `EAST`, `WEST`, `UP` or `DOWN` (any case, with Tab completion). The placed block is turned toward this direction.
+  * It wins over the [directional features](/executableblocks/configurations/block-configuration/block-features#directional-features) of the block (`blockFaceOnPlace` with `forceBlockFaceOnPlace: true`).
+  * It works on the blocks that can be turned: directional blocks (furnaces, observers, bee nests...), rotatable blocks (signs, heads, banners: not `UP` / `DOWN`) and blocks with an axis (logs, pillars: `UP` / `DOWN` = vertical). A direction the block does not accept is ignored.
+  * Only for the ExecutableBlocks created with `BASIC_CREATION` or `IMPORT_FROM_EXECUTABLE_ITEMS`, on 1.13+ servers.
+  * Without the argument, nothing changes: the block is placed like before.
+* Example: `/eb place my_furnace 100 64 -20 world EAST`
 
 #### Remove an EB at a specific position
 

@@ -149,6 +149,12 @@ Example: `SEND_MESSAGE &cYou will be damaged in 5 seconds <+> DELAY 5 <+> DAMAGE
 Example: %around\_target%, %around\_target\_uuid%
 :::
 
+:::info
+**Number of targets:** `%around_target_count%` gives the number of players selected by the command. It is the same for every target, and it counts the targets kept after `distance`, `safeDistance`, `throughBlocks` and `regionCheck` and `limit`. The `CONDITIONS(...)` checked on each target are not taken into account. It accepts the `+N` / `-N` shorthand: `%around_target_count%-1`.
+
+Example: `AROUND distance:10 displayMsgIfNoPlayer:false SEND_MESSAGE &eYou are one of the %around_target_count% players hit !`
+:::
+
 * Examples:
 
 This summons lightning at players in a 20 block radius
@@ -965,6 +971,12 @@ Example: `minecraft:effect give .. <+> DELAY 5 <+>  DAMAGE 5`
 **Placeholders:** The placeholders are the same that the [Entity Placeholders](https://splugins.net/docs/tools-for-all-plugins-score/placeholders#entity-placeholders) but you need to replace "player" by "around\_target"
 
 Example: %around\_target%, %around\_target\_uuid%
+:::
+
+:::info
+**Number of targets:** `%around_target_count%` gives the number of entities selected by the command. It is the same for every target, and it counts the targets kept after `distance`, `safeDistance`, `throughBlocks`, `regionCheck` and the `WHITELIST(...)` / `BLACKLIST(...)` and `limit`. The `CONDITIONS(...)` checked on each target are not taken into account. It accepts the `+N` / `-N` shorthand: `%around_target_count%-1`.
+
+Example: `MOB_AROUND distance:8 WHITELIST(ZOMBIE) DAMAGE %around_target_count%`
 :::
 
 * Examples:

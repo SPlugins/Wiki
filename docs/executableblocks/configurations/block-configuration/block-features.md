@@ -1,3 +1,5 @@
+import CustomTag from '@site/src/components/CustomTag';
+
 # Block Features
 
 
@@ -351,6 +353,39 @@ directionalFeatures:
   forceBlockFaceOnPlace: true
   blockFaceOnPlace: NORTH
 ```
+
+:::info
+`blockFaceOnPlace` is only applied when `forceBlockFaceOnPlace` is `true`. Without it, the block keeps the direction it was placed with. These options turn the directional blocks only (the blocks with a `facing`).
+
+The command [/eb place](/executableblocks/commands-and-permissions#place-an-eb-at-a-specific-position) can also take a direction, which wins over these options.
+:::
+
+## Beehive features <CustomTag type="version" version="1.15" /> {#beehive-features}
+
+Pre-fill a beehive or a bee nest when it is placed. Only for the ExecutableBlocks whose material is `BEEHIVE` or `BEE_NEST` (created with `BASIC_CREATION` or `IMPORT_FROM_EXECUTABLE_ITEMS`), the options do nothing on the other blocks. In the in-game editor, the button only shows up for these two materials.
+
+Both options are optional: when none of them is set, the block is not modified and nothing is written in the config.
+
+### honeyLevel
+
+* Info: Honey level of the placed block, from `0` (empty) to `5` (full, honey can be harvested). Not set: the honey level is not modified.
+
+### bees
+
+* Info: Number of bees put inside the placed block. Not set or `0`: no bee. A hive holds 3 bees by default, the extra bees are not added.
+
+* Example:
+
+```yaml
+material: BEE_NEST
+beehiveFeatures:
+  honeyLevel: 5
+  bees: 2
+```
+
+:::tip
+With a [LOOP activator and `loopTimerPerBlock: true`](/executableblocks/configurations/activator-configuration/list-of-the-activators#loop-), a harvested bee nest can be placed again (and so filled again) a fixed time after it was placed.
+:::
 
 ## Brewing stand features
 

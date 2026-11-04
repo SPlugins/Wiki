@@ -42,8 +42,12 @@ The commands that wait for a `DELAY` or a `DELAY_TICK` are saved when the server
 
 ## **IF**
 
-The custom utilify command IF only works in player or entity related commands.
-There is no ELSE, and keep in minds that the conditions and commands must be set on the same line.
+The custom utility command IF works in player, entity, block and item commands (`playerCommands`, `targetCommands`, `entityCommands`, `blockCommands`, `itemCommands`).
+There is no ELSE, and keep in mind that the conditions and commands must be set on the same line.
+
+* The commands after the condition are of the same type as the line: in `blockCommands`, `IF ... SETBLOCK STONE` runs the block command `SETBLOCK` on the same block.
+* In block and item commands, the condition can use the placeholders of the player of the activator (`%player%`, `%player_health%`...) when there is one, and the [block placeholders](/tools-for-all-plugins-score/placeholders#block-placeholders) in block commands.
+* In entity commands, the condition can also use the placeholders of the player of the activator.
 
 * Info: Executes commands if condition is met
 * Command settings:
@@ -74,6 +78,15 @@ activators:
     - IF 1=1||2=3 BACKDASH 1 # 1=1 OR 2=3 -> YES because 1=1
     - IF 1=1&&2=2||2=3 BACKDASH 1 # 1=1 and 2=2 or 2=3 -> YES because 1=1 and 2=2
     - IF (1=1&&2=2)||(2=3||3=2) BACKDASH 1 # (1=1 and 2=2) or (2=3 or 3=2) -> YES because 1=1 and 2=2
+```
+
+```yaml
+activators:
+  activator0:
+    blockCommands:
+    - IF %block%=DIAMOND_BLOCK SETBLOCK GOLD_BLOCK
+    itemCommands:
+    - IF %player_health%>=20 SET_ITEM_NAME name:&6Enchanted sword
 ```
 
 ## **WHILE**
