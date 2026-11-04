@@ -411,7 +411,8 @@ Half speed of default -> 0.5
 
 ### amountItemsTransferred
 
-* It allows you to customize the amount of items is transferred each tick of hopper.
+* It allows you to customize the amount of items transferred at each hopper transfer.
+* It applies both when the hopper pushes items into the container it faces and (since 26.11) when it pulls items from the container above it.
 * Example:
 
 ```yaml
