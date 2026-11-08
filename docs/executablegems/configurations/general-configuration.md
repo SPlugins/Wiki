@@ -70,7 +70,9 @@ ui:
   confirm: chest               # "Socket this gem?": chest = a drawn case like the Codex (needs the EG pack); dialog = native dialog
 ```
 
-:::tip No resource pack on your server?
+:::tip
+**No resource pack on your server?**
+
 Set `ui.codex` and `ui.confirm` to `dialog`, and `ui.icons` to `false`. The menus then use native dialogs instead of drawn windows.
 :::
 

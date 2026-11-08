@@ -65,7 +65,9 @@ All the activators ExecutableItems runs for an item in a slot. These are the one
 
 You can use [SCore custom commands](../../tools-for-all-plugins-score/custom-commands/index.md), vanilla commands and commands of other plugins, as well as all the [placeholders](../../tools-for-all-plugins-score/placeholders.md).
 
-:::warning The target of an area command
+:::warning
+**The target of an area command**
+
 Inside the commands of `MOB_AROUND` or `HITSCAN_ENTITIES`, the target is `%around_target_uuid%`, not `%entity_uuid%`.
 
 ```yaml
@@ -85,7 +87,7 @@ cooldownFeatures:
 
 Add `eg sweep %player% %gem_cooldown%` to the commands to show the vanilla cooldown animation on the item:
 
-![The cooldown animation on a weapon](</img/executablegems/ability-cooldown.jpg>)
+![The cooldown animation on a weapon](https://media.ssomar.com/m/docs-img-eg-ability-cooldown.jpg)
 
 ## Conditions
 

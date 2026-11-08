@@ -9,10 +9,7 @@ description: How support gems boost the gems next to them in ExecutableGems, and
 
 A support gem does nothing alone. It boosts the gems in the sockets **right next to it**.
 
-```mermaid
-flowchart LR
-  A[Socket 1<br/>Vampire Rune] --- B[Socket 2<br/>Empower Support] --- C[Socket 3<br/>Storm Rune]
-```
+![Socket 1 Vampire Rune, socket 2 Empower Support, socket 3 Storm Rune, linked in a row](https://media.ssomar.com/m/docs-img-eg-diagram-links.png)
 
 Here Empower boosts both runes. With Empower in socket 3 instead, it would only boost the gem in socket 2.
 
@@ -25,7 +22,7 @@ Here Empower boosts both runes. With Empower in socket 3 instead, it would only 
 
 In the tooltip, a boosted gem shows its bonus, such as `VII (+2)`:
 
-![A Vampire Rune boosted by an Empower Support](</img/executablegems/host-linked.png>)
+![A Vampire Rune boosted by an Empower Support](https://media.ssomar.com/m/docs-img-eg-host-linked.png)
 
 ## Runewords
 
@@ -38,11 +35,11 @@ The rules:
 - Any other gem in the item breaks the runeword.
 - The level of the gems doesn't matter.
 
-![An awakened sword with the Frostfire runeword](</img/executablegems/host-runeword.png>)
+![An awakened sword with the Frostfire runeword](https://media.ssomar.com/m/docs-img-eg-host-runeword.png)
 
 An awakening is an event. A pillar of light rises, a sigil turns in the sky, and the players around are told who awakened what.
 
-![The sigil of a runeword in the sky](</img/executablegems/awakening-pillar.jpg>)
+![The sigil of a runeword in the sky](https://media.ssomar.com/m/docs-img-eg-awakening-pillar.jpg)
 
 The first awakening of each runeword is announced to the whole server. Until then, it shows as `???` in the Codex. See the [list of runewords](../gems/runewords.md), or search for yourself.
 

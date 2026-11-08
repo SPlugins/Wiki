@@ -29,7 +29,9 @@ SCore, ExecutableItems and ExecutableGems must all be up to date. ExecutableGems
 
 ## Permissions
 
-:::danger Give your players the permission `ei.item.*`
+:::danger
+**Give your players the permission `ei.item.*`**
+
 A gem runs through ExecutableItems, which checks the permission of the item. A player who is not OP needs **`ei.item.*`**, or every gem shows "You do not have the permission to use eg_..." and does nothing.
 
 With LuckPerms: `/lp group default permission set ei.item.* true`

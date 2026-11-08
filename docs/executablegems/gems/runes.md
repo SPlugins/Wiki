@@ -9,13 +9,13 @@ Offensive gems: they strike, burn, freeze or drain what you hit.
 
 **Goes on:** weapons. Folder: `gems/runes/`.
 
-![A Gravity Rune pulling enemies in](</img/executablegems/gem-gravity.jpg>)
+![A Gravity Rune pulling enemies in](https://media.ssomar.com/m/docs-img-eg-gem-gravity.jpg)
 
 The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ### Echo Rune
 
-<img src="/img/executablegems/icons/echo_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/echo_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/echo_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/echo_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-echo.png)
 
 Hits have 32% chance to echo half a second later for 6 damage *(level 10)*
 
@@ -33,7 +33,7 @@ Hits have 32% chance to echo half a second later for 6 damage *(level 10)*
 
 ### Ember Rune
 
-<img src="/img/executablegems/icons/ember_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/ember_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/ember_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/ember_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-ember.png)
 
 Hits set the target ablaze (7s) Right-click: Fire Nova (13 dmg, 4s) *(level 10)*
 
@@ -50,7 +50,7 @@ Hits set the target ablaze (7s) Right-click: Fire Nova (13 dmg, 4s) *(level 10)*
 
 ### Frost Rune
 
-<img src="/img/executablegems/icons/frost_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/frost_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/frost_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/frost_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-frost.png)
 
 Hits freeze the target for 4s and slow it down (52% chance) *(level 10)*
 
@@ -66,7 +66,7 @@ Hits freeze the target for 4s and slow it down (52% chance) *(level 10)*
 
 ### Gale Rune
 
-<img src="/img/executablegems/icons/gale_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/gale_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/gale_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/gale_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-gale.png)
 
 +30% movement speed while held Hits blow enemies away *(level 10)*
 
@@ -81,7 +81,7 @@ Hits freeze the target for 4s and slow it down (52% chance) *(level 10)*
 
 ### Gravity Rune
 
-<img src="/img/executablegems/icons/gravity_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/gravity_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/gravity_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/gravity_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-gravity.png)
 
 Sneak + right-click: Singularity, pulls the enemies within 9 blocks to you and slows them (10s cooldown) *(level 10)*
 
@@ -99,7 +99,7 @@ Sneak + right-click: Singularity, pulls the enemies within 9 blocks to you and s
 
 ### Phantom Rune
 
-<img src="/img/executablegems/icons/phantom_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/phantom_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/phantom_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/phantom_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-phantom.png)
 
 Kills turn you invisible for 5s, faster, and your next hits deal +30% (7s cooldown) *(level 10)*
 
@@ -118,7 +118,7 @@ Kills turn you invisible for 5s, faster, and your next hits deal +30% (7s cooldo
 
 ### Reaper Rune
 
-<img src="/img/executablegems/icons/reaper_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/reaper_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/reaper_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/reaper_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-reaper.png)
 
 Hits on a target under 6 ❤ deal +8 damage and reap its soul *(level 10)*
 
@@ -136,7 +136,7 @@ Hits on a target under 6 ❤ deal +8 damage and reap its soul *(level 10)*
 
 ### Storm Rune
 
-<img src="/img/executablegems/icons/storm_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/storm_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/storm_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/storm_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-storm.png)
 
 Hits have 25% chance to call lightning: 12 damage + shockwave *(level 10)*
 
@@ -152,7 +152,7 @@ Hits have 25% chance to call lightning: 12 damage + shockwave *(level 10)*
 
 ### Sun Rune
 
-<img src="/img/executablegems/icons/sun_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/sun_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/sun_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/sun_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-sun.png)
 
 Hits on the undead deal +6 damage and set them ablaze (5s) *(level 10)*
 
@@ -170,7 +170,7 @@ Hits on the undead deal +6 damage and set them ablaze (5s) *(level 10)*
 
 ### Titan Rune
 
-<img src="/img/executablegems/icons/titan_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/titan_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/titan_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/titan_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-titan.png)
 
 Hits have 50% chance to cleave: 5 damage to the enemies around the target *(level 10)*
 
@@ -188,7 +188,7 @@ Hits have 50% chance to cleave: 5 damage to the enemies around the target *(leve
 
 ### Vampire Rune
 
-<img src="/img/executablegems/icons/vampire_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/vampire_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/vampire_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/vampire_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-vampire.png)
 
 Hits have 40% chance to drain 3 ❤ from the target *(level 10)*
 
@@ -204,7 +204,7 @@ Hits have 40% chance to drain 3 ❤ from the target *(level 10)*
 
 ### Venom Rune
 
-<img src="/img/executablegems/icons/venom_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/venom_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/venom_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/venom_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-venom.png)
 
 Hits poison the target for 8s (Poison 3, 50% chance) *(level 10)*
 
@@ -221,7 +221,7 @@ Hits poison the target for 8s (Poison 3, 50% chance) *(level 10)*
 
 ### Void Rune
 
-<img src="/img/executablegems/icons/void_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/void_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/void_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/void_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-void.png)
 
 Right-click: Void Step, blink forward (4s cooldown) *(level 10)*
 

@@ -75,7 +75,7 @@ Every key except `name` is optional.
 
 See [Use your own 3D model](../questions-or-guides/tutorials/your-own-3d-model.md).
 
-![The generic cuts next to the shipped gems](</img/executablegems/cuts-sheet.jpg>)
+![The generic cuts next to the shipped gems](https://media.ssomar.com/m/docs-img-eg-cuts-sheet.jpg)
 
 ## Levels and values
 

@@ -7,7 +7,7 @@ description: Create a runeword in ExecutableGems - a sequence of gems that awake
 
 A runeword is a sequence of gems that awakens a new power. We will make **Bloodquake**: Blood Opal then Shockwave Rune. Kills then split the ground.
 
-![An item with the Bloodquake runeword](</img/executablegems/host-bloodquake.png>)
+![An item with the Bloodquake runeword](https://media.ssomar.com/m/docs-img-eg-host-bloodquake.png)
 
 ## The file
 
@@ -54,7 +54,7 @@ Then socket the gems at a forge or in your inventory, so the awakening plays:
 
 Blood Opal first, Shockwave second. At level 1 the chance of success is 97%.
 
-![A runeword awakening](</img/executablegems/awakening-forge.jpg>)
+![A runeword awakening](https://media.ssomar.com/m/docs-img-eg-awakening-forge.jpg)
 
 :::info
 `/eg apply` sockets a gem silently, so the awakening doesn't play. The power works all the same.

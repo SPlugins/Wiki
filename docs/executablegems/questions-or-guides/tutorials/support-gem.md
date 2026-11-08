@@ -9,7 +9,7 @@ A support gem has no effect of its own. It boosts the gems in the sockets next t
 
 We will make the **Focus Support**: +5% chance per level for the linked gems.
 
-![The Focus Support](</img/executablegems/tip-focus.png>)
+![The Focus Support](https://media.ssomar.com/m/docs-img-eg-tip-focus.png)
 
 ## The file
 

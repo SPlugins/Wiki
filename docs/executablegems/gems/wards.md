@@ -9,13 +9,13 @@ Defensive gems for your armour. They grow when you take hits.
 
 **Goes on:** armour. Folder: `gems/wards/`.
 
-![A Phoenix Ward saving its wearer from a fatal blow](</img/executablegems/gem-phoenix.jpg>)
+![A Phoenix Ward saving its wearer from a fatal blow](https://media.ssomar.com/m/docs-img-eg-gem-phoenix.jpg)
 
 The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ### Bastion Ward
 
-<img src="/img/executablegems/icons/bastion_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/bastion_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/bastion_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/bastion_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-bastion.png)
 
 +2 armour, +2 armour toughness *(level 10)*
 
@@ -33,7 +33,7 @@ The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ### Bramble Ward
 
-<img src="/img/executablegems/icons/bramble_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/bramble_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/bramble_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/bramble_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-bramble.png)
 
 When hit, 50% chance to prick the attacker for 5 damage and poison it *(level 10)*
 
@@ -51,7 +51,7 @@ When hit, 50% chance to prick the attacker for 5 damage and poison it *(level 10
 
 ### Heartstone Ward
 
-<img src="/img/executablegems/icons/heartstone_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/heartstone_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/heartstone_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/heartstone_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-heartstone.png)
 
 +1 ❤ max health Kills heal you for 0.75 ❤ *(level 10)*
 
@@ -69,7 +69,7 @@ When hit, 50% chance to prick the attacker for 5 damage and poison it *(level 10
 
 ### Mirage Ward
 
-<img src="/img/executablegems/icons/mirage_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/mirage_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/mirage_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/mirage_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-mirage.png)
 
 20% chance to dodge a hit completely (once every 4s, chestplates only) *(level 10)*
 
@@ -87,7 +87,7 @@ When hit, 50% chance to prick the attacker for 5 damage and poison it *(level 10
 
 ### Phoenix Ward
 
-<img src="/img/executablegems/icons/phoenix_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/phoenix_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/phoenix_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/phoenix_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-phoenix.png)
 
 A fatal blow rekindles you instead: 6 ❤, fire resistance, a burst of flame (once every 5 min, chestplates only) *(level 10)*
 
@@ -105,7 +105,7 @@ A fatal blow rekindles you instead: 6 ❤, fire resistance, a burst of flame (on
 
 ### Skystep Ward
 
-<img src="/img/executablegems/icons/skystep_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/skystep_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/skystep_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/skystep_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-skystep.png)
 
 +20% jump height, -50% fall damage and +3 blocks before a fall hurts (boots) *(level 10)*
 
@@ -124,7 +124,7 @@ A fatal blow rekindles you instead: 6 ❤, fire resistance, a burst of flame (on
 
 ### Tide Ward
 
-<img src="/img/executablegems/icons/tide_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/tide_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/tide_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/tide_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-tide.png)
 
 +4 breath underwater +50% movement and +100% mining underwater *(level 10)*
 

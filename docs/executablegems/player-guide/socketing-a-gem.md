@@ -13,7 +13,7 @@ Pick up the gem and **click on the item**. It works in your inventory, chests, b
 
 While a gem is on your cursor, the items it fits show their chance of success.
 
-![A gem on the cursor: the items it fits show the chance of success](</img/executablegems/cursor-hints.jpg>)
+![A gem on the cursor: the items it fits show the chance of success](https://media.ssomar.com/m/docs-img-eg-cursor-hints.jpg)
 
 :::note
 This does not work in creative mode, because the client handles the cursor there. Use one of the two other ways.
@@ -23,7 +23,7 @@ This does not work in creative mode, because the client handles the cursor there
 
 Put the gem in one hand and the item in the other, then **hold right click**. A bar fills up, and the gem is socketed when it is full. Let go to cancel.
 
-![Holding a gem to socket it, with the bar on the action bar](</img/executablegems/hold-to-socket.jpg>)
+![Holding a gem to socket it, with the bar on the action bar](https://media.ssomar.com/m/docs-img-eg-hold-to-socket.jpg)
 
 ## 3. At a forge
 
@@ -35,7 +35,7 @@ Each gem shows its **success chance**. Higher levels and stronger gems are harde
 
 If the chance is below 100%, a window asks you to confirm and shows the item as it will be afterwards.
 
-![The confirmation window, with the chance of success](</img/executablegems/confirm-hover.jpg>)
+![The confirmation window, with the chance of success](https://media.ssomar.com/m/docs-img-eg-confirm-hover.jpg)
 
 If it fails, **your item is never harmed**. The gem either:
 
@@ -44,7 +44,7 @@ If it fails, **your item is never harmed**. The gem either:
 
 The tooltip tells you which one before you try.
 
-![A gem shattering on the forge](</img/executablegems/shatter.jpg>)
+![A gem shattering on the forge](https://media.ssomar.com/m/docs-img-eg-shatter.jpg)
 
 ## Adding a socket
 
@@ -56,4 +56,4 @@ Use a **Gem Extractor**: click it on the item, or use it at a forge. The gem com
 
 From the inventory it takes the **last** gem. At a forge you choose the gem by looking at it. A few gems may be set by the server so they can't be removed.
 
-![The Socket Drill, Gem Extractor, Unidentified Gem, Gem Forge and Gem Codex](</img/executablegems/tools-tooltips.png>)
+![The Socket Drill, Gem Extractor, Unidentified Gem, Gem Forge and Gem Codex](https://media.ssomar.com/m/docs-img-eg-tools-tooltips.png)

@@ -7,13 +7,13 @@ description: The jeweller of ExecutableGems sells Socket Drills, Gem Extractors 
 
 Every forge has a jeweller. He comments on the gems you hold, cheers your successes and despairs at your failures.
 
-![The jeweller at his forge](</img/executablegems/jeweller.jpg>)
+![The jeweller at his forge](https://media.ssomar.com/m/docs-img-eg-jeweller.jpg)
 
 ## His shop
 
 **Right-click the jeweller** with no stone in hand.
 
-![The jeweller's shop](</img/executablegems/jeweller-shop.jpg>)
+![The jeweller's shop](https://media.ssomar.com/m/docs-img-eg-jeweller-shop.jpg)
 
 | Item | Default price |
 |---|---|
@@ -26,7 +26,7 @@ Every forge has a jeweller. He comments on the gems you hold, cheers your succes
 
 An **Unidentified Gem** is a rough stone with a gem inside. **Right-click the jeweller or the forge while holding one**, then press **Appraise**. A reel of gems spins and stops on yours.
 
-![The appraisal reel](</img/executablegems/appraisal.jpg>)
+![The appraisal reel](https://media.ssomar.com/m/docs-img-eg-appraisal.jpg)
 
 | Rarity | Default odds | You get a gem of tier |
 |---|---|---|
@@ -37,4 +37,4 @@ An **Unidentified Gem** is a rough stone with a gem inside. **Right-click the je
 
 If you close the window during the spin, you get your gem at once: nothing is lost.
 
-![A legendary appraisal](</img/executablegems/appraisal-legendary.jpg>)
+![A legendary appraisal](https://media.ssomar.com/m/docs-img-eg-appraisal-legendary.jpg)

@@ -9,13 +9,13 @@ Gems for archers: they act where your arrows land.
 
 **Goes on:** bows and crossbows. Folder: `gems/fletching/`.
 
-![A Blast Gem exploding on impact](</img/executablegems/gem-blast.jpg>)
+![A Blast Gem exploding on impact](https://media.ssomar.com/m/docs-img-eg-gem-blast.jpg)
 
 The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ### Barrage Gem
 
-<img src="/img/executablegems/icons/barrage_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/barrage_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/barrage_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/barrage_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-barrage.png)
 
 Arrows have 32% chance to call down a rain of 6 arrows on what they hit *(level 10)*
 
@@ -33,7 +33,7 @@ Arrows have 32% chance to call down a rain of 6 arrows on what they hit *(level 
 
 ### Blast Gem
 
-<img src="/img/executablegems/icons/blast_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/blast_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/blast_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/blast_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-blast.png)
 
 Arrows have 40% chance to explode on impact: 7 damage around (no block damage) *(level 10)*
 
@@ -51,7 +51,7 @@ Arrows have 40% chance to explode on impact: 7 damage around (no block damage) *
 
 ### Hunter's Eye
 
-<img src="/img/executablegems/icons/hunter_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/hunter_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/hunter_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/hunter_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-hunter.png)
 
 Arrows mark what they hit for 7s: it glows and takes +20% damage from everything *(level 10)*
 
