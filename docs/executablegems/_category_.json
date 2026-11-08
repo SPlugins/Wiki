@@ -1,0 +1,12 @@
+{
+  "collapsed": true,
+  "label": "ExecutableGems",
+  "position": 7.5,
+  "customProps": {
+    "icon": "/img/executablegems/logo.png"
+  },
+  "link": {
+    "type": "doc",
+    "id": "executablegems/information-eg"
+  }
+}
