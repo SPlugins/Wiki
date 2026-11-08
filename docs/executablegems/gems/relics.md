@@ -9,7 +9,7 @@ Legendary gems torn from the bosses of the world. One relic per item.
 
 **Goes on:** weapons (one per item). Folder: `gems/relics/`.
 
-![Heart of the Warden firing a Sonic Boom](</img/executablegems/gem-warden.jpg>)
+![Heart of the Warden firing a Sonic Boom](https://media.ssomar.com/m/docs-img-eg-gem-warden.jpg)
 
 :::info
 An item can hold only one relic. Relics are found only at Perfect or Radiant tier.
@@ -19,7 +19,7 @@ The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ### Dragon's Eye
 
-<img src="/img/executablegems/icons/dragon_eye_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/dragon_eye_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/dragon_eye_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/dragon_eye_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-dragon-eye.png)
 
 Right-click: Dragon Breath, a cone of violet fire: 16 damage and Weakness to all in front (9s) Kills grant 8s of Strength *(level 5)*
 
@@ -38,7 +38,7 @@ Right-click: Dragon Breath, a cone of violet fire: 16 damage and Weakness to all
 
 ### Fallen Star
 
-<img src="/img/executablegems/icons/star_shard_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/star_shard_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/star_shard_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/star_shard_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-star-shard.png)
 
 Kills call a falling star on the nearest enemy: 16 damage around the impact (5s) *(level 5)*
 
@@ -56,7 +56,7 @@ Kills call a falling star on the nearest enemy: 16 damage around the impact (5s)
 
 ### Heart of the Warden
 
-<img src="/img/executablegems/icons/warden_heart_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/warden_heart_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/warden_heart_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/warden_heart_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-warden-heart.png)
 
 Sneak + right-click: Sonic Boom, a shriek that tears through everything in a line: 20 damage, ignores armour (15s) *(level 5)*
 

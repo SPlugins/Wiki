@@ -9,13 +9,13 @@ Gems for pickaxes, shovels and axes. They grow with every block you mine.
 
 **Goes on:** tools. Folder: `gems/prospecting/`.
 
-![A Vein Gem breaking a whole vein of ore](</img/executablegems/gem-vein.jpg>)
+![A Vein Gem breaking a whole vein of ore](https://media.ssomar.com/m/docs-img-eg-gem-vein.jpg)
 
 The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ### Geode Gem
 
-<img src="/img/executablegems/icons/geode_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/geode_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/geode_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/geode_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-geode.png)
 
 Mining stone has 0.3% chance to unearth an Unidentified Gem *(level 10)*
 
@@ -32,7 +32,7 @@ Mining stone has 0.3% chance to unearth an Unidentified Gem *(level 10)*
 
 ### Lodestone Gem
 
-<img src="/img/executablegems/icons/lodestone_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/lodestone_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/lodestone_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/lodestone_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-lodestone.png)
 
 Drops and XP within 8 blocks fly to you when you mine or kill *(level 10)*
 
@@ -49,7 +49,7 @@ Drops and XP within 8 blocks fly to you when you mine or kill *(level 10)*
 
 ### Molten Gem
 
-<img src="/img/executablegems/icons/molten_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/molten_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/molten_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/molten_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-molten.png)
 
 Mined ores have 100% chance to drop already smelted *(level 10)*
 
@@ -66,7 +66,7 @@ Mined ores have 100% chance to drop already smelted *(level 10)*
 
 ### Quarry Gem
 
-<img src="/img/executablegems/icons/quarry_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/quarry_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/quarry_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/quarry_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-quarry.png)
 
 +20 mining speed (like Efficiency) *(level 10)*
 
@@ -83,7 +83,7 @@ Mined ores have 100% chance to drop already smelted *(level 10)*
 
 ### Vein Gem
 
-<img src="/img/executablegems/icons/vein_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/vein_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/vein_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/vein_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-vein.png)
 
 Sneak while mining an ore to break the whole vein (up to 12 blocks) *(level 10)*
 

@@ -7,7 +7,7 @@ description: Create an armour gem in ExecutableGems with a passive attribute bon
 
 We will make the **Ironbark Ward**: more armour, and a chance to gain Resistance when you are hit.
 
-![The Ironbark Ward in a chestplate](</img/executablegems/host-chest.png>)
+![The Ironbark Ward in a chestplate](https://media.ssomar.com/m/docs-img-eg-host-chest.png)
 
 ## The file
 

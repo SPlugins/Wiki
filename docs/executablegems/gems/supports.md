@@ -17,7 +17,7 @@ The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ### Empower Support
 
-<img src="/img/executablegems/icons/empower_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/empower_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/empower_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/empower_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-empower.png)
 
 Linked gems act +2 levels higher *(level 5)*
 
@@ -32,7 +32,7 @@ Linked gems act +2 levels higher *(level 5)*
 
 ### Growth Support
 
-<img src="/img/executablegems/icons/growth_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/growth_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/growth_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/growth_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-growth.png)
 
 Linked gems earn +120% XP *(level 5)*
 
@@ -49,7 +49,7 @@ Linked gems earn +120% XP *(level 5)*
 
 ### Precision Support
 
-<img src="/img/executablegems/icons/precision_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/precision_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/precision_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/precision_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-precision.png)
 
 Linked gems trigger +20% more often *(level 5)*
 
@@ -64,7 +64,7 @@ Linked gems trigger +20% more often *(level 5)*
 
 ### Twin Support
 
-<img src="/img/executablegems/icons/twin_t1.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/twin_t2.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/twin_t3.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} /> <img src="/img/executablegems/icons/twin_t4.png" width="48" height="48" alt="" style={{imageRendering: "pixelated"}} />
+![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-twin.png)
 
 Linked gems have 19% chance to trigger twice *(level 5)*
 

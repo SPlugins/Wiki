@@ -16,11 +16,11 @@ A socketed gem grows with you.
 
 Each gain shows on the action bar, with the XP of each gem:
 
-![The XP bar of a gem on the action bar](</img/executablegems/xp-bar.jpg>)
+![The XP bar of a gem on the action bar](https://media.ssomar.com/m/docs-img-eg-xp-bar.jpg)
 
 When a gem levels up, a title appears and its numbers improve. When it reaches a new **tier**, it also changes appearance and you get a toast in the corner:
 
-![The toast of a new tier](</img/executablegems/tier-toast.jpg>)
+![The toast of a new tier](https://media.ssomar.com/m/docs-img-eg-tier-toast.jpg)
 
 Reaching **Radiant** is shown in full screen.
 

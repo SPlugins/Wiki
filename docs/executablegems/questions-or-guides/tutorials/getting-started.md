@@ -48,13 +48,13 @@ At level 5, the Vampire Rune has an 85% chance of success, so a window asks you 
 
 The sword now has a gem. Hover over it to see it:
 
-![A gem on the cursor: the items it fits show the chance of success](</img/executablegems/cursor-hints.jpg>)
+![A gem on the cursor: the items it fits show the chance of success](https://media.ssomar.com/m/docs-img-eg-cursor-hints.jpg)
 
 ## 5. Place a forge
 
 Hold the **Gem Forge** and right-click the top of a block. A jeweller appears next to it.
 
-![A forge and its jeweller](</img/executablegems/jeweller.jpg>)
+![A forge and its jeweller](https://media.ssomar.com/m/docs-img-eg-jeweller.jpg)
 
 ## 6. Use the forge
 
@@ -63,11 +63,11 @@ Hold the **Gem Forge** and right-click the top of a block. A jeweller appears ne
 3. Hold the **Empower Support** and right-click: the ritual starts. When the ring turns gold, click again for a perfect strike.
 4. Empty your hand and right-click to take the sword back.
 
-![The panel of the forge](</img/executablegems/forge-panel.jpg>)
+![The panel of the forge](https://media.ssomar.com/m/docs-img-eg-forge-panel.jpg)
 
 Hover over your sword. The Vampire Rune is boosted by the support next to it:
 
-![A rune boosted by a support gem](</img/executablegems/host-linked.png>)
+![A rune boosted by a support gem](https://media.ssomar.com/m/docs-img-eg-host-linked.png)
 
 ## 7. Test it
 
@@ -82,7 +82,9 @@ Spawn a training dummy. It never dies and shows each hit as a floating number:
 
 ## 8. Let your players use gems
 
-:::danger Give your players the permission `ei.item.*`
+:::danger
+**Give your players the permission `ei.item.*`**
+
 A gem runs through ExecutableItems, which checks the permission of the item. A player who is not OP needs **`ei.item.*`**, or every gem shows "You do not have the permission to use eg_..." and does nothing.
 
 With LuckPerms: `/lp group default permission set ei.item.* true`

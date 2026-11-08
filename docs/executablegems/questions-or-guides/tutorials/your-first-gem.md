@@ -7,7 +7,7 @@ description: Write your first ExecutableGems gem step by step, from /eg new to a
 
 We will make the **Blood Opal**: hits have a chance to deal extra damage and make the target bleed. It needs no 3D model.
 
-![The Blood Opal in game](</img/executablegems/tip-blood-opal.png>)
+![The Blood Opal in game](https://media.ssomar.com/m/docs-img-eg-tip-blood-opal.png)
 
 In the commands of this wiki, replace `YourName` with your name. Unlike vanilla commands, `/eg` commands don't accept `@s`.
 
@@ -26,7 +26,7 @@ In the commands of this wiki, replace `YourName` with your name. Unlike vanilla 
 
 The file is created and loaded at once:
 
-![The message after /eg new](</img/executablegems/eg-new-chat.jpg>)
+![The message after /eg new](https://media.ssomar.com/m/docs-img-eg-eg-new-chat.jpg)
 
 Try it right away:
 
@@ -171,7 +171,7 @@ Read the console: if you made a mistake, it says which one. Then test it:
 
 Each hit now deals the bonus damage, shown as floating numbers:
 
-![The Blood Opal on a training dummy](</img/executablegems/tuto-opal-hit.jpg>)
+![The Blood Opal on a training dummy](https://media.ssomar.com/m/docs-img-eg-tuto-opal-hit.jpg)
 
 Turn off the luck with `/eg luck YourName off` and check that the gem triggers as often as you want.
 

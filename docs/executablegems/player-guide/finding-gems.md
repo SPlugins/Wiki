@@ -7,7 +7,7 @@ description: Where to find gems in survival with ExecutableGems - monster drops,
 
 A gem on the ground raises a **column of light** in its colour. The higher the tier, the taller the column.
 
-![Columns of light over dropped gems at night](</img/executablegems/loot-beams.jpg>)
+![Columns of light over dropped gems at night](https://media.ssomar.com/m/docs-img-eg-loot-beams.jpg)
 
 | Source | Default chance | Notes |
 |---|---|---|

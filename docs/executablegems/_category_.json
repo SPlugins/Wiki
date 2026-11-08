@@ -3,7 +3,7 @@
   "label": "ExecutableGems",
   "position": 7.5,
   "customProps": {
-    "icon": "/img/executablegems/logo.png"
+    "icon": "https://media.ssomar.com/m/docs-img-eg-logo.png"
   },
   "link": {
     "type": "doc",

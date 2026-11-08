@@ -7,7 +7,7 @@ description: Create an ExecutableGems gem with a right-click ability, a cooldown
 
 We will make the **Shockwave Rune**: right-click to damage and throw the enemies around you, with a cooldown that gets shorter with the level.
 
-![The Shockwave Rune in game](</img/executablegems/tuto-shockwave.jpg>)
+![The Shockwave Rune in game](https://media.ssomar.com/m/docs-img-eg-tuto-shockwave.jpg)
 
 ## The file
 
@@ -92,4 +92,4 @@ cooldownFeatures:
 
 Right-click near the dummy. The tooltip gives the numbers at each level:
 
-![The tooltip of the Shockwave Rune](</img/executablegems/tip-shockwave.png>)
+![The tooltip of the Shockwave Rune](https://media.ssomar.com/m/docs-img-eg-tip-shockwave.png)

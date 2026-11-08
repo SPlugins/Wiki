@@ -7,7 +7,7 @@ description: Every runeword of ExecutableGems, the gems it needs and the power i
 
 Socket these gems **in this order** in one item, with no other gem between or after them, and the item awakens a new power and an aura.
 
-![A runeword awakening at the forge](</img/executablegems/awakening.jpg>)
+![A runeword awakening at the forge](https://media.ssomar.com/m/docs-img-eg-awakening.jpg)
 
 :::tip
 By default a runeword shows as `???` in the Codex until someone on the server awakens it. Keep this page to yourself if you want your players to search!
@@ -15,7 +15,9 @@ By default a runeword shows as `???` in the Codex until someone on the server aw
 
 ### Abyss
 
-**Sequence:** <img src="/img/executablegems/icons/void_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Void Rune → <img src="/img/executablegems/icons/venom_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Venom Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-abyss.png)
+
+**Sequence:** Void Rune → Venom Rune
 
 Void Step leaves a toxic rift behind you
 
@@ -23,7 +25,9 @@ Void Step leaves a toxic rift behind you
 
 ### Aegis
 
-**Sequence:** <img src="/img/executablegems/icons/bastion_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Bastion Ward → <img src="/img/executablegems/icons/heartstone_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Heartstone Ward
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-aegis.png)
+
+**Sequence:** Bastion Ward → Heartstone Ward
 
 In armour: hits taken can raise an aegis: 2 ❤ of absorption and Resistance for 3s
 
@@ -31,7 +35,9 @@ In armour: hits taken can raise an aegis: 2 ❤ of absorption and Resistance for
 
 ### Bloodstorm
 
-**Sequence:** <img src="/img/executablegems/icons/vampire_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Vampire Rune → <img src="/img/executablegems/icons/storm_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Storm Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-bloodstorm.png)
+
+**Sequence:** Vampire Rune → Storm Rune
 
 Lightning strikes heal you for 3 ❤
 
@@ -39,7 +45,9 @@ Lightning strikes heal you for 3 ❤
 
 ### Deadeye
 
-**Sequence:** <img src="/img/executablegems/icons/hunter_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Hunter's Eye → <img src="/img/executablegems/icons/barrage_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Barrage Gem
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-deadeye.png)
+
+**Sequence:** Hunter's Eye → Barrage Gem
 
 Arrows that hit a marked (glowing) target deal +5 damage and slow it
 
@@ -47,7 +55,9 @@ Arrows that hit a marked (glowing) target deal +5 damage and slow it
 
 ### Earthshaker
 
-**Sequence:** <img src="/img/executablegems/icons/titan_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Titan Rune → <img src="/img/executablegems/icons/gravity_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Gravity Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-earthshaker.png)
+
+**Sequence:** Titan Rune → Gravity Rune
 
 Singularity ends in a quake: 7 damage and the enemies around are flung up
 
@@ -55,7 +65,9 @@ Singularity ends in a quake: 7 damage and the enemies around are flung up
 
 ### Eclipse
 
-**Sequence:** <img src="/img/executablegems/icons/sun_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Sun Rune → <img src="/img/executablegems/icons/void_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Void Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-eclipse.png)
+
+**Sequence:** Sun Rune → Void Rune
 
 Hits can eclipse the target: blinded, burned and struck for 6 damage
 
@@ -63,7 +75,9 @@ Hits can eclipse the target: blinded, burned and struck for 6 damage
 
 ### Frostfire
 
-**Sequence:** <img src="/img/executablegems/icons/frost_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Frost Rune → <img src="/img/executablegems/icons/ember_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Ember Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-frostfire.png)
+
+**Sequence:** Frost Rune → Ember Rune
 
 Hits can make the target explode in steam
 
@@ -71,7 +85,9 @@ Hits can make the target explode in steam
 
 ### Motherlode
 
-**Sequence:** <img src="/img/executablegems/icons/geode_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Geode Gem → <img src="/img/executablegems/icons/quarry_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Quarry Gem → <img src="/img/executablegems/icons/vein_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Vein Gem
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-motherlode.png)
+
+**Sequence:** Geode Gem → Quarry Gem → Vein Gem
 
 Ores can reveal a motherlode: Haste II for 10s and an Unidentified Gem
 
@@ -79,7 +95,9 @@ Ores can reveal a motherlode: Haste II for 10s and an Unidentified Gem
 
 ### Rebirth
 
-**Sequence:** <img src="/img/executablegems/icons/phoenix_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Phoenix Ward → <img src="/img/executablegems/icons/heartstone_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Heartstone Ward
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-rebirth.png)
+
+**Sequence:** Phoenix Ward → Heartstone Ward
 
 In a chestplate: while you burn, the hits you take heal you instead of the fire
 
@@ -87,7 +105,9 @@ In a chestplate: while you burn, the hits you take heal you instead of the fire
 
 ### Requiem
 
-**Sequence:** <img src="/img/executablegems/icons/reaper_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Reaper Rune → <img src="/img/executablegems/icons/phantom_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Phantom Rune → <img src="/img/executablegems/icons/void_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Void Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-requiem.png)
+
+**Sequence:** Reaper Rune → Phantom Rune → Void Rune
 
 Kills release a soul storm: 8 damage to every enemy within 5 blocks, and you heal 2 ❤
 
@@ -95,7 +115,9 @@ Kills release a soul storm: 8 damage to every enemy within 5 blocks, and you hea
 
 ### Resonance
 
-**Sequence:** <img src="/img/executablegems/icons/echo_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Echo Rune → <img src="/img/executablegems/icons/storm_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Storm Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-resonance.png)
+
+**Sequence:** Echo Rune → Storm Rune
 
 Hits can resonate: a sonic wave hits every enemy within 4 blocks for 5 damage
 
@@ -103,7 +125,9 @@ Hits can resonate: a sonic wave hits every enemy within 4 blocks for 5 damage
 
 ### Tempest
 
-**Sequence:** <img src="/img/executablegems/icons/gale_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Gale Rune → <img src="/img/executablegems/icons/storm_t3.png" width="32" height="32" alt="" style={{imageRendering: "pixelated", verticalAlign: "middle"}} /> Storm Rune
+![The sequence of this runeword](https://media.ssomar.com/m/docs-img-eg-seq-tempest.png)
+
+**Sequence:** Gale Rune → Storm Rune
 
 Hits can raise a tempest: lightning on the target, enemies around thrown in the air
 

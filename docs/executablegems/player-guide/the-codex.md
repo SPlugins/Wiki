@@ -7,7 +7,7 @@ description: The Gem Codex of ExecutableGems lists every gem and runeword in gam
 
 The Codex lists every gem and runeword of the server.
 
-![The 3D Codex opening in the hand](</img/executablegems/codex-book.jpg>)
+![The 3D Codex opening in the hand](https://media.ssomar.com/m/docs-img-eg-codex-book.jpg)
 
 ## Opening it
 
@@ -17,7 +17,7 @@ The Codex lists every gem and runeword of the server.
 
 ## Using it
 
-![The home page, a category and the runewords](</img/executablegems/codex-categories.jpg>)
+![The home page, a category and the runewords](https://media.ssomar.com/m/docs-img-eg-codex-categories.jpg)
 
 - **Home:** the categories, the runewords, the search and your collection.
 - **Category:** the gems of a category, with the other categories as tabs at the top, and pages when there are many gems.
@@ -25,4 +25,4 @@ The Codex lists every gem and runeword of the server.
 - **Runewords:** the sequences you know. Those nobody has awakened yet show as `???`.
 - **Search:** looks in the names, ids, categories and descriptions.
 
-![A gem page and the runewords](</img/executablegems/codex-pages.jpg>)
+![A gem page and the runewords](https://media.ssomar.com/m/docs-img-eg-codex-pages.jpg)

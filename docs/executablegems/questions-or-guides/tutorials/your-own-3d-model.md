@@ -23,7 +23,7 @@ color2: '#fff2a8'
 
 `color` is the body and `color2` the inner light.
 
-![The generic cuts next to the shipped gems](</img/executablegems/cuts-sheet.jpg>)
+![The generic cuts next to the shipped gems](https://media.ssomar.com/m/docs-img-eg-cuts-sheet.jpg)
 
 ## Option 2: one model of your own
 

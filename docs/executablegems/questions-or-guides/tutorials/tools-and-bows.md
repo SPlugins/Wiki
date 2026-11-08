@@ -44,7 +44,7 @@ activators:
 - **`xp.per-block`** gives XP for each block mined.
 - **`on-fail: KEEP_GEM`**: a failed socketing gives the gem back.
 
-![The Prospector Gem on a pickaxe](</img/executablegems/host-pick.png>)
+![The Prospector Gem on a pickaxe](https://media.ssomar.com/m/docs-img-eg-host-pick.png)
 
 The block is available in the commands: `%block_x_int%`, `%block_y_int%`, `%block_z_int%` and `%block_world%`. For instance, the Geode Gem drops a stone where the block was:
 
@@ -86,7 +86,7 @@ activators:
 - **`detailedSlots: [-1, 40]`** works with the bow in either hand.
 - **`per-hit`** counts the arrows that hit.
 
-![The Thornshot Gem on a bow](</img/executablegems/host-bow.png>)
+![The Thornshot Gem on a bow](https://media.ssomar.com/m/docs-img-eg-host-bow.png)
 
 ## Test them
 

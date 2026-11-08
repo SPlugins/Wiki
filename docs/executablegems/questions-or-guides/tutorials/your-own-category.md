@@ -23,15 +23,15 @@ description:
 
 `/eg reload`, then open the Codex. The category has its tile, in the position set by `order`:
 
-![The Codex home page with the new category first](</img/executablegems/codex-home-custom.jpg>)
+![The Codex home page with the new category first](https://media.ssomar.com/m/docs-img-eg-codex-home-custom.jpg)
 
 And its page, with the other categories as tabs at the top:
 
-![The page of the new category](</img/executablegems/codex-custom.jpg>)
+![The page of the new category](https://media.ssomar.com/m/docs-img-eg-codex-custom.jpg)
 
 Each gem has its own page too:
 
-![The page of the Blood Opal](</img/executablegems/codex-gem.jpg>)
+![The page of the Blood Opal](https://media.ssomar.com/m/docs-img-eg-codex-gem.jpg)
 
 Tabs and pages are handled for you, however many categories and gems you add.
 

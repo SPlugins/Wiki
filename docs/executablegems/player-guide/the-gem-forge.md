@@ -7,13 +7,13 @@ description: How to use the Gem Forge of ExecutableGems - socketing with a bonus
 
 The Gem Forge is an altar where a jeweller works on your items, in front of everyone. It lights the area around it.
 
-![A Celestial Forge and its jeweller](</img/executablegems/forge-celestial.jpg>)
+![A Celestial Forge and its jeweller](https://media.ssomar.com/m/docs-img-eg-forge-celestial.jpg)
 
 ## What you can do
 
 Stand in front of the forge. A panel at eye height shows what you can do with the item you hold.
 
-![The panel of the forge, showing the socket and the chance](</img/executablegems/forge-panel.jpg>)
+![The panel of the forge, showing the socket and the chance](https://media.ssomar.com/m/docs-img-eg-forge-panel.jpg)
 
 | You hold | Action | Result |
 |---|---|---|
@@ -28,7 +28,7 @@ Stand in front of the forge. A panel at eye height shows what you can do with th
 
 **Choosing a socket:** when an item has several sockets, look at the one you want. The chosen one is marked in the panel.
 
-![Choosing a socket by looking at it](</img/executablegems/forge-aim.jpg>)
+![Choosing a socket by looking at it](https://media.ssomar.com/m/docs-img-eg-forge-aim.jpg)
 
 :::info
 While your item lies on a forge, only you can work on it or take it back.
@@ -38,19 +38,19 @@ While your item lies on a forge, only you can work on it or take it back.
 
 During the ritual, a ring closes around the gem. **Click the forge when it turns gold.** A perfect strike adds **+15%** to your chance. If you miss, the normal chance applies, so you lose nothing by trying.
 
-![A perfect strike at the forge](</img/executablegems/forge-strike.jpg>)
+![A perfect strike at the forge](https://media.ssomar.com/m/docs-img-eg-forge-strike.jpg)
 
 ## Fusing gems
 
 Hold a stack of **3 identical gems** (same gem and same level) and **sneak + right-click** the forge. You get one gem of the next level.
 
-![The fusion reveal](</img/executablegems/forge-fusion.jpg>)
+![The fusion reveal](https://media.ssomar.com/m/docs-img-eg-forge-fusion.jpg)
 
 ## Forge levels
 
 A forge can be upgraded twice. A better forge adds to the chance of **every** socketing done on it. **Sneak + right-click with an empty hand** to open the upgrade menu.
 
-![The three levels of the forge](</img/executablegems/forge-levels.jpg>)
+![The three levels of the forge](https://media.ssomar.com/m/docs-img-eg-forge-levels.jpg)
 
 | Level | Name | Bonus | Cost |
 |---|---|---|---|

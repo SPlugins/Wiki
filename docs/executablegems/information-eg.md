@@ -9,7 +9,7 @@ description: >-
 
 # 📌 Information EG
 
-![The gems of ExecutableGems around a Celestial Forge](</img/executablegems/hero-wall.jpg>)
+![The gems of ExecutableGems around a Celestial Forge](https://media.ssomar.com/m/docs-img-eg-hero-wall.jpg)
 
 ## Description
 
@@ -31,18 +31,11 @@ It works on vanilla items and on ExecutableItems items, and it needs no client m
 | **The Codex** | An in-game book of every gem and runeword, with categories, pages and search. |
 | **Made to be edited** | Write a gem without a 3D model, add your own categories, change every number and every drop rate. |
 
-![A runeword awakening: a pillar of light and a sigil in the sky](</img/executablegems/awakening-pillar.jpg>)
+![A runeword awakening: a pillar of light and a sigil in the sky](https://media.ssomar.com/m/docs-img-eg-awakening-pillar.jpg)
 
 ## How it works
 
-```mermaid
-flowchart LR
-  A[Find a gem<br/>mobs, chests, shop] --> B[Socket it<br/>inventory, hand or forge]
-  B --> C[Use the item<br/>the gem's activators run]
-  C --> D[The gem gains XP<br/>and levels up]
-  D --> C
-  B --> E[Right gems, right order<br/>a runeword awakens]
-```
+![Find a gem, socket it, use the item, the gem gains XP and levels up. The right gems in the right order awaken a runeword.](https://media.ssomar.com/m/docs-img-eg-diagram-loop.png)
 
 ## Requirements
 
@@ -56,7 +49,9 @@ flowchart LR
 The full-screen effects (the shockwave when a gem is socketed, the screen that cracks when it shatters) need a **26.3** server or newer. On older servers everything else works and these effects are skipped.
 :::
 
-:::danger Give your players the permission `ei.item.*`
+:::danger
+**Give your players the permission `ei.item.*`**
+
 A gem runs through ExecutableItems, which checks the permission of the item. A player who is not OP needs **`ei.item.*`**, or every gem shows "You do not have the permission to use eg_..." and does nothing.
 
 With LuckPerms: `/lp group default permission set ei.item.* true`

@@ -9,7 +9,7 @@ A **gem** is an item that gives a power to another item. To work, it must be put
 
 ## Reading a gem
 
-![The tooltip of a gem, with numbered parts](</img/executablegems/annotated-gem.png>)
+![The tooltip of a gem, with numbered parts](https://media.ssomar.com/m/docs-img-eg-annotated-gem.png)
 
 1. **Name and level** of the gem, in Roman numerals.
 2. **Tier and level.** See below.
@@ -29,7 +29,7 @@ Most gems have 10 levels. Levels are grouped in 4 tiers. A gem looks better at e
 | Perfect | Levels 7 to 9 | Levels 3 and 4 |
 | Radiant | Level 10 | Level 5 |
 
-![The same gem at the 4 tiers](</img/executablegems/tiers-tooltips.png>)
+![The same gem at the 4 tiers](https://media.ssomar.com/m/docs-img-eg-tiers-tooltips.png)
 
 ## Sockets
 
@@ -47,7 +47,7 @@ Use a **Socket Drill** to add a socket, up to **3** per item. Your server may ha
 
 ## Reading a socketed item
 
-![The tooltip of a sword with two gems and an empty socket](</img/executablegems/annotated-host.png>)
+![The tooltip of a sword with two gems and an empty socket](https://media.ssomar.com/m/docs-img-eg-annotated-host.png)
 
 1. **Sockets**, as icons, and how many are used.
 2. **Each gem**, with what it does at its level. `(+2)` means a support gem is boosting it.
@@ -56,13 +56,13 @@ Use a **Socket Drill** to add a socket, up to **3** per item. Your server may ha
 
 When you hold a socketed item, its gems also show at the top of the screen, with a ring for their XP:
 
-![The sockets of the held item at the top of the screen](</img/executablegems/socket-wheel.jpg>)
+![The sockets of the held item at the top of the screen](https://media.ssomar.com/m/docs-img-eg-socket-wheel.jpg)
 
 ## Inspecting an item
 
 **Sneak + press F** (swap hands) with a socketed item in your hand. It floats in front of you with its gems around it. Press F again to stop.
 
-![Inspecting a sword: its name, its gems orbiting it and the list of sockets](</img/executablegems/inspect-trailer.jpg>)
+![Inspecting a sword: its name, its gems orbiting it and the list of sockets](https://media.ssomar.com/m/docs-img-eg-inspect-trailer.jpg)
 
 ## Rules between gems
 
