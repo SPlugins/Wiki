@@ -369,6 +369,68 @@ Create custom crafting recipes.
 
 ---
 
+## ExecutableGems
+
+Gems, runes and runewords socketed into any item.
+
+- [Information](/executablegems/information-eg)
+- [Commands and Permissions](/executablegems/commands-and-permissions)
+
+### Player Guide
+
+- [Gems and Sockets](/executablegems/player-guide/gems-and-sockets)
+- [Socketing a Gem](/executablegems/player-guide/socketing-a-gem)
+- [The Gem Forge](/executablegems/player-guide/the-gem-forge)
+- [The Jeweller](/executablegems/player-guide/the-jeweller)
+- [Finding Gems](/executablegems/player-guide/finding-gems)
+- [Levels and XP](/executablegems/player-guide/levels-and-xp)
+- [Supports and Runewords](/executablegems/player-guide/supports-and-runewords)
+- [The Codex](/executablegems/player-guide/the-codex)
+
+### List of Gems
+
+- [Overview](/executablegems/gems/overview)
+- [Runes](/executablegems/gems/runes)
+- [Wards](/executablegems/gems/wards)
+- [Prospecting](/executablegems/gems/prospecting)
+- [Fletching](/executablegems/gems/fletching)
+- [Supports](/executablegems/gems/supports)
+- [Relics](/executablegems/gems/relics)
+- [Enchantments](/executablegems/gems/enchantments)
+- [Runewords](/executablegems/gems/runewords)
+
+### Configurations
+
+- [General Configuration](/executablegems/configurations/general-configuration)
+- [Gem Configuration](/executablegems/configurations/gem-configuration)
+- [Activators in Gems](/executablegems/configurations/activators-in-gems)
+- [Category Configuration](/executablegems/configurations/category-configuration)
+- [Runeword Configuration](/executablegems/configurations/runeword-configuration)
+
+### Tutorials
+
+- [Getting Started](/executablegems/questions-or-guides/tutorials/getting-started)
+- [Create Your First Gem](/executablegems/questions-or-guides/tutorials/your-first-gem)
+- [Add a Right-Click Ability](/executablegems/questions-or-guides/tutorials/right-click-ability)
+- [Create an Armour Gem](/executablegems/questions-or-guides/tutorials/armour-ward)
+- [Gems for Tools and Bows](/executablegems/questions-or-guides/tutorials/tools-and-bows)
+- [Create a Support Gem](/executablegems/questions-or-guides/tutorials/support-gem)
+- [Create a Runeword](/executablegems/questions-or-guides/tutorials/runeword)
+- [Create a Category](/executablegems/questions-or-guides/tutorials/your-own-category)
+- [Use Your Own 3D Model](/executablegems/questions-or-guides/tutorials/your-own-3d-model)
+- [Native Enchantments](/executablegems/questions-or-guides/tutorials/native-enchantments)
+- [Control Loot and Prices](/executablegems/questions-or-guides/tutorials/loot-and-economy)
+- [Reward Players with Gems](/executablegems/questions-or-guides/tutorials/rewards-from-other-plugins)
+
+### Install, Update, Troubleshooting
+
+- [How to Install Correctly](/executablegems/questions-or-guides/frequently-asked-questions/how-to-install-correctly)
+- [How to Update Correctly](/executablegems/questions-or-guides/frequently-asked-questions/how-to-update-correctly)
+- [Troubleshooting](/executablegems/questions-or-guides/frequently-asked-questions/troubleshooting)
+- [Frequently Asked Questions](/executablegems/questions-or-guides/frequently-asked-questions/common-questions)
+
+---
+
 ## Other Plugins
 
 ### AI Chat Moderation
