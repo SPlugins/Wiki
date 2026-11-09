@@ -1,0 +1,12 @@
+{
+  "collapsed": true,
+  "label": "ExecutableGems",
+  "position": 7.5,
+  "customProps": {
+    "icon": "https://media.ssomar.com/m/docs-img-eg-logo.png"
+  },
+  "link": {
+    "type": "doc",
+    "id": "executablegems/information-eg"
+  }
+}

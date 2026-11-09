@@ -15,6 +15,7 @@ Here you'll find detailed information about:
 - **ExecutableEvents** - Create custom events and triggers
 - **MyFurniture** - Add custom furniture to your Minecraft server
 - **ExecutableCrafting** - Create custom crafting recipes
+- **ExecutableGems** - Gems, runes and runewords socketed into any item
 
 ## 🛠️ Tools for All Plugins
 
