@@ -13,3 +13,17 @@
 > Example: `/score run-player-command player:Special70 ADD_ITEM_NBT slot:0 keyValue:keepitemondeath=3 type:int mode:pdc`
 > 
 > Once all of the item's keepitemondeath charges are exhaused, the nbt will be removed from the itemstack.
+
+### Throwable Items
+> If an ExecutableItem has at least over 1 usage or have -1 usage, it becomes an infinite-use item. The moment it reaches 1 usage, it will stop behaving like an infinite item.  
+>   
+> Example:
+> - EGG
+> - SNOWBALL
+> - WIND CHARGE
+> - ENDER PEARL
+> - FIREWORKS
+> - ...and more similar projectiles except TRIDENTS
+
+### Projectile's expiry time
+> As long as ExecutableItems is installed, any projectile launched by players will automatically get deleted in 30-60s. It was to account for `PROJECTILE_ENTER_IN_LIQUID` activator.
