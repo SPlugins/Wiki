@@ -204,16 +204,18 @@ The gem works on its own while it is held in the off hand, without being sockete
 
 ## Native enchantment
 
+These keys go in a `native-enchantment:` section.
+
 | Key | Default | Description |
 |---|---|---|
-| `native-enchantment.enabled` | `false` | Makes the gem a real Minecraft enchantment. |
-| `native-enchantment.supported` | `#swords` | `#swords`, `#axes`, `#pickaxes`, `#weapons`, `#sharp_weapons`, `#tools`, `#mining`, `#armor`, `#bows`, or a Minecraft item tag. |
-| `native-enchantment.weight` | `5` | Odds in the enchanting table. |
-| `native-enchantment.anvil-cost` | `4` | Anvil cost. |
-| `native-enchantment.enchanting-table` | `true` | Offered by the enchanting table. |
-| `native-enchantment.tradeable` | `true` | Sold by librarians. |
-| `native-enchantment.loot` | `true` | Found on random loot. |
-| `native-enchantment.treasure` | `false` | Treasure enchantment. |
+| `enabled` | `false` | Makes the gem a real Minecraft enchantment. |
+| `supported` | `#swords` | `#swords`, `#axes`, `#pickaxes`, `#weapons`, `#sharp_weapons`, `#tools`, `#mining`, `#armor`, `#bows`, or a Minecraft item tag. |
+| `weight` | `5` | Odds in the enchanting table. |
+| `anvil-cost` | `4` | Anvil cost. |
+| `enchanting-table` | `true` | Offered by the enchanting table. |
+| `tradeable` | `true` | Sold by librarians. |
+| `loot` | `true` | Found on random loot. |
+| `treasure` | `false` | Treasure enchantment. |
 
 See [Native enchantments](../questions-or-guides/tutorials/native-enchantments.md). Adding one needs a server restart.
 
