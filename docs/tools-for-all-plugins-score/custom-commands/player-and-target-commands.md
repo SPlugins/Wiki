@@ -382,6 +382,31 @@ activators:
     - EICOOLDOWN %player% all 10 true # For all ExecutableItems
 ```
 
+:::info
+`EICOOLDOWN` can only **add** a cooldown: when several cooldowns run on the same activator, the longest one wins. To shorten or remove a cooldown, use [`EICOOLDOWN_RESET`](#eicooldown_reset).
+:::
+
+### EICOOLDOWN_RESET
+
+* Info: It removes the cooldown of an ExecutableItem for a player (all its activators, or only one activator). The vanilla visual cooldown (`enableVisualCooldown`) is reset too.
+* Command settings:
+  * `{PLAYER}`: The player to target the command
+  * `{ID}`: The id of the ExecutableItem or "all" for all ExecutableItems
+  * `[optional activator id]`: (Optional) Only remove the cooldown of this activator; the other activators keep theirs
+* Example:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - EICOOLDOWN_RESET %player% thisismyid activator1 # Only activator1 of the ExecutableItem thisismyid
+    - EICOOLDOWN_RESET %player% thisismyid # All the activators of thisismyid
+    - EICOOLDOWN_RESET %player% all # All ExecutableItems
+```
+
+From the console, `/score cooldowns clear EI:{ID}:{activator id} {player}` does the same for one activator.
+
 ### EBCOOLDOWN
 
 * Info: It applys a cooldown to a specific ExecutableBlocks
