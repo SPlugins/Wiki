@@ -45,7 +45,7 @@ When hit, 50% chance to prick the attacker for 5 damage and poison it *(level 10
 | Damage | 1.4 | 3 | 5 |
 | Socketing success (%) | 98 | 90 | 80 |
 
-**Goes on:** armour, ExecutableItems items · **Trigger:** Player receive hit by entity · **If the socketing fails:** the gem shatters · **Loot weight:** 10
+**Goes on:** armour, ExecutableItems items · **Trigger:** Hit taken · **If the socketing fails:** the gem shatters · **Loot weight:** 10
 
 `/eg give <player> bramble 10`
 
@@ -53,7 +53,7 @@ When hit, 50% chance to prick the attacker for 5 damage and poison it *(level 10
 
 ![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-heartstone.png)
 
-+1 ❤ max health Kills heal you for 0.75 ❤ *(level 10)*
++1 ❤ max health. Kills heal you for 0.75 ❤ *(level 10)*
 
 > *Warm to the touch, like something alive.*
 
@@ -99,7 +99,7 @@ A fatal blow rekindles you instead: 6 ❤, fire resistance, a burst of flame (on
 | Cooldown min | 9.5 | 7.5 | 5 |
 | Socketing success (%) | 86 | 70 | 50 |
 
-**Goes on:** chestplates, ExecutableItems items · **Trigger:** Player before death · **If the socketing fails:** the gem shatters · **Loot weight:** 4 (found from tier 2)
+**Goes on:** chestplates, ExecutableItems items · **Trigger:** Fatal blow · **If the socketing fails:** the gem shatters · **Loot weight:** 4 (found from tier 2)
 
 `/eg give <player> phoenix 10`
 
