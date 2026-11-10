@@ -21,7 +21,7 @@ The 4 icons are the 4 tiers of the gem: Chipped, Flawless, Perfect, Radiant.
 
 ![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-dragon-eye.png)
 
-Right-click: Dragon Breath, a cone of violet fire: 16 damage and Weakness to all in front (9s) Kills grant 8s of Strength *(level 5)*
+Right-click: Dragon Breath, a cone of violet fire: 16 damage and Weakness to all in front (9s). Kills grant 8s of Strength *(level 5)*
 
 > *It blinks when no one is looking.*
 

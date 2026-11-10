@@ -389,7 +389,7 @@ Gems, runes and runewords socketed into any item.
 
 ### List of Gems
 
-- [Overview](/executablegems/gems/overview)
+- [All Gems](/executablegems/gems/overview)
 - [Runes](/executablegems/gems/runes)
 - [Wards](/executablegems/gems/wards)
 - [Prospecting](/executablegems/gems/prospecting)

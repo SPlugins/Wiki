@@ -21,15 +21,13 @@ It works on vanilla items and on ExecutableItems items, and it needs no client m
 
 ## What you get
 
-| | |
-|---|---|
-| **37 gems in 7 categories** | Weapon runes, armour wards, tool gems, bow gems, supports, relics and real enchantments. See the [list of gems](gems/overview.md). |
-| **12 runewords** | Socket the right gems in the right order and the item awakens a new power. See the [runewords](gems/runewords.md). |
-| **The Gem Forge** | A 3D altar with a jeweller who works in front of everyone, in 3 upgradable levels. See [The Gem Forge](player-guide/the-gem-forge.md). |
-| **Gems that grow** | 10 levels and 4 visual tiers. Gems gain XP from hits, kills, blocks mined and hits taken. |
-| **A full survival loop** | Monster drops, boss drops, structure chests, unidentified stones and a jeweller's shop. |
-| **The Codex** | An in-game book of every gem and runeword, with categories, pages and search. |
-| **Made to be edited** | Write a gem without a 3D model, add your own categories, change every number and every drop rate. |
+- **37 gems in 7 categories:** weapon runes, armour wards, tool gems, bow gems, supports, relics and real enchantments. See the [list of gems](gems/overview.md).
+- **12 runewords:** socket the right gems in the right order and the item awakens a new power. See the [runewords](gems/runewords.md).
+- **The Gem Forge:** a 3D altar with a jeweller who works in front of everyone, in 3 upgradable levels. See [The Gem Forge](player-guide/the-gem-forge.md).
+- **Gems that grow:** 10 levels and 4 visual tiers. Gems gain XP from hits, kills, blocks mined and hits taken.
+- **A full survival loop:** monster drops, boss drops, structure chests, unidentified stones and a jeweller's shop.
+- **The Codex:** an in-game book of every gem and runeword, with categories, pages and search.
+- **Made to be edited:** write a gem without a 3D model, add your own categories, change every number and every drop rate.
 
 ![A runeword awakening: a pillar of light and a sigil in the sky](https://media.ssomar.com/m/docs-img-eg-awakening-pillar.jpg)
 
@@ -39,11 +37,9 @@ It works on vanilla items and on ExecutableItems items, and it needs no client m
 
 ## Requirements
 
-| | |
-|---|---|
-| **Server** | [Paper](https://papermc.io/) 1.21.11 or newer. Spigot is not supported. |
-| **Plugins** | [SCore](https://modrinth.com/plugin/score) and [ExecutableItems](../executableitems/information-ei.md), both up to date |
-| **Players** | The server's Minecraft version, with the resource pack accepted |
+- **Server:** [Paper](https://papermc.io/) 1.21.11 or newer. Spigot is not supported.
+- **Plugins:** [SCore](https://modrinth.com/plugin/score) and [ExecutableItems](../executableitems/information-ei.md), both up to date.
+- **Players:** the server's Minecraft version, with the resource pack accepted.
 
 :::info
 The full-screen effects (the shockwave when a gem is socketed, the screen that cracks when it shatters) need a **26.3** server or newer. On older servers everything else works and these effects are skipped.

@@ -35,7 +35,7 @@ Hits have 32% chance to echo half a second later for 6 damage *(level 10)*
 
 ![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-ember.png)
 
-Hits set the target ablaze (7s) Right-click: Fire Nova (13 dmg, 4s) *(level 10)*
+Hits set the target ablaze (7s). Right-click: Fire Nova (13 dmg, 4s) *(level 10)*
 
 | | Level 1 | Level 5 | Level 10 |
 |---|---|---|---|
@@ -68,7 +68,7 @@ Hits freeze the target for 4s and slow it down (52% chance) *(level 10)*
 
 ![The 4 tiers of this gem](https://media.ssomar.com/m/docs-img-eg-strip-gale.png)
 
-+30% movement speed while held Hits blow enemies away *(level 10)*
++30% movement speed while held. Hits blow enemies away *(level 10)*
 
 | | Level 1 | Level 5 | Level 10 |
 |---|---|---|---|

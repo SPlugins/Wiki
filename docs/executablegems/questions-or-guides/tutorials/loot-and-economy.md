@@ -7,7 +7,7 @@ description: Control where gems come from in ExecutableGems - drop rates, boss d
 
 Everything about how players get gems is in `config.yml` and in the `obtain` section of each gem.
 
-![A monster dies or a chest is opened, the loot chance is rolled, then a tier with tier-weights, then a gem with obtain.weight. The gem drops at the first level of its tier.](https://media.ssomar.com/m/docs-img-eg-diagram-loot.png)
+![A monster dies or a chest is opened, the loot chance is rolled, then a tier with tier-weights, then a gem with obtain.weight. The gem drops at the first level of its tier.](https://media.ssomar.com/m/docs-img-eg-diagram-loot-flow.png)
 
 ## Make gems rarer or more common
 
