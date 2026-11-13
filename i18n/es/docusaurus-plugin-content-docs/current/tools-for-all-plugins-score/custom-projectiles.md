@@ -1,50 +1,50 @@
 ---
 description: >-
-  Guía de SCore para crear proyectiles personalizados: tipos, propiedades
-  visuales, daño, partículas y configuración YAML.
-source_hash: 865d4da043f01247
-translated_at: '2026-10-03T10:32:26.948Z'
+  Aprende a crear proyectiles personalizados con el editor en el juego de SCore
+  y a lanzarlos con los comandos LAUNCH y LOCATED_LAUNCH.
+source_hash: 6fa479a1613c4cb0
+translated_at: '2026-11-13T18:17:39.244Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import CustomTag from '@site/src/components/CustomTag';
 
-# 🏹 Custom Projectiles
+# 🏹 Proyectiles personalizados
 
-Esta página te ayudará a aprender a crear proyectiles personalizados y lanzarlos.\
-Hemos creado para ti un editor dentro del juego para que la edición sea simple. **Úsalo.**
+Esta página te ayudará a aprender a crear proyectiles personalizados y a lanzarlos.\
+Hemos creado para ti un editor dentro del juego para que la edición sea sencilla. **Úsalo.**
 
 :::info 
-Para lanzarlos, fácil, usa los comandos [LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#launch) o [LOCATED_LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#located_launch). Estos proyectiles no se pueden dar a los jugadores.
+Para lanzarlos es muy fácil: usa los comandos [LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#launch) o [LOCATED\_LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#located_launch). Estos proyectiles no se pueden entregar a los jugadores.
 :::
 
 ### Comandos:
 
-| Comando                         | Función                                                    |
-| ------------------------------- | ----------------------------------------------------------- |
-| /score projectiles              | Te muestra todos los proyectiles y te permite editarlos             |
-| /score projectiles-create \<id> | Abre el editor para crear un nuevo proyectil                  |
-| /score projectiles-delete \<id> | Acción para eliminar un proyectil (requiere confirmación)           |
-| /score reload                   | Recarga el plugin (útil si editas un proyectil en .yml) |
+| Comando                         | Función                                                                |
+| ------------------------------- | ---------------------------------------------------------------------- |
+| /score projectiles              | Te muestra todos los proyectiles y te permite editarlos                |
+| /score projectiles-create \<id> | Abre el editor para crear un nuevo proyectil                           |
+| /score projectiles-delete \<id> | Acción para eliminar un proyectil (requiere confirmación)              |
+| /score reload                   | Recarga el plugin (útil si editas un proyectil en el .yml)             |
 
 ## **Información básica**
 
 ### Type
 
-Esto es lo primero que tienes que configurar, el tipo de proyectil que quieres crear, Score soporta:
+Esto es lo primero que debes establecer: el tipo de proyectil que quieres crear. Score soporta:
 
 * ARROW
-* SPECTRAL_ARROW
+* SPECTRAL\_ARROW
 * EGG
-* ENDER_PEARL
+* ENDER\_PEARL
 * FIREBALL
-* SPLASH_POTION
-* SHULKER_BULLET
+* SPLASH\_POTION
+* SHULKER\_BULLET
 * SNOWBALL
 * TRIDENT
-* WITHER_SKULL
-* DRAGON_FIREBALL
+* WITHER\_SKULL
+* DRAGON\_FIREBALL
 * THROWNEXPBOTTLE
-* WIND_CHARGE
+* WIND\_CHARGE
 * LLAMASPIT
 * FISHHOOK
 * FIREWORK
@@ -57,7 +57,7 @@ type: ARROW
 
 ### Custom name visible
 
-* Te permite mostrar el nombre personalizado encima del proyectil
+* Te permite mostrar el nombre personalizado sobre el proyectil
 * Opciones:
   * true
   * false
@@ -69,7 +69,7 @@ customNameVisible: true
 
 ### Custom Name
 
-* Este es el NOMBRE del proyectil, útil para customNameVisible y para placeholders.
+* Este es el NOMBRE del proyectil, útil para customNameVisible y para temas de placeholders.
 * Ejemplo:
 
 ```yaml
@@ -87,7 +87,7 @@ visualFire: true
 
 ### Invisible
 
-* Si el proyectil será invisible o no. Requiere [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
+* Indica si el proyectil será invisible o no. Requiere [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
 ```yaml
 invisible: false
 ```
@@ -104,7 +104,7 @@ pickupStatus: CREATIVE_ONLY # DISALLOWED, ALLOWED
 
 ### Glowing
 
-* Si el proyectil tendrá el efecto de brillo (glowing) o no
+* Indica si el proyectil tendrá el efecto de resplandor o no
 * Opciones:
   * true
   * false
@@ -116,7 +116,7 @@ glowing: true
 
 ### Bounce
 
-* Si el proyectil rebotará de la entidad durante su estado de invulnerabilidad.
+* Indica si el proyectil rebotará contra la entidad mientras esta se encuentra en su estado de invulnerabilidad.
 * Opciones:
   * true
   * false
@@ -128,7 +128,7 @@ bounce: true
 
 ### Gravity
 
-* Si el proyectil se verá afectado por la gravedad o no
+* Indica si el proyectil se verá afectado por la gravedad o no
 * Opciones:
   * true
   * false
@@ -141,6 +141,7 @@ gravity: true
 ### Velocity
 
 * Qué tan rápido será el proyectil
+  * <CustomTag type="version" version="1.20.5" /> También funciona en FIREBALL, WITHER\_SKULL y DRAGON\_FIREBALL: `2.0` vuela al doble de velocidad, `1` mantiene la velocidad de vanilla. Antes de la 1.20.5 mantienen su velocidad de vanilla.
 * Ejemplo:
 
 ```yaml
@@ -148,7 +149,7 @@ velocity: 2.0
 ```
 
 :::danger
-EL DAÑO DE LA **ARROW** SE VERÁ AFECTADO POR ESTA OPCIÓN
+EL DAÑO DE **ARROW** SE VERÁ AFECTADO POR ESTA OPCIÓN
 
 Ecuación: `velocity x 1 = Arrow Damage`
 :::
@@ -160,8 +161,8 @@ Ecuación: `velocity x 1 = Arrow Damage`
  * `particlesAmount`: Cuántas partículas emitirá cada vez                                                                 
  * `particlesOffSet`: Qué tan cerca del proyectil aparecerán las partículas                                                                
  * `particlesSpeed`: Qué tan rápido se moverán las partículas                                                                 
- * `redstoneColor`: Cambia el color de la partícula de redstone. [Colors](https://helpch.at/docs/1.12.2/org/bukkit/Color.html)
- * `blockType`: Qué bloque usa la partícula. Solo para: BLOCK_CRACK, BLOCK_DUST, BLOCK_MARKER
+ * `redstoneColor`: Cambia el color de la partícula de redstone. [Colores](https://helpch.at/docs/1.12.2/org/bukkit/Color.html)
+ * `blockType`: Qué bloque usa la partícula. Solo para: BLOCK\_CRACK, BLOCK\_DUST, BLOCK\_MARKER
  * `particleDensity`: Densidad de las partículas, útil cuando quieres una estela limpia de tu proyectil
 
 * Ejemplo:
@@ -190,7 +191,7 @@ particles:
 
 ### Despawn delay
 
-* Cuánto durará la vida del proyectil en segundos. (admite decimales)
+* Cuánto durará la vida del proyectil, en segundos. (Admite decimales)
 * Ejemplo:
 
 ```yaml
@@ -199,17 +200,17 @@ despawnDelay: 10
 
 ### Knockback strength
 
-* Qué tan fuerte será el knockback que el proyectil infligirá a sus objetivos
+* Qué tan fuerte será el empuje que el proyectil inflige a sus objetivos
 * Ecuación:
 
-`Knockback strength x 3` = Cantidad de bloques que el objetivo es empujado
+`Knockback strength x 3` = Cantidad de bloques que el objetivo es empujado hacia atrás
 ```yaml
 knockbackStrengt: 1
 ```
 
 ### Remove when hit block
 
-* Si el proyectil desaparece al golpear un bloque
+* Indica si el proyectil desaparece cuando golpea un bloque
 * Opciones:
   * true
   * false
@@ -225,10 +226,10 @@ removeWhenHitBlock: true
 
 ### Visual item:
 
-* Esto te brinda la posibilidad de disfrazar un proyectil con un ítem
+* Esto te da la posibilidad de disfrazar un proyectil con un ítem
 * Proyectiles disponibles:
 * **EGG**
-* **ENDER_PEARL**
+* **ENDER\_PEARL**
 * **SNOWBALL**
 
 Ejemplo:
@@ -238,12 +239,12 @@ visualItem: diamond_sword
 ```
 
 :::info
-visualItem es compatible con cabezas personalizadas (custom head) y con añadir texturas a esa cabeza
+visualItem es compatible con cabezas personalizadas y con añadir texturas a esa cabeza
 :::
 
 #### Custom model data
 
-* Además, visual item soporta el custom model data del ítem.
+* Además, visual item admite el custom model data del ítem.
 
 ```yaml
 customModelData: 37
@@ -251,7 +252,7 @@ customModelData: 37
 
 #### Item Model
 
-* Desde la versión 1.21.2 puedes editar el item_model del proyectil.
+* Desde la 1.21.2 puedes editar el item Model del proyectil.
 
 ```yaml
 itemModel: mypack:mymodel
@@ -261,7 +262,7 @@ itemModel: mypack:mymodel
 
 #### Critical
 
-* Si el proyectil **ARROW** dejará un rastro de partículas críticas
+* Indica si el proyectil **ARROW** dejará una estela de partículas críticas
 * Opciones:
   * true
   * false
@@ -290,17 +291,17 @@ damage: 10.0
 ```
 
 :::info
-No uses un valor negativo, no cambiará nada.
+No uses valores negativos, no cambiará nada.
 :::
 
 #### Pierce level
 
-* A cuántos mobs golpeará un solo proyectil antes de desaparecer
+* Cuántos mobs serán golpeados por un solo proyectil antes de que desaparezca
 * Ecuación:
 
 `<PierceLevel> + 1` = Cantidad de mobs que serán golpeados
 
-* Si el valor se establece en -1, desaparecerá después de golpear 1 mob.
+* Si el valor se establece en -1, desaparecerá tras golpear a 1 mob.
 * Ejemplo:
 
 ```yaml
@@ -309,7 +310,7 @@ pierceLevel: 4
 
 #### Active color | Color
 
-* **Active color** en -> **true** permite la edición de Color. [Colors](https://helpch.at/docs/1.12.2/org/bukkit/Color.html)
+* **Active color** en -> **true** permite la edición de Color. [Colores](https://helpch.at/docs/1.12.2/org/bukkit/Color.html)
 
 ```yaml
 activeColor: true
@@ -323,7 +324,7 @@ color: AQUA
 
 #### Silent
 
-* Si la flecha emitirá ruido
+* Indica si la flecha emitirá sonido
 * Opciones:
   * true
   * false
@@ -336,8 +337,8 @@ silent: true
 #### Hit sound
 
 <CustomTag type="paper" />
-* Configura el sonido que emitirá cuando la flecha golpee algo. [Sounds](https://jd.papermc.io/paper/1.21.8/org/bukkit/Sound.html)
-* Funciona para ARROW, TRIDENT y SPECTRAL_ARROW
+* Configura el sonido que emitirá cuando la flecha golpee algo. [Sonidos](https://jd.papermc.io/paper/1.21.8/org/bukkit/Sound.html)
+* Funciona para ARROW, TRIDENT y SPECTRAL\_ARROW
 
 * Ejemplo:
 
@@ -349,7 +350,7 @@ hitSound: BLOCK_BELL_USE
 
 #### Charged
 
-* Si el wither_skull está cargado o no
+* Indica si la wither\_skull está cargada o no
 * Opciones:
   * true
   * false
@@ -372,7 +373,7 @@ radius: 3
 
 #### Incendiary
 
-* Si el proyectil fireball causará fuego o no al golpear algo
+* Indica si el proyectil fireball provocará fuego o no al golpear algo
 * Opciones:
   * true
   * false
@@ -386,7 +387,7 @@ incendiary: true
 
 **Lifetime**
 
-* Cuánto tiempo puede durar el firework antes de desaparecer (como cuántas pólvoras se usaron)
+* Cuánto tiempo puede durar el firework antes de desaparecer (por ejemplo, cuántas pólvoras se usaron)
 * Ejemplo:
 
 ```yaml
@@ -395,7 +396,7 @@ lifeTime: 3
 
 **fireworkExplosions:**
 
-* La configuración de los colores de la explosión del firework
+* Los ajustes de los colores de la explosión del firework
 * Ejemplo:
 
 ```yaml
@@ -410,16 +411,16 @@ fireworkExplosions:
       hasTwinkle: true
 ```
 
-Para los colores, puedes usar los [nombres de colores](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html) habituales o `RGB-<0-255>-<0-255>-<0-255>`
+Para los colores, puedes usar los [nombres de color](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html) habituales o `RGB-<0-255>-<0-255>-<0-255>`
 
-## YML Config
+## Configuración YML
 
-* Hay algunas funciones que todavía no son editables dentro del juego
+* Hay algunas funciones que todavía no se pueden editar dentro del juego
 
 ### Enchantments (TRIDENT)
 
 <CustomTag type="version" version="1.16.4" />
-* Permite encantar tridents.
+* Permite encantar tridentes.
 
 ```yaml
 enchantments:
@@ -433,7 +434,7 @@ enchantments:
 
 ### Potion effects (Splash potion)
 
-* Permite editar los efectos de la splash potion. [Potion effects](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html)
+* Permite editar los efectos de la splash potion. [Efectos de poción](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html)
 
 ```yaml
 potionEffects:
@@ -447,7 +448,7 @@ potionEffects:
   amplifier: 4
 ```
 
-## Full YAML Config
+## Configuración YAML completa
 
 ```yaml
 type: TRIDENT

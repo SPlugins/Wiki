@@ -1,16 +1,16 @@
 ---
 description: >-
-  Guía de los comandos de SCore: limpiar datos, cooldowns, webhooks de Discord y
-  ejecutar comandos para jugadores, bloques y entidades.
-source_hash: 8dc4edcee2a45a0c
-translated_at: '2026-10-03T10:44:15.864Z'
+  Lista de comandos de SCore: limpiar cooldowns, webhook de Discord y ejecutar
+  comandos de SCore manualmente sobre jugadores, bloques, entidades e ítems.
+source_hash: efcb318717cf1c47
+translated_at: '2026-11-13T18:18:30.202Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 # Comandos
 
-## Limpiar contenido de Score
+## Limpiar contenido de SCore
 
-* Este comando te permite limpiar la mayor parte del contenido en progreso de SCore
+* Este comando te permite limpiar la mayor parte del contenido en curso de SCore
 * Puedes limpiar:
   * [ACTIONBARS](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#actionbar)
   * COOLDOWNS
@@ -23,27 +23,27 @@ translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 
 ## Limpiar cooldowns 
 
-* Comando para limpiar un cooldown específico (para un jugador / entidad específico)
+* Comando para limpiar un cooldown específico (para un jugador / entidad concretos)
 * Comando: /score cooldowns clear \{cooldown\_id\} \[UUID]
   * `{cooldown_id}`: Ejemplo -> EI\:myitem\:myactivator
   * `[UUID]`: (Opcional) El UUID del jugador / entidad
 
-## Inspeccionar bucles, útil para depuración
+## Inspeccionar bucles, útil para depurar
 
 * Comando: /score inspect-loop
 
-Recargar las configuraciones de variables, proyectiles y dureza de SCore
+Recargar las variables, los proyectiles y las configuraciones de dureza de SCore
 
 * Comando: /score reload
 
-## Webhook de Discord
-Envía un mensaje a Discord mediante un webhook
+## Discord webhook
+Envía un mensaje a Discord mediante webhook
 
 * /score webhook \{url\} \{debug\} [allowed_mentions] \{message...\}
   * `{url}`: url del webhook
-  * `{debug}`: si se le informa o no al ejecutor sobre si se va a realizar un mensaje de webhook
+  * `{debug}`: indica si se avisa o no al ejecutor de que se va a enviar un mensaje de webhook
   * `[allowed_mentions]`: puede ser users\:id\[,id,...\] o roles\:id\[,id,...\] o nada
-  * `{message...}`: el mensaje que será enviado por el webhook de destino
+  * `{message...}`: el mensaje que enviará el webhook de destino
 
 
 ## Comandos de partículas
@@ -58,8 +58,8 @@ Consulta [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
 ### Comandos de jugador
 
-* Info: Comando que permite a plugins externos e internos de Ssomar Plugins ejecutar un comando personalizado de SCore hacia un jugador específico.
-* Al usar este comando, toda la línea de comando se procesa a través de PlaceholdersAPI, por lo que puedes añadirle placeholders.
+* Info: comando que permite, desde fuera y desde dentro de Ssomar Plugins, ejecutar un comando personalizado de SCore sobre un jugador específico.
+* Al usar este comando, toda la línea de comando se procesa mediante PlaceholderAPI, por lo que puedes añadirle placeholders.
 
 * Comando: /score run-player-command player:\{player\} \{command\}
   * `player`: Nombre del jugador objetivo
@@ -72,22 +72,23 @@ Consulta [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
 ### Comandos de bloque
 
-* Info: Comando que permite a plugins externos e internos de Ssomar Plugins ejecutar un comando personalizado de SCore para un bloque específico.
+* Info: comando que permite, desde fuera y desde dentro de Ssomar Plugins, ejecutar un comando personalizado de SCore sobre un bloque específico.
 
 * Comando: /score run-block-command \[player:\{player\}\] block:\{world\},\{x\},\{y\},\{z\} \{command\}
-  * `player`: Jugador que está involucrado en este activador
-    * Es opcional porque algunos comandos lo necesitan, por ejemplo
+  * `player`: Jugador implicado en este activador
+    * Es opcional, ya que algunos comandos lo necesitan, por ejemplo
 
-                MOB_AROUND: ¿Quién aplicará el daño? Bueno, el comando aplica daño a los mobs alrededor, pero el daño se contará como infligido por \{player\}, por lo que se comprueba si el jugador realmente puede dañar al mob, el daño y las muertes se contabilizan para él, etc.
+                MOB_AROUND: ¿Quién aplicará el daño? El comando aplica daño a los mobs de alrededor, pero el daño se contará como infligido por \{player\}, así que se comprueba si el jugador puede dañar realmente al mob, el daño y las muertes cuentan para él, etc.
 
-                VEIN_BREAKER: ¿Quién rompió los bloques? Bueno, el comando rompe bloques en forma de veta, pero los bloques se contarán como rotos por \{player\}, por lo que se comprueba si el jugador realmente puede romper el bloque, el bloque roto se contabiliza para él, etc.
+                VEIN_BREAKER: ¿Quién rompió los bloques? El comando rompe bloques en forma de veta, pero los bloques se contarán como rotos por \{player\}, así que se comprueba si el jugador puede romper realmente el bloque, el bloque roto cuenta para él, etc.
 
   * `block`
-      * `world`: Mundo donde está el bloque
-      * `x`: Coordenada X del bloque
-      * `y`: Coordenada Y del bloque
-      * `z`: Coordenada Z del bloque
-  * `command`: Comando de bloque que se ejecutará contra el bloque y, si existe, por el jugador.
+      * `world`: Mundo en el que está el bloque
+      * `x`: Coordenadas X del bloque
+      * `y`: Coordenadas Y del bloque
+      * `z`: Coordenadas Z del bloque
+  * `command`: Comando de bloque que se ejecutará sobre el bloque y, si existe, por el jugador.
+    * Los [placeholders de bloque](/tools-for-all-plugins-score/placeholders#block-placeholders) (`%block%`, `%block_lower%`, `%block_x%`...) del comando son los de este bloque.
 
 * Ejemplos:
   * /score run-block-command block\:world,-23,-61,27 BREAK
@@ -95,11 +96,26 @@ Consulta [SCore Variables](/tools-for-all-plugins-score/score-variables)
 
 ### Comandos de entidad
 
-* Info: Comando que permite a plugins externos e internos de Ssomar Plugins ejecutar un comando personalizado de SCore para una entidad específica
+* Info: comando que permite, desde fuera y desde dentro de Ssomar Plugins, ejecutar un comando personalizado de SCore sobre una entidad específica
 
-* Comando: /score run-entity-command entity:\{entityUUID\} \{command\}
+* Comando: /score run-entity-command \[player:\{player\}\] entity:\{entityUUID\} \{command\}
+  * `player`: (Opcional) nombre o UUID de un jugador implicado: los placeholders de jugador (`%player%`, `%player_health%`...) se pueden usar entonces en el comando, por ejemplo en un `IF`.
   * `entityUUID`: UUID de la entidad objetivo
-  * `command`: Comando de entidad que se ejecutará contra la entidad.
+  * `command`: Comando de entidad que se ejecutará sobre la entidad.
 * Ejemplo:
   * /score run-entity-command entity\:c4d5338b-6f8e-4b97-9f18-9dbc47f60131 JUMP 1
   * /score run-entity-command entity:%entity_uuid% JUMP 1
+  * /score run-entity-command player:Steve entity:%entity_uuid% IF %player_health%>10 SET_ENTITY_NAME name:&cTamed
+
+### Comandos de ítem
+
+* Info: comando que permite, desde fuera y desde dentro de Ssomar Plugins, ejecutar un [comando de ítem](/tools-for-all-plugins-score/custom-commands/item-commands) personalizado sobre un ítem del inventario de un jugador.
+
+* Comando: /score run-item-command player:\{player\} slot:\{slot\} \{command\}
+  * `player`: nombre o UUID del jugador que tiene el ítem
+  * `slot`: slot del ítem en el inventario del jugador: de `0` a `8` para la hotbar, de `9` a `35` para el resto del inventario, de `36` a `39` para la armadura (de las botas al casco), `40` para la mano secundaria
+  * `command`: Comando de ítem que se ejecutará sobre este ítem. Se pueden usar en él los placeholders de jugador.
+  * No ocurre nada cuando el jugador está desconectado o cuando el slot está vacío.
+* Ejemplos:
+  * /score run-item-command player:Steve slot:0 SET_ITEM_NAME name:&6Excalibur
+  * /score run-item-command player:Steve slot:0 IF %player_health%>=20 ADD_ITEM_ENCHANTMENT enchantment:sharpness level:5

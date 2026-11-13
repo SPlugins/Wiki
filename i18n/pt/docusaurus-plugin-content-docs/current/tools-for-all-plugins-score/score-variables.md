@@ -1,51 +1,52 @@
 ---
 description: >-
-  Entenda como usar as variáveis do SCore no plugin SPlugins para armazenar
-  dados globais ou por jogador via comandos e placeholders.
-source_hash: 6be0f8b64461a5b8
-translated_at: '2026-10-03T10:46:43.400Z'
+  Aprenda a criar e gerenciar Score Variables no SCore: tipos, escopos,
+  comandos, placeholders e variáveis internas de itens e blocos no
+  ExecutableItems.
+source_hash: 03903712f9f8f788
+translated_at: '2026-11-13T18:18:01.671Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 # 🧮   SCore Variables
 
-## Variáveis do SCore
+## SCore variables
 
-O Score possui uma integração de variáveis onde você pode armazenar strings/números em variáveis de forma global ou por jogador, elas não são integradas no EI ou EB, mas são integradas como comandos (então podem ser usadas em combinação com EI / EB)
+O SCore tem uma integração de variáveis onde você pode armazenar textos/números em variáveis de forma global ou por jogador. Elas não estão integradas no EI nem no EB, mas estão integradas como comandos (então podem ser usadas em combinação com EI / EB)
 
 Elas são armazenadas em `plugins/Score/variables`
 
-### Tipos de Variável
+### Variable Types
 
-| Tipo       | Explicação                        |
+| Tipo       | Explicação                         |
 | ---------- | ---------------------------------- |
 | **STRING** | Permite armazenar texto            |
-| **NUMBER** | Permite armazenar número          |
-| LIST       | Permite armazenar múltiplos valores |
+| **NUMBER** | Permite armazenar números          |
+| LIST       | Permite armazenar vários valores   |
 
-### Escopo da Variável (For)
+### Variable Scope (For)
 
-| Tipo       | Explicação                                                                                                                                     |
+| Tipo       | Explicação                                                                                                                                      |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **GLOBAL** | Variável armazenada de forma global significa que existe um único valor e ele é o mesmo para todos                                                     |
-| **PLAYER** | Variável armazenada para cada jogador significa que o valor é independente para cada jogador. Assim, o valor de dois jogadores diferentes pode não ser o mesmo. |
+| **GLOBAL** | Variável armazenada de forma global significa que existe um único valor e ele é o mesmo para todos                                              |
+| **PLAYER** | Variável armazenada para cada jogador significa que o valor é independente para cada jogador. Então o valor de dois jogadores diferentes pode não ser o mesmo. |
 
-### Tipos de Modificação
+### Modification Types
 
-| Tipo             | Explicação                                                                                                          |
+| Tipo             | Explicação                                                                                                           |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **SET**          | Você define um valor estático para a variável                                                               |
-| **MODIFICATION** | Você modifica a variável (útil para variáveis INT, para adicionar valor a um valor inteiro, ou para subtrair um certo valor) |
-| **LIST-ADD**     | Específico para LIST, adiciona um novo valor na lista                                                                |
-| **LIST-REMOVE**  | Específico para LIST, remove um valor da lista                                                                 |
+| **SET**          | Você define um valor estático para a variável                                                                        |
+| **MODIFICATION** | Você modifica a variável (útil para variáveis INT, para somar um valor a um valor inteiro ou subtrair um certo valor) |
+| **LIST-ADD**     | Específico para LIST, adiciona um novo valor à lista                                                                 |
+| **LIST-REMOVE**  | Específico para LIST, remove um valor da lista                                                                       |
 
 :::danger
 O ID das variáveis não pode ter underscores, pontos ou espaços, mas - é permitido
 :::
 
-## Ferramentas de variáveis
+## Variables tools
 
 * /score variables list
-  * Exibe todos os IDs de variáveis existentes
+  * Exibe os IDs de todas as variáveis existentes
 * /score variables info \{variable-id\} \[player]
   * Exibe o valor de uma variável específica (Opcional: para um jogador específico)
 * /score variables-create \{variable-id\}
@@ -58,27 +59,29 @@ O ID das variáveis não pode ter underscores, pontos ou espaços, mas - é perm
   * Abre o editor in-game de variáveis
 * /score variables clear \{type\_of\_variable\} \{variable-id\} \[player]
   * Limpa o valor da variável (Opcional: para um jogador específico)
-  * Se você substituir \[player] por **all,** isso limpará o valor para todos os jogadores
+  * Se você substituir \[player] por **all,** o valor será limpo para todos os jogadores
+* /score variables set-default \{variable-id\} \{value\}
+  * Altera o valor padrão da variável (uma palavra, sem espaços). Ele é salvo no arquivo da variável, então permanece após um reload
 * /score variables \{modification\_type\} \{variable\_scope\} \{variable-id\} \{value\} \[player]
   * Permite modificar o valor de uma variável existente.
   * Exemplos:
-    * **GLOBAL Variables**:
+    * **Variáveis GLOBAL**:
       * /score variables SET GLOBAL exemple1 100
         * Define o valor 100 para a variável global exemple1
       * /score variables MODIFICATION GLOBAL plop 100
         * Aumenta a variável global plop em +100
       * /score variables MODIFICATION GLOBAL plop -50
         * Diminui a variável global plop em -50
-    * **PLAYER Variables**
+    * **Variáveis PLAYER**
       * /score variables SET PLAYER my-variable -20 Ssomar
         * Define o valor -20 para a variável my-variable do jogador Ssomar
       * /score variables MODIFICATION PLAYER my-variable -50 Ssomar
         * Diminui a variável de jogador my-variable em -50 para Ssomar
     * **Exemplos específicos para o tipo LIST**
       * /score variables list-add PLAYER ThisIsTheNameOfMyVariable TEXT1 Ssomar
-        * Adiciona valores na lista
+        * Adiciona valores à lista
       * /score variables list-add PLAYER ThisIsTheNameOfMyVariable TEXT3 Ssomar index:0
-        * Para especificar um local para adicionar o valor na lista, use o recurso de index (0 é o primeiro elemento da lista, então isso adicionará TEXT3 no início da lista)
+        * Para especificar uma posição para adicionar o valor na lista, use o recurso index (0 é o primeiro elemento da lista, então TEXT3 será adicionado no início da lista)
       * /score variables list-remove PLAYER ThisIsTheNameOfMyVariable Ssomar
         * Remove o último valor
       * /score variables list-remove PLAYER ThisIsTheNameOfMyVariable Ssomar index:0
@@ -87,10 +90,10 @@ O ID das variáveis não pode ter underscores, pontos ou espaços, mas - é perm
         * Remove um valor específico
 
 :::info
-Variable-list também funciona com variáveis GLOBAL, mas você precisaria trocar PLAYER -> GLOBAL e remover o jogador no comando
+Variable-list também funciona com variáveis GLOBAL, mas você precisaria trocar PLAYER -> GLOBAL e remover o jogador do comando
 :::
 
-## Placeholders de variáveis
+## Variables placeholders
 
 Isso requer o [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/).
 
@@ -103,22 +106,23 @@ Como os placeholders de variáveis do SCore são suportados pelo PlaceholderAPI,
 `%math_{score_variables_userLevel}*10%`
 :::
 
-#### Placeholders específicos para LIST
+#### Placeholders specific for LIST
 
 * %score\_variables\_\<variable-id>\_\<index>%
   * Retorna o valor no índice específico da lista
+  * O índice pode vir de outro placeholder escrito entre colchetes, ele é interpretado primeiro: `%score_variables_myList_{score_variables_myIndex_int}%`
 * %score\_variables\_\<variable-id>%
   * Retorna todos os elementos da lista
 * %score\_variables-contains\_\<variable-name>\_\<value>%
-  * Retorna um booleano para ver se a lista contém um valor (true ou false)
+  * Retorna um booleano para verificar se a lista contém um valor (true ou false)
 * %score\_variables-size\_\<variable-name>%
   * Retorna o tamanho da lista
 
-O que você pode fazer com esse recurso -> Item criado por Ssomar
+O que você pode fazer com este recurso -> Item criado por Ssomar
 
 <details>
 
-<summary>Terminator<br /><br />Habilidade : <br />- CLIQUE DIREITO para selecionar entidades<br />- SHIFT+CLIQUE DIREITO para explodi-las<br /><br />Você precisa primeiro criar a variável, você pode usar este comando:<br />/score variables-define myList LIST PLAYER<br /></summary>
+<summary>Terminator<br /><br />Ability : <br />- RIGHT CLICK to select entities<br />- SHIFT+RIGHT CLICK to explode them<br /><br />You need to first create the variable, you can use this command:<br />/score variables-define myList LIST PLAYER<br /></summary>
 
 
 ```yaml
@@ -271,28 +275,28 @@ activators:
 
 </details>
 
-## ExecutableItems (Variáveis de item)
+## ExecutableItems (Item variables)
 
-O ExecutableItems possui uma integração de variáveis onde você pode armazenar strings/números/listas em variáveis **dentro** do item. Com elas você pode criar múltiplas mecânicas nos seus itens.
+O ExecutableItems tem uma integração de variáveis onde você pode armazenar textos/números/listas em variáveis **dentro** do item. Com elas você pode criar várias mecânicas nos seus itens.
 
 :::info
 Existem formas de alterar a variável fora do item, usando estes métodos:\
 \
 
-#### Modificar uma variável
+#### Modify a variable
 
 * VIA CONSOLE
   * Comando: 
     * /ei console-modification \{set/modification\} variable \{player\} \{slot\} \{variableName\} \{value\}
-* VIA jogo
+* VIA in-game
   * Comando:
     * /ei modification \{set/modification\} variable \{slot\} \{variableName\} \{value\}
 :::
 
-Para verificar os placeholders das "Internal item variables", confira aqui
+Para ver os placeholders de "Internal item variables", consulte aqui
 
-## ExecutableBlocks (Variáveis de bloco)
+## ExecutableBlocks (Block variables)
 
-O ExecutableBlocks possui uma integração de variáveis onde você pode armazenar strings/números/listas em variáveis **dentro** do bloco. Com elas você pode criar múltiplas mecânicas nos seus blocos.
+O ExecutableBlocks tem uma integração de variáveis onde você pode armazenar textos/números/listas em variáveis **dentro** do bloco. Com elas você pode criar várias mecânicas nos seus blocos.
 
-Para verificar os placeholders das "Internal item/block variables", confira aqui
+Para ver os placeholders de "Internal item/block variables", consulte aqui

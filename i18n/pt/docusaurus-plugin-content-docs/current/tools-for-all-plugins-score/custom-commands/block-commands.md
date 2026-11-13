@@ -1,21 +1,21 @@
 ---
 description: >-
-  Guia completo dos comandos de bloco do ExecutableBlocks no plugin SPlugins:
-  sintaxe, configurações e exemplos de uso.
-source_hash: 03a7c058f04e398e
-translated_at: '2026-10-16T21:01:36.000Z'
+  Lista de comandos de bloco do ExecutableBlocks e ExecutableItems: AROUND,
+  MINEINCUBE, VEIN_BREAKER, SETBLOCK e outros, com configurações e exemplos.
+source_hash: b9677d85e164ca24
+translated_at: '2026-11-13T18:16:08.229Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import LinkPreview from '@site/src/components/LinkPreview';
 
-# Comandos de Bloco
+# Comandos de bloco
 
 :::tip
-Compatibilidade "Multi-world" para os comandos vanilla.
+Compatibilidade "multi-world" para os comandos vanilla.
 
 `execute in <<NAME_OF_YOUR_WORLD>> run ...`
 
-Exemplo, você quer summonar um Zombie no mundo SsomarWorld:
+Exemplo: você quer invocar um Zombie no mundo SsomarWorld:
 
 `execute in <<SsomarWorld>> run summon zombie 100 50 100`
 
@@ -29,16 +29,16 @@ Exemplo com um placeholder:
 :::
 
 :::info
-Habilite **HIDE USAGE** ao usar um número grande em **MINEINCUBE**, pois isso pode reduzir o lag que normalmente acontece bastante quando você usa `MINEINCUBE 8` por exemplo
+Ative **HIDE USAGE** ao usar um número grande em **MINEINCUBE**, pois isso pode reduzir o lag que costuma acontecer bastante quando você usa `MINEINCUBE 8`, por exemplo
 :::
 
 ## Comandos personalizados
 
-_Ordenados em ordem alfabética_
+_Em ordem alfabética_
 
-### &lt;+&gt; (Conector de Comandos Around)
+### &lt;+&gt; (Around Command Connector)
 
-* Info: Permite adicionar mais comandos em uma única linha de comando. Funcionará bem apenas com `AROUND` e `MOB_AROUND`.
+* Info: Permite adicionar mais comandos em uma única linha de comando. Só funcionará bem com `AROUND` e `MOB_AROUND`.
 * Exemplo: 
 
 ```text
@@ -51,32 +51,38 @@ _Ordenados em ordem alfabética_
 
 ### AROUND
 
-* Info: Visa jogadores em um raio específico e faz com que eles executem comandos
+* Info: Seleciona jogadores em um raio específico e faz com que executem comandos
 * Configurações do comando
-    * `{distance}`: Até que distância em raio o comando vai selecionar jogadores
-    * `{affectThePlayerThatActivatesTheActivator}`: true/false. Se true, não afetará quem invocou.
-      * Exemplo de situação: Quando você executa o ativador de um ExecutableItem e esse ativador suporta comandos de bloco,
-      ele vai ignorar a pessoa que ativou o ativador. Porém, se essa opção for false, afetará você também.
-    * `{throughBlocks}`: vai afetar ou não os mobs que estão atrás de blocos
+    * `{distance}`: Até que distância, em raio, o comando selecionará jogadores
+    * `{affectThePlayerThatActivatesTheActivator}`: true/false. Se true, não afetará quem lançou o comando.
+      * Exemplo de situação: quando você executa o ativador de um ExecutableItem e esse ativador suporta comandos de bloco,
+      ele ignorará a pessoa que acionou o ativador. No entanto, se esta opção for false, ele afetará você também.
+    * `{throughBlocks}`: afeta ou não os mobs que estão atrás de blocos
     * `{limit}`: A quantidade de alvos que podem ser afetados
     * `{sort}`: Útil para a opção limit.
-    * NEAREST: Seleciona as entidades mais próximas da origem.
-    * RANDOM: Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
-    * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está em terreno selvagem (wilderness) ou na claim de quem invocou (contexto do plugin GriefPrevention) (será atualizado em breve para verificar com outros plugins de claim)
-    * `{command}`: O comando que os jogadores alvo irão executar
+    * NEAREST : Seleciona as entidades mais próximas da origem.
+    * RANDOM : Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
+    * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está na região selvagem ou no claim de quem lançou o comando (contexto do plugin GriefPrevention) (será atualizado em breve para verificar também com outros plugins de claim)
+    * `{command}`: O comando que os jogadores selecionados executarão
 * Exemplo:
 
 ```
 - AROUND 20 execute at %around_target% run summon lightning_bolt
 ```
 
-* Isso invoca um raio em jogadores em um raio de 20 blocos ao redor do bloco clicado.
+* Isso invoca um raio nos jogadores em um raio de 20 blocos ao redor do bloco clicado.
+
+:::info
+**Número de alvos:** `%around_target_count%` fornece o número de jogadores selecionados pelo comando. É o mesmo para todos os alvos e conta os alvos mantidos após `distance`, `affectThePlayerThatActivatesTheActivator`, `throughBlocks`, `regionCheck` e `limit`. Os `CONDITIONS(...)` verificados em cada alvo não são levados em conta. Aceita o atalho `+N` / `-N`: `%around_target_count%-1`.
+
+Exemplo: `AROUND 10 SEND_MESSAGE &e%around_target_count% players are around the block`
+:::
 
 #### Você pode adicionar condições ao comando AROUND
 
-* A condição se parece com AROUND \<distance> CONDITIONS(\<conditions>) \<command>
-* As condições funcionam com placeholders, mas precisam ser %::\_::% em vez de %\_%
-  * Por exemplo %::player\_health::%
+* A condição tem esta forma: AROUND \<distance> CONDITIONS(\<conditions>) \<command>
+* As condições funcionam com placeholders, mas precisam ser escritas como %::\_::% em vez de %\_%
+  * Por exemplo, %::player\_health::%
 * Para adicionar MAIS de 1 condição, use "&&" entre as condições
 * Exemplo:
 
@@ -85,13 +91,13 @@ _Ordenados em ordem alfabética_
 ```
 
 :::info
-Tenha em mente que a parte CONDITIONS() interpreta os placeholders nela usando o jogador selecionado pelo comando AROUND. Então o que realmente aconteceu nos placeholders acima é que ele verifica se a vida do alvo é maior que 10 e se o jogador selecionado pelo comando AROUND se chama "2Ssomar"
+Tenha em mente que a parte CONDITIONS() processa os placeholders nela com o jogador selecionado pelo comando AROUND. Portanto, o que realmente aconteceu nos placeholders acima é que ele verifica se a vida do alvo é maior que 10 e se o jogador selecionado pelo comando AROUND se chama "2Ssomar"
 :::
 
 ### APPLY\_BONEMEAL
 
-* Info: Aplica o mesmo efeito que acontece quando um jogador usa farinha de osso em um bloco (cultivo)
-* Sem configuração de comando
+* Info: Aplica o mesmo efeito que acontece quando um jogador usa farinha de osso em um bloco (plantação)
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```yaml
@@ -101,7 +107,7 @@ Tenha em mente que a parte CONDITIONS() interpreta os placeholders nela usando o
 ### BREAK
 
 * Info: Quebra o bloco alvo
-* Sem configuração de comando
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -110,10 +116,10 @@ Tenha em mente que a parte CONDITIONS() interpreta os placeholders nela usando o
 
 ### CONTENT\_ADD
 
-* Info: Adiciona um item em um container
+* Info: Adiciona um item em um contêiner
 * Configurações do comando
   * \{Item\}: Item a adicionar
-  * \[Amount]: Quantidade a adicionar (padrão é 1)
+  * \[Amount]: Quantidade a adicionar (o padrão é 1)
 * Exemplo:
 
 ```
@@ -124,8 +130,8 @@ Tenha em mente que a parte CONDITIONS() interpreta os placeholders nela usando o
 
 ### CONTENT\_CLEAR
 
-* Info: Limpa um container
-* Sem configuração de comando
+* Info: Esvazia um contêiner
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -134,10 +140,10 @@ Tenha em mente que a parte CONDITIONS() interpreta os placeholders nela usando o
 
 ### CONTENT\_REMOVE
 
-* Info: Remove um item de um container
+* Info: Remove um item de um contêiner
 * Configurações do comando
   * \{Item\}: Item a remover
-  * \[Amount]: Quantidade a remover (padrão é 1)
+  * \[Amount]: Quantidade a remover (o padrão é 1)
 * Exemplo:
 
 ```
@@ -145,7 +151,7 @@ Tenha em mente que a parte CONDITIONS() interpreta os placeholders nela usando o
 ```
 
 :::info
-Não removerá ExecutableItems se o material corresponder. A única forma seria especificando com EXECUTABLEITEMS:`{id}`
+Ele não removerá ExecutableItems se o material corresponder. A única forma seria especificando com EXECUTABLEITEMS:`{id}`
 :::
 
 ### CONSOLEMESSAGE
@@ -161,7 +167,7 @@ Não removerá ExecutableItems se o material corresponder. A única forma seria 
 
 ### CHANGE\_BLOCK\_TYPE
 
-* Info: Muda o tipo do bloco selecionado pelo ativador
+* Info: Altera o tipo do bloco selecionado pelo ativador
 * Configuração do comando
 * Exemplo:
 
@@ -179,7 +185,7 @@ Funciona com ItemsAdder
 
 ### CROPS\_GROWTH\_BOOST
 
-* Info: Acelera o crescimento dos cultivos ao redor do bloco
+* Info: Acelera o crescimento das plantações ao redor do bloco
 * Comando: CROPS\_GROWTH\_BOOST \{radius\} \{delay between two growths in ticks\} \{total duration in ticks\} \{chance 0-100\}
 * Exemplo:
 
@@ -189,13 +195,13 @@ Funciona com ItemsAdder
 
 ### DROPEXECUTABLEITEM
 
-* Info: Dropa um Executable Item na localização do bloco
+* Info: Solta um Executable Item na localização do bloco
 * Configurações do comando
   * `{id}`: ID do item do ExecutableItem
-  * `{quantity}`: A quantidade do executable item que vai dropar
-  * `[owner]`: (Opcional) O dono do item dropado (IGN ou UUID do jogador)
+  * `{quantity}`: A quantidade do executable item que será solta
+  * `[owner]`: (Opcional) O dono do item solto (nome do jogador ou UUID)
   * `[itemdata]`: (Opcional) Configurações de dados do item contendo:
-    * `Usage`: Define o valor de uso
+    * `Usage`: Define o valor de usos
     * `Variables`: Define variáveis personalizadas (formato: `{key:value}`)
     * `Durability`: Define o valor de durabilidade
 * Exemplo:
@@ -207,10 +213,10 @@ Funciona com ItemsAdder
 
 ### DROPEXECUTABLEBLOCK
 
-* Info: Dropa um Executable Block na localização do bloco
+* Info: Solta um Executable Block na localização do bloco
 * Configurações do comando
   * `{id}`: ID do item do ExecutableBlock
-  * `{quantity}`: A quantidade do executable block que vai dropar
+  * `{quantity}`: A quantidade do executable block que será solta
 * Exemplo:
 
 ```
@@ -219,11 +225,11 @@ Funciona com ItemsAdder
 
 ### DRAIN IN CUBE
 
-* Info: Drena em um cubo de raio "r" a fonte de lava e/ou água
+* Info: Drena, em um cubo de raio "r", a fonte de lava e/ou água
 * Configurações do comando
-  * `{radius}`: O raio em blocos (9 é o limite), você pode ultrapassar o limite adicionando um * antes do seu raio (por sua conta e risco).
-  * `{drainType}`: LAVA ou WATER (não precisa se você quiser ambos)
-  * `[waterlogged]`: (Opcional) (padrão = false) Se for true e a água for drenada (`WATER` ou sem `{drainType}`), também seca os blocos alagados (waterlogged) do cubo (lajes, escadas, cercas...) e remove os blocos `KELP`, `KELP_PLANT`, `SEAGRASS`, `TALL_SEAGRASS` e `BUBBLE_COLUMN` sem dropar nada, como uma esponja faz. Só para servidores 1.13+.
+  * `{radius}`: O raio em blocos (9 é o limite). Você pode contornar o limite adicionando um * antes do seu raio (por sua conta e risco).
+  * `{drainType}`: LAVA ou WATER (não é necessário se você quiser ambos)
+  * `[waterlogged]`: (Opcional) (padrão = false) Se true e a água for drenada (`WATER` ou sem `{drainType}`), também seca os blocos com água (waterlogged) do cubo (lajes, escadas, cercas...) e remove os blocos `KELP`, `KELP_PLANT`, `SEAGRASS`, `TALL_SEAGRASS` e `BUBBLE_COLUMN` sem soltar nada, como uma esponja faz. Apenas para servidores 1.13+.
 * Exemplo:
 
 ```
@@ -233,12 +239,12 @@ DRAININCUBE 4 WATER waterlogged:true
 ```
 
 :::info
-Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a escorrer para a área drenada.
+Sem `waterlogged:true`, os blocos com água (waterlogged) mantêm a água e ela pode voltar a fluir para a área drenada.
 :::
 
 ### DROPITEM
 
-* Info: Dropa um item na localização do bloco
+* Info: Solta um item na localização do bloco
 * Configurações do comando
   * `{material}`: O tipo do item.
     
@@ -247,7 +253,7 @@ Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a e
   title="Material"
 />
   
-* `{quantity}`: A quantidade do item que vai dropar
+* `{quantity}`: A quantidade do item que será solta
 * Exemplo:
 
 ```
@@ -256,8 +262,8 @@ Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a e
 
 ### EXPLODE
 
-* Informação: Quebra o bloco que você visou e spawna um tnt aceso naquela localização
-* Sem configuração de comando
+* Informação: Quebra o bloco que você selecionou e faz surgir um TNT aceso nessa localização
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -266,14 +272,14 @@ Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a e
 
 ### FARMINCUBE
 
-* Informação: Quebra todos os cultivos em um raio determinado
+* Informação: Quebra todas as plantações em um determinado raio
 * Configurações do comando
-  * `{radius}`: Raio de quão grande é a área dos cultivos que você quer quebrar. **(O LIMITE É 9)**
-  * `{drop}`: (padrão = true) Se o bloco dropa loot ou não
-  * `{onlyMaxAge}`: (padrão = true) Só vai quebrar cultivos com idade máxima
-  * `{replant}`: (padrão = false) Se o cultivo será replantado ou não
-  * `{event}`: (padrão = false, true com `runActivatorOnBlocks:true`) Se o cultivo vai gerar o evento de quebra de bloco ou não.
-  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Só para o ExecutableItems. Se for true, os cultivos quebrados pelo comando também rodam o ativador que o lançou, veja [runActivatorOnBlocks](#runactivatoronblocks). Pode ser escrito em qualquer lugar do comando e liga o `{event}`, a não ser que o `{event}` esteja escrito como false.
+  * `{radius}`: Raio da área das plantações que você quer quebrar. **(O LIMITE É 9)**
+  * `{drop}`: (padrão = true) Se o bloco solta loot ou não
+  * `{onlyMaxAge}`: (padrão = true) Só quebrará plantações com a idade máxima
+  * `{replant}`: (padrão = false) Se a plantação será replantada ou não
+  * `{event}`: (padrão = false, true com `runActivatorOnBlocks:true`) Se a plantação gerará o evento de quebra de bloco ou não.
+  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Apenas ExecutableItems. Se true, as plantações quebradas pelo comando também executam o ativador que o lançou, veja [runActivatorOnBlocks](#runactivatoronblocks). Pode ser escrito em qualquer lugar do comando e ativa `{event}`, a menos que `{event}` seja escrito como false.
 * Exemplo:
 
 ```
@@ -283,9 +289,9 @@ Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a e
 
 ### FERTILIZEINCUBE
 
-* Info: Fertiliza os cultivos próximos em 1 idade, é como aplicar farinha de osso, mas faz a planta crescer 100% das vezes.
+* Info: Fertiliza as plantações próximas em 1 estágio de idade. É como aplicar farinha de osso, mas faz a planta crescer 100% das vezes.
 * Configuração do comando
-  * `{radius}`: Raio de quão grande é a área dos cultivos que você quer fertilizar **(O LIMITE É 9)**
+  * `{radius}`: Raio da área das plantações que você quer fertilizar **(O LIMITE É 9)**
 * Exemplo:
 
 ```
@@ -294,22 +300,22 @@ Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a e
 
 ### INLINE\_MINEINCUBE
 
-* Info: Destrói blocos em um raio em formato de retângulo. Cada bloco quebrado por este comando é contado como um evento de quebra de bloco do jogador.
+* Info: Destrói blocos em um raio em formato retangular. Cada bloco quebrado por este comando conta como um evento de quebra de bloco de jogador.
 * Configurações do comando
-  * `{radius}`: Raio de quão grande será o raio do cubo
-  * `{depth}`: Quão profundo o retângulo será.
-  * `{drop}`: Se o bloco dropa loot ou não
-  * `{createBBEvent}`: se o plugin vai gerar um blockBreakEvent para cada bloco quebrado pelo MINEINCUBE (padrão true)
+  * `{radius}`: Raio do tamanho do cubo
+  * `{depth}`: Qual será a profundidade do retângulo.
+  * `{drop}`: Se o bloco solta loot ou não
+  * `{createBBEvent}`: se o plugin gerará um blockBreakEvent para cada bloco quebrado pelo MINEINCUBE (padrão true)
   * `[direction]`: (Opcional) (padrão = a direção do jogador) Se você quiser forçar uma direção. 
     * Opções:
-      * `north/n/-z`: Norte
-      * `south/s/+z`: Sul
-      * `east/e/+x`: Leste
-      * `west/w/-x`: Oeste
-      * `up`: Cima
-      * `down`: Baixo
-      * `auto`: Usa a lógica de %player_direction_xz% da Player Expansion do PlaceholderAPI para decidir as direções `N/W/S/E`. Para a lógica de Cima/Baixo, direção `UP` se o pitch for `<=` -45; direção `DOWN` se o pitch `>=` 45. 
-  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco for fundível, ele dropa a versão fundida em vez disso. Caso contrário, dropará o bloco quebrado normalmente.
+      * `north/n/-z` : Norte
+      * `south/s/+z` : Sul
+      * `east/e/+x` : Leste
+      * `west/w/-x` : Oeste
+      * `up` : Cima
+      * `down` : Baixo
+      * `auto` : Usa a lógica de %player_direction_xz% da Player Expansion do PlaceholderAPI para decidir as direções `N/W/S/E`. Para a lógica de Cima/Baixo, direção `UP` se o pitch for `<=` -45; direção `DOWN` se o pitch for `>=` 45. 
+  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco puder ser fundido, solta a versão fundida em vez disso. Caso contrário, solta o bloco quebrado normalmente.
 * Exemplo:
 
 ```
@@ -318,17 +324,17 @@ Sem `waterlogged:true`, os blocos alagados mantêm a água e ela pode voltar a e
 ```
 
 :::info
-Suporta %player\_direction\_xz% do PlaceholderAPI - Player expansion\
+Suporta %player\_direction\_xz% da Player expansion do PlaceholderAPI\
 Exemplo: INLINE\_MINEINCUBE 1 1 true true %player\_direction\_xz%
 :::
 
 ### LAUNCH
 
-* Info: Faz com que o bloco alvo dispare projéteis
+* Info: Faz o bloco alvo disparar projéteis
 * Configurações do comando
-  * `{projectile}`: o tipo do projétil
+  * `{projectile}`: o tipo de projétil
   * `{speed}`: a velocidade do projétil
-  * `{despawnDelay}`: o tempo para desaparecer é em segundos (Padrão 10)
+  * `{despawnDelay}`: o atraso de despawn em segundos (padrão 10)
 * Exemplo:
 
 ```
@@ -336,21 +342,21 @@ Exemplo: INLINE\_MINEINCUBE 1 1 true true %player\_direction\_xz%
 ```
 
 :::info
-O bloco deve ser direcional para o LAUNCH disparar o projétil corretamente.
+O bloco precisa ser direcional para que o LAUNCH dispare o projétil corretamente.
 
 Exemplo: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedSculkSensor, Campfire, Chest, ChiseledBookshelf, Cocoa, CommandBlock, Comparator, CoralWallFan, DecoratedPot, Dispenser, Door, Dripleaf, EnderChest, EndPortalFrame, Furnace, Gate, Grindstone, Hopper, Ladder, Lectern, LightningRod, Observer, PinkPetals, Piston, PistonHead, RedstoneWallTorch, Repeater, SmallDripleaf, Stairs, Switch, TechnicalPiston, TrapDoor, TripwireHook, Vault, WallHangingSign, WallSign, WallSkull
 :::
 
 ### MINEINCUBE
 
-* Info: Destrói blocos em um raio em formato de cuboide. Cada bloco quebrado por este comando é contado como um evento de quebra de bloco do jogador.
+* Info: Destrói blocos em um raio em formato de paralelepípedo. Cada bloco quebrado por este comando conta como um evento de quebra de bloco de jogador.
 * Configurações do comando
   * `{radius}`: Raio do cubo de blocos que você quer quebrar **(O LIMITE É 9)**
-  * `{droploot}`: Se o bloco dropa loot ou não
-  * `{createEvent}`: se o plugin vai gerar um blockBreakEvent para cada bloco quebrado pelo MINEINCUBE (padrão true)
-  * `{offsetBreak}`: Se a área de blocos começa a quebrar a partir do bloco quebrado, ou a partir do "centro" para fazer a área realmente respeitar o "radius" selecionado. (padrão false)
-  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco for fundível, ele dropa a versão fundida em vez disso. Caso contrário, dropará o bloco quebrado normalmente.
-  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Só para o ExecutableItems. Se for true, os blocos quebrados pelo comando também rodam o ativador que o lançou, veja [runActivatorOnBlocks](#runactivatoronblocks). Mantenha `{createEvent}` em true.
+  * `{droploot}`: Se o bloco solta loot ou não
+  * `{createEvent}`: se o plugin gerará um blockBreakEvent para cada bloco quebrado pelo MINEINCUBE (padrão true)
+  * `{offsetBreak}`: Se a área de blocos começa a quebrar a partir do bloco quebrado ou a partir do "centro", para que a área funcione realmente com o "raio" selecionado. (padrão false)
+  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco puder ser fundido, solta a versão fundida em vez disso. Caso contrário, solta o bloco quebrado normalmente.
+  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Apenas ExecutableItems. Se true, os blocos quebrados pelo comando também executam o ativador que o lançou, veja [runActivatorOnBlocks](#runactivatoronblocks). Mantenha `{createEvent}` como true.
 * Exemplo:
 
 ```
@@ -361,12 +367,12 @@ Exemplo: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 
 ### MINEINSPHERE
 
-* Info: Destrói blocos em um raio em formato esférico. Cada bloco quebrado por este comando é contado como um evento de quebra de bloco do jogador.
+* Info: Destrói blocos em um raio em formato esférico. Cada bloco quebrado por este comando conta como um evento de quebra de bloco de jogador.
 * Configurações do comando
   * `{radius}`: Raio da esfera
-  * `{drop}`: Se o bloco dropa loot ou não
-  * `{create blockBreakEvent}`: se o plugin vai gerar um blockBreakEvent para cada bloco quebrado pelo comando
-  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco for fundível, ele dropa a versão fundida em vez disso. Caso contrário, dropará o bloco quebrado normalmente.
+  * `{drop}`: Se o bloco solta loot ou não
+  * `{create blockBreakEvent}`: se o plugin gerará um blockBreakEvent para cada bloco quebrado pelo comando
+  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco puder ser fundido, solta a versão fundida em vez disso. Caso contrário, solta o bloco quebrado normalmente.
 * Exemplo:
 
 ```
@@ -375,23 +381,23 @@ Exemplo: AmethystCluster, Barrel, Bed, Beehive, Bell, BigDripleaf, CalibratedScu
 
 ### MOB\_AROUND
 
-* Info: Visa entidades em um raio específico e faz com que elas executem comandos
+* Info: Seleciona entidades em um raio específico e faz com que executem comandos
 * Configurações do comando
-  * `{distance}`: Até que distância em raio o comando vai selecionar entidades
-  * `{displayMsgIfNoEntity}`: (true ou false) Para notificar o usuário do item se ele não conseguiu visar nenhum mob.
-    * **Defina como false para esconder a mensagem**
-  * `{throughBlocks}`: vai afetar ou não os mobs que estão atrás de blocos
-  * `{safeDistance}`: Se a distância entre o alvo e quem invocou for menor ou igual ao valor de safeDistance, então o alvo não será afetado.
-  * `{offsetYaw}`: A direção de yaw que você quer que seu offset tenha (independente do valor de yaw da origem)
-  * `{offsetPitch}`: A direção de pitch que você quer que seu offset tenha (independente do valor de yaw da origem)
-  * `{offsetDistance}`: Após calcular o offsetYaw e o offsetPitch, usando o valor disso, vai mover a posição/ponto central do comando AROUND a partir da localização xyz de origem.
+  * `{distance}`: Até que distância, em raio, o comando selecionará entidades
+  * `{displayMsgIfNoEntity}`: (true ou false) Para notificar o usuário do item caso não tenha conseguido selecionar nenhum mob.
+    * **Defina como false para ocultar a mensagem**
+  * `{throughBlocks}`: afeta ou não os mobs que estão atrás de blocos
+  * `{safeDistance}`: Se a distância entre o alvo e quem lançou for menor ou igual ao valor de safeDistance, o alvo não será afetado.
+  * `{offsetYaw}`: A direção de yaw que você quer para o seu offset (independente do valor de yaw da origem)
+  * `{offsetPitch}`: A direção de pitch que você quer para o seu offset (independente do valor de yaw da origem)
+  * `{offsetDistance}`: Depois de calcular offsetYaw e offsetPitch, usando o valor deste parâmetro, ele moverá a posição/ponto central do comando AROUND a partir da localização xyz da origem.
   * `{limit}`: A quantidade de alvos que podem ser afetados
   * `{sort}`: Útil para a opção limit.
-    * NEAREST: Seleciona as entidades mais próximas da origem.
-    * RANDOM: Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
-  * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está em terreno selvagem (wilderness) ou na claim de quem invocou (contexto do plugin GriefPrevention) (será atualizado em breve para verificar com outros plugins de claim)
-  * `{nonliving}`: true/false. Se true, vai visar outras entidades como Arrows e Armor Stands. Quaisquer bugs que ocorram ao executar comandos de entidade com esse argumento habilitado provavelmente serão ignorados devido ao scope creep.
-  * Você pode usar BLACKLIST ou WHITELIST de entidades adicionando uma dessas em qualquer lugar do comando:
+    * NEAREST : Seleciona as entidades mais próximas da origem.
+    * RANDOM : Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
+  * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está na região selvagem ou no claim de quem lançou o comando (contexto do plugin GriefPrevention) (será atualizado em breve para verificar também com outros plugins de claim)
+  * `{nonliving}`: true/false. Se true, ele selecionará outras entidades, como Arrows e Armor Stands. Quaisquer bugs que ocorram ao executar comandos de entidade com este argumento ativado provavelmente serão ignorados devido ao scope creep.
+  * Você pode usar BLACKLIST ou WHITELIST para entidades adicionando um destes em qualquer lugar do comando:
     * BLACKLIST(ZOMBIE,ARMOR\_STAND)
     * WHITELIST(CHICKEN)
 * Exemplo:
@@ -410,7 +416,7 @@ Para usar NBT de entidade no campo WHITELIST/BLACKLIST, você precisa instalar o
   title="NBTAPI Plugin"
 />
 
-Ele suporta NBT Tags, então você pode adicionar por exemplo algo como: `ZOMBIE{IsBaby:1}`
+Suporta NBT Tags, então você pode adicionar, por exemplo, algo como: `ZOMBIE{IsBaby:1}`
 
 <LinkPreview
   url="https://minecraft.fandom.com/wiki/Tutorials/Command_NBT_tags#Entities"
@@ -426,8 +432,8 @@ Ele suporta NBT Tags, então você pode adicionar por exemplo algo como: `ZOMBIE
 
 ### MOVE
 
-* Info: Move todas as entidades acima do bloco na direção do bloco (para entender melhor, é como uma esteira)
-* Sem configuração de comando
+* Info: Move todas as entidades acima do bloco na direção do bloco (para entender melhor, é como o que uma esteira faz)
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -440,9 +446,9 @@ Ele suporta NBT Tags, então você pode adicionar por exemplo algo como: `ZOMBIE
 
 ### MOB\_NEAREST
 
-* Info: Visa o mob mais próximo do jogador/alvo.
+* Info: Seleciona o mob mais próximo do jogador/alvo.
 * Configurações do comando
-    * `{max accepted distance}`: Distância máxima aceita que a "entity" pode estar.
+    * `{max accepted distance}`:  Distância máxima aceita em que a "entidade" pode estar.
     * `{command(s)}`: O comando que será executado
 * Exemplo:
 
@@ -454,9 +460,9 @@ Causa dano ao jogador mais próximo
 
 ### NEAREST
 
-* Info: Visa o jogador mais próximo do jogador/alvo.
+* Info: Seleciona o jogador mais próximo do jogador/alvo.
 * Configurações do comando
-    * `{max accepted distance}`: Distância máxima aceita que o "target" pode estar.
+    * `{max accepted distance}`: Distância máxima aceita em que o "alvo" pode estar.
     * `{command}`: O comando que será executado
 * Exemplo:
 
@@ -469,7 +475,7 @@ Causa dano ao jogador mais próximo
 ### OPENDOOR
 
 * Abre ou fecha um bloco que pode ser aberto.
-* Sem configuração de comando
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -478,7 +484,7 @@ Causa dano ao jogador mais próximo
 
 ### OPMESSAGE
 
-* Info: Envia uma mensagem para jogadores OP online e para o console
+* Info: Envia uma mensagem para os jogadores OP online e para o console
 * Configuração do comando
   * `{text}`: Texto a enviar
 * Exemplo:
@@ -489,18 +495,18 @@ Causa dano ao jogador mais próximo
 
 ### PARTICLE
 
-* Info: Spawna partículas na localização do bloco
+* Info: Faz surgir partículas na localização do bloco
 * Configurações do comando
-  * `{type}`: O tipo da partícula.
+  * `{type}`: O tipo de partícula.
 
 <LinkPreview
   url="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html"
   title="Particles"
 />
 
-* `{quantity}`: A quantidade de partículas que vão spawnar
-* `{offset}`: O raio da área onde as partículas podem spawnar na localização do bloco
-* `{speed}`: Quão rápidas ou grandes as partículas serão
+* `{quantity}`: A quantidade de partículas que surgirão
+* `{offset}`: O raio da área onde as partículas podem surgir na localização do bloco
+* `{speed}`: Quão rápidas ou quão grandes serão as partículas
 * Exemplo:
 
 ```
@@ -508,9 +514,9 @@ Causa dano ao jogador mais próximo
 ```
 
 ### PLACELIQUID
-* Info: Coloca líquido em uma localização. Se houver um cauldron naquela localização, ele será preenchido. Se houver um bloco que pode ser waterlogged, ele será waterlogged. Caso contrário, não faz nada
+* Info: Coloca líquido em uma localização. Se houver um caldeirão nessa localização, enche-o. Se houver um bloco que pode ficar com água (waterloggable), ele ficará com água. Caso contrário, não faz nada
 * Configurações do comando
-  * `{type}`: Tipo de líquido (Padrão: WATER). Opções: WATER/LAVA
+  * `{type}`: Tipo de líquido (padrão: WATER). Opções: WATER/LAVA
 * Exemplo:
 
 ```
@@ -520,16 +526,16 @@ Causa dano ao jogador mais próximo
 
 ### PLANT\_IN\_SQUARE
 
-* Info: Planta em quadrado respeitando o bloco selecionado.
+* Info: Planta em um quadrado respeitando o bloco selecionado.
 * Configurações do comando
   * `{radius}`: Raio do quadrado
-  * `{takeFromInv}`: Padrão true, pega as sementes do inventário do jogador, caso contrário gera as sementes
-  * `{acceptEI}`: Padrão false, aceita EI para as sementes
-  * `{cropType}`: padrão todas as sementes aceitas (pega sementes dependendo da ordem delas no inventário)
+  * `{takeFromInv}`: O padrão é true, pega as sementes do inventário do jogador; caso contrário, gera as sementes
+  * `{acceptEI}`: O padrão é false, aceita EI para as sementes
+  * `{cropType}`: por padrão todas as sementes são aceitas (pega as sementes de acordo com a ordem delas no inventário)
     * FARMLAND - WHEAT, CARROTS, BEETROOTS, POTATOES, SWEET\_BERRY\_BUSH, MELON\_STEM, PUMPKIN\_STEM, TORCHFLOWER\_CROP
     * SOUL SAND - NETHER\_WART
     * JUNGLE WOOD/LOG - COCOA
-  * `{isCube}`: Transforma a área de plantio de quadrado em cubo. Útil para plantio de cocoa em área
+  * `{isCube}`: Transforma a área de plantio de quadrado em cubo. Útil para o plantio de cacau em área
 * Exemplo:
 
 ```
@@ -539,7 +545,7 @@ Causa dano ao jogador mais próximo
 ### REMOVEBLOCK
 
 * Info: Remove o bloco, sem drops, apenas remove
-* Sem configuração de comando
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -548,10 +554,10 @@ Causa dano ao jogador mais próximo
 
 ### SELL\_CONTENT
 
-* Info: Vende todo o conteúdo de um chest / furnace / qualquer bloco que tenha um inventário.
+* Info: Vende todo o conteúdo de um baú / fornalha / todos os blocos que têm um inventário.
 * Configurações do comando
   * `{price_boost}`: Multiplicador float para os itens vendidos. Por exemplo, se o valor aqui for 2, os itens vendidos darão o dobro do preço de venda.
-  * `{deleteUnsellable}`: Valor booleano para definir se deve deletar os itens não vendáveis
+  * `{deleteUnsellable}`: Valor booleano para definir se os itens não vendáveis devem ser excluídos
 * Exemplo:
 
 ```
@@ -559,7 +565,7 @@ Causa dano ao jogador mais próximo
 ```
 
 :::info
-Requer ShopGUIPlus (prioridade) & Vault & preços do CMI
+Requer ShopGUIPlus (prioridade) e Vault e preços do CMI
 :::
 
 ### SETBLOCK
@@ -586,7 +592,7 @@ Requer ShopGUIPlus (prioridade) & Vault & preços do CMI
 ```
 
 :::warning
-Não substitui blocos que possuem dados extras (inventário, rotação, etc)
+Ele não substitui blocos que têm dados extras (inventário, rotação etc.)
 :::
 
 ### SET\_TEMP\_BLOCK\_POS
@@ -600,18 +606,18 @@ Não substitui blocos que possuem dados extras (inventário, rotação, etc)
 ```
 
 :::warning
-Não substitui blocos que possuem dados extras (inventário, rotação, etc)
+Ele não substitui blocos que têm dados extras (inventário, rotação etc.)
 :::
 
 ### SETBLOCKPOS
 
-* Info: Coloca blocos em uma posição determinada
+* Info: Define blocos em uma determinada posição
 * Configurações do comando
   * `{x}`: A posição X do bloco
   * `{y}`: A posição Y do bloco
   * `{z}`: A posição Z do bloco
-  * `{material}`: O tipo do bloco
-  * `{bypassWG}`: Se o WorldGuard vai interferir ou não na colocação do bloco
+  * `{material}`: O tipo de bloco
+  * `{bypassWG}`: Se o WorldGuard interferirá ou não na colocação do bloco
 * Exemplo:
 
 ```
@@ -626,9 +632,9 @@ Não substitui blocos que possuem dados extras (inventário, rotação, etc)
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z
-  * `{world}`: O mundo onde você quer que o Executable Block seja colocado
-  * `{replace}`: Se você quer substituir um bloco que existe naquela localização ou não
-  * `{bypassProtection}`: (Padrão false) Se você quer substituir o bloco mesmo que haja uma proteção de terreno de um plugin ali. 
+  * `{world}`: O mundo em que você quer que o Executable Block fique
+  * `{replace}`: Se você quer substituir ou não um bloco que exista nessa localização
+  * `{bypassProtection}`: (padrão false) Se você quer substituir o bloco mesmo que haja uma proteção de terreno de um plugin ali. 
   * `[ownerUUID]`: (Opcional) (padrão = sem dono) O uuid do jogador que seria o dono do eb
 * Exemplo:
 
@@ -639,7 +645,7 @@ Não substitui blocos que possuem dados extras (inventário, rotação, etc)
 ### SILK\_SPAWNER
 
 * Info: Coleta o spawner envolvido no evento
-* Sem configuração de comando
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -647,19 +653,19 @@ Não substitui blocos que possuem dados extras (inventário, rotação, etc)
 ```
 
 :::info
-O comando SILK\_SPAWNER é compatível apenas com os seguintes plugins:
+O comando SILK\_SPAWNER só é compatível com os seguintes plugins:
 
 * RoseStacker
 * WildStacker
 
-E claro, os spawners vanilla.
+E, claro, com os spawners vanilla.
 :::
 
 ### SMELT
 
-* Info: Funde o bloco alvo dropando o item fundido, por exemplo iron\_ore -> iron\_ingot, suporta fortune, se não puder ser fundido nada acontece. O loot do bloco não vai mudar.
+* Info: Funde o bloco alvo soltando o item fundido, por exemplo iron\_ore -> iron\_ingot. Suporta fortune; se não puder ser fundido, nada acontecerá. O loot do bloco não mudará.
 * Configuração do comando
-  * `[generateEvent]`: (Opcional) (padrão = true) Se ou não gera um evento de quebra de bloco
+  * `[generateEvent]`: (Opcional) (padrão = true) Se gera ou não um evento de quebra de bloco
 * Exemplo:
 
 ```
@@ -670,7 +676,7 @@ E claro, os spawners vanilla.
 ### STRIKELIGHTNING
 
 * Info: Lança um raio sem dano no bloco que executa o comando
-* Sem configuração de comando
+* Nenhuma configuração de comando
 * Exemplo:
 
 ```
@@ -679,12 +685,12 @@ E claro, os spawners vanilla.
 
 ### VEIN\_BREAKER
 
-* Info: Quebra blocos em veias com uma única quebra de bloco
+* Info: Quebra blocos em veios com uma única quebra de bloco
 * Configurações do comando
   * `{maxVeinSize}`: (padrão = 10) Quantidade máxima de blocos que o comando pode quebrar
   * `[createBBEvent]`: (Opcional) (padrão = true) Se gera ou não um evento de quebra de bloco
-  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco for fundível, ele dropa a versão fundida em vez disso. Caso contrário, dropará o bloco quebrado normalmente.
-  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Só para o ExecutableItems. Se for true, os blocos da veia também rodam o ativador que lançou o comando, veja [runActivatorOnBlocks](#runactivatoronblocks). Mantenha `createBBEvent` em true.
+  * `[smelt]`: (Opcional) (padrão = false) Usa a lógica do comando SMELT. Se o bloco puder ser fundido, solta a versão fundida em vez disso. Caso contrário, solta o bloco quebrado normalmente.
+  * `[runActivatorOnBlocks]`: (Opcional) (padrão = false) Apenas ExecutableItems. Se true, os blocos do veio também executam o ativador que lançou o comando, veja [runActivatorOnBlocks](#runactivatoronblocks). Mantenha `createBBEvent` como true.
 * Exemplo:
 
 ```
@@ -694,21 +700,21 @@ E claro, os spawners vanilla.
 ```
 
 :::info
-`triggerEvent` não é uma configuração do VEIN\_BREAKER. O antigo template do editor do jogo escrevia `VEIN_BREAKER maxVeinSize:10 triggerEvent:true`: a parte `triggerEvent:true` não tem nenhum efeito, você pode removê-la. Para escolher se o comando gera eventos de quebra de bloco, use `createBBEvent`.
+`triggerEvent` não é uma configuração do VEIN\_BREAKER. O antigo modelo do editor in-game escrevia `VEIN_BREAKER maxVeinSize:10 triggerEvent:true`: a parte `triggerEvent:true` não tem efeito, você pode removê-la. Para escolher se o comando gera eventos de quebra de bloco, use `createBBEvent`.
 :::
 
 #### runActivatorOnBlocks
 
-`runActivatorOnBlocks` é uma configuração do VEIN\_BREAKER, do [MINEINCUBE](#mineincube) e do [FARMINCUBE](#farmincube). Só o ExecutableItems a lê.
+`runActivatorOnBlocks` é uma configuração do VEIN\_BREAKER, do [MINEINCUBE](#mineincube) e do [FARMINCUBE](#farmincube). É lida apenas pelo ExecutableItems.
 
-* Sem ela (padrão `false`), os blocos quebrados pelo comando não rodam o ativador que contém o comando: é isso que evita um loop de quebras de blocos. Os outros ativadores dos seus itens (os que não têm um comando de quebra) continuam rodando para esses blocos.
-* Com `runActivatorOnBlocks:true`, cada bloco quebrado pelo comando também roda o ativador que o lançou, como se o jogador o tivesse quebrado: as condições dele, o `desactiveDrops` (sem drops vanilla), os outros comandos dele (por exemplo `DROPITEM`), o `usageModification` e as modificações de variáveis dele se aplicam a cada bloco. `cancelEvent: true` também se aplica: esses blocos então não são quebrados.
-* O comando de quebra não roda de novo para esses blocos, então não há loop.
-* Os cooldowns, os usos por dia e as funcionalidades obrigatórias (`requiredItems`, `requiredExecutableItems`, `requiredMoney`...) não são verificados para esses blocos: eles são verificados e aplicados uma única vez, para o bloco que rodou o ativador. Senão, um cooldown pararia a veia depois do primeiro bloco.
-* O ativador recebe esses blocos pelos eventos de quebra de bloco deles: mantenha `createBBEvent` (VEIN\_BREAKER) ou `{createEvent}` (MINEINCUBE) em `true`, o padrão deles. O FARMINCUBE gera os eventos sozinho com `runActivatorOnBlocks:true`, a não ser que o argumento `{event}` dele seja `false`.
-* Esses eventos são quebras de bloco, então só funciona quando o comando está em um ativador PLAYER\_BLOCK\_BREAK.
+* Sem ela (padrão `false`), os blocos quebrados pelo comando não executam o ativador que contém o comando: é isso que evita um loop de quebras de bloco. Os outros ativadores dos seus itens (os que não têm um comando de quebra) continuam sendo executados para esses blocos.
+* Com `runActivatorOnBlocks:true`, cada bloco quebrado pelo comando também executa o ativador que o lançou, como se o jogador o tivesse quebrado: suas condições, `desactiveDrops` (sem drops vanilla), seus outros comandos (por exemplo `DROPITEM`), seu `usageModification` e suas modificações de variáveis se aplicam a cada bloco. `cancelEvent: true` também se aplica: esses blocos então não são quebrados.
+* O comando de quebra não é executado novamente para esses blocos, portanto não há loop.
+* Os cooldowns, os usos por dia e os recursos exigidos (`requiredItems`, `requiredExecutableItems`, `requiredMoney`...) não são verificados para esses blocos: são verificados e consumidos uma única vez, para o bloco que executou o ativador. Caso contrário, um cooldown interromperia o veio após o primeiro bloco.
+* O ativador recebe esses blocos por meio dos seus eventos de quebra de bloco: mantenha `createBBEvent` (VEIN\_BREAKER) ou `{createEvent}` (MINEINCUBE) em `true`, que é o padrão deles. O FARMINCUBE gera os eventos por conta própria com `runActivatorOnBlocks:true`, a menos que seu argumento `{event}` seja `false`.
+* Esses eventos são quebras de bloco, portanto só funciona quando o comando está em um ativador PLAYER\_BLOCK\_BREAK.
 
-Exemplo: cada bloco da veia dropa 1 diamante em vez dos drops vanilla dele e custa 1 de usage.
+Exemplo: cada bloco do veio solta 1 diamante em vez dos seus drops vanilla e custa 1 uso.
 
 ```yaml
 activators:

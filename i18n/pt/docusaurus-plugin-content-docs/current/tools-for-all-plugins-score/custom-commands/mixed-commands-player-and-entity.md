@@ -1,17 +1,17 @@
 ---
 description: >-
-  Lista completa dos comandos mistos (playerCommands/entityCommands) do plugin
-  ExecutableItems, com configurações e exemplos de cada um.
-source_hash: 2835baee0899fa7f
-translated_at: '2026-10-03T10:30:15.540Z'
+  Lista de comandos mistos do SCore que funcionam para jogadores e entidades:
+  AROUND, DAMAGE, TELEPORT, FRONTDASH, PARTICLE e mais.
+source_hash: 8e288b53710ee67c
+translated_at: '2026-11-13T18:17:16.031Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
-# Comandos Mistos (Jogador e Entidade)
+# Comandos Mistos (Jogador & Entidade)
 
 :::info
-Esses comandos personalizados funcionam para Player mas também para Entity
+Estes comandos personalizados funcionam para jogadores, mas também para entidades
 
-Então em:
+Ou seja, em:
 * playerCommands
 * targetCommands
 * entityCommands
@@ -19,7 +19,7 @@ Então em:
 * ...
 :::
 
-_Ordenados por ordem alfabética_
+_Em ordem alfabética_
 
 ### ADD\_TEMPORARY\_ATTRIBUTE
 
@@ -28,7 +28,7 @@ _Ordenados por ordem alfabética_
     * `{attribute}` : [Lista de atributos](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/Attribute.html#field-summary)
     * `{amount}` : Valor double que o atributo temporário terá
     * `{operation}` : [Lista de operações](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/AttributeModifier.Operation.html#enum-constant-summary)
-    * `{time in ticks}` : Quantidade de tempo antes que o atributo expire
+    * `{time in ticks}` : Tempo antes de o atributo expirar
 * Exemplo:
   * `ADD_TEMPORARY_ATTRIBUTE GRAVITY 2 ADD_NUMBER 5`
   * `ADD_TEMPORARY_ATTRIBUTE attribute:SCALE amount:1.2 operation:ADD_NUMBER timeinticks:120`
@@ -56,7 +56,7 @@ activators:
     - ALL_PLAYERS SEND_MESSAGE %entity% has been hit by %player%
 ```
 
-Execute múltiplos comandos: Dê um item aleatório para todos os jogadores, todos os jogadores não terão o mesmo item.
+Executar vários comandos: dá um item aleatório a todos os jogadores, nem todos receberão o mesmo.
 
 ```yaml
 activators:
@@ -104,7 +104,7 @@ activators:
 
 ```
 
-Execute múltiplos playerCommands:
+Executar vários playerCommands:
 
 ```yaml
 activators:
@@ -129,24 +129,24 @@ Suporta blacklist e whitelist
 
 ### AROUND
 
-* Info: Tem como alvo jogadores em um raio específico e faz com que eles executem comandos
+* Info: Tem como alvo jogadores em um raio específico e faz com que executem comandos
 * Configurações do comando:
-  * `{distance}`: Até qual raio o comando vai selecionar jogadores (Padrão 3)
-  * `{displayMsgIfNoPlayer}`: (true ou false) Notifica o usuário do item se ele conseguiu ou não ter como alvo jogadores (Padrão true)
-  * `{throughBlocks}`: vai afetar ou não os jogadores que estão atrás de blocos (Padrão true)
-  * `{safeDistance}`: Se a distância entre o alvo e o lançador for menor ou igual ao valor de safeDistance, então o alvo não será afetado. (Padrão 0)
-  * `{offsetYaw}`: A direção de yaw que você quer que o seu offset tenha (Independente do valor de yaw de origem)
-  * `{offsetPitch}`: A direção de pitch que você quer que o seu offset tenha (Independente do valor de yaw de origem)
-  * `{offsetDistance}`: Depois de calcular o offsetYaw e o offsetPitch, usando o valor deste, ele vai mover a posição/ponto central do comando AROUND a partir da localização xyz de origem.
+  * `{distance}`: Até que distância, em raio, o comando selecionará jogadores (padrão 3)
+  * `{displayMsgIfNoPlayer}`: (true ou false) Para notificar o usuário do item se o comando conseguiu ou não ter jogadores como alvo (padrão true)
+  * `{throughBlocks}`: Afetará ou não os jogadores que estão atrás de blocos (padrão true)
+  * `{safeDistance}`: Se a distância entre o alvo e quem lançou for menor ou igual ao valor de safeDistance, o alvo não será afetado. (padrão 0)
+  * `{offsetYaw}`: A direção yaw que você quer para o seu offset (independente do valor de yaw da origem)
+  * `{offsetPitch}`: A direção pitch que você quer para o seu offset (independente do valor de yaw da origem)
+  * `{offsetDistance}`: Depois de calcular offsetYaw e offsetPitch, usando o valor desta opção, ela moverá a posição/ponto central do comando AROUND a partir da localização xyz da origem.
   * `{limit}`: A quantidade de alvos que podem ser afetados 
-  * `{sort}`: Útil para a opção de limit. 
+  * `{sort}`: Útil para a opção limit. 
     * NEAREST : Seleciona as entidades mais próximas da origem.
     * RANDOM : Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
-  * `{regionCheck}`: true/false. Se true, o comando AROUND vai verificar se o alvo está na natureza selvagem ou na claim do invocador (Contexto do plugin GriefPrevention) (Será atualizado em breve para ser verificado com outros plugins de claim)
+  * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está na área selvagem ou no claim de quem lançou (contexto do plugin GriefPrevention) (em breve será atualizado para verificar com outros plugins de claim)
   * `{commands}`: Os comandos que serão executados para os jogadores alvo.
 
 :::tip
-Você pode adicionar **múltiplos comandos**! Use o separador `<+>`
+Você pode adicionar **vários comandos**! Use o separador `<+>`
 
 Exemplo: `SEND_MESSAGE &cYou will be damaged in 5 seconds <+> DELAY 5 <+> DAMAGE 5`
 :::
@@ -157,9 +157,15 @@ Exemplo: `SEND_MESSAGE &cYou will be damaged in 5 seconds <+> DELAY 5 <+> DAMAGE
 Exemplo: %around\_target%, %around\_target\_uuid%
 :::
 
+:::info
+**Número de alvos:** `%around_target_count%` fornece o número de jogadores selecionados pelo comando. É o mesmo para todos os alvos e conta os alvos mantidos após `distance`, `safeDistance`, `throughBlocks` e `regionCheck` e `limit`. As `CONDITIONS(...)` verificadas em cada alvo não são levadas em conta. Aceita o atalho `+N` / `-N`: `%around_target_count%-1`.
+
+Exemplo: `AROUND distance:10 displayMsgIfNoPlayer:false SEND_MESSAGE &eYou are one of the %around_target_count% players hit !`
+:::
+
 * Exemplos:
 
-Isso invoca um raio em jogadores em um raio de 20 blocos
+Isto invoca raios nos jogadores em um raio de 20 blocos
 
 ```yaml
 activators:
@@ -169,7 +175,7 @@ activators:
     - AROUND distance:20 displayMsgIfNoPlayer:false execute at %around_target% run summon lightning_bolt
 ```
 
-Envia uma mensagem para jogadores entre 5 e 10 blocos
+Envia uma mensagem aos jogadores entre 5 e 10 blocos
 
 ```yaml
 activators:
@@ -182,17 +188,17 @@ activators:
 :::warning
 Você pode aninhar AROUND com os comandos: AROUND, IF, NEAREST, ALL\_PLAYERS
 
-Se você fizer isso, o separador e os placeholders vão evoluir dependendo da etapa aninhada.
+Se fizer isso, o separador e os placeholders evoluirão de acordo com a etapa aninhada.
 
-separador do comando base: `<+>`
+separador do comando base : `<+>`
 
-primeiro comando aninhado: `<+::step1>`
+primeiro comando aninhado : `<+::step1>`
 
 ... : `<+::step2>`; , `<+::step3>`, ...
 
-placeholder base: %around\_target%
+placeholder base : %around\_target%
 
-primeiro comando aninhado: %around\_target::step1%
+primeiro comando aninhado : %around\_target::step1%
 
 ... : %around\_target::step2%, %around\_target::step3%, ...
 :::
@@ -224,7 +230,7 @@ activators:
 ```
 
 :::info
-Você pode adicionar **condições** com placeholders personalizados para ajustar os jogadores alvo
+Você pode adicionar **condições** de placeholders personalizadas para ajustar os jogadores alvo
 
 Formato:  AROUND \<settings> CONDITIONS(\<conditions>) \<command>
 
@@ -240,7 +246,7 @@ Formato das condições:  CONDITIONS(%::\<my\_placeholder\_name>::%\<comparator>
 
       \<value> o valor
 
- Você pode adicionar múltiplas condições usando o separador "&&"
+ Você pode adicionar várias condições usando o separador "&&"
 :::
 
 * Exemplos:
@@ -254,7 +260,7 @@ activators:
 ```
 
 :::info
-Tenha em mente que a parte CONDITIONS() interpreta os placeholders nela com o jogador selecionado pelo comando AROUND. Então o que realmente acontece nos placeholders acima é que ele verifica se a vida do alvo é maior que 10 e se esse jogador que foi selecionado pelo comando AROUND se chama "2Ssomar"
+Tenha em mente que a parte CONDITIONS() interpreta os placeholders contidos nela com o jogador selecionado pelo comando AROUND. Portanto, o que realmente aconteceu nos placeholders acima é que ele verifica se a vida do alvo é maior que 10 e se o jogador selecionado pelo comando AROUND se chama "2Ssomar"
 :::
 
 ```yaml
@@ -274,17 +280,17 @@ activators:
 ```
 
 :::info
-Placeholders que vêm de plugins como ExecutableItems, ExecutableBlocks não serão interpretados pelo jogador afetado pelo comando AROUND.
+Placeholders vindos de plugins como ExecutableItems e ExecutableBlocks não serão interpretados pelo jogador afetado pelo comando AROUND.
 
-Por exemplo, com ExecutableBlocks, CONDITIONS(%var\_faction%=%::factionsuuid\_faction\_name::%) funciona verificando se o valor da variável de facção do bloco é igual à facção do jogador alvo\
-Fonte do Placeholder: [PlaceholderAPI](https://factions.support/placeholderapi/))
+Por exemplo, com ExecutableBlocks, CONDITIONS(%var\_faction%=%::factionsuuid\_faction\_name::%) funciona verificando se o valor da variável factions do bloco é igual à facção do jogador alvo\
+Fonte do placeholder: [PlaceholderAPI](https://factions.support/placeholderapi/))
 :::
 
 ### BACK\_DASH
 
-* Info: Lança o jogador/alvo na direção oposta de onde ele está olhando **(VOCÊ NÃO PODE SER LANÇADO NO AR)**
+* Info: Lança o jogador/alvo na direção oposta àquela para a qual está olhando **(VOCÊ NÃO PODE SER LANÇADO NO AR)**
 * Configuração do comando:
-  * `{amount}`: O valor de quão forte será o lançamento
+  * `{amount}`: O valor da força do lançamento
 * Exemplo:
 
 ```yaml
@@ -307,7 +313,7 @@ activators:
 
 * Info: Queima o jogador/alvo
 * Configuração do comando:
- * `{timeinsecs}`: Tempo de queima em segundos
+ * `{timeinsecs}`: Tempo de queimadura em segundos
 * Exemplo:
 
 ```yaml
@@ -328,9 +334,9 @@ activators:
 
 ### CONSOLE\_MESSAGE
 
-* Info: Envia uma mensagem para o console
+* Info: Envia uma mensagem ao console
 * Configuração do comando:
-  * `{text}`: Texto a ser enviado ao console
+  * `{text}`: Texto a enviar ao console
 * Exemplo:
 
 ```yaml
@@ -353,7 +359,7 @@ activators:
 
 * Info: Copia os efeitos do alvo
 * Configuração do comando:
-  * `[limitDuration]`: (Opcional) (padrão = sem limite) significa que se o alvo tiver, por exemplo, 3 minutos de efeito de veneno, se você limitar a 5 segundos, você receberá apenas um efeito de veneno de 5 segundos
+  * `[limitDuration]`: (Opcional) (padrão = sem limite) significa que, se o alvo tem, por exemplo, 3 minutos de efeito de veneno e você limitar a 5 segundos, você receberá apenas um efeito de veneno de 5 segundos
 * Exemplo:
 
 ```yaml
@@ -379,7 +385,7 @@ activators:
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z
-  * `{fallDamage}`: true ou false. Se o jogador vai receber dano de queda ou não depois de ser lançado por isso.
+  * `{fallDamage}`: true ou false. Define se o jogador sofrerá dano de queda ou não depois de ser lançado por ele.
 * Exemplo:
 
 ```yaml
@@ -398,9 +404,9 @@ activators:
     - CUSTOMDASH1 %entity_x% %entity_y% %entity_z% true # This will dash up the entity
 ```
 
-Se você tiver ativadores relacionados entre dois tipos de alvos, então você pode fazer
+Se você tem ativadores relacionados entre dois tipos de alvos, pode fazer
 
-* Exemplo 1 | Instância de player - entity | Impulsiona o jogador em direção à entidade
+* Exemplo 1 | Instância de jogador - entidade | Lança o jogador em direção à entidade
 
 ```yaml
 activators:
@@ -411,7 +417,7 @@ activators:
     entityCommands: []
 ```
 
-* Exemplo 2 | Instância de player - entity | Impulsiona a entidade em direção ao jogador
+* Exemplo 2 | Instância de jogador - entidade | Lança a entidade em direção ao jogador
 
 ```yaml
 activators:
@@ -422,7 +428,7 @@ activators:
     - CUSTOMDASH1 %player_x% %player_y% %player_z% true
 ```
 
-* Exemplo 3 | Instância de player - block | Impulsiona o jogador em direção ao bloco
+* Exemplo 3 | Instância de jogador - bloco | Lança o jogador em direção ao bloco
 
 ```yaml
 activators:
@@ -433,9 +439,9 @@ activators:
     blockCommands: []
 ```
 
-Você pode aumentar a força do comando executando o comando várias vezes (mas não no mesmo tick, elas devem ser diferenciadas no tempo, caso contrário não vai fazer sentido já que você estaria impulsionando o jogador da mesma posição contra o mesmo local), exemplos:
+Você pode aumentar a força do comando executando-o várias vezes (mas não no mesmo tick, as execuções precisam ser diferenciadas no tempo, senão não fará sentido, já que você estaria lançando o jogador da mesma posição em direção à localização), exemplos:
 
-* Executando manualmente várias vezes
+* Executando-o várias vezes manualmente
 
 ```yaml
 activators:
@@ -469,7 +475,7 @@ activators:
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z
-  * `{strength}`: Força do impulso
+  * `{strength}`: Força do dash
 * Exemplo:
 
 ```yaml
@@ -488,9 +494,9 @@ activators:
     - CUSTOMDASH2 %entity_x% %entity_y% %entity_z% 5 # This will dash down the entity with strength 5
 ```
 
-Se você tiver ativadores relacionados entre dois tipos de alvos, então você pode fazer
+Se você tem ativadores relacionados entre dois tipos de alvos, pode fazer
 
-* Exemplo 1 | Instância de player - entity | Impulsiona o jogador para longe da entidade
+* Exemplo 1 | Instância de jogador - entidade | Lança o jogador para longe da entidade
 
 ```yaml
 activators:
@@ -501,7 +507,7 @@ activators:
     entityCommands: []
 ```
 
-* Exemplo 2 | Instância de player - entity | Impulsiona a entidade para longe do jogador
+* Exemplo 2 | Instância de jogador - entidade | Lança a entidade para longe do jogador
 
 ```yaml
 activators:
@@ -512,7 +518,7 @@ activators:
     - CUSTOMDASH1 %player_x% %player_y% %player_z% 5
 ```
 
-* Exemplo 3 | Instância de player - block | Impulsiona o jogador para longe do bloco
+* Exemplo 3 | Instância de jogador - bloco | Lança o jogador para longe do bloco
 
 ```yaml
 activators:
@@ -525,11 +531,11 @@ activators:
 
 ### CUSTOMDASH3
 
-* Info: Impulsiona o alvo seguindo uma função matemática específica
+* Info: Lança o alvo seguindo uma função matemática específica
 * Configurações do comando:
   * `{function}`: A função matemática a seguir. [Site de calculadora de funções](https://www.geogebra.org/calculator)
   * `{max x value}`: Valor máximo de x da função
-  * `{front z}`: Se o impulso é para frente ou para trás
+  * `{front z}`: Se o dash é para frente ou para trás
 * Exemplo:
 
 ```yaml
@@ -550,15 +556,15 @@ activators:
 
 ### DAMAGE
 
-* Info: Causa dano ao jogador com uma quantidade específica. (O dano causado com a ajuda deste comando é contabilizado como dano de jogador)
-  * Este comando aciona os ativadores relacionados a dano de ExecutableItems e ExecutableEvents
-  *   O tipo de dano do spigot é ENTITY\_ATTACK se houver um jogador envolvido no ativador.
+* Info: Causa dano ao jogador com uma quantidade específica. (O dano causado com a ajuda deste comando é contado como dano de jogador)
+  * Este comando aciona os ativadores relacionados a dano do ExecutableItems e do ExecutableEvents
+  *   O tipo de dano do Spigot é ENTITY\_ATTACK se houver um jogador envolvido no ativador.
 
-      Caso contrário, o tipo de dano do spigot é CUSTOM
+      Caso contrário, o tipo de dano do Spigot é CUSTOM
 * Configurações do comando:
-  * `{amount}`: Quantidade de dano em pontos de vida (Não em corações)
-  * `{amplified If Strength Effect}`: true ou false, Força 1 -> + 1,5 de dano, ....
-  * `{amplified with attack attribute}`: true ou false, vai obter a soma de todos os seus atributos ATTACK\_DAMAGE existentes que tenham o operador `MULTIPLY_SCALAR_1`, multiplicar com base no seu dano de ataque atual (incluindo o efeito de força se ativado)
+  * `{amount}`: Quantidade de dano em pontos de vida (não em corações)
+  * `{amplified If Strength Effect}`: true ou false, Força 1 -> + 1.5 de dano, ....
+  * `{amplified with attack attribute}`: true ou false, obterá a soma de todos os seus atributos ATTACK_DAMAGE existentes que têm o operador `MULTIPLY_SCALAR_1`, multiplicada com base no seu dano de ataque atual (incluindo o efeito de força, se ativado)
   <br/>
   :::info
   Fórmula:  
@@ -600,24 +606,24 @@ activators:
 ```
 
 :::info
-Para aplicar dano real você pode usar:\
+Para aplicar dano real, você pode usar:\
 \- 1.20.5++ use o comando /minecraft\:damage, por exemplo\
 minecraft\:damage %target% 10 by %player%\
 \
-\- 1.20.5-- use o comando REGAIN HEALTH, não é o ideal, mas é uma solução alternativa.
+\- 1.20.5-- use o comando REGAIN HEALTH, não é o melhor, mas é uma alternativa.
 :::
 
 ### DAMAGE\_NO\_KNOCKBACK
 
-* Info: Causa dano ao jogador com uma quantidade específica sem aplicar knockback. (O dano causado com a ajuda deste comando não é contabilizado como dano de jogador e é mais um dano indireto)
-  * Este comando aciona os ativadores relacionados a dano de ExecutableItems e ExecutableEvents
-  *   O tipo de dano do spigot é ENTITY\_ATTACK se houver um jogador envolvido no ativador.
+* Info: Causa dano ao jogador com uma quantidade específica sem aplicar knockback. (O dano causado com a ajuda deste comando não é contado como dano de jogador, e sim mais como um dano indireto)
+  * Este comando aciona os ativadores relacionados a dano do ExecutableItems e do ExecutableEvents
+  *   O tipo de dano do Spigot é ENTITY\_ATTACK se houver um jogador envolvido no ativador.
 
-      Caso contrário, o tipo de dano do spigot é CUSTOM
+      Caso contrário, o tipo de dano do Spigot é CUSTOM
 * Configurações do comando:
-  * `{amount}`: Quantidade de dano em pontos de vida (Não em corações)
-  * `{amplified If Strength Effect}`: true ou false, Força 1 -> + 1,5 de dano, ....
-  * `{amplified with attack attribute}`: true ou false, jogador com 500% de dano bônus, o comando vai fazer 5 x "\<damage>".
+  * `{amount}`: Quantidade de dano em pontos de vida (não em corações)
+  * `{amplified If Strength Effect}`: true ou false, Força 1 -> + 1.5 de dano, ....
+  * `{amplified with attack attribute}`: true ou false, jogador com 500% de dano bônus, o comando causará 5 x "\<damage>".
 * Exemplo:
 
 ```yaml
@@ -654,14 +660,14 @@ activators:
 
 ### DAMAGE\_BOOST
 
-* Info: Permite que você dê a si mesmo um boost de dano personalizado
-  * Este comando também aumenta o dano de comandos personalizados, por exemplo (DAMAGE, DAMAGE\_NO\_KNOCKBACK)
-  * Este comando não aumenta o dano de projéteis
+* Info: Permite que você se dê um bônus de dano personalizado
+  * Este comando aumenta também o dano dos comandos personalizados, por exemplo (DAMAGE, DAMAGE\_NO\_KNOCKBACK)
+  * Este comando não aumenta o dano dos projéteis
 * Configurações do comando:
-  * `{modification in percentage example 100}`: Quantidade do boost. Exemplo abaixo:
+  * `{modification in percentage example 100}`: Quantidade do bônus. Exemplo abaixo:
     * 50 = Faz você causar +50% de dano
     * -80 = Faz você causar -80% de dano
-  * `{timeinticks}`: A duração do boost de dano personalizado
+  * `{timeinticks}`: A duração do bônus de dano personalizado
 * Exemplo: (O comando abaixo dá a você +50% de dano causado por 10s)
 
 ```yaml
@@ -681,7 +687,7 @@ activators:
 
 ```
 
-Este comando pode ser usado várias vezes e o boost vai se acumular, neste exemplo você vai ver que em \[0-10] segundos o jogador vai aplicar 50% mais dano, depois em \[10-20] segundos vai aplicar 100% mais dano e então em \[20-30] segundos de 50% mais dano, devido ao fato de que em \[10-20] dois comandos de DAMAGE\_BOOST foram acumulados.
+Este comando pode ser usado várias vezes e o bônus será acumulado. Neste exemplo, você verá que de \[0-10] segundos o jogador causará 50% a mais de dano, depois de \[10-20] segundos causará 100% a mais de dano e depois de \[20-30] segundos 50% a mais de dano, porque em \[10-20] dois comandos DAMAGE\_BOOST estavam acumulados.
 
 ```yaml
 activators:
@@ -695,9 +701,9 @@ activators:
 
 ### DAMAGE\_RESISTANCE
 
-* Info: Permite que você dê a si mesmo uma resistência a dano personalizada, dando a si mesmo magnificações de recebimento de dano personalizadas
+* Info: Permite que você se dê uma resistência a dano personalizada, aplicando ampliações personalizadas ao dano recebido
 * Configurações do comando:
-  * `{modification in percentage example 100}`: Quantidade da magnificação. Exemplo abaixo:
+  * `{modification in percentage example 100}`: Quantidade da ampliação. Exemplo abaixo:
     * 50 = Faz você receber +50% de dano\
       -80 = Faz você receber -80% de dano
   * `{timeinticks}`: A duração da resistência a dano personalizada
@@ -709,7 +715,10 @@ activators:
 
 ### EQUIPMENT\_VISUAL\_REPLACE
 
-* Info: Substitui VISUALMENTE (não há risco de perder itens) um slot de equipamento com um material específico
+* Info: Substitui VISUALMENTE (sem risco de perder itens) um slot de equipamento por um certo material
+  * Requer o [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/).
+  * O visual é mostrado aos jogadores que veem o jogador / entidade (e ao próprio jogador). Um jogador que se aproxima depois também o vê.
+  * Uma entidade tem um visual por slot: um novo EQUIPMENT\_VISUAL\_REPLACE no mesmo slot substitui o anterior, com o seu novo tempo. O visual termina após `{timeinticks}`, com EQUIPMENT\_VISUAL\_CANCEL, ou quando a entidade morre, desaparece ou o jogador sai.
 * Configurações do comando:
   * `{EquipmentSlot}`: O slot
     * Opções:
@@ -719,8 +728,8 @@ activators:
       * 37
       * 38
       * 39
-  * `{material}`: O id do item do material que você quer substituir ou o id de EI
-  * `{amount}`: A quantidade da stack 
+  * `{material}`: O id do item do material pelo qual você quer substituir ou o id do EI
+  * `{amount}`: A quantidade da pilha 
   * `{timeinticks}`: Por quanto tempo o disfarce vai durar. (20 ticks = 1 seg)
 *   Exemplo: 
 
@@ -735,6 +744,7 @@ activators:
 ### EQUIPMENT\_VISUAL\_CANCEL
 
 * Info: Cancela o comando EQUIPMENT\_VISUAL\_REPLACE
+  * Funciona em jogadores e em mobs: os jogadores que veem a entidade recebem de volta o item real neste slot.
 * Configuração do comando:
   * `{EquipmentSlot}`: O slot
     * Opções:
@@ -753,12 +763,12 @@ activators:
 ### FORCE\_DROP
 
 * Aliases: `FORCEDROP`, `DROPSPECIFICEI`
-* Info: Força o jogador/entidade a dropar um item. Suporta dois modos:
-  * **Modo slot**: dropa o item no slot de inventário especificado
-  * **Modo EI ID**: dropa todos os itens que correspondem ao ID de ExecutableItem fornecido do inventário (apenas jogador)
+* Info: Força o jogador/entidade a largar um item. Suporta dois modos:
+  * **Modo slot**: larga o item no slot de inventário especificado
+  * **Modo EI ID**: larga todos os itens do inventário que correspondem ao ID de ExecutableItem informado (apenas jogador)
 * Configurações do comando:
-  * `slot:`: número, -1 para a mão principal (padrão: -1). Veja a imagem de referência de slots abaixo.
-  * `ei_id:`: o ID do ExecutableItem a ser dropado (sobrepõe o modo slot quando fornecido)
+  * `slot:`: número, -1 para a mão principal (padrão: -1). Veja a imagem de referência dos slots abaixo.
+  * `ei_id:`: o ID do ExecutableItem a largar (substitui o modo slot quando informado)
 
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
 
@@ -777,11 +787,11 @@ activators:
 
 ### FRONTDASH
 
-* Info: Lança o jogador/alvo na direção de onde ele está olhando
+* Info: Lança o jogador/alvo na direção para a qual está olhando
 * Configurações do comando:
-  * `{number}`: O valor de quão forte será o lançamento
-  * `{custom_y}` : Para definir um boost vertical (eu recomendo que você defina um valor pequeno como 0,5 - 1 se você não quiser um salto grande.)
-  * `{falldamage}`: definido para ativar ou desativar o dano de queda
+  * `{number}`: O valor da força do lançamento
+  * `{custom_y}` : Para definir um impulso vertical (recomendo definir um valor pequeno, como 0.5 - 1, se você não quiser um pulo grande.)
+  * `{falldamage}`: defina para ativar ou desativar o dano de queda
 * Exemplo:
 
 ```yaml
@@ -790,7 +800,7 @@ activators:
 
 ### GLACIAL\_FREEZE
 
-* Info: Aplica o congelamento da neve do Minecraft 1.18
+* Info: Aplica o congelamento de neve do Minecraft 1.18
 * Configuração do comando:
  * `{time in ticks}`: Tempo do congelamento em ticks. (20 ticks = 1 seg)
 * Exemplo:
@@ -801,10 +811,10 @@ activators:
 
 ### GLOWING
 
-* Info: Aplica o efeito de brilho ao jogador
+* Info: Aplica brilho ao jogador
 * Configurações do comando:
   * `{time in ticks}`: Duração do brilho em ticks
-  * `{color}`: Qual cor o brilho terá. [Referência de cores](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Color.html)
+  * `{color}`: Qual será a cor do brilho. [Referência de cores](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Color.html)
 * Exemplo:
 
 ```yaml
@@ -813,25 +823,25 @@ activators:
 
 ### HITSCAN\_ENTITIES
 
-* Info: Permite executar um comando em uma certa direção em entidades
+* Info: Permite executar um comando em uma certa direção para entidades
 * Configurações do comando:
-  * `{range}`: até que distância uma entidade pode estar para ser alvo do comando HITSCAN
-  * `{radiusOfHitscan}`: Quão LARGO é o cilindro. É basicamente a diferença entre disparar uma bala e disparar uma bala de canhão.
-  * `{pitch}`: Em qual direção disparar, relativo ao pitch do jogador
-  * `{yaw}`: Mesma coisa que Pitch, mas com yaw
+  * `{range}`: a que distância uma entidade pode estar para ser alvo do comando HITSCAN
+  * `{radiusOfHitscan}`: Quão LARGO é o cilindro. É basicamente a diferença entre disparar uma bala e disparar uma bola de canhão.
+  * `{pitch}`: Em que direção disparar, relativa ao pitch do jogador
+  * `{yaw}`: A mesma coisa que o Pitch, mas com o yaw
   * `{leftRightShift}`:
-    * -5 = o hitscan COMEÇA a partir de 5 blocos à esquerda.
-    * 0 = Hitscan é centralizado onde o jogador está.
-    * 5 = hitscan COMEÇA a partir de 5 blocos à direita do jogador. 
-  * `{yShift}`: Mesmo que left,right, exceto com um eixo diferente. 
+    * -5 = o hitscan COMEÇA a 5 blocos à esquerda.
+    * 0 = o hitscan fica centralizado onde o jogador está.
+    * 5 = o hitscan COMEÇA a 5 blocos à direita do jogador. 
+  * `{yShift}`: Igual a esquerda/direita, mas em um eixo diferente. 
   * `{throughEntities}`: Booleano: Se o HITSCAN pode ou não atravessar entidades.
   * `{throughBlocks}`: Booleano: Se o HITSCAN pode ou não atravessar blocos.
   * `{limit}`: A quantidade de alvos que podem ser afetados
-  * `{sort}`: Útil para a opção de limit.
+  * `{sort}`: Útil para a opção limit.
     * NEAREST : Seleciona as entidades mais próximas da origem.
     * RANDOM : Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
-  * `{regionCheck}`: true/false. Se true, o comando AROUND vai verificar se o alvo está na natureza selvagem ou na claim do invocador (Contexto do plugin GriefPrevention) (Será atualizado em breve para ser verificado com outros plugins de claim)
-  * `{command(s)}`: O mesmo que os comandos AROUND, você pode digitar `command1 <+> command2` ... e usar o placeholder %around\_target%
+  * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está na área selvagem ou no claim de quem lançou (contexto do plugin GriefPrevention) (em breve será atualizado para verificar com outros plugins de claim)
+  * `{command(s)}`: O mesmo que nos comandos AROUND, você pode digitar `command1 <+> command2` ... e usar o placeholder %around\_target%
 * Exemplo:
 
 ```yaml
@@ -839,32 +849,32 @@ HITSCAN_ENTITIES range:5 radius:0 pitch:0 yaw:0 leftRightShift:0 yShift:0 throug
 ```
 
 :::info
-Os comandos após `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em **cada entidade atingida**, como entity commands: `REGAIN_HEALTH 4` cura a entidade atingida, não o invocador. Para agir sobre o invocador, use um comando vanilla com `%player%`, por exemplo `HITSCAN_ENTITIES range:8 DAMAGE 4 <+> effect give %player% instant_health 1 0 true`.
+Os comandos depois de `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em **cada entidade atingida**, como os entity commands: `REGAIN_HEALTH 4` cura a entidade atingida, não quem lançou. Para agir em quem lançou, use um comando vanilla com `%player%`, por exemplo `HITSCAN_ENTITIES range:8 DAMAGE 4 <+> effect give %player% instant_health 1 0 true`.
 :::
 * Imagem para entender:
 ![](https://media.ssomar.com/m/docs-img-hitscan-entities.png)
 
 ### HITSCAN\_PLAYERS
 
-* Info: Permite executar um comando em uma certa direção em jogadores
+* Info: Permite executar um comando em uma certa direção para jogadores
 * Configurações do comando:
-  * `{range}`: até que distância uma entidade pode estar para ser alvo do comando HITSCAN
-  * `{radiusOfHitscan}`: Quão LARGO é o cilindro. É basicamente a diferença entre disparar uma bala e disparar uma bala de canhão.
-  * `{pitch}`: Em qual direção disparar, relativo ao pitch do jogador
-  * `{yaw}`: Mesma coisa que Pitch, mas com yaw
+  * `{range}`: a que distância uma entidade pode estar para ser alvo do comando HITSCAN
+  * `{radiusOfHitscan}`: Quão LARGO é o cilindro. É basicamente a diferença entre disparar uma bala e disparar uma bola de canhão.
+  * `{pitch}`: Em que direção disparar, relativa ao pitch do jogador
+  * `{yaw}`: A mesma coisa que o Pitch, mas com o yaw
   * `{leftRightShift}`:
-    * -5 = o hitscan COMEÇA a partir de 5 blocos à esquerda.
-    * 0 = Hitscan é centralizado onde o jogador está.
-    * 5 = hitscan COMEÇA a partir de 5 blocos à direita do jogador.
-  * `{yShift}`: Mesmo que left,right, exceto com um eixo diferente.
+    * -5 = o hitscan COMEÇA a 5 blocos à esquerda.
+    * 0 = o hitscan fica centralizado onde o jogador está.
+    * 5 = o hitscan COMEÇA a 5 blocos à direita do jogador.
+  * `{yShift}`: Igual a esquerda/direita, mas em um eixo diferente.
   * `{throughEntities}`: Booleano: Se o HITSCAN pode ou não atravessar entidades.
   * `{throughBlocks}`: Booleano: Se o HITSCAN pode ou não atravessar blocos.
   * `{limit}`: A quantidade de alvos que podem ser afetados
-  * `{sort}`: Útil para a opção de limit.
+  * `{sort}`: Útil para a opção limit.
     * NEAREST : Seleciona as entidades mais próximas da origem.
     * RANDOM : Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
-  * `{regionCheck}`: true/false. Se true, o comando AROUND vai verificar se o alvo está na natureza selvagem ou na claim do invocador (Contexto do plugin GriefPrevention) (Será atualizado em breve para ser verificado com outros plugins de claim)
-  * `{command(s)}`: O mesmo que os comandos AROUND, você pode digitar `command1 <+> command2` ... e usar o placeholder %around\_target%
+  * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está na área selvagem ou no claim de quem lançou (contexto do plugin GriefPrevention) (em breve será atualizado para verificar com outros plugins de claim)
+  * `{command(s)}`: O mesmo que nos comandos AROUND, você pode digitar `command1 <+> command2` ... e usar o placeholder %around\_target%
 * Exemplo:
 
 ```yaml
@@ -875,10 +885,10 @@ Os comandos após `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em
 
 ### INVULNERABILITY
 
-* Info: Torna o jogador invulnerável por um determinado tempo
+* Info: Torna o jogador invulnerável por um certo período de tempo
 * Configuração do comando:
  * `{ticks}`: Tempo da invulnerabilidade em ticks. (20 ticks = 1 seg)
-  * Suporta valores negativos para diminuir o tempo de invulnerabilidade, como o que ocorre após ser atingido.
+  * Suporta valores negativos para diminuir o tempo de invulnerabilidade, como a que ocorre depois de ser atingido.
 * Exemplo:
 
 ```yaml
@@ -887,10 +897,10 @@ Os comandos após `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em
 
 ### JUMP
 
-* Info: Lança o jogador para o ar
+* Info: Lança o jogador no ar
 * Configuração do comando:
-  * `{number}`: Quão forte será o lançamento
-  * `{fall damage}`: (Opcional) (padrão = false) Selecione se quer que o comando tenha dano de queda.
+  * `{number}`: A força do lançamento
+  * `{fall damage}`: (Opcional) (padrão = false) Selecione se quer que o comando cause dano de queda.
 * Exemplo:
 
 ```yaml
@@ -901,7 +911,7 @@ Os comandos após `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em
 
 * Info: Lança uma entidade na sua direção
 * Configurações do comando:
-  * `{entityType}`: Mob ID da entidade lançada (TUDO EM MAIÚSCULAS) [Lista de EntityType](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html)
+  * `{entityType}`: ID do mob da entidade lançada (TUDO EM MAIÚSCULAS) [Lista de EntityType](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html)
   * `{speed}`: (número, Double) Define a velocidade da entidade
   * `[angle rotation y]`: (apenas para 1.14 e +) (Opcional) (padrão = 0) (em graus) Define a direção para onde a entidade será lançada
 * Exemplo:
@@ -910,7 +920,7 @@ Os comandos após `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em
 - LAUNCH_ENTITY PIG 2
 ```
 
-* Exemplo para fazer tiro triplo:
+* Exemplo para fazer um tiro triplo:
 
 ```yaml
 - LAUNCH_ENTITY PIG 2
@@ -925,10 +935,10 @@ Os comandos após `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em
   * `{number}`: Dano causado aos alvos (padrão: 10)
   * `{damage_type}`: Tipo de dano infligido (padrão: PHYSICAL)
     * Exemplo: MAGIC, PHYSICAL, WEAPON, SKILL, PROJECTILE, UNARMED, ON\_HIT, MINION, DOT;
-  * `{knockback}`: true/false se aplica knockback no alvo (padrão: false)
-  * `{element}`: Especifica que tipo de elemento é o ataque (padrão: FIRE)
+  * `{knockback}`: true/false, se aplica knockback ao alvo (padrão: false)
+  * `{element}`: Especifica de que tipo de elemento é o ataque (padrão: FIRE)
     * Referência: [Lista de elementos do MythicLib](https://gitlab.com/phoenix-dvpmt/mythiclib/-/blob/master/mythiclib-plugin/src/main/resources/default/elements.yml?ref_type=heads)
-  * `{crit}`: true/false se o `CRITICAL_STRIKE_POWER` do atacante é adicionado à equação do dano ou não (padrão: false)
+  * `{crit}`: true/false, se o `CRITICAL_STRIKE_POWER` do atacante é adicionado ou não à equação do dano (padrão: false)
     * Equação: `number * (number * (total critical_strike_power/100))`
 * Exemplo:
 
@@ -938,29 +948,29 @@ Os comandos após `HITSCAN_ENTITIES` (e depois de cada `<+>`) são executados em
 
 ### MOB\_AROUND
 
-* Info: Tem como alvo entidades em um raio específico e faz com que elas executem comandos
+* Info: Tem como alvo entidades em um raio específico e faz com que executem comandos
   * Entidades disponíveis -> [Lista de LivingEntity](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/LivingEntity.html)
 * Configurações do comando:
-  * `{distance}`: Até qual raio o comando vai selecionar entidades
-  * `{displayMsgIfNoEntity}`: (true ou false) Notifica o usuário do item se ele não conseguiu ter como alvo nenhum mob.
+  * `{distance}`: Até que distância, em raio, o comando selecionará entidades
+  * `{displayMsgIfNoEntity}`: (true ou false) Para notificar o usuário do item se o comando não conseguiu ter nenhum mob como alvo.
     * **Defina como false para ocultar a mensagem**
-  * `{throughBlocks}`: vai afetar ou não os mobs que estão atrás de blocos
-  * `{safeDistance}`: Se a distância entre o alvo e o lançador for menor ou igual ao valor de safeDistance, então o alvo não será afetado.
-  * `{offsetYaw}`: A direção de yaw que você quer que o seu offset tenha (Independente do valor de yaw de origem)
-  * `{offsetPitch}`: A direção de pitch que você quer que o seu offset tenha (Independente do valor de yaw de origem)
-  * `{offsetDistance}`: Depois de calcular o offsetYaw e o offsetPitch, usando o valor deste, ele vai mover a posição/ponto central do comando AROUND a partir da localização xyz de origem.
+  * `{throughBlocks}`: Afetará ou não os mobs que estão atrás de blocos
+  * `{safeDistance}`: Se a distância entre o alvo e quem lançou for menor ou igual ao valor de safeDistance, o alvo não será afetado.
+  * `{offsetYaw}`: A direção yaw que você quer para o seu offset (independente do valor de yaw da origem)
+  * `{offsetPitch}`: A direção pitch que você quer para o seu offset (independente do valor de yaw da origem)
+  * `{offsetDistance}`: Depois de calcular offsetYaw e offsetPitch, usando o valor desta opção, ela moverá a posição/ponto central do comando AROUND a partir da localização xyz da origem.
   * `{limit}`: A quantidade de alvos que podem ser afetados
-  * `{sort}`: Útil para a opção de limit.
+  * `{sort}`: Útil para a opção limit.
     * NEAREST : Seleciona as entidades mais próximas da origem.
     * RANDOM : Seleciona aleatoriamente qualquer entidade dentro do alcance do comando.
-  * `{regionCheck}`: true/false. Se true, o comando AROUND vai verificar se o alvo está na natureza selvagem ou na claim do invocador (Contexto do plugin GriefPrevention) (Será atualizado em breve para ser verificado com outros plugins de claim)
-  * `{nonliving}`: true/false. Se true, vai ter como alvo outras entidades como Arrows e Armor Stands. Qualquer bug que ocorra ao executar entity commands enquanto esse argumento está ativado provavelmente será ignorado devido ao aumento de escopo.
+  * `{regionCheck}`: true/false. Se true, o comando AROUND verificará se o alvo está na área selvagem ou no claim de quem lançou (contexto do plugin GriefPrevention) (em breve será atualizado para verificar com outros plugins de claim)
+  * `{nonliving}`: true/false. Se true, terá como alvo outras entidades, como flechas e armor stands. Quaisquer bugs que ocorram ao executar comandos de entidade com este argumento ativado provavelmente serão ignorados devido ao scope creep.
   * Você pode fazer BLACKLIST ou WHITELIST de entidades adicionando uma destas em qualquer lugar do comando:
     * BLACKLIST(ZOMBIE,ARMOR\_STAND)
     * WHITELIST(CHICKEN)
 
 :::tip
-Você pode adicionar **múltiplos comandos**! Use o separador `<+>`
+Você pode adicionar **vários comandos**! Use o separador `<+>`
 
 Exemplo: `minecraft:effect give .. <+> DELAY 5 <+>  DAMAGE 5`
 :::
@@ -969,6 +979,12 @@ Exemplo: `minecraft:effect give .. <+> DELAY 5 <+>  DAMAGE 5`
 **Placeholders:** Os placeholders são os mesmos dos [Entity Placeholders](https://splugins.net/docs/tools-for-all-plugins-score/placeholders#entity-placeholders), mas você precisa substituir "player" por "around\_target"
 
 Exemplo: %around\_target%, %around\_target\_uuid%
+:::
+
+:::info
+**Número de alvos:** `%around_target_count%` fornece o número de entidades selecionadas pelo comando. É o mesmo para todos os alvos e conta os alvos mantidos após `distance`, `safeDistance`, `throughBlocks`, `regionCheck` e o `WHITELIST(...)` / `BLACKLIST(...)` e `limit`. As `CONDITIONS(...)` verificadas em cada alvo não são levadas em conta. Aceita o atalho `+N` / `-N`: `%around_target_count%-1`.
+
+Exemplo: `MOB_AROUND distance:8 WHITELIST(ZOMBIE) DAMAGE %around_target_count%`
 :::
 
 * Exemplos:
@@ -986,7 +1002,7 @@ activators:
     - MOB_AROUND distance:10 WHITELIST(ZOMBIE`{CustomName:"*"}`) say HELLO
 ```
 
-Para usar nbt de entidade no campo WHITELIST/BLACKLIST, você precisa instalar o plugin [NBT API](https://www.spigotmc.org/resources/nbt-api.7939/)
+Para usar NBT de entidade no campo WHITELIST/BLACKLIST, você precisa instalar o plugin [NBT API](https://www.spigotmc.org/resources/nbt-api.7939/)
 
 Ele suporta [NBT Tags](https://minecraft.fandom.com/wiki/Tutorials/Command_NBT_tags#Entities), então você pode adicionar, por exemplo, algo como: `ZOMBIE{IsBaby:1}` 
 
@@ -1006,18 +1022,18 @@ activators:
 :::warning
 Você pode aninhar MOB\_AROUND com os comandos: MOB\_AROUND, IF, MOB\_NEAREST, ALL\_MOBS
 
-Se você fizer isso, o separador e os placeholders vão evoluir dependendo da etapa aninhada.\
+Se fizer isso, o separador e os placeholders evoluirão de acordo com a etapa aninhada.\
 
-separador do comando base: `<+>`
+separador do comando base : `<+>`
 
-primeiro comando aninhado: `<+::step1>`
+primeiro comando aninhado : `<+::step1>`
 
 ... : `<+::step2>` , `<+::step3>`, ...
 
 \
-placeholder base: %around\_target%
+placeholder base : %around\_target%
 
-primeiro comando aninhado: %around\_target::step1%
+primeiro comando aninhado : %around\_target::step1%
 
 ... : %around\_target::step2%, %around\_target::step3%, ...
 :::
@@ -1026,11 +1042,11 @@ primeiro comando aninhado: %around\_target::step1%
 
 * Info: Tem como alvo o mob mais próximo do jogador/alvo.
 * Configurações do comando:
-    * `{max accepted distance}`:  Distância máxima aceita que a "entidade" pode estar.
+    * `{max accepted distance}`:  Distância máxima aceita em que a "entidade" pode estar.
     * `{command(s)}`: Os comandos que serão executados
 
 :::tip
-Você pode adicionar **múltiplos comandos**! Use o separador `<+>`
+Você pode adicionar **vários comandos**! Use o separador `<+>`
 
 Exemplo: `minecraft:effect give .. <+> DELAY 5 <+> DAMAGE 5`
 :::
@@ -1052,18 +1068,18 @@ Causa dano ao jogador mais próximo
 :::warning
 Você pode aninhar MOB\_NEAREST com os comandos: MOB\_AROUND, IF, MOB\_NEAREST, ALL\_MOBS
 
-Se você fizer isso, o separador e os placeholders vão evoluir dependendo da etapa aninhada.\
+Se fizer isso, o separador e os placeholders evoluirão de acordo com a etapa aninhada.\
 
-separador do comando base: `<+>`
+separador do comando base : `<+>`
 
-primeiro comando aninhado: `<+::step1>`
+primeiro comando aninhado : `<+::step1>`
 
 ... : `<+::step2>` , `<+::step3>`, ...
 
 \
-placeholder base: %around\_target%
+placeholder base : %around\_target%
 
-primeiro comando aninhado: %around\_target::step1%
+primeiro comando aninhado : %around\_target::step1%
 
 ... : %around\_target::step2%, %around\_target::step3%, ...
 :::
@@ -1072,11 +1088,11 @@ primeiro comando aninhado: %around\_target::step1%
 
 * Info: Tem como alvo o jogador mais próximo do jogador/alvo.
 * Configurações do comando:
-    * `{max accepted distance}`: Distância máxima aceita que o "alvo" pode estar.
+    * `{max accepted distance}`: Distância máxima aceita em que o "alvo" pode estar.
     * `{command}`: O comando que será executado
 
 :::tip
-Você pode adicionar **múltiplos comandos**! Use o separador `<+>`
+Você pode adicionar **vários comandos**! Use o separador `<+>`
 
 Exemplo: `SEND_MESSAGE &cYou will be damaged in 5 seconds <+> DELAY 5 <+> DAMAGE 5`
 :::
@@ -1098,27 +1114,27 @@ Causa dano ao jogador mais próximo
 :::warning
 Você pode aninhar NEAREST com os comandos: AROUND, IF, NEAREST, ALL\_PLAYERS
 
-Se você fizer isso, o separador e os placeholders vão evoluir dependendo da etapa aninhada.\
+Se fizer isso, o separador e os placeholders evoluirão de acordo com a etapa aninhada.\
 
-separador do comando base: `<+>`
+separador do comando base : `<+>`
 
-primeiro comando aninhado: `<+::step1>`
+primeiro comando aninhado : `<+::step1>`
 
 ... : `<+::step2>` , `<+::step3>`, ...
 
 \
-placeholder base: %around\_target%
+placeholder base : %around\_target%
 
-primeiro comando aninhado: %around\_target::step1%
+primeiro comando aninhado : %around\_target::step1%
 
 ... : %around\_target::step2%, %around\_target::step3%, ...
 :::
 
 ### OPMESSAGE
 
-* Info: Envia uma mensagem para os jogadores OP online e para o console
+* Info: Envia uma mensagem aos jogadores OP online e ao console
 * Configuração do comando:
-  * `{text}`: Texto a ser enviado
+  * `{text}`: Texto a enviar
 * Exemplo:
 
 ```yaml
@@ -1131,9 +1147,9 @@ primeiro comando aninhado: %around\_target::step1%
 
 * Configurações do comando:
   * `{type}`: O tipo de partícula (TUDO EM MAIÚSCULAS)
-  * `{quantity}`: A quantidade de partículas que vão aparecer
-  * `{offset}`: O raio da área onde as partículas podem aparecer na localização do jogador/alvo
-  * `{speed}`: Quão rápido ou quão grande as partículas serão
+  * `{quantity}`: A quantidade de partículas que serão geradas
+  * `{offset}`: O raio da área onde as partículas podem ser geradas na localização do jogador/alvo
+  * `{speed}`: Quão rápidas ou quão grandes serão as partículas
 * Exemplo:
 
 ```yaml
@@ -1145,7 +1161,7 @@ primeiro comando aninhado: %around\_target::step1%
 * Info: Dá a você uma quantidade específica de HP
 * Configuração do comando:
   * `{amount}`: A quantidade de HP que você quer ganhar
-   * Suporta valores negativos caso você queira fazer "dano verdadeiro". 
+   * Suporta valores negativos caso você queira causar "dano verdadeiro". 
 * Exemplo:
 
 ```yaml
@@ -1155,8 +1171,8 @@ primeiro comando aninhado: %around\_target::step1%
 
 ### REMOVE\_BURN
 
-* Info: Extingue você de estar queimando
-* Sem configuração de comando
+* Info: Apaga o fogo em você
+* Sem configuração do comando
 * Exemplo:
 
 ```yaml
@@ -1193,7 +1209,7 @@ Compatível com o plugin TAB usando -> %score\_cmd-glow%
 
 * Info: Define a sua vida para uma quantidade específica
 * Configuração do comando:
-  * `{amount}`: A quantidade de vida para a qual você quer defini-la
+  * `{amount}`: A quantidade de vida para a qual você quer definir
 * Exemplo:
 
 ```yaml
@@ -1202,9 +1218,9 @@ SET_HEALTH 10
 
 ### SET\_PITCH
 
-* Info: Força o jogador a olhar em uma determinada posição de pitch (-90/90 graus, direção para cima e para baixo)
+* Info: Força o jogador a olhar para uma certa posição de pitch (-90/90 graus, direção cima e baixo)
 * Configurações do comando:
-  * `{pitch_number}`: O número que você quer inserir. Placeholders também funcionam
+  * `{pitch_number}`: O número que você quer informar. Placeholders também funcionam
   * `{keepVelocity}`: Permite manter a velocidade do jogador
 * Exemplo:
 
@@ -1215,9 +1231,9 @@ SET_HEALTH 10
 
 ### SET\_YAW
 
-* Info: Força o jogador a olhar em uma determinada posição de yaw (360 graus, direção para a esquerda e para a direita)
+* Info: Força o jogador a olhar para uma certa posição de yaw (360 graus, direção esquerda e direita)
 * Configurações do comando:
-  * `{yaw_number}`: O número que você quer inserir. Placeholders também funcionam
+  * `{yaw_number}`: O número que você quer informar. Placeholders também funcionam
   * `{keepVelocity}`: Permite manter a velocidade do jogador
 * Exemplo:
 
@@ -1247,7 +1263,7 @@ R: execute **`SPIN {duration} 0`**, por exemplo
 
 * Info: Rouba um item do inventário do alvo
 * Configurações do comando:
-  * `{slot}`: -1 para a mão principal. Veja a referência de slots abaixo.
+  * `{slot}`: -1 para a mão principal. Confira a referência de slots abaixo.
   * `[remove item]`: (Opcional) (padrão = true)
 * Exemplo:
 
@@ -1259,8 +1275,8 @@ R: execute **`SPIN {duration} 0`**, por exemplo
 
 ### STRIKELIGHTNING
 
-* Info: Lança um raio sem dano para quem executa o comando
-* Sem configuração de comando 
+* Info: Faz cair um raio sem dano em quem executa o comando
+* Sem configuração do comando 
 * Exemplo:
 
 ```yaml
@@ -1268,12 +1284,12 @@ R: execute **`SPIN {duration} 0`**, por exemplo
 ```
 
 :::info
-Isso não é a mesma coisa que o comando smite do essentials. Se você quiser atingir seus alvos com um raio, coloque em target commands ou entity commands junto com os ativadores apropriados, como `PLAYER_CLICK_ON_PLAYER`, por exemplo.
+Isto não é o mesmo que o comando smite do Essentials. Se você quer fulminar seus alvos, coloque-o em target commands ou entity commands, junto com os ativadores adequados, como `PLAYER_CLICK_ON_PLAYER`, por exemplo.
 :::
 
 ### STUN ENABLE/DISABLE
 
-* Info: Vai ativar ou desativar o stun para o jogador (deixa ele deitado e bloqueia o movimento da câmera)
+* Info: Ativa ou desativa o stun para o jogador (ele deita você no chão e impede que você mova a câmera
 * Comandos:
   * STUN\_ENABLE
   * STUN\_DISABLE
@@ -1289,13 +1305,13 @@ Isso não é a mesma coisa que o comando smite do essentials. Se você quiser at
 
 * Info: Teleporta o jogador/entidade para a localização
 * Configurações do comando:
-  * `{world}`: O mundo da localização para teleportar
-  * `{x}`: A coordenada x da localização para teleportar.
-  * `{y}`: A coordenada y da localização para teleportar.
-  * `{z}`: A coordenada z da localização para teleportar.
-  * `[pitch]`: (Opcional) (padrão = mantém o pitch do jogador) pitch da localização do teleporte
-  * `[yaw]`: (Opcional) (padrão = mantém o yaw do jogador) yaw da localização do teleporte
-  * `[keepVelocity]`: (Opcional) (padrão = true) Permite não parar a velocidade do jogador.
+  * `{world}`: O mundo da localização para onde teleportar
+  * `{x}`: A coordenada x da localização para onde teleportar.
+  * `{y}`: A coordenada y da localização para onde teleportar.
+  * `{z}`: A coordenada z da localização para onde teleportar.
+  * `[pitch]`: (Opcional) (padrão = mantém o pitch do jogador) pitch da localização de teleporte
+  * `[yaw]`: (Opcional) (padrão = mantém o yaw do jogador) yaw da localização de teleporte
+  * `[keepVelocity]`: (Opcional) (padrão = true) Permite não interromper a velocidade do jogador.
 * Exemplo:
 
 ```yaml
@@ -1304,10 +1320,10 @@ Isso não é a mesma coisa que o comando smite do essentials. Se você quiser at
 
 ### TELEPORT\_ON\_CURSOR
 
-* Info: Teleporta você para o seu cursor
+* Info: Teleporta você para onde está o seu cursor
 * Configurações do comando:
-  * `{range}`: Até qual distância você quer teleportar
-  * `{acceptAir}`: Para poder teleportar mesmo no ar, você precisa definir isso como true
+  * `{range}`: Até que distância você quer teleportar
+  * `{acceptAir}`: Para poder teleportar mesmo no ar, você precisa definir como true
 * Exemplo:
 
 ```yaml
@@ -1318,8 +1334,8 @@ Isso não é a mesma coisa que o comando smite do essentials. Se você quiser at
 
 * Info: Transfere um item no inventário
 * Configurações do comando:
-  * `{slot of launcher}`: Slot do item que vai se mover
-  * `{slot of receiver}`: Slot onde o item vai cair
+  * `{slot of launcher}`: Slot do item que será movido
+  * `{slot of receiver}`: Slot onde o item vai parar
   ![](https://media.ssomar.com/m/docs-img-slots-info.png)
 * Exemplo:
 
@@ -1329,9 +1345,9 @@ Isso não é a mesma coisa que o comando smite do essentials. Se você quiser at
 
 ### UNSAFE\_TELEPORT\_ON\_CURSOR
 
-* Info: Teleporta você para o seu cursor sem considerar que você vai acabar em lugares impossíveis
+* Info: Teleporta você para onde está o seu cursor sem considerar que você pode acabar em lugares impossíveis
 * Configuração do comando:
-  * `[maxRange]`: (Opcional) (padrão = 200) Até qual distância você quer teleportar
+  * `[maxRange]`: (Opcional) (padrão = 200) Até que distância você quer teleportar
 * Exemplo:
 
 ```yaml

@@ -1,21 +1,23 @@
 ---
 description: >-
-  Guía completa de las funciones de bloque de ExecutableBlocks en SPlugins:
-  activadores, contenedores, hornos, soportes y displays.
-source_hash: 550955941cd1e931
-translated_at: '2026-10-03T10:34:08.916Z'
+  Descubre todas las opciones de configuración de los bloques de
+  ExecutableBlocks: activadores, drops, contenedores, hornos, displays y más.
+source_hash: 7bbe17ba1d336968
+translated_at: '2026-11-13T18:13:16.529Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
-# Funciones de los bloques
+import CustomTag from '@site/src/components/CustomTag';
+
+# Características de los bloques
 
 
-## Activators
+## Activadores
 
-* Funciones muy importantes que te permiten añadir habilidades a tus bloques
-* Wiki dedicada a esta función: [lista de activadores de EB](/executableblocks/configurations/activator-configuration/list-of-the-activators.md) y [funciones de activadores de EB](/executableblocks/configurations/activator-configuration/activators-features.md)
+* Características muy importantes que te permiten añadir habilidades a tus bloques
+* Wiki dedicada a esta característica: [Lista de activadores de EB](/executableblocks/configurations/activator-configuration/list-of-the-activators.md) y [Características de los activadores de EB](/executableblocks/configurations/activator-configuration/activators-features.md)
 
 
-## Configuración básica
+## Ajustes básicos
 
 ### CreationType
 
@@ -29,7 +31,7 @@ translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 
 ### MATERIAL
 
-* Info: El ítem base de minecraft del bloque ejecutable. [Material](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
+* Info: El ítem base de Minecraft del bloque ejecutable. [Material](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
   * Info extra: El ítem tiene que ser un bloque colocable.
 
 ```yaml
@@ -37,7 +39,7 @@ material: DIRT
 ```
 
 :::info
-¡Es compatible con spawners! así que si quieres definir un tipo para tu spawner añade:
+¡Es compatible con los spawners! Así que si quieres definir un tipo para tu spawner, añade:
 
 `spawnerType: CHICKEN`
 
@@ -68,40 +70,40 @@ lore:
 - §6>> §e----------- §6<<
 ```
 
-* Placeholders que puedes usar en el lore, %player%, [%usage%](block-features.md#hide-usage-1.14+), etc.
+* Placeholders que puedes usar en el lore: %player%, [%usage%](block-features.md#hide-usage-1.14+), etc.
 
 ### DROP BLOCK IF IT IS BROKEN
 
-* Info: Si quieres hacer que tu Executable Block se pueda obtener al romperlo o no
+* Info: Define si quieres que tu Executable Block se pueda obtener al romperlo o no
 * Ejemplo: 
 
 ```yaml
 dropBlockIfItIsBroken: true
 ```
 
-* Obligatorio: NO (por defecto: true)
+* Requerido: NO (Por defecto: true)
 
 ### DROP BLOCK IF IT IS BURNS
 
-* Info: Si quieres hacer que tu Executable Block se pueda obtener al romperlo o no
+* Info: Define si quieres que tu Executable Block se pueda obtener al romperlo o no
 * Ejemplo: 
 
 ```yaml
 dropBlockIfItIsBurns: true
 ```
 
-* Obligatorio: NO (por defecto: false)
+* Requerido: NO (Por defecto: false)
 
 ### DROP BLOCK WHEN IT EXPLODES
 
-* Info: Si quieres hacer que tu Executable Block se pueda obtener al destruirse por cualquier explosión
+* Info: Define si quieres que tu Executable Block se pueda obtener al ser destruido por cualquier explosión
 * Ejemplo:
 
 ```yaml
 dropBlockWhenItExplodes: true
 ```
 
-* Obligatorio: NO (por defecto: true)
+* Requerido: NO (Por defecto: true)
 
 ### DROP TYPE
 
@@ -112,7 +114,7 @@ dropBlockWhenItExplodes: true
 
 ### ONLY BREAKABLE WITH EI
 
-* Info: Requisitos para tener como mínimo el Executable Item requerido en tu mano principal o secundaria para romper el bloque ejecutable
+* Info: Requisito de tener al menos el Executable Item necesario en la mano principal o en la mano secundaria para romper el bloque ejecutable
 * Ejemplo:
 
 ```yaml
@@ -120,11 +122,11 @@ onlyBreakableWithEI:
 - firework
 ```
 
-* Obligatorio: NO (por defecto: vacío)
+* Requerido: NO (Por defecto: vacío)
 
 ### CANBEMOVED
 
-* Info: Si el bloque se puede mover con un pistón o no.
+* Info: Define si el bloque se puede mover con un pistón o no.
 * Ejemplo:
 
 ```yaml
@@ -133,41 +135,41 @@ canBeMoved: false
 
 ### EXECUTABLE ITEMS ID
 
-* Info: Es básicamente una opción que te permite sincronizar tu executable block con un executable item.
-  * Info extra: El executable block copia el nombre, material y lore del executable item, así que cuando intentes editar el nombre, material o lore del eb, no cambiará nada. Tienes que editar el nombre, material y lore del ei para que los cambios se apliquen en el eb
+* Info: Es básicamente una opción que te permite sincronizar tu bloque ejecutable con un Executable Item.
+  * Info extra: El bloque ejecutable copia el nombre, el material y el lore del Executable Item, así que si intentas editar el nombre, el material o el lore del EB, no cambiará nada. Tienes que editar el nombre, el material y el lore del EI para que los cambios se apliquen en el EB
 * Ejemplo: 
 
 ```yaml
 executableItem: hack
 ```
 
-* Obligatorio: NO
+* Requerido: NO
 
-## Funciones de título
+## Características del título 
 
 Es compatible con [DecentHolograms](https://www.spigotmc.org/resources/96927/), [HolographicDisplays](https://dev.bukkit.org/projects/holographic-displays) y [CMI](https://www.spigotmc.org/resources/3742/)
 
 ### ACTIVE TITLE 
 
-* Info: Si el holograma del título estará activado o no
+* Info: Define si el holograma del título estará activado o no
 * Ejemplo:
 
 ```yaml
 activeTitle: false
 ```
 
-* Obligatorio: NO
+* Requerido: NO
 
 ### TITLE NAME 
 
-* Info: El texto que se muestra en el holograma
+* Info: El texto que muestra el holograma
 * Ejemplo: 
 
 ```yaml
 title: '&7&oDefault title'
 ```
 
-* (Con HolographicDisplay) Puedes mostrar un ítem en el título con el tipo ITEM::MATERIAL
+* (Con HolographicDisplays) Puedes mostrar un ítem en el título con el formato ITEM::MATERIAL
 
 ```yaml
 title: 
@@ -175,19 +177,19 @@ title:
 - 'ITEM::DIAMOND'
 ```
 
-* Obligatorio: NO
+* Requerido: NO
 
 ### TITLE ADJUSTMENT 
 
-* Info: Cuánto se ajusta hacia arriba o hacia abajo la elevación del holograma del título
+* Info: Cuánto se sube o se baja la elevación del holograma del título
 * Ejemplo:
 
 ```yaml
 titleAdjustment: 0.5
 ```
 
-* Obligatorio: NO
-  * Info extra: Número positivo para subir, número negativo para bajar
+* Requerido: NO
+  * Info extra: Un número positivo sube el holograma, un número negativo lo baja
 
 ```yaml
 titleFeatures:
@@ -201,33 +203,33 @@ titleFeatures:
   titleAdjustment: 0.5
 ```
 
-## Configuración de uso personalizado
+## Ajustes de uso personalizado
 
 #### USAGE
 
-* Info: El valor de cuántas veces se puede usar. Se utiliza sobre todo para la función de modificación de usos de los activadores.
+* Info: El valor de cuántas veces se puede usar. Se utiliza sobre todo en la función de modificación de usos de los activadores.
 * Ejemplo: 
 
 ```yaml
 usage: 0
 ```
 
-Para un bloque de usos infinitos usa:
+Para un bloque de uso infinito:
 
 ```yaml
 usage: -1
 ```
 
-* Obligatorio: NO (por defecto: 0)
+* Requerido: NO (Por defecto: 0)
 
 :::info
 usage: 0 equivale a usage:1, pero no mostrará el texto "Remaining use:..." en el lore.
 :::
 
-## Funciones de contenedor
+## Características de contenedores
 
 :::info
-Los filtros de ítems son compatibles correctamente con la etiqueta `{CUSTOMODELDATA:X}`, así que puedes crear una tolva que solo acepte un ítem con una textura específica
+Los filtros de ítems son compatibles correctamente con la etiqueta `{CUSTOMODELDATA:X}`, así que puedes crear una tolva que solo recoja un ítem con una textura específica
 :::
 
 ### whitelistMaterials
@@ -251,16 +253,16 @@ containerFeatures:
 ```
 
 :::info
-En el caso de las HOPPERS, la whitelist y la blacklist restringen los ítems que la tolva puede succionar.
+En el caso de las TOLVAS (HOPPERS), la whitelist y la blacklist restringen los ítems que la tolva puede absorber.
 :::
 
 ### isLocked
 
-* Si el contenedor está bloqueado o no
+* Define si el contenedor está bloqueado o no
 
 ### lockedName
 
-* En caso de que esté bloqueado, tienes que seleccionar el nombre de la llave
+* En caso de que esté bloqueado, tienes que indicar el nombre de la llave
 
 ```
 containerFeatures:
@@ -277,11 +279,11 @@ containerFeatures:
   inventoryTitle: INVENTORY TITLE
 ```
 
-## Funciones de horno
+## Características de hornos
 
 ### furnaceSpeed
 
-* Permite personalizar la velocidad de tu horno.
+* Te permite personalizar la velocidad de tu horno.
 * Ejemplo:
 
 ```
@@ -294,7 +296,7 @@ Por defecto -> 1
 
 2 veces la velocidad por defecto -> 2
 
-Mitad de la velocidad por defecto -> 0.5
+La mitad de la velocidad por defecto -> 0.5
 :::
 
 ### infiniteFuel
@@ -308,7 +310,7 @@ furnaceFeatures:
 
 ### infiniteVisualLit
 
-* Hace que el bloque parezca que está encendido
+* Hace que el bloque parezca encendido
 
 ```
 furnaceFeatures:
@@ -330,18 +332,18 @@ Puede ser negativo para quitar ítems del almacenamiento de resultados.
 
 ### fortuneChance
 
-* Probabilidad de que se aplique la fortune
+* Probabilidad de que se aplique la fortuna
 
 ```
 furnaceFeatures:
   fortuneChance: 0.95
 ```
 
-## Funciones direccionales
+## Características direccionales
 
 ### forceBlockFaceOnPlace
 
-* Obliga a que el bloque se coloque mirando hacia una dirección determinada
+* Fuerza que el bloque se coloque mirando en una dirección determinada
 * Ejemplo:
 
 ```
@@ -351,7 +353,7 @@ directionalFeatures:
 
 ### blockFaceOnPlace
 
-* Establece la cara del bloque cuando se coloca
+* Establece la cara del bloque al colocarlo
 * Ejemplo:
 
 ```
@@ -360,11 +362,44 @@ directionalFeatures:
   blockFaceOnPlace: NORTH
 ```
 
-## Funciones del soporte de pociones
+:::info
+`blockFaceOnPlace` solo se aplica cuando `forceBlockFaceOnPlace` es `true`. Sin eso, el bloque conserva la dirección con la que se colocó. Estas opciones solo giran los bloques direccionales (los bloques que tienen un `facing`).
+
+El comando [/eb place](/executableblocks/commands-and-permissions#place-an-eb-at-a-specific-position) también puede recibir una dirección, que tiene prioridad sobre estas opciones.
+:::
+
+## Características de colmena <CustomTag type="version" version="1.15" /> {#beehive-features}
+
+Rellena previamente una colmena o un nido de abejas cuando se coloca. Solo para los ExecutableBlocks cuyo material es `BEEHIVE` o `BEE_NEST` (creados con `BASIC_CREATION` o `IMPORT_FROM_EXECUTABLE_ITEMS`); las opciones no hacen nada en los demás bloques. En el editor dentro del juego, el botón solo aparece para estos dos materiales.
+
+Ambas opciones son opcionales: cuando no se define ninguna, el bloque no se modifica y no se escribe nada en la config.
+
+### honeyLevel
+
+* Info: Nivel de miel del bloque colocado, de `0` (vacío) a `5` (lleno, se puede recolectar la miel). Sin definir: el nivel de miel no se modifica.
+
+### bees
+
+* Info: Número de abejas que se introducen en el bloque colocado. Sin definir o `0`: ninguna abeja. Una colmena admite 3 abejas por defecto, las abejas adicionales no se añaden.
+
+* Ejemplo:
+
+```yaml
+material: BEE_NEST
+beehiveFeatures:
+  honeyLevel: 5
+  bees: 2
+```
+
+:::tip
+Con un [activador LOOP y `loopTimerPerBlock: true`](/executableblocks/configurations/activator-configuration/list-of-the-activators#loop-), un nido de abejas recolectado puede volver a colocarse (y por tanto volver a rellenarse) un tiempo fijo después de haberse colocado.
+:::
+
+## Características del soporte de pociones
 
 ### brewingStandSpeed
 
-* Permite personalizar la velocidad de tu brewingStand
+* Te permite personalizar la velocidad de tu brewingStand
 * Ejemplo:
 
 ```
@@ -377,14 +412,15 @@ Por defecto -> 1
 
 2 veces la velocidad por defecto -> 2
 
-Mitad de la velocidad por defecto -> 0.5
+La mitad de la velocidad por defecto -> 0.5
 :::
 
-## Funciones de tolva
+## Características de tolvas
 
 ### amountItemsTransferred
 
-* Te permite personalizar la cantidad de ítems que se transfieren en cada tick de la tolva.
+* Te permite personalizar la cantidad de ítems transferidos en cada transferencia de la tolva.
+* Se aplica tanto cuando la tolva empuja ítems al contenedor hacia el que mira como (desde 26.11) cuando extrae ítems del contenedor que tiene encima.
 * Ejemplo:
 
 ```yaml
@@ -392,7 +428,7 @@ hopperFeatures:
   amountItemsTransferred: 5
 ```
 
-## Funciones de display
+## Características de display
 
 ### Material
 
@@ -456,7 +492,7 @@ DisplayFeatures:
 
 ### Glow
 
-* Brillo o no
+* Con brillo o sin brillo
 * Ejemplo:
 
 ```
@@ -464,11 +500,11 @@ DisplayFeatures:
   glow: false
 ```
 
-### Interaction zone features
+### Características de la zona de interacción
 
 * Ancho del display
 * Alto del display
-* Si colisiona o no
+* Con colisión o sin colisión
 * Ejemplo:
 
 ```
@@ -481,7 +517,7 @@ DisplayFeatures:
 
 ### Click to break
 
-* Cantidad de clics necesarios para romper la creación del display
+* Cantidad de clics necesarios para romper la creación display
 * Ejemplo:
 
 ```
@@ -493,7 +529,7 @@ DisplayFeatures:
 
 ### occupiedSlots
 
-* Define en qué espacios (índice 0-5) habrá un libro
+* Define qué slots (índice 0-5) tendrán un libro
 
 ```
 chiseledBookshelfFeatures:
@@ -502,7 +538,7 @@ chiseledBookshelfFeatures:
   - '5'
 ```
 
-## Cancel
+## Cancelar
 
 ### cancelLiquidDestroy
 

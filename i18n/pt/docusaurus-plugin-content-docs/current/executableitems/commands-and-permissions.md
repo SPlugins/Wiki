@@ -1,72 +1,72 @@
 ---
 description: >-
-  Guia completo de comandos e permissões do plugin ExecutableItems para
-  gerenciar itens personalizados no Minecraft.
-source_hash: bc9c7ad5f9180570
-translated_at: '2026-10-03T10:25:07.634Z'
+  Aprenda todos os comandos e permissões do plugin ExecutableItems: criar, dar,
+  recarregar, editar e gerenciar itens personalizados no servidor.
+source_hash: 30fd8157fcb56ff1
+translated_at: '2026-11-13T18:13:34.968Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import CustomTag from '@site/src/components/CustomTag';
 
 # ⌨️ Comandos e Permissões
 
-Nesta página você vai aprender sobre os Comandos e Permissões do plugin ExecutableItems.
+Nesta página você vai conhecer os comandos e as permissões do plugin ExecutableItems.
 
-Recursos premium são identificados com a tag: <CustomTag type="premium" />
+Os recursos premium são identificados pela tag:  <CustomTag type="premium" />
 
 ## Permissões
 
 **DICA para iniciantes:**
 
 :::info
-Para dar as permissões de todos os itens, recomendamos que você baixe um plugin de permissões como [**Luckperms**](https://www.spigotmc.org/resources/luckperms.28140/). Depois de ter um plugin de permissões, você só precisa dar a permissão **`ei.item.*`**, para o Luckperm o comando é **`/lp group default permission set ei.item.* true`**
+Para dar as permissões de todos os itens, recomendo que você baixe um plugin de permissões como o [**Luckperms**](https://www.spigotmc.org/resources/luckperms.28140/). Depois de ter um plugin de permissões, basta dar a permissão **`ei.item.*`**; para o LuckPerms, o comando é **`/lp group default permission set ei.item.* true`**
 :::
 
 #### Permissão de item
 
-* Info: Permissão para um jogador usar um ExecutableItems.
+* Info: permissão para um jogador usar um ExecutableItems.
   * Permissão para usar um ID específico de ExecutableItem: `ei.item.{id}`
-  * Permissão para usar todos os ExecutableItems: `ei.item.*`
+  * Permissão para usar todos os ExecutableItems: `ei.item.*` 
   * Permissão negativa para proibir um ID específico de ExecutableItems: `-ei.item.{id}` <CustomTag type="premium" />
 * Exemplo: `ei.item.test`
 
-#### Permissão de bypass de cooldown
+#### Permissão para ignorar o cooldown
 
-* Info: Permissão para um jogador não ter cooldown ao usar um ExecutableItems.
-  * Durante o teste, você deve testar sem op/operador/admin.
-  * Permissão para ignorar um ID específico de ExecutableItems: `ei.nocd.{id}`
-  * Permissão para ignorar todos os ExecutableItems: `ei.nocd.*`
+* Info: permissão para um jogador não ter cooldown ao usar um ExecutableItems. 
+  * Ao testar, você deve testar sem ser op/operador/admin.
+  * Permissão para ignorar o cooldown de um ID específico de ExecutableItems: `ei.nocd.{id}`
+  * Permissão para ignorar o cooldown de todos os ExecutableItems: `ei.nocd.*`
 * Exemplo: `ei.nocd.test`
 
 #### Todas as permissões
 
-* Info: Permissão que concede todas as permissões para ExecutableItems.
-  * Cuidado! Esta concede literalmente todas as permissões, até as de administrador.
+* Info: permissão que concede todas as permissões do ExecutableItems.
+  * Cuidado! Esta concede literalmente todas as permissões, inclusive as de administrador.
   * Permissão: `ei.*`
-* Se você quiser dar uma permissão específica, continue lendo abaixo, cada comando será detalhado com sua respectiva permissão.
+* Se você quiser dar uma permissão específica, continue lendo abaixo: cada comando será detalhado com a sua respectiva permissão.
 
-#### Todas as permissões de comandos
+#### Permissões de todos os comandos
 
-* Info: Permissão que concede todas as permissões de comandos para ExecutableItems.
+* Info: permissão que concede as permissões de todos os comandos do ExecutableItems.
   * Permissão: `ei.cmds`
-* Se você quiser dar uma permissão específica, continue lendo abaixo, cada comando será detalhado com sua respectiva permissão.
+* Se você quiser dar uma permissão específica, continue lendo abaixo: cada comando será detalhado com a sua respectiva permissão.
 
 ## Comandos
 
-Aqui você vai aprender sobre os comandos do ExecutableItems. Algumas palavras vão se repetir ao longo da explicação, aqui estão elas:
+Aqui você vai conhecer os comandos do ExecutableItems. Algumas palavras se repetem ao longo da explicação, e são estas:
 
-* SsomarPluginsItem: É o ID de um ExecutableItem que foi criado, da mesma forma que pode ser "Excalibur", "SuperPickaxe", "turtle", "12345", nós estabelecemos este nome.
-* SsomarPluginsPlayer: É o nome de um jogador, da mesma forma que existe "Vayk\_", "Ssomar", "Special70", "Tidal\_Flame" também existe esse nome.
+* SsomarPluginsItem: é o ID de um ExecutableItem que foi criado, por exemplo "Excalibur", "SuperPickaxe", "turtle", "12345"; nós definimos esse nome.
+* SsomarPluginsPlayer: é o nome de um jogador, por exemplo "Vayk\_", "Ssomar", "Special70", "Tidal\_Flame"; também existe esse nome.
 
 O formato dos comandos terá símbolos diferentes:
 
-* \{\} : Se um argumento estiver entre \{\}, isso significa que é necessário para executar o comando.
-* \[] : Se um argumento estiver entre \[], isso significa que é opcional para executar o comando.
+* \{\} : se um argumento estiver entre \{\}, ele é necessário para executar o comando.
+* \[] : se um argumento estiver entre \[], ele é opcional para executar o comando.
 
-Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
+Também haverá cores diferentes (mas a ideia é a mesma de \{\} e \[] ):
 
-* Azul: Obrigatório
-* Laranja: Opcional
+* Azul: obrigatório
+* Laranja: opcional
 
 ### Comandos gerais
 
@@ -74,11 +74,11 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
 
 * Comando: **/ei create \{id\}**
   * `id`: ID do ExecutableItem.
-  * Se você quiser **copiar o item de outro plugin**, ou um item vanilla personalizado (Banner, Shield, ...), é simples! Pegue-o na sua mão principal e execute este comando create.
+  * Se você quiser **copiar o item de outro plugin** ou um item vanilla personalizado (Banner, Shield, ...), é simples! Pegue-o na mão principal e execute este comando create.
 * Exemplo: `/ei create SsomarPluginsItem`
 * Permissão: `ei.cmd.create`
 
-#### Criar um novo ExecutableItem a partir de um bloco visado
+#### Criar um novo ExecutableItem a partir de um bloco mirado
 
 * Comando: /ei create-from\_block \{id\}
   * `id`: ID do ExecutableItem.
@@ -89,7 +89,7 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
 
 * Comando: **/ei editor** ou **/ei show**
 * Permissão: `ei.cmd.editor` ou `ei.cmd.show`
-* Na lista, o ícone de cada item mostra uma pré-visualização do seu nome de exibição, lore, encantamentos e atributos. Isso pode ser desativado com [editorIconPreview](/tools-for-all-plugins-score/score/general-config#editoriconpreview) na config do SCore.
+* Na lista, o ícone de cada item mostra uma prévia do nome de exibição, da lore, dos encantamentos e dos atributos. Isso pode ser desativado com [editorIconPreview](/tools-for-all-plugins-score/score/general-config#editoriconpreview) na config do SCore.
 
 #### Recarregar o plugin
 
@@ -108,12 +108,12 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
 * Comando: **/ei reload folder\:Name\_Of\_My\_Folder**
 * Permissão: `ei.cmd.reload`
 
-#### Regenerar as configurações padrão dos itens
+#### Regenerar as configs dos itens padrão
 
 * Comando: **/ei default\_items**
 * Permissão: `ei.cmd.default_items`
 
-#### Deletar um ExecutableItem
+#### Excluir um ExecutableItem
 
 * Comando: **/ei delete \{id\}**
   * `id`: ID do ExecutableItem.
@@ -131,17 +131,17 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
 
 * Comando: **/ei clear \{target\} \[optionaltarget]**
   * `target`
-    * Você pode usar nomes de jogadores para direcionar um jogador
-    * Você pode usar UUID para direcionar uma entidade.
+    * Você pode usar nomes de jogadores para escolher um jogador como alvo
+    * Você pode usar UUID para escolher uma entidade como alvo.
   * `optional_target`
-    * ALL: Reseta os comandos atrasados, cooldowns e actionbars do jogador.
-    * DELAYED\_COMMANDS: Reseta todos os comandos atrasados causados por DELAY e DELAYTICK.
-    * COOLDOWNS: Reseta todos os cooldowns do jogador em todos os itens.
-    * ACTIONBARS: Reseta todas as actionbars do jogador do comando personalizado ACTIONBAR.
+    * ALL: redefine os comandos atrasados, os cooldowns e as actionbars do jogador.
+    * DELAYED\_COMMANDS: redefine todos os comandos atrasados causados por DELAY e DELAYTICK.
+    * COOLDOWNS: redefine todos os cooldowns do jogador em todos os itens.
+    * ACTIONBARS - redefine todas as actionbars do jogador criadas pelo comando personalizado ACTIONBAR.
 * Exemplo: `/ei clear SsomarPluginsPlayer COOLDOWNS`
 * Permissão: `ei.cmd.clear`
 
-#### Ativar / Desativar actionbar dos ExecutableItems
+#### Ativar / desativar a actionbar dos ExecutableItems
 
 * Comando: **/ei actionbar \{on or off\}**
 * **Exemplo:** `/ei actionbar off`
@@ -150,40 +150,40 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
 #### Inspecionar o ExecutableItem que está na sua mão principal
 
 * Comando: **/ei inspect**
-  * Para usar este comando o ExecutableItem deve ter o recurso de armazenar informações do item ativado. [Store item info](/executableitems/configurations/item-configuration/item-features#store-item-info)
+  * Para usar este comando, o ExecutableItem deve ter o recurso de armazenar informações do item ativado. [Store item info](/executableitems/configurations/item-configuration/item-features#store-item-info)
   * Saída:
     * Usage
     * Owner UUID
     * Owner name
-    * ID do ExecutableItems
-    * Variáveis
+    * ExecutableItems ID
+    * Variables 
 * Permissão: `ei.cmd.inspect`
 
-#### Remover o owner do EI que está na sua mão
+#### Remover o dono do EI que está na sua mão
 
 * Comando: **/ei unowned**
-  * Para remover o owner de um item, ele deve ter um owner antes. Para isso, o recurso [Store item info](/executableitems/configurations/item-configuration/item-features#store-item-info) deve estar ativado nesse ExecutableItem
-  * Após executar este comando, o próximo jogador que interagir com este item será o próximo owner. (Ele não deve ser operador/op/admin)
+  * Para remover o dono de um item, ele precisa ter tido um dono antes; para isso, o recurso [Store item info](/executableitems/configurations/item-configuration/item-features#store-item-info) deve estar ativado nesse ExecutableItem
+  * Depois de executar este comando, o próximo jogador que interagir com este item será o novo dono. (Ele não pode ser operador/op/admin)
 * Permissão: `ei.cmd.unowned`
 
-#### Retirar EI do inventário do jogador
+#### Retirar um EI do inventário de um jogador
 
 * Comando: **/ei take \{player\} \{id\} \{quantity\}**
-  * `player`: Nome do jogador do qual o item será retirado
-  * `id`: Id do ExecutableItems
-  * `quantity`: Valor inteiro da quantidade a remover
+  * `player`: nome do jogador de quem o item será retirado
+  * `id`: ID do ExecutableItems
+  * `quantity`: valor inteiro da quantidade a remover
 * Exemplo: `/ei take SsomarPluginsPlayer SsomarPluginsItem 1`
 * Permissão: `ei.cmd.take`
 
-#### Atualizar o(s) ExecutableItem(s) do(s) seu(s) jogador(es) com a última versão da configuração
+#### Atualizar o(s) ExecutableItem(s) do(s) seu(s) jogador(es) com a última versão da config
 
-* Info: Este comando atualiza o(s) ExecutableItemID(s) para a última versão da sua configuração. Isso significa que, se um jogador tiver um ExecutableItem em uma versão antiga, por exemplo, com o atributo GENERIC\_ARMOR em 10, e então você mudar o valor desse atributo na configuração do ExecutableItem, ele não será atualizado do lado do jogador. Para permitir essa atualização, você pode usar este comando para que seja atualizado e ele passe a ter, em vez de 10, o novo valor atualizado.
-  * Para que esse processo de atualização funcione, o(s) ExecutableItem(s) selecionado(s) deve(m) estar no inventário dos jogadores, caso contrário não serão atualizados
+* Info: este comando atualiza o(s) ExecutableItemID(s) para a última versão da sua(s) config(s). Ou seja, se um jogador tem um ExecutableItem em uma versão antiga, por exemplo com o atributo GENERIC\_ARMOR em 10, e depois você muda o valor do atributo na config do ExecutableItem, a alteração não será atualizada para o jogador. Para permitir essa atualização, você pode usar este comando: ele é atualizado e o jogador passará a ter o novo valor em vez de 10.
+  * Para que o processo de atualização funcione, o(s) ExecutableItem(s) selecionado(s) deve(m) estar no inventário do jogador; caso contrário, não serão atualizados
   * Como dica, outra forma de fazer essa atualização é usando [Auto update item](/executableitems/configurations/activator-configuration/activators-features#auto-update-item)
 * Comando: **/ei refresh \{player\} \{ExecutableItemID\}** **\{resetUsage\} \{resetDurability\}**
-  * `player`: Nome de um jogador específico ou "all" para direcionar todos os jogadores online.
-  * `ExecutableItemID`: Nome de um ExecutableItem específico ou "all" para direcionar todos os ExecutableItems criados.
-  * `option`: Argumento de atualização
+  * `player`: nome de um jogador específico ou "all" para escolher todos os jogadores online como alvo.
+  * `ExecutableItemID`: nome de um ExecutableItem específico ou "all" para escolher todos os ExecutableItems criados como alvo.
+  * `option`: argumento de atualização
     * Opções:
       * MATERIAL
       * NAME
@@ -216,115 +216,122 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
       * WEAPON
       * BLOCK_ATTACKS
       * TOOLTIP_MODEL
-      * ALL_OPTIONS (Faz todas as tarefas mencionadas acima)
+      * ALL_OPTIONS (executa todas as tarefas descritas acima)
 * Permissão: `ei.cmd.refresh`
 
-#### **Modificar o owner do ExecutableItem que está na sua mão**
+#### **Modificar o dono do ExecutableItem que está na sua mão**
 
 * Comando: **/ei set\_owner** **\{player\}**
-  * `player`: Nome do jogador a ser definido como alvo deste comando
+  * `player`: nome do jogador a definir como alvo deste comando
     * Funciona com jogadores offline.
 * Permissão: `ei.cmd.set_owner`
 
 #### Ativar o modo debug
 
-* Info: Modo em que cada ativador imprime mensagens diferentes para o usuário, para saber o estado do ativador e entender por que ele não está sendo ativado da forma esperada.
+* Info: modo em que cada ativador envia ao usuário mensagens diferentes para saber o estado do ativador e entender por que ele não está funcionando ou como está sendo ativado.
 * Comando: **/ei debug**
 * Permissão: `ei.cmd.debug`
 
 #### Listar os sets e o que um jogador está vestindo <CustomTag type="premium" />
 
-* Info: Lista os [sets](/executableitems/configurations/sets-configuration) carregados (`plugins/ExecutableItems/sets`). Com um jogador: as peças vestidas e o tier ativo de cada set.
+* Info: lista os [sets](/executableitems/configurations/sets-configuration) carregados (`plugins/ExecutableItems/sets`). Com um jogador: as peças vestidas e o tier ativo de cada set.
 * Comando: **/ei sets** **[player]**
 * Permissão: `ei.cmd.sets`
 
 #### Acionar um ativador (para testar um item)
 
-* Info: Executa um ativador de um ExecutableItem que o jogador carrega, sem fazer o gesto (clique, golpe, pulo...). Útil para testar uma configuração. Todo o resto funciona normalmente: slots detalhados, condições, cooldowns, usage e comandos. O item é procurado no slot informado, senão na mão principal, na mão secundária, na armadura, e depois em todo o inventário.
+* Info: executa um ativador de um ExecutableItem que o jogador carrega, sem fazer o gesto (clique, golpe, pulo...). Útil para testar uma config. Todo o resto funciona como de costume: slots detalhados, condições, cooldowns, usage e comandos. O item é procurado no slot indicado; se não estiver lá, na mão principal, na mão secundária, na armadura e, por fim, em todo o inventário.
 * Comando: **/ei trigger \{player\} \{item id\} \{activator id\}** **[slot:N] [target:nearest|\{player\}|\{uuid\}] [block:x,y,z] [click:left|right] [input:JUMP_PRESS...]**
-  * `target`: a entidade ou jogador dos ativadores que possuem um target (golpe, clique em entidade...). Por padrão, aquele que o jogador está olhando.
-  * `block`: o bloco dos ativadores que possuem um bloco como target. Por padrão, o bloco que o jogador está olhando.
-  * `click`: para os ativadores com um clique detalhado. Por padrão `right` (`left` para `PLAYER_LEFT_CLICK`).
+  * `target`: a entidade ou o jogador dos ativadores que têm um alvo (golpe, clique em entidade...). Por padrão, aquele para quem o jogador está olhando.
+  * `block`: o bloco dos ativadores que têm um bloco alvo. Por padrão, o bloco para o qual o jogador está olhando.
+  * `click`: para os ativadores com clique detalhado. Por padrão, `right` (`left` para `PLAYER_LEFT_CLICK`).
   * `input`: obrigatório para `PLAYER_INPUT`.
-* Dica: se nada acontecer, execute **/ei debug** para ver qual verificação está bloqueando o ativador.
+* Dica: se nada acontecer, execute **/ei debug** para ver qual verificação bloqueia o ativador.
 * Permissão: `ei.cmd.trigger`
+
+#### Fazer todos os ExecutableItems manterem os atributos padrão do seu material
+
+* Info: define [Keep default attributes](/executableitems/configurations/item-configuration/item-features#keep-default-attributes) em **todos** os ExecutableItem carregados (`keepDefaultAttributes: true`, `ignoreKeepDefaultAttributesFeature: false`) e salva os arquivos deles. No 1.21+, o ExecutableItems lista no console, após cada carregamento, os itens que perdem o dano / a armadura do seu material sem essa opção. Com `false`, todos os itens recebem `keepDefaultAttributes: false`.
+* Comando: **/ei util-set-keepdefaultattributes-all-ei \{true or false\}**
+* Exemplo: `/ei util-set-keepdefaultattributes-all-ei true`
+* Permissão: `ei.cmd.util-set-keepdefaultattributes-all-ei`
 
 ### Comandos de give
 
 #### Comando give
 
-* Info: Comando para dar a um jogador um ExecutableItem no primeiro slot disponível.
+* Info: comando para dar um ExecutableItem a um jogador no primeiro slot disponível.
 * Comando: **/ei give \{player\} \{id\} \{Variables:\{var\_id\:value\},Usage\:value\} \{quantity\} \[giveOfflinePlayer]**
-  * `player`: Nome do jogador que será o alvo deste comando
-  * `id`: Id do ExecutableItem a dar.
-    * Valores opcionais: Para adicionar esta configuração personalizada, não deve haver espaço(s) em branco no formato.
-      * `Variables`: Você pode selecionar uma configuração de variáveis para quando o item for entregue.
+  * `player`: nome do jogador que será o alvo deste comando
+  * `id`: ID do ExecutableItem a dar.
+    * Valores opcionais: para adicionar essa configuração personalizada, não pode haver espaço(s)/espaço(s) em branco no formato. 
+      * `Variables`: você pode escolher uma configuração de variáveis ao dar o item.
         * ✅`{Variables:{a:"1",b:"2",c:"3"}}` # Sem uso de espaços em branco
-        * ❌`{Variables:{a : "1",b: "2",c :"3"}}` # Uso de espaços em branco
-      * `Usage:` Você pode selecionar um valor para o usage ao entregar o item
+        * ❌`{Variables:{a : "1",b: "2",c :"3"}}` # Com uso de espaços em branco
+      * `Usage:` você pode escolher um valor para o usage ao dar o item
         * ✅`{Usage:5}` # Sem uso de espaço(s) em branco
-        * ❌`{Usage : 5}` # Uso de espaço(s) em branco
-      * `Durability`: Você pode decidir quanta durabilidade o item perde ao ser entregue ao usuário
+        * ❌`{Usage : 5}` # Com uso de espaço(s) em branco
+      * `Durability`: você pode decidir quanta durabilidade o item perde ao ser dado ao usuário
         * ✅`{Durability:5}` # Sem uso de espaço(s) em branco
-        * ❌`{Durability : 5}` # Uso de espaço(s) em branco
-  * `quantity`: Quantidade de itens a dar
-  * `giveOfflinePlayer`: Valor booleano para definir se o item será dado a um jogador offline ou não. Por padrão este valor é true.
-* Exemplos: (Em todos estes exemplos os comandos estão sendo executados dentro de um ExecutableItems para que os placeholders como %player%,%var\_name% e %usage% sejam processados)
-  * `/ei give %player% Genesis_Crystal{Variables:{vibraniun:10,proton:30},Usage:10} 3`
+        * ❌`{Durability : 5}` # Com uso de espaço(s) em branco
+  * `quantity`: quantidade de itens a dar
+  * `giveOfflinePlayer`: valor booleano que define se o item será dado a um jogador offline ou não. Por padrão, este valor é true.
+* Exemplos: (em todos estes exemplos, o comando está sendo executado dentro de um ExecutableItems para interpretar placeholders como %player%, %var\_name% e %usage%)
+  * `/ei give %player% Genesis_Crystal{Variables:{vibraniun:10,proton:30},Usage:10} 3` 
   * `/ei give %player% SurgeBlade{Variables:{charge:%var_charge%+1},Usage:%usage%-1} 1`
   * `/ei give SsomarPluginsPlayer BoneBlade 1`
   * `/ei give edp445 cupcake{Durability:12} 1`
 * Permissão: `ei.cmd.give`
 
-#### Comando Give All
+#### Comando give all
 
 * Comando: **/ei giveall \{id\} \{quantity\} \[world] \[giveOfflinePlayer]**
-  * `id`: Id do ExecutableItem a dar.
-  * `quantity`: Quantidade de itens a dar
-  * `world`: Argumento opcional de mundo em que o comando será executado. Isso fará com que jogadores que não estejam neste mundo não recebam o ExecutableItem.
-  * `giveOfflinePlayer`: Valor booleano para definir se o item será dado a um jogador offline ou não. Por padrão este valor é true.
+  * `id`: ID do ExecutableItem a dar.
+  * `quantity`: quantidade de itens a dar
+  * `world`: argumento opcional de mundo em que o comando será executado. Com ele, as pessoas que não estiverem nesse mundo não receberão o ExecutableItem.
+  * `giveOfflinePlayer`: valor booleano que define se o item será dado a um jogador offline ou não. Por padrão, este valor é true.
 * Permissão: `ei.cmd.giveall`
 
 #### Dar um EI em um slot específico de um jogador <CustomTag type="premium" />
 
 * Comando: **/ei giveslot \{player\} \{id\} \{Variables:\{var\_id\:value\},Usage\:value\} \{quantity\} \{slot\} \[override true or false]**
-  * `player`: Nome do jogador que será o alvo deste comando
-  * `id`: Id do ExecutableItem a dar.
-    * Valores opcionais: Para adicionar esta configuração personalizada, não deve haver espaço(s) em branco no formato.
-      * `Variables`: Você pode selecionar uma configuração de variáveis para quando o item for entregue.
+  * `player`: nome do jogador que será o alvo deste comando
+  * `id`: ID do ExecutableItem a dar.
+    * Valores opcionais: para adicionar essa configuração personalizada, não pode haver espaço(s)/espaço(s) em branco no formato. 
+      * `Variables`: você pode escolher uma configuração de variáveis ao dar o item.
         * ✅\{Variables:\{a:"1",b:"2",c:"3"\\}\} # Sem uso de espaços em branco
-        * ❌\{Variables:\{a : "1",b: "2",c :"3"\\}\} # Uso de espaços em branco
-      * `Usage`: Você pode selecionar um valor para o usage ao entregar o item
+        * ❌\{Variables:\{a : "1",b: "2",c :"3"\\}\} # Com uso de espaços em branco
+      * `Usage`: você pode escolher um valor para o usage ao dar o item
         * ✅\{Usage:5\} # Sem uso de espaço(s) em branco
-        * ❌\{Usage : 5\} # Uso de espaço(s) em branco
-  * `quantity`: Quantidade de itens a dar
-  * `slot`: Slot do jogador onde este item será entregue.
-  * `override`: Valor booleano para sobrescrever o slot caso já exista um item nele. Se for o caso, ele será movido, e se o jogador tiver o inventário cheio, será derrubado no chão.
-* Exemplos:
-  * **`/ei giveslot`**`SsomarPluginsPlayer`**`test{Variables:{x:"Hey",world:"Island"},Usage:50} 1 0`**
+        * ❌\{Usage : 5\} # Com uso de espaço(s) em branco
+  * `quantity`: quantidade de itens a dar
+  * `slot`: slot do jogador em que este item será dado.
+  * `override`: valor booleano para sobrescrever o slot caso já exista um item nele. Nesse caso, o item será movido e, se o inventário do jogador estiver cheio, será jogado no chão.
+* Exemplos: 
+  * **`/ei giveslot`**`SsomarPluginsPlayer`**`test{Variables:{x:"Hey",world:"Island"},Usage:50} 1 0`**  
   * **`/ei giveslot`**`SsomarPluginsPlayer`**`rum{Usage:69420,Variables:{tell_me:"why",aint_nothing:"BUT A HEARTBREAK"}} 1 %slot%`**
 * Permissão: `ei.cmd.giveslot`
 
-**Dar todos os EI de uma pasta específica a um jogador**
+**Dar a um jogador todos os EI de uma pasta específica**
 
-* Info: Comando para dar uma pasta do plugin a um jogador.
+* Info: comando para dar a um jogador uma pasta do plugin.
 * Comando: **/ei givefolder \{player\} \{folder\} \{quantity\}**
-  * `player`: Nome do jogador que será o alvo deste comando
+  * `player`: nome do jogador que será o alvo deste comando
 * Permissão: `ei.cmd.givefolder`
 
 ### Comandos de drop
 
-#### Dropar um EI em uma localização / posição específica
+#### Dropar um EI em uma localização / posição específica 
 
 * Comando: **/ei drop \{id\} \{quantity\} \{\[world] \[x] \[y] \[z]\}**
-  * `id`: Id do ExecutableItem a dar.
-  * `quantity`: Quantidade de itens a dropar. Por padrão é 1.
-  * localização: A localização inteira é opcional, caso você queira adicioná-la, você precisará preencher os próximos argumentos:
-    * `world`: Mundo onde o item será dropado.
-    * `x`: Coordenada X onde o item será dropado.
-    * `y`: Coordenada Y onde o item será dropado.
-    * `z`: Coordenada Z onde o item será dropado.
-* Exemplos: (Em todos estes exemplos os comandos estão sendo executados dentro de um ExecutableItems para que os placeholders como %player%,%var\_name% e %usage% sejam processados)
+  * `id`: ID do ExecutableItem a dar.
+  * `quantity`: quantidade de itens a dropar. Por padrão, é 1.
+  * location: a localização inteira é opcional; caso queira adicioná-la, você precisará preencher os próximos argumentos:
+    * `world`: mundo em que o item será dropado.
+    * `x`: coordenada X em que o item será dropado.
+    * `y`: coordenada Y em que o item será dropado.
+    * `z`: coordenada Z em que o item será dropado.
+* Exemplos:  (em todos estes exemplos, os comandos estão sendo executados dentro de um ExecutableItems para interpretar placeholders como %player%, %var\_name% e %usage%)
   * `/ei drop totemshatter 1 %world% %x% %y% %z%`
   * `ei drop nuclearWar{Usage:3,Variables:{niconico:"nii"}} 25 %block_world% %block_x% %block_y% %block_z%`
   * `ei drop cybert1_5{Variables:{eh:5},Usage:5} 1 world 535 74 1329`
@@ -334,111 +341,111 @@ Também haverá cores diferentes (mas é a mesma ideia de \{\} e \[]):
 
 #### Modificar o valor de usage de um ExecutableItem
 
-* Comando:
+* Comando: 
   * No jogo: **/ei modification \{set or modification\} usage \{slot\} \{value\}**
   * No console: **/ei console-modification \{set or modification\} usage \{player\} \{slot\} \{value\}**
   * Parâmetros:
     * `set or modification`
-      * set: Define o novo \{value\} e substitui o antigo
-      * modification: Útil para adicionar modificações, aumenta ou diminui o valor original pelo \{value\}
-    * `player`: Nome do jogador que será o alvo deste comando
-    * `slot`: Slot do jogador onde este item será entregue.
-      * Mais informações sobre slots aqui [Slots info](/tools-for-all-plugins-score/general-questions-or-guides/utilities#slots)
-    * `value`: Valor usado para a modificação.
+      * set: define o novo \{value\} e substitui o antigo
+      * modification: útil para adicionar modificações; aumenta ou diminui o valor original em \{value\}
+    * `player`: nome do jogador que será o alvo deste comando
+    * `slot`: slot do jogador em que este item será dado.
+      * Mais informações sobre slots aqui: [Slots info](/tools-for-all-plugins-score/general-questions-or-guides/utilities#slots) 
+    * `value`: valor usado para a modificação.
 * Permissão: `ei.cmd.modification`
 
 #### Modificar o valor de uma variável de um ExecutableItem
 
-* Comando:
+* Comando: 
   * No jogo: **/ei modification \{set or modification\} variable \{slot\} \{variableName\} \{value\}**
   * No console: **/ei console-modification \{set or modification\} variable \{player\} \{slot\} \{variableName\} \{value\}**
   * Parâmetros:
     * `set or modification`
-      * set: Define o novo \{value\} e substitui o antigo
-      * modification: Útil para adicionar modificações, aumenta ou diminui o valor original pelo \{value\}
-    * `player`: Nome do jogador que será o alvo deste comando
-    * `slot`: Slot do jogador onde este item será entregue.
-      * Mais informações sobre slots aqui [Slots info](/tools-for-all-plugins-score/general-questions-or-guides/utilities#slots)
-    * `variableName`: O nome da variável à qual você quer aplicar o typeOfModication com o valor selecionado.
-    * `value`: Valor usado para a modificação.
+      * set: define o novo \{value\} e substitui o antigo
+      * modification: útil para adicionar modificações; aumenta ou diminui o valor original em \{value\}
+    * `player`: nome do jogador que será o alvo deste comando
+    * `slot`: slot do jogador em que este item será dado.
+      * Mais informações sobre slots aqui: [Slots info](/tools-for-all-plugins-score/general-questions-or-guides/utilities#slots) 
+    * `variableName`: o nome da variável à qual você quer aplicar o typeOfModication com o valor selecionado.
+    * `value`: valor usado para a modificação.
 * Permissão: `ei.cmd.modification`
 
-#### Buscar um ExecutableItem no servidor
+#### Procurar um ExecutableItem no servidor
 
-* Info: Isso te dá informações sobre onde estão os ExecutableItems com id \{id\} no seu servidor.
+* Info: informa onde estão os ExecutableItems com o id \{id\} no seu servidor.
 * Comando: **/ei search \{id\} \{searchMode\}**
-  * `id`: Id do ExecutableItem que você está buscando
-  * `searchMode`: Tipo de busca
-    * players: Busca o ExecutableItem em todos os inventários de jogadores **online**.
-    * containers: Busca o ExecutableItem em todos os containers **carregados**.
-    * all: Busca usando ambos os métodos.
+  * `id`: ID do ExecutableItem que você está procurando
+  * `searchMode`: tipo de busca
+    * players: procura o ExecutableItem em todos os inventários de jogadores **online**.
+    * containers: procura o ExecutableItem em todos os containers **carregados**.
+    * all: busca usando os dois métodos.
 * Exemplo:
   * `/ei search EternalSword all`
 * Permissão: `ei.cmd.search`
 
 #### Obter o caminho do arquivo de um ExecutableItem
 
-* Info: Este comando exibe o caminho absoluto do sistema de arquivos para o arquivo de configuração de um ExecutableItem específico. Útil para desenvolvedores ou administradores de servidor que precisam localizar e editar os arquivos de itens diretamente.
+* Info: este comando exibe o caminho absoluto no sistema de arquivos do arquivo de configuração de um ExecutableItem específico. Útil para desenvolvedores ou administradores de servidor que precisam localizar e editar os arquivos dos itens diretamente.
 * Comando: **/ei path \{id\}**
-  * `id`: Id do ExecutableItem para o qual você quer obter o caminho
+  * `id`: ID do ExecutableItem cujo caminho você quer obter
 * Exemplo:
   * `/ei path ExcaliburSword`
   * Saída: `[ExecutableItems] The path of ExcaliburSword is /path/to/plugins/ExecutableItems/Items/ExcaliburSword.yml.`
 * Permissão: `ei.cmd.path`
 
-#### Verificar informações de otimização de eventos
+#### Verificar as informações de otimização de eventos
 
-* Info: Este comando exibe informações detalhadas sobre a otimização do manipulador de eventos e estatísticas de desempenho do ExecutableItems. Ele mostra quais eventos estão sendo escutados e fornece informações sobre itens que usam reconhecimento personalizado (que pode impactar o desempenho). A saída é enviada para o console do servidor.
+* Info: este comando exibe informações detalhadas sobre a otimização dos event handlers do ExecutableItems e estatísticas de desempenho. Ele mostra quais eventos estão sendo escutados e fornece informações sobre os itens que usam reconhecimento personalizado (o que pode impactar o desempenho). A saída é enviada para o console do servidor.
 * Comando: **/ei checkevents**
 * A saída inclui:
   * Lista de eventos otimizados e o status de seus listeners
-  * Contagem de ExecutableItems usando reconhecimento personalizado
+  * Quantidade de ExecutableItems que usam reconhecimento personalizado
   * Avisos de impacto no desempenho
-  * Recomendações para melhor desempenho
+  * Recomendações para melhorar o desempenho
 * Permissão: `ei.cmd.checkevents`
 
 :::info
-A saída deste comando é enviada ao **console**, não ao jogador dentro do jogo. Verifique o console do seu servidor para ver as informações detalhadas.
+A saída deste comando é enviada para o **console**, não para o jogador no jogo. Verifique o console do seu servidor para ver as informações detalhadas.
 :::
 
 :::tip
-Itens com reconhecimento personalizado podem impactar o desempenho. O comando mostrará quantos itens estão usando este recurso. Se você tiver problemas de desempenho, considere reduzir a quantidade de itens com reconhecimento personalizado ativado.
+Itens com reconhecimento personalizado podem impactar o desempenho. O comando mostrará quantos itens estão usando esse recurso. Se você tiver problemas de desempenho, considere reduzir o número de itens com reconhecimento personalizado ativado.
 :::
 
-### Comandos do Pacote de Texturas
+### Comandos do pacote de texturas
 
 #### Atualizar o pacote de texturas do ExecutableItems
 
 * Comando: **/ei refresh-pack**
-* Info: Atualiza e recarrega o pacote de texturas do ExecutableItems para todos os jogadores online. Útil após fazer alterações em texturas personalizadas.
+* Info: atualiza e recarrega o pacote de texturas do ExecutableItems para todos os jogadores online. Útil depois de fazer alterações em texturas personalizadas.
 * Permissão: `ei.cmd.refresh-pack`
 
 #### Baixar o pacote de texturas padrão do ExecutableItems
 
 * Comando: **/ei download-default-pack**
-* Info: Baixa o pacote de texturas padrão do ExecutableItems do repositório oficial e extrai automaticamente o arquivo. Se `selfHostPack` estiver ativado no config.yml, o pack será automaticamente registrado e hospedado no seu servidor. Isso é útil para:
+* Info: baixa o pacote de texturas padrão do ExecutableItems do repositório oficial e o descompacta automaticamente. Se `selfHostPack` estiver ativado no config.yml, o pacote será registrado e hospedado automaticamente no seu servidor. Isso é útil para:
   * Configurar o pacote de texturas pela primeira vez
-  * Restaurar o pack padrão após modificações
-  * Atualizar para a versão mais recente do pack padrão
+  * Restaurar o pacote padrão depois de modificações
+  * Atualizar para a última versão do pacote padrão
 * Requisitos:
-  * `selfHostPack: true` deve estar definido no config.yml para hospedagem automática
-  * O servidor deve ter conexão com a internet para baixar o pack
+  * `selfHostPack: true` deve estar definido no config.yml para a hospedagem automática
+  * O servidor deve ter conexão com a internet para baixar o pacote
 * Permissão: `ei.cmd.download-default-pack`
 
 :::info
 **Opções de hospedagem:**
-- **Autohospedagem no seu servidor**: Defina `selfHostPack: true` no config.yml, o pack será hospedado diretamente pelo plugin
-- **Hospedagem externa**: Se você quiser hospedar o pack você mesmo (em um site, CDN, etc.), defina a URL de download em `texturesPackUrl` no config.yml
-- **Sem hospedagem**: Se nenhuma das opções estiver ativada, o pack será baixado e extraído localmente, mas não será distribuído aos jogadores
+- **Auto-hospedagem no seu servidor**: defina `selfHostPack: true` no config.yml; o pacote será hospedado diretamente pelo plugin
+- **Hospedagem externa**: se você quiser hospedar o pacote por conta própria (em um site, CDN, etc.), defina a URL de download em `texturesPackUrl` no config.yml
+- **Sem hospedagem**: se nenhuma das opções estiver ativada, o pacote será baixado e descompactado localmente, mas não será distribuído aos jogadores
 :::
 
 ### Custom triggers
 
-* Info: ExecutableItems tem comandos para executar custom triggers. Se você quiser saber o que são e como usá-los, confira as informações aqui [Custom triggers](/tools-for-all-plugins-score/custom-triggers)
+* Info: o ExecutableItems tem comandos para executar Custom triggers; se quiser saber o que são e como usá-los, veja as informações aqui: [Custom triggers](/tools-for-all-plugins-score/custom-triggers) 
 
 ### WorldGuard
 
-* Você pode usar flags do WorldGuard para ativar/desativar todos os ativadores do ei
+* Você pode usar flags do WorldGuard para ativar/desativar todos os ativadores dos EI
 ```
 /rg flag <region> ei-activators deny # disables ALL EI activators in the region
 /rg flag <region> ei-activators allow # re-enables them (this is the default)

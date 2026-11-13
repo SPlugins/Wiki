@@ -1,50 +1,50 @@
 ---
 description: >-
-  Руководство SCore по созданию и настройке кастомных projectiles: типы,
-  частицы, урон, зачарования и полный YAML-конфиг.
-source_hash: 865d4da043f01247
-translated_at: '2026-10-03T10:32:45.962Z'
+  Узнайте, как создавать кастомные снаряды в SCore, настраивать их параметры в
+  редакторе или YAML и запускать командами LAUNCH.
+source_hash: 6fa479a1613c4cb0
+translated_at: '2026-11-13T18:17:35.242Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import CustomTag from '@site/src/components/CustomTag';
 
-# 🏹 Custom Projectiles
+# 🏹 Кастомные снаряды
 
-Эта страница поможет вам разобраться с созданием кастомных projectiles и их запуском.\
-Мы создали для вас встроенный редактор, чтобы упростить редактирование. **Используйте его.**
+Эта страница поможет вам узнать, как создавать кастомные снаряды и запускать их.\
+Мы подготовили для вас редактор в игре, чтобы упростить настройку. **Пользуйтесь им.**
 
 :::info 
-Чтобы запустить их, всё просто: используйте команды [LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#launch) или [LOCATED_LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#located_launch). Эти projectiles нельзя выдавать игрокам.
+Чтобы запустить их, достаточно использовать команды [LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#launch) или [LOCATED\_LAUNCH](/tools-for-all-plugins-score/custom-commands/player-and-target-commands#located_launch). Эти снаряды нельзя выдавать игрокам.
 :::
 
 ### Команды:
 
-| Команда                         | Функция                                                    |
-| ------------------------------- | ----------------------------------------------------------- |
-| /score projectiles              | Показывает вам все projectiles и позволяет их редактировать             |
-| /score projectiles-create \<id> | Открывает редактор для создания нового projectile                  |
-| /score projectiles-delete \<id> | Действие для удаления projectile (требуется подтверждение)           |
-| /score reload                   | Перезагружает плагин (полезно, если вы редактируете projectile в .yml) |
+| Команда                         | Функция                                                                |
+| ------------------------------- | ---------------------------------------------------------------------- |
+| /score projectiles              | Показывает все снаряды и позволяет их редактировать                    |
+| /score projectiles-create \<id> | Открывает редактор для создания нового снаряда                         |
+| /score projectiles-delete \<id> | Действие для удаления снаряда (требуется подтверждение)                |
+| /score reload                   | Перезагружает плагин (полезно, если вы отредактировали снаряд в .yml)  |
 
 ## **Основная информация**
 
-### Type
+### Тип
 
-Это первое, что вам нужно задать: тип projectile, который вы хотите создать. Score поддерживает:
+Это первое, что нужно задать: тип снаряда, который вы хотите создать. Score поддерживает:
 
 * ARROW
-* SPECTRAL_ARROW
+* SPECTRAL\_ARROW
 * EGG
-* ENDER_PEARL
+* ENDER\_PEARL
 * FIREBALL
-* SPLASH_POTION
-* SHULKER_BULLET
+* SPLASH\_POTION
+* SHULKER\_BULLET
 * SNOWBALL
 * TRIDENT
-* WITHER_SKULL
-* DRAGON_FIREBALL
+* WITHER\_SKULL
+* DRAGON\_FIREBALL
 * THROWNEXPBOTTLE
-* WIND_CHARGE
+* WIND\_CHARGE
 * LLAMASPIT
 * FISHHOOK
 * FIREWORK
@@ -55,9 +55,9 @@ import CustomTag from '@site/src/components/CustomTag';
 type: ARROW
 ```
 
-### Custom name visible
+### Видимость кастомного имени
 
-* Позволяет показывать кастомное имя над projectile
+* Позволяет показывать кастомное имя над снарядом
 * Варианты:
   * true
   * false
@@ -67,34 +67,34 @@ type: ARROW
 customNameVisible: true
 ```
 
-### Custom Name
+### Кастомное имя
 
-* Это ИМЯ projectile, полезно для customNameVisible и для плейсхолдеров.
+* Это ИМЯ снаряда, полезное для customNameVisible и для плейсхолдеров.
 * Пример:
 
 ```yaml
 customName: '&eBullet'
 ```
 
-### Visual fire
+### Визуальный огонь
 
-* Опция, позволяющая включить визуальный огонь на projectile
+* Опция, позволяющая показывать визуальный огонь на снаряде
 * Пример:
 
 ```yaml
 visualFire: true
 ```
 
-### Invisible
+### Невидимость
 
-* Будет ли projectile невидимым или нет. Требуется [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
+* Будет ли снаряд невидимым. Требуется [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
 ```yaml
 invisible: false
 ```
 
-### Pickup status
+### Статус подбора
 
-* Опция для настройки того, можно ли поднять projectile
+* Опция для настройки того, можно ли подобрать снаряд
 * Варианты: [Pickup status](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/AbstractArrow.PickupStatus.html)
 * Пример:
 
@@ -102,9 +102,9 @@ invisible: false
 pickupStatus: CREATIVE_ONLY # DISALLOWED, ALLOWED
 ```
 
-### Glowing
+### Свечение
 
-* Будет ли у projectile эффект свечения или нет
+* Будет ли у снаряда эффект свечения
 * Варианты:
   * true
   * false
@@ -114,9 +114,9 @@ pickupStatus: CREATIVE_ONLY # DISALLOWED, ALLOWED
 glowing: true
 ```
 
-### Bounce
+### Отскок
 
-* Будет ли projectile отскакивать от существа во время его неуязвимого состояния.
+* Будет ли снаряд отскакивать от сущности, пока она находится в состоянии неуязвимости.
 * Варианты:
   * true
   * false
@@ -126,9 +126,9 @@ glowing: true
 bounce: true
 ```
 
-### Gravity
+### Гравитация
 
-* Будет ли на projectile действовать гравитация или нет
+* Будет ли на снаряд действовать гравитация
 * Варианты:
   * true
   * false
@@ -138,9 +138,10 @@ bounce: true
 gravity: true
 ```
 
-### Velocity
+### Скорость
 
-* Насколько быстрым будет projectile
+* Насколько быстрым будет снаряд
+  * <CustomTag type="version" version="1.20.5" /> Это также работает для FIREBALL, WITHER\_SKULL и DRAGON\_FIREBALL: `2.0` летит вдвое быстрее, `1` сохраняет ванильную скорость. До версии 1.20.5 они сохраняют ванильную скорость.
 * Пример:
 
 ```yaml
@@ -148,21 +149,21 @@ velocity: 2.0
 ```
 
 :::danger
-НА УРОН **ARROW** ВЛИЯЕТ ЭТА ОПЦИЯ
+УРОН **ARROW** ЗАВИСИТ ОТ ЭТОЙ ОПЦИИ
 
 Формула: `velocity x 1 = Arrow Damage`
 :::
 
-### Particles
+### Частицы
 
-* Это позволяет настроить, какие частицы будет отображать projectile вокруг себя.
- * `particlesType`: Тип частицы 
- * `particlesAmount`: Сколько частиц будет испускаться каждый раз                                                                 
- * `particlesOffSet`: На каком расстоянии от projectile будут появляться частицы                                                                
- * `particlesSpeed`: Насколько быстро будут двигаться частицы                                                                 
- * `redstoneColor`: Изменить цвет частицы redstone. [Colors](https://helpch.at/docs/1.12.2/org/bukkit/Color.html)
- * `blockType`: Какой блок использовать для частицы. Только для: BLOCK_CRACK, BLOCK_DUST, BLOCK_MARKER
- * `particleDensity`: Плотность частиц, полезно, когда нужен чистый след от вашего projectile
+* Позволяет изменить, какие частицы будут отображаться вокруг снаряда.
+ * `particlesType`: тип частицы 
+ * `particlesAmount`: сколько частиц испускается за один раз                                                                 
+ * `particlesOffSet`: насколько близко к снаряду появляются частицы                                                                
+ * `particlesSpeed`: как быстро движутся частицы                                                                 
+ * `redstoneColor`: изменяет цвет частицы redstone. [Colors](https://helpch.at/docs/1.12.2/org/bukkit/Color.html)
+ * `blockType`: какой блок использовать для частицы. Только для: BLOCK\_CRACK, BLOCK\_DUST, BLOCK\_MARKER
+ * `particleDensity`: плотность частиц, полезно, когда нужен аккуратный след за снарядом
 
 * Пример:
 
@@ -188,28 +189,28 @@ particles:
     blockType: SPONGE
 ```
 
-### Despawn delay
+### Задержка исчезновения
 
-* Сколько секунд будет длиться жизнь projectile. (Поддерживаются десятичные значения)
+* Сколько секунд будет жить снаряд. (Поддерживаются десятичные значения)
 * Пример:
 
 ```yaml
 despawnDelay: 10
 ```
 
-### Knockback strength
+### Сила отбрасывания
 
-* Насколько сильным будет отбрасывание (knockback) при попадании projectile в цель
+* С какой силой снаряд будет отбрасывать свои цели
 * Формула:
 
-`Knockback strength x 3` = Количество блоков, на которое отбросит цель
+`Knockback strength x 3` = количество блоков, на которое цель будет отброшена
 ```yaml
 knockbackStrengt: 1
 ```
 
-### Remove when hit block
+### Удалять при попадании в блок
 
-* Исчезает ли projectile при попадании в блок
+* Исчезает ли снаряд при попадании в блок
 * Варианты:
   * true
   * false
@@ -219,16 +220,16 @@ knockbackStrengt: 1
 removeWhenHitBlock: true
 ```
 
-## **Кастомная информация**
+## **Дополнительная информация**
 
-* Вся следующая информация ограничена типом projectile.
+* Вся следующая информация зависит от типа снаряда.
 
-### Visual item:
+### Визуальный предмет:
 
-* Это даёт вам возможность замаскировать projectile под предмет
-* Доступные projectiles:
+* Позволяет замаскировать снаряд под предмет
+* Доступные снаряды:
 * **EGG**
-* **ENDER_PEARL**
+* **ENDER\_PEARL**
 * **SNOWBALL**
 
 Пример:
@@ -238,12 +239,12 @@ visualItem: diamond_sword
 ```
 
 :::info
-visualItem совместим с кастомными головами и добавлением текстур к этим головам
+visualItem совместим с кастомной головой и добавлением текстур к этой голове
 :::
 
 #### Custom model data
 
-* Также visual item поддерживает custom model data предмета.
+* Визуальный предмет также поддерживает custom model data предмета.
 
 ```yaml
 customModelData: 37
@@ -251,17 +252,17 @@ customModelData: 37
 
 #### Item Model
 
-* Начиная с версии 1.21.2, вы можете редактировать item Model у projectile.
+* Начиная с версии 1.21.2 вы можете изменять item model снаряда.
 
 ```yaml
 itemModel: mypack:mymodel
 ```
 
-### Arrow
+### Стрела
 
-#### Critical
+#### Критический удар
 
-* Будет ли projectile типа **ARROW** оставлять след критических частиц
+* Будет ли снаряд **ARROW** оставлять след из критических частиц
 * Варианты:
   * true
   * false
@@ -272,15 +273,15 @@ critical: true
 ```
 
 :::info
-Только для projectile ARROW
+Только для снаряда ARROW
 :::
 
-#### Damage
+#### Урон
 
 * Сколько урона нанесёт стрела
 * Формула:
 
-`<Damage> x 3` = Урон стрелы 
+`<Damage> x 3` = урон стрелы 
 
 * По умолчанию: -1
 * Пример:
@@ -290,17 +291,17 @@ damage: 10.0
 ```
 
 :::info
-Не используйте отрицательное значение, ничего не изменится.
+Не используйте отрицательные значения, ничего не изменится.
 :::
 
-#### Pierce level
+#### Уровень пробивания
 
-* Сколько мобов будет поражено одним projectile, прежде чем он исчезнет
+* Сколько мобов будет поражено одним снарядом, прежде чем он исчезнет
 * Формула:
 
-`<PierceLevel> + 1` = Количество мобов, которые будут поражены
+`<PierceLevel> + 1` = количество мобов, которые будут поражены
 
-* Если значение установлено в -1, projectile исчезнет после попадания в 1 моба.
+* Если задано значение -1, снаряд исчезнет после попадания в 1 моба.
 * Пример:
 
 ```yaml
@@ -321,7 +322,7 @@ activeColor: true
 color: AQUA
 ```
 
-#### Silent
+#### Беззвучность
 
 * Будет ли стрела издавать звук
 * Варианты:
@@ -333,11 +334,11 @@ color: AQUA
 silent: true
 ```
 
-#### Hit sound
+#### Звук попадания
 
 <CustomTag type="paper" />
-* Настройка звука, который будет издан при попадании стрелы во что-либо. [Sounds](https://jd.papermc.io/paper/1.21.8/org/bukkit/Sound.html)
-* Работает для ARROW, TRIDENT и SPECTRAL_ARROW
+* Настройте звук, который будет издавать стрела при попадании во что-либо. [Sounds](https://jd.papermc.io/paper/1.21.8/org/bukkit/Sound.html)
+* Работает для ARROW, TRIDENT и SPECTRAL\_ARROW
 
 * Пример:
 
@@ -345,11 +346,11 @@ silent: true
 hitSound: BLOCK_BELL_USE
 ```
 
-### Wither skull
+### Череп иссушителя
 
-#### Charged
+#### Заряженный
 
-* Заряжен ли wither_skull или нет
+* Заряжен ли wither\_skull
 * Варианты:
   * true
   * false
@@ -359,9 +360,9 @@ hitSound: BLOCK_BELL_USE
 charged: true
 ```
 
-### Fireball
+### Огненный шар
 
-#### Radius
+#### Радиус
 
 * Радиус взрыва
 * Пример
@@ -370,9 +371,9 @@ charged: true
 radius: 3
 ```
 
-#### Incendiary
+#### Зажигательный
 
-* Будет ли projectile fireball поджигать что-либо при попадании или нет
+* Будет ли снаряд fireball вызывать огонь при попадании во что-либо
 * Варианты:
   * true
   * false
@@ -382,11 +383,11 @@ radius: 3
 incendiary: true
 ```
 
-### Firework
+### Фейерверк
 
-**Lifetime**
+**Время жизни**
 
-* Как долго firework может длиться, прежде чем исчезнет (аналог того, сколько было использовано gunpowder)
+* Как долго фейерверк может существовать, прежде чем исчезнет (например, сколько порохов было использовано)
 * Пример:
 
 ```yaml
@@ -395,7 +396,7 @@ lifeTime: 3
 
 **fireworkExplosions:**
 
-* Настройки цветов взрыва firework
+* Настройки цветов взрыва фейерверка
 * Пример:
 
 ```yaml
@@ -410,16 +411,16 @@ fireworkExplosions:
       hasTwinkle: true
 ```
 
-Для цветов вы можете использовать либо обычные [названия цветов](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html), либо `RGB-<0-255>-<0-255>-<0-255>`
+Для цветов вы можете использовать как обычные [названия цветов](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html), так и `RGB-<0-255>-<0-255>-<0-255>`
 
-## YML Config
+## Конфигурация YML
 
 * Есть некоторые функции, которые пока нельзя редактировать в игре
 
-### Enchantments (TRIDENT)
+### Зачарования (TRIDENT)
 
 <CustomTag type="version" version="1.16.4" />
-* Позволяет накладывать зачарования на trident.
+* Позволяют зачаровывать трезубцы.
 
 ```yaml
 enchantments:
@@ -431,9 +432,9 @@ enchantments:
    level: 1
 ```
 
-### Potion effects (Splash potion)
+### Эффекты зелий (Splash potion)
 
-* Позволяет редактировать эффекты splash potion. [Potion effects](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html)
+* Позволяют редактировать эффекты splash potion. [Potion effects](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html)
 
 ```yaml
 potionEffects:
@@ -447,7 +448,7 @@ potionEffects:
   amplifier: 4
 ```
 
-## Full YAML Config
+## Полная конфигурация YAML
 
 ```yaml
 type: TRIDENT

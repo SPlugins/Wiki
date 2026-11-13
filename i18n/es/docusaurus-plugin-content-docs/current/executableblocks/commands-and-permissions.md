@@ -1,19 +1,19 @@
 ---
 description: >-
-  Guía de comandos y permisos de ExecutableBlocks: crear, dar, eliminar y
-  gestionar bloques personalizados en tu servidor.
-source_hash: aaceb7cb9a44305e
-translated_at: '2026-10-03T10:44:09.315Z'
+  Lista de comandos y permisos de ExecutableBlocks: crear, colocar, recargar,
+  dar y eliminar EB, con la sintaxis y el permiso de cada comando.
+source_hash: 653dceef09a76278
+translated_at: '2026-11-13T18:12:31.940Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
-# ⌨️ Commands & Permissions
+# ⌨️ Comandos y permisos
 
 ## Permisos
 
 **CONSEJO para principiantes:**
 
 :::info
-Para dar los permisos de todos los ítems, te recomiendo descargar un plugin de permisos como [**Luckperms**](https://www.spigotmc.org/resources/luckperms.28140/). Una vez que tengas un plugin de permisos, solo necesitas dar el permiso **`eb.block.*`**, para Luckperm el comando es **`/lp group default permission set eb.block.* true`**
+Para dar los permisos de todos los ítems, te aconsejo descargar un plugin de permisos como [**Luckperms**](https://www.spigotmc.org/resources/luckperms.28140/). Una vez que tengas un plugin de permisos, solo necesitas dar el permiso **`eb.block.*`**; para Luckperms el comando es **`/lp group default permission set eb.block.* true`**
 :::
 
 #### Permiso de bloque
@@ -21,31 +21,31 @@ Para dar los permisos de todos los ítems, te recomiendo descargar un plugin de 
 * Permiso: `eb.block.{id}`
 * Permiso negativo: `-eb.block.{id}` 
 * Ejemplo: `eb.block.Test`
-* Dar el permiso de todos los ítems: `eb.block.*` 
+* Permiso para todos los ítems: `eb.block.*` 
 
 #### Dar todos los permisos de EB
 
 * Permiso: `eb.*`
 
-#### Dar todos los permisos de comandos de EB
+#### Dar los permisos de todos los comandos de EB
 
 * Permiso: `eb.cmds`
 
-#### Permiso de bypass de cooldown
+#### Permiso para ignorar el cooldown
 
 * Permiso: `eb.nocd.{id}` `eb.nocd.*`
-* Descripción: Da este permiso personalizado para desactivar el cooldown de tus jugadores vip
-* (Asegúrate de probarlo sin ser op)
+* Descripción: da este permiso personalizado para desactivar el cooldown de tus jugadores VIP
+* (Asegúrate de probar sin ser op)
 
 **Límite de EB**
 
 * Permiso: `eb.limit.{amount}`
-* Descripción: Establece el valor máximo de EB(s) que un jugador puede colocar.
+* Descripción: establece el valor máximo de EB que un jugador puede colocar.
 
 #### Limitar un EB específico
 
 * Permiso: `eb.block.ID.limit.{amount}`
-* Descripción: Limita la cantidad de un ID de EB específico que un jugador puede colocar
+* Descripción: limita la cantidad de un ID de EB específico que un jugador puede colocar
 
 ## Comandos
 
@@ -53,14 +53,14 @@ Para dar los permisos de todos los ítems, te recomiendo descargar un plugin de 
 
 * Comando: **/eb create \{id\}**
 * Consejo: 
-  * Si quieres **copiar el ítem/bloque de otro plugin**, o un bloque vanilla personalizado (Banner, bloque personalizado, ...), necesitas instalar mi otro plugin, ExecutableItems, escribe **/ei create \{id\}** y luego importa tu ExecutableItem en ExecutableBlocks.
+  * Si quieres **copiar el ítem o bloque de otro plugin**, o un bloque vanilla personalizado (Banner, bloque personalizado, ...), necesitas instalar mi otro plugin, ExecutableItems, escribir **/ei create \{id\}** y después importar tu ExecutableItem en ExecutableBlocks.
 * Permiso: `eb.cmd.create`
 
 ####
 
-#### Abrir una gui con los EB(s) colocados
+#### Abrir una GUI con los EB colocados
 
-* comando: /eb show-placed filter/sort:
+* Comando: /eb show-placed filter/sort:
 
 #### Abrir el editor / menú
 
@@ -97,24 +97,30 @@ Para dar los permisos de todos los ítems, te recomiendo descargar un plugin de 
 * Comando: **/eb default\_blocks**
 * Permiso: `eb.cmd.default_blocks`
 
-#### Limpiar todos los cooldowns y comandos retrasados de EB
+#### Borrar todos los cooldowns y comandos con retraso de EB
 
 * Comando: **/eb clear** **\[playerName]**
 * Permiso: `eb.cmd.clear`
 
 :::info
-También funciona con entidades, solo usa el UUID de la entidad en lugar del nombre del jugador
+También soporta entidades: solo usa el UUID de la entidad en lugar del nombre del jugador
 :::
 
-#### Activar / Desactivar actionbar de EB
+#### Activar / desactivar la actionbar de EB
 
 * Comando: **/eb actionbar** **\{on or off\}**
 * Permiso: `eb.cmd.actionbar`
 
 #### Colocar un EB en una posición específica
 
-* Comando: **/eb place \{id\} \{x\} \{y\} \{z\} \{world\}**
+* Comando: **/eb place \{id\} \{x\} \{y\} \{z\} \{world\}** \[direction]
 * Permiso: `eb.cmd.place`
+* `[direction]`: (Opcional) `NORTH`, `SOUTH`, `EAST`, `WEST`, `UP` o `DOWN` (en mayúsculas o minúsculas, con autocompletado con Tab). El bloque colocado se orienta hacia esta dirección.
+  * Tiene prioridad sobre las [características direccionales](/executableblocks/configurations/block-configuration/block-features#directional-features) del bloque (`blockFaceOnPlace` con `forceBlockFaceOnPlace: true`).
+  * Funciona en los bloques que se pueden orientar: bloques direccionales (hornos, observadores, nidos de abeja...), bloques rotables (carteles, cabezas, banners: no `UP` / `DOWN`) y bloques con un eje (troncos, pilares: `UP` / `DOWN` = vertical). Una dirección que el bloque no acepte se ignora.
+  * Solo para los ExecutableBlocks creados con `BASIC_CREATION` o `IMPORT_FROM_EXECUTABLE_ITEMS`, en servidores 1.13+.
+  * Sin el argumento, nada cambia: el bloque se coloca como antes.
+* Ejemplo: `/eb place my_furnace 100 64 -20 world EAST`
 
 #### Eliminar un EB en una posición específica
 
@@ -123,19 +129,19 @@ También funciona con entidades, solo usa el UUID de la entidad en lugar del nom
 
 #### Rellenar una selección de región con un EB
 
-* Requisito: Este comando requiere tener el plugin [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
+* Requisito: este comando requiere tener el plugin [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
 * Comando: **/eb we-place \{id\}**
 * Permiso: `eb.cmd.we-place`
 
 #### Rellenar una región de WorldGuard con un EB
 
-* Requisito: Este comando requiere tener el plugin WorldGuard
+* Requisito: este comando requiere tener el plugin WorldGuard
 * Comando: **/eb wg-fill-region \{world\} \{region\_name\} stone:70,MyEb:30**
 * Permiso: `eb.cmd.wg-fill-region`
 
 #### Eliminar todos los EB presentes en una selección de bloques
 
-* Requisito: Este comando requiere tener el plugin [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
+* Requisito: este comando requiere tener el plugin [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
 * Comando: **/eb we-remove \{replaceTheEBByAir true or false\}**
 * Permiso: `eb.cmd.we-remove`
 
@@ -181,11 +187,11 @@ También funciona con entidades, solo usa el UUID de la entidad en lugar del nom
     * **/eb giveslot Ssomar test\{Variables:\{x:"Hey",world:"Island"\},Usage:50\} 1 0**  
     * **/eb giveslot Special70 rum\{Usage:69420,Variables:\{tell\_me:"why",aint\_nothing:"BUT A HEARTBREAK"\\}\} 1 %slot%**
     * **/eb giveslot Ssomar xyz\{Variables:\{test:"Hello boss!"\},Usage:5\} 1 5**
-  * _Usage por defecto: El usage que está en la config de tu EB_
-  * _Override permite que el EB ocupe ese slot, y si había un ítem ahí, se moverá a otro slot o se soltará al suelo._
+  * _Usage por defecto: el Usage que está en la config de tu EB_
+  * _Override permite que el EB ocupe ese slot y, si había un ítem allí, se moverá a otro slot o caerá al suelo._
 * Permiso: `eb.cmd.giveslot`
 
-**Dar cada EB de una carpeta específica a un jugador**
+**Dar a un jugador todos los EB de una carpeta específica**
 
 * Comando:
   * **/eb givefolder \{playername\} \{folder\} \{quantity\}**
@@ -197,12 +203,12 @@ También funciona con entidades, solo usa el UUID de la entidad en lugar del nom
 * Comando: 
   * **/eb drop \{id\}** **\[quantity] \[world] \[x] \[y] \[z]**
   * _Cantidad por defecto: 1_
-  * _Ubicación por defecto: La ubicación del jugador que ha ejecutado este comando_
+  * _Ubicación por defecto: la ubicación del jugador que ha ejecutado este comando_
 * Permiso: `eb.cmd.drop`
 
-### Custom trigger
+### Custom Trigger
 
 Comandos:
 
-* /eb run-custom-trigger trigger:\{activatorId\} // Ejecutará el/los activador(es) para todos los EB colocados que tengan un activador con el ID especificado.
-* /eb run-custom-trigger trigger:\{activatorId\} block:\{world,x,y,z\} // Ejecutará el/los activador(es) solo para el EB colocado en la ubicación especificada y si tiene un activador con el ID especificado.
+* /eb run-custom-trigger trigger:\{activatorId\} // Ejecutará el o los activadores de todos los EB colocados que tengan un activador con el ID especificado.
+* /eb run-custom-trigger trigger:\{activatorId\} block:\{world,x,y,z\} // Ejecutará el o los activadores solo del EB colocado en la ubicación especificada y si tiene un activador con el ID especificado.

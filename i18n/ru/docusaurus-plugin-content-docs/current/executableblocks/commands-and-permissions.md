@@ -1,51 +1,51 @@
 ---
 description: >-
-  Полный список команд и прав (permission) плагина ExecutableBlocks: создание,
-  выдача, удаление блоков и настройка кулдаунов.
-source_hash: aaceb7cb9a44305e
-translated_at: '2026-10-03T10:52:41.705Z'
+  Список команд и прав (permissions) плагина ExecutableBlocks: создание, выдача,
+  установка и перезагрузка блоков EB, лимиты и обход кулдауна.
+source_hash: 653dceef09a76278
+translated_at: '2026-11-13T18:12:42.816Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
-# ⌨️ Команды и права (permission)
+# ⌨️ Команды и права
 
-## Права (permission)
+## Права (permissions)
 
 **СОВЕТ для новичков:**
 
 :::info
-Чтобы выдать права (permission) на все предметы, советуем установить плагин для управления правами, например [**Luckperms**](https://www.spigotmc.org/resources/luckperms.28140/). Как только у вас будет такой плагин, достаточно выдать право (permission) **`eb.block.*`**, для Luckperm команда выглядит так: **`/lp group default permission set eb.block.* true`**
+Чтобы выдать права на все предметы, советую вам скачать плагин для управления правами, например [**LuckPerms**](https://www.spigotmc.org/resources/luckperms.28140/). Когда такой плагин установлен, достаточно выдать право **`eb.block.*`**, для LuckPerms команда такая: **`/lp group default permission set eb.block.* true`**
 :::
 
-#### Право (permission) на блок
+#### Право на блок
 
-* Право (permission): `eb.block.{id}`
-* Отрицательное право (permission): `-eb.block.{id}` 
+* Право: `eb.block.{id}`
+* Отрицательное право: `-eb.block.{id}` 
 * Пример: `eb.block.Test`
-* Выдать право (permission) на все предметы: `eb.block.*` 
+* Право на все предметы: `eb.block.*` 
 
-#### Выдать все права (permission) EB
+#### Выдать все права EB
 
-* Право (permission): `eb.*`
+* Право: `eb.*`
 
-#### Выдать все права (permission) на команды EB
+#### Выдать права на все команды EB
 
-* Право (permission): `eb.cmds`
+* Право: `eb.cmds`
 
-#### Право (permission) на обход кулдауна
+#### Право на обход кулдауна
 
-* Право (permission): `eb.nocd.{id}` `eb.nocd.*`
-* Описание: Выдайте это кастомное право (permission), чтобы отключить кулдаун для ваших VIP игроков
-* (Обязательно протестируйте без op)
+* Право: `eb.nocd.{id}` `eb.nocd.*`
+* Описание: выдайте это кастомное право, чтобы отключить кулдаун для ваших VIP-игроков
+* (Обязательно проверяйте, не будучи оператором)
 
 **Лимит EB**
 
-* Право (permission): `eb.limit.{amount}`
-* Описание: Устанавливает максимальное количество EB, которое игрок может разместить.
+* Право: `eb.limit.{amount}`
+* Описание: задаёт максимальное количество EB, которое игрок может поставить.
 
-#### Лимит на конкретный EB
+#### Ограничить конкретный EB
 
-* Право (permission): `eb.block.ID.limit.{amount}`
-* Описание: Ограничивает количество конкретного ID EB, которое игрок может разместить
+* Право: `eb.block.ID.limit.{amount}`
+* Описание: ограничивает количество блоков с конкретным EB ID, которое игрок может поставить
 
 ## Команды
 
@@ -53,127 +53,133 @@ translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 
 * Команда: **/eb create \{id\}**
 * Совет: 
-  * Если вы хотите **скопировать предмет/блок другого плагина**, или кастомный ванильный блок (баннер, кастомный блок, ...), вам нужно установить мой другой плагин, ExecutableItems, ввести **/ei create \{id\}** и затем импортировать ваш ExecutableItem в ExecutableBlocks.
-* Право (permission): `eb.cmd.create`
+  * Если вы хотите **скопировать предмет/блок из другого плагина** или кастомный ванильный блок (Banner, Custom block, ...), вам нужно установить мой другой плагин, ExecutableItems, ввести **/ei create \{id\}**, а затем импортировать ваш ExecutableItem в ExecutableBlocks.
+* Право: `eb.cmd.create`
 
 ####
 
-#### Открыть gui с размещёнными EB
+#### Открыть GUI с установленными EB
 
-* команда: /eb show-placed filter/sort:
+* Команда: /eb show-placed filter/sort:
 
 #### Открыть редактор / меню
 
 * Команда: **/eb editor** или **/eb show**
-* Право (permission): `eb.cmd.editor` или `eb.cmd.show`
+* Право: `eb.cmd.editor` или `eb.cmd.show`
 
-#### Открыть редактор для редактирования конкретного EB
+#### Открыть редактор для изменения конкретного EB
 
 * Команда: **/eb edit \{BlockID\}**
-* Право (permission): `eb.cmd.edit`
+* Право: `eb.cmd.edit`
 
 #### Перезагрузить плагин
 
 * Команда: **/eb reload**
-* Право (permission): `eb.cmd.reload`
+* Право: `eb.cmd.reload`
 
 #### Перезагрузить плагин (только 1 блок)
 
 * Команда: **/eb reload \{block\_id\}**
-* Право (permission): `eb.cmd.reload`
+* Право: `eb.cmd.reload`
 
 **Перезагрузить папку**
 
 * Команда: **/eb reload folder\:Name\_Of\_My\_Folder**
-* Право (permission): `eb.cmd.reload`
+* Право: `eb.cmd.reload`
 
 #### Удалить ExecutableBlock
 
 * Команда: **/eb delete \{id\}**
-* Право (permission): `eb.cmd.create`
+* Право: `eb.cmd.create`
 
-#### Перезагрузить блоки по умолчанию ExecutableBlock
+#### Перезагрузить блоки ExecutableBlock по умолчанию
 
 * Команда: **/eb default\_blocks**
-* Право (permission): `eb.cmd.default_blocks`
+* Право: `eb.cmd.default_blocks`
 
-#### Очистить все кулдауны и отложенные команды EB
+#### Сбросить все кулдауны и отложенные команды EB
 
 * Команда: **/eb clear** **\[playerName]**
-* Право (permission): `eb.cmd.clear`
+* Право: `eb.cmd.clear`
 
 :::info
-Это также поддерживает сущности, просто используйте UUID сущности вместо имени игрока
+Поддерживаются также сущности: просто используйте UUID сущности вместо имени игрока
 :::
 
-#### Включить / выключить actionbar EB
+#### Включить / отключить actionbar у EB
 
 * Команда: **/eb actionbar** **\{on or off\}**
-* Право (permission): `eb.cmd.actionbar`
+* Право: `eb.cmd.actionbar`
 
-#### Разместить EB в конкретной позиции
+#### Поставить EB в определённой позиции
 
-* Команда: **/eb place \{id\} \{x\} \{y\} \{z\} \{world\}**
-* Право (permission): `eb.cmd.place`
+* Команда: **/eb place \{id\} \{x\} \{y\} \{z\} \{world\}** \[direction]
+* Право: `eb.cmd.place`
+* `[direction]`: (необязательно) `NORTH`, `SOUTH`, `EAST`, `WEST`, `UP` или `DOWN` (любой регистр, с автодополнением по Tab). Поставленный блок поворачивается в эту сторону.
+  * Имеет приоритет над [направленными функциями](/executableblocks/configurations/block-configuration/block-features#directional-features) блока (`blockFaceOnPlace` с `forceBlockFaceOnPlace: true`).
+  * Работает с блоками, которые можно повернуть: направленные блоки (печи, наблюдатели, пчелиные гнёзда...), вращаемые блоки (таблички, головы, знамёна: не `UP` / `DOWN`) и блоки с осью (брёвна, колонны: `UP` / `DOWN` = вертикально). Направление, которое блок не принимает, игнорируется.
+  * Только для ExecutableBlocks, созданных с помощью `BASIC_CREATION` или `IMPORT_FROM_EXECUTABLE_ITEMS`, на серверах 1.13+.
+  * Без этого аргумента ничего не меняется: блок ставится как раньше.
+* Пример: `/eb place my_furnace 100 64 -20 world EAST`
 
-#### Удалить EB в конкретной позиции
+#### Удалить EB в определённой позиции
 
 * Команда: **/eb remove \{x\} \{y\} \{z\} \{world\}** \[replaceWithAir default true]
-* Право (permission): `eb.cmd.remove`
+* Право: `eb.cmd.remove`
 
-#### Заполнить выделенный регион EB
+#### Заполнить выделенную область блоками EB
 
-* Требование: Для этой команды требуется плагин [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
+* Требование: для этой команды нужен плагин [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
 * Команда: **/eb we-place \{id\}**
-* Право (permission): `eb.cmd.we-place`
+* Право: `eb.cmd.we-place`
 
-#### Заполнить регион WorldGuard EB
+#### Заполнить регион WorldGuard блоками EB
 
-* Требование: Для этой команды требуется плагин WorldGuard
+* Требование: для этой команды нужен плагин WorldGuard
 * Команда: **/eb wg-fill-region \{world\} \{region\_name\} stone:70,MyEb:30**
-* Право (permission): `eb.cmd.wg-fill-region`
+* Право: `eb.cmd.wg-fill-region`
 
-#### Удалить все EB, присутствующие в выделении блоков
+#### Удалить все EB в выделенной области блоков
 
-* Требование: Для этой команды требуется плагин [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
+* Требование: для этой команды нужен плагин [**worldEdit**](https://dev.bukkit.org/projects/worldedit)
 * Команда: **/eb we-remove \{replaceTheEBByAir true or false\}**
-* Право (permission): `eb.cmd.we-remove`
+* Право: `eb.cmd.we-remove`
 
 #### Изменение переменной EB
 
 * Команда: /eb modification \{set/modification\} variable \{world\} \{x\} \{y\} \{z\} \{variableName\} \{value\} 
 
-#### Изменение usage EB
+#### Изменение количества использований EB
 
 * /eb modification \{set/modification\} usage \{world\} \{x\} \{y\} \{z\} \{value\}
 
-### Команды выдачи и изъятия
+### Команды Give и Take
 
-#### Команда выдачи
+#### Команда Give
 
-* (Работает для офлайн игроков)
+* (Работает для игроков, которых нет в сети)
 * Команда: 
   * **/eb give \{playername\} \{id\}**\{Variables:\{var\_id\:val\},Usage\:val\}** **\{quantity\}** \[giveOfflinePlayer default true]
-* Право (permission): `eb.cmd.give`
+* Право: `eb.cmd.give`
 * Примеры:
   * Примеры: 
     * **/eb give %player% Genesis\_Crystal\{Variables:\{vibraniun:10,proton:30\},Usage:10\} 3** 
     * **/eb give %player% SurgeBlade\{Variables:\{charge:%var\_charge%+1\},Usage:%usage%-1\} 1**
     * **/eb give %player% BoneBlade 1**
 
-#### Команда изъятия
+#### Команда Take
 
 * Команда: 
   * **/eb take \{playername\} \{id\} \{quantity\}**
-* Право (permission): `eb.cmd.take`
+* Право: `eb.cmd.take`
 
 #### Команда GiveAll
 
 * Команда: 
   * **/eb giveall \{id\} \{quantity\}** **\[world]**
-* Право (permission): `eb.cmd.giveall`
+* Право: `eb.cmd.giveall`
 
-#### Выдать EB в конкретный слот игрока 
+#### Выдать EB игроку в определённый слот 
 
 * Команда: 
   * **/eb giveslot \{playername\} \{id\}**\{Variables:\{var\_id\:val\},Usage\:val\}** **\{quantity\} \{slot\}**  **\[override true or false]**
@@ -181,28 +187,28 @@ translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
     * **/eb giveslot Ssomar test\{Variables:\{x:"Hey",world:"Island"\},Usage:50\} 1 0**  
     * **/eb giveslot Special70 rum\{Usage:69420,Variables:\{tell\_me:"why",aint\_nothing:"BUT A HEARTBREAK"\\}\} 1 %slot%**
     * **/eb giveslot Ssomar xyz\{Variables:\{test:"Hello boss!"\},Usage:5\} 1 5**
-  * _Usage по умолчанию: тот usage, который указан в конфиге вашего EB_
-  * _Override позволяет EB занять этот слот, и если там уже был предмет, он переместится в другой слот или будет выброшен на землю._
-* Право (permission): `eb.cmd.giveslot`
+  * _Usage по умолчанию: значение usage из конфига вашего EB_
+  * _Override позволяет EB занять этот слот; если там уже был предмет, он переместится в другой слот или выпадет на землю._
+* Право: `eb.cmd.giveslot`
 
-**Выдать каждый EB из конкретной папки игроку**
+**Выдать игроку все EB из определённой папки**
 
 * Команда:
   * **/eb givefolder \{playername\} \{folder\} \{quantity\}**
 
-### Команды выброса
+### Команды Drop
 
-#### Выбросить EB в конкретном месте / позиции 
+#### Выбросить EB в определённой локации / позиции 
 
 * Команда: 
   * **/eb drop \{id\}** **\[quantity] \[world] \[x] \[y] \[z]**
   * _Количество по умолчанию: 1_
-  * _Место по умолчанию: место игрока, который выполнил эту команду_
-* Право (permission): `eb.cmd.drop`
+  * _Локация по умолчанию: локация игрока, выполнившего эту команду_
+* Право: `eb.cmd.drop`
 
-### Custom Triggers
+### Custom Trigger
 
 Команды:
 
-* /eb run-custom-trigger trigger:\{activatorId\} // Это выполнит активатор(ы) для всех размещённых EB, у которых есть активатор с указанным ID.
-* /eb run-custom-trigger trigger:\{activatorId\} block:\{world,x,y,z\} // Это выполнит активатор(ы) только для EB, размещённого в указанном месте, и только если у него есть активатор с указанным ID.
+* /eb run-custom-trigger trigger:\{activatorId\} // Выполнит активатор(ы) для всех размещённых EB, у которых есть активатор с указанным ID.
+* /eb run-custom-trigger trigger:\{activatorId\} block:\{world,x,y,z\} // Выполнит активатор(ы) только для EB, размещённого в указанной локации, и только если у него есть активатор с указанным ID.
