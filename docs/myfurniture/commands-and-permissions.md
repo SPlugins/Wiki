@@ -65,6 +65,8 @@ To give the permissions of all furniture, I advice you to download a permission 
 #### Open the GUI with the placed furniture
 
 * Command: **/mf show-placed** \[filter/sort]
+* Arguments: `sort:<SORT>` and `filter:EB_ID:<furnitureId>` (several filters allowed)
+* From the console: lists the placed furniture as text (id, world, x y z, placed UUID), 50 lines at most
 
 #### Open player settings
 

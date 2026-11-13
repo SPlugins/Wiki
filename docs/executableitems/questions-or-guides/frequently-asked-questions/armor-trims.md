@@ -37,8 +37,9 @@ lore:
 
 # Armor trim configuration
 armorTrim:
+  enableArmorTrim: true  # Required, false by default
   pattern: COAST  # The trim pattern
-  material: GOLD  # The trim material
+  trimMaterial: GOLD  # The trim material
 ```
 
 Trim Patterns: [Trim patterns](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/meta/trim/TrimPattern.html)

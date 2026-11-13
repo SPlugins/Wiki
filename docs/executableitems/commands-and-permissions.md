@@ -72,9 +72,9 @@ Also there will be different colors (but its the same idea as \{\} and \[] ):
 
 #### Create a new ExecutableItem from a targeted block
 
-* Command: /ei create-from\_block \{id\}
+* Command: /ei create-from-block \{id\}
   * `id`: ID of the ExecutableItem.
-* Example: `/ei create-from_block SsomarPluginsItem`
+* Example: `/ei create-from-block SsomarPluginsItem`
 * Permission: `ei.cmd.create-from-block`
 
 #### Open the editor / menu
