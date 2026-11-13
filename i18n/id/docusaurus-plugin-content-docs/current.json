@@ -1,0 +1,150 @@
+{
+  "sidebar.mainSidebar.category.Documentation": {
+    "message": "Dokumentasi",
+    "description": "The label for category Documentation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.AI Chat Moderation": {
+    "message": "AI Chat Moderation",
+    "description": "The label for category AI Chat Moderation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.CustomPiglinsTrades": {
+    "message": "CustomPiglinsTrades",
+    "description": "The label for category CustomPiglinsTrades in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.🧑‍💻 Developer API": {
+    "message": "🧑‍💻 API Developer",
+    "description": "The label for category 🧑‍💻 Developer API in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableBlocks": {
+    "message": "ExecutableBlocks",
+    "description": "The label for category ExecutableBlocks in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Configurations": {
+    "message": "📚 Konfigurasi",
+    "description": "The label for category 📚 Configurations in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Activator Configuration": {
+    "message": "Konfigurasi Aktivator",
+    "description": "The label for category Activator Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Block Configuration": {
+    "message": "Konfigurasi Blok",
+    "description": "The label for category Block Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Questions | Guides": {
+    "message": "📚 Pertanyaan | Panduan",
+    "description": "The label for category 📚 Questions | Guides in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Frequently Asked Questions": {
+    "message": "Pertanyaan yang Sering Diajukan",
+    "description": "The label for category Frequently Asked Questions in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Methods or Template": {
+    "message": "Metode atau Template",
+    "description": "The label for category Methods or Template in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Tutorials": {
+    "message": "Tutorial",
+    "description": "The label for category Tutorials in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableCrafting": {
+    "message": "ExecutableCrafting",
+    "description": "The label for category ExecutableCrafting in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Recipe Configuration": {
+    "message": "Konfigurasi Resep",
+    "description": "The label for category Recipe Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Install & Update Errors": {
+    "message": "Error Instalasi & Pembaruan",
+    "description": "The label for category Install & Update Errors in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableEvents": {
+    "message": "ExecutableEvents",
+    "description": "The label for category ExecutableEvents in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableGems": {
+    "message": "ExecutableGems",
+    "description": "The label for category ExecutableGems in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.🛠️ Configurations": {
+    "message": "🛠️ Konfigurasi",
+    "description": "The label for category 🛠️ Configurations in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.💎 List of gems": {
+    "message": "💎 Daftar Gem",
+    "description": "The label for category 💎 List of gems in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.🎮 Player guide": {
+    "message": "🎮 Panduan Pemain",
+    "description": "The label for category 🎮 Player guide in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Install, update, troubleshooting": {
+    "message": "Instalasi, pembaruan, pemecahan masalah",
+    "description": "The label for category Install, update, troubleshooting in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ExecutableItems": {
+    "message": "ExecutableItems",
+    "description": "The label for category ExecutableItems in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Item Configuration": {
+    "message": "Konfigurasi Item",
+    "description": "The label for category Item Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Projectiles Implementation": {
+    "message": "Implementasi Proyektil Kustom",
+    "description": "The label for category Custom Projectiles Implementation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Textures": {
+    "message": "Tekstur Kustom",
+    "description": "The label for category Custom Textures in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Textures 1.21 -": {
+    "message": "Tekstur Kustom 1.21 -",
+    "description": "The label for category Custom Textures 1.21 - in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Textures 1.21.4 +": {
+    "message": "Tekstur Kustom 1.21.4 +",
+    "description": "The label for category Custom Textures 1.21.4 + in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Items Explanations": {
+    "message": "Penjelasan Item",
+    "description": "The label for category Items Explanations in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Custom Durability": {
+    "message": "Durabilitas Kustom",
+    "description": "The label for category Custom Durability in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.MyFurniture": {
+    "message": "MyFurniture",
+    "description": "The label for category MyFurniture in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Furniture Configuration": {
+    "message": "Konfigurasi Furnitur",
+    "description": "The label for category Furniture Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ScreenShop": {
+    "message": "ScreenShop",
+    "description": "The label for category ScreenShop in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Tools for all Plugins [SCore]": {
+    "message": "Alat untuk Semua Plugin [SCore]",
+    "description": "The label for category Tools for all Plugins [SCore] in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Custom Commands": {
+    "message": "📚 Perintah Kustom",
+    "description": "The label for category 📚 Custom Commands in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 Custom Conditions": {
+    "message": "📚 Kondisi Kustom",
+    "description": "The label for category 📚 Custom Conditions in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📚 General Questions or Guides": {
+    "message": "📚 Pertanyaan atau Panduan Umum",
+    "description": "The label for category 📚 General Questions or Guides in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.📑​ SCore": {
+    "message": "📑​ SCore",
+    "description": "The label for category 📑​ SCore in sidebar mainSidebar"
+  }
+}
