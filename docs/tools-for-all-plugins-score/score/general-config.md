@@ -80,11 +80,13 @@ rightClickBeforeOtherPlugins: true
     option: PLAYER_RIGHT_CLICK
     detailedBlocks:
       blocks:
-      - FLOWER_POT # the block of the grow station
+      - '#minecraft:flower_pots' # the grow station: an empty flower pot or a pot with a plant
     playerCommands:
     - 'DELAY 1'
-    - 'clear %player% bucket 1'
-    - 'ei give %player% InfinityWaterBucket 1'
+    # only when the grow station really took the bucket (not when it is full, or on a pot that is not a station)
+    - 'IF %executableitems_checkamount_id:InfinityWaterBucket%=0 clear %player% bucket 1 <+> ei give %player% InfinityWaterBucket 1'
 ```
+
+The `IF` gives the bucket back only when it is no longer in the inventory: a full grow station or a simple flower pot gives no extra bucket, and an empty bucket the player already had is kept. It needs PlaceholderAPI for `%executableitems_checkamount_...%`.
 
 If the option is not in your `config.yml`, it is disabled. Restart the server after changing it.
