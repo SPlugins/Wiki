@@ -1,51 +1,51 @@
 ---
 description: >-
-  Guía de ExecutableItems (SPlugins) sobre las funcionalidades del ítem:
-  activadores, atributos, durabilidad, variables, cooldown y más.
-source_hash: 9a41c7f27a57a232
-translated_at: '2026-10-03T10:25:03.598Z'
+  Lista de características de ítems de ExecutableItems: activadores, material,
+  nombre, lore, atributos, durabilidad, Hiders y más ajustes.
+source_hash: a5cf341732f09f83
+translated_at: '2026-11-13T18:14:59.423Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import CustomTag from '@site/src/components/CustomTag';
 
-# Funcionalidades del Ítem
+# Características del ítem
 
-Lista de funcionalidades del ítem, estas son lo primero que debes configurar en tu ítem.
+Lista de características del ítem. Es lo primero que debes configurar en tu ítem.
 
-Las funcionalidades premium están marcadas con la etiqueta: <CustomTag type="premium" />
+Las características premium están marcadas con la etiqueta:  <CustomTag type="premium" />
 
 ### Activadores
 
-* Funcionalidades muy importantes que te permiten añadir habilidades a tu ítem
-* Wiki dedicada a esta funcionalidad: [lista de activadores de EI](../activator-configuration/list-of-the-activators.md) y [funciones de activadores de EI](/executableitems/configurations/activator-configuration/activators-features.md)
+* Características muy importantes que te permiten añadir habilidades a tu ítem
+* Wiki dedicada a esta característica: [EI Activators list](../activator-configuration/list-of-the-activators.md) y [EI Activators features](/executableitems/configurations/activator-configuration/activators-features.md)
 
 
 ### Material del ítem
 
-* Info: El material del ítem de Minecraft del Executable Item
-* Ejemplo: Si quiero que el ExecutableItem tenga como ítem base DIAMOND entonces sería
+* Info: El material del ítem de Minecraft del ExecutableItem
+* Ejemplo: Si quiero que el ExecutableItem tenga como ítem base un DIAMOND, quedaría así
 
 ```yaml
 material: DIAMOND
 ```
 
 * Puedes consultar la información de la lista de materiales en este enlace: [Material list](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
-* Si quieres configurar como material del ítem una cabeza personalizada, consulta este enlace [Head settings](/executableitems/configurations/item-configuration/item-features#head-settings).
+* Si quieres configurar una cabeza personalizada como material del ítem, consulta este enlace: [Head settings](/executableitems/configurations/item-configuration/item-features#head-settings).
 
 ### Nombre o DisplayName del ítem
 
-* Info: El nombre visible del ítem. Es el nombre que se ve.
-* Ejemplo: Si quisiera que mi ítem tenga como nombre visible un título rojo "Epic Sword" entonces sería
+* Info: El nombre visible del ítem. Es el nombre que se muestra.
+* Ejemplo: Si quiero que mi ítem tenga como nombre visible el título "Epic Sword" en rojo, quedaría así
 
 ```yaml
 name: '&cEpic Sword'
 ```
 
-* Si quieres usar colores HEX en tu nombre visible puedes hacer esto:
-  * Tienes que ir a una página donde te ayude a elegir el color que quieras para obtener el código de color hex. Te recomendamos [https://htmlcolorcodes.com/](https://htmlcolorcodes.com/)
-  * Luego elige el color que prefieras y anota / copia su color hex. [Reference](https://imgur.com/a/tNWtA0a)
-  * Con ese código de color hex tienes que añadir "#" al principio, y eso es lo que irá antes de lo que quieras colorear. #\<HEX\_COLOR\_CODE>\<What you want to color>
-  * Finalmente tendrás algo como **`#DB6725&lPractice`** y se verá con el color que seleccionaste [in game](https://imgur.com/a/7umxduF).
+* Si quieres usar colores HEX en el nombre visible, puedes hacerlo así:
+  * Tienes que ir a un sitio web que te ayude a elegir el color que quieras y a obtener su código de color hexadecimal. Recomendamos [https://htmlcolorcodes.com/](https://htmlcolorcodes.com/)
+  * Luego elige el color que prefieras y anota / copia su código hexadecimal. [Reference](https://imgur.com/a/tNWtA0a)
+  * Con ese código hexadecimal tienes que añadir "#" al principio, y eso es lo que irá antes del texto que quieres colorear. #\<HEX\_COLOR\_CODE>\<What you want to color>
+  * Al final tendrás algo como **`#DB6725&lPractice`** y se verá con el color que seleccionaste [en el juego](https://imgur.com/a/7umxduF).
 
 ### Lore o descripción del ítem
 
@@ -65,28 +65,28 @@ lore:
 - '&fthat you clicked and sometimes the blocks around it.'
 ```
 
-* Puedes usar placeholders en el lore. Solo ten en cuenta que si usas placeholders fuera del plugin y luego añades nuevos contenidos al lore, como encantamientos personalizados o texto personalizado, si uno de los placeholders se refresca, entonces todo lo añadido fuera de los plugins de Ssomar se eliminará. Para evitar esto necesitarás no refrescar el lore, pero eso significa que los placeholders no se actualizarán. Tienes que elegir el que prefieras. Para concluir: COSAS EXTRA EN EL LORE significa SIN REFRESH significa SIN placeholders personalizados de EI en el lore, por favor.
+* Puedes usar placeholders en el lore. Ten en cuenta que, si usas placeholders de fuera del plugin y después añades contenido nuevo al lore, como encantamientos personalizados o texto personalizado, cuando uno de los placeholders se actualice, todo lo añadido fuera de los plugins de Ssomar se eliminará. Para evitarlo, no debes actualizar el lore, pero eso significa que los placeholders no se actualizarán. Tienes que elegir la opción que prefieras. En conclusión: COSAS EXTRA EN EL LORE significa SIN ACTUALIZACIÓN, lo que significa SIN placeholders personalizados de EI en el lore.
 
 :::info
-Para dejar un espacio vacío entre líneas de lore puedes añadir '' en el archivo de configuración. Si estás editando el lore dentro de Minecraft usando la GUI personalizada necesitarías usar '\&f' en su lugar.
+Para dejar un espacio vacío entre líneas del lore, puedes añadir '' en el archivo de configuración. Si editas el lore dentro de Minecraft con la GUI personalizada, tendrás que usar '\&f'.
 :::
 
 :::info
-Para ExecutableItems gratis hay una línea con "Made with ExecutableItems": no se puede eliminar, es la contrapartida de la actualización que aumenta la cantidad de ítems de 25 a 500.
+En la versión gratuita de ExecutableItems hay una línea con "Made with ExecutableItems": no se puede quitar, es la contrapartida de la actualización que aumentó la cantidad de ítems de 25 a 500.
 :::
 
-### Efecto de brillo (enchanted glowing)
+### Efecto de brillo (brillo de encantamiento)
 
-* Info: Valor booleano que selecciona si se le da al executable item un aspecto de brillo/efecto encantado.
+* Info: Valor booleano que selecciona si el ExecutableItem tiene un aspecto con brillo / efecto de encantamiento.
 * Ejemplo: 
 
 ```yaml
 glow: true
 ```
 
-### Desactivar el brillo de encantado <CustomTag type="version" version="1.20.5" />
+### Desactivar el brillo de encantamiento <CustomTag type="version" version="1.20.5" />
 
-* Info: Valor booleano que fuerza al ítem a no tener el efecto de brillo aunque esté encantado. 
+* Info: Valor booleano que fuerza al ítem a no tener el efecto de brillo, incluso si está encantado. 
 * Ejemplo: 
 
 ```yaml
@@ -94,7 +94,7 @@ disableEnchantGlow : true
 ```
 
 :::info
-CONSEJO: También puedes eliminar el efecto de brillo de algunos ítems vanilla, como por ejemplo la nether star.
+TIP: También puedes quitar el efecto de brillo de algunos ítems vanilla, como la nether star, por ejemplo.
 :::
 
 ### Mostrar condiciones en el lore del ítem
@@ -115,12 +115,12 @@ displayConditions:
 ### Durabilidad del ítem
 
 * Info: Selecciona el valor de durabilidad del ítem.
-  * Para las versiones 1.20.5 e inferiores: El valor de durabilidad debe ser igual o inferior a la durabilidad máxima vanilla del ítem seleccionado.
+  * Para versiones 1.20.5-: El valor de durabilidad debe ser igual o inferior a la durabilidad máxima vanilla del ítem seleccionado.
   * Ejemplo: 
 ```yaml
 durability: 150
 ```
-  * Para las versiones 1.20.5 y superiores: La opción de durabilidad se puede personalizar, habilitando nuevas funcionalidades como la sincronización del uso del ExecutableItem y el valor de durabilidad. Y permite seleccionar una durabilidad máxima personalizada.
+  * Para versiones 1.20.5++: La opción de durabilidad se puede personalizar, lo que habilita nuevas características como la sincronización del uso del ExecutableItem con el valor de durabilidad, y permite seleccionar una durabilidad máxima personalizada.
   * Ejemplo:
 ```yaml
 isDurabilityBasedOnUsage: true
@@ -130,7 +130,7 @@ durability: 19
 
 ### Encantamientos del ítem
 
-* Info: Establece los encantamientos iniciales que tendrá el executable item cuando se entregue.
+* Info: Establece los encantamientos iniciales que tendrá el ExecutableItem cuando se entregue.
 * Ejemplo:
 
 ```yaml
@@ -142,7 +142,7 @@ enchantments:
 
 ### Unbreakable
 
-* Info: Valor booleano que selecciona si el executable item será indestructible o no
+* Info: Valor booleano que selecciona si el ExecutableItem será irrompible o no
 * Ejemplo: 
 
 ```yaml
@@ -152,11 +152,11 @@ unbreakable: true
 ### Attributes <CustomTag type="version" version="1.12" />
 
 * Info: Puedes seleccionar los atributos del ExecutableItem.
-  * `attribute`: El tipo de atributo. Lista aquí [Attribute list](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/attribute/Attribute.html)
+  * `attribute`: El tipo de atributo. Lista aquí: [Attribute list](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/attribute/Attribute.html)
   * `uuid`: Es un código que Minecraft necesita para asignar los modificadores de atributo. Puedes ignorarlo.
-  * `name`: Es el nombre visible del Attribute Modifier. Te es útil para escribir lo que hace. No afecta en nada más que en visualizarlo en la GUI.
-  * `operation`: Tipo de operación que hará el AttributeModifier. Lista aquí [Operations](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/AttributeModifier.Operation.html)
-  * `amount`: El valor para el AttributeModifier, se aplicará al atributo usando la operación seleccionada.
+  * `name`: Es el nombre visible del Attribute Modifier. Te sirve para escribir lo que hace. No afecta a nada más que a su visualización en la GUI.
+  * `operation`: Tipo de operación que realizará el AttributeModifier. Lista aquí: [Operations](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/AttributeModifier.Operation.html)
+  * `amount`: El valor del AttributeModifier, se aplicará al atributo usando la operación seleccionada.
   * `slot`: El slot en el que funcionará el AttributeModifier.
   * Ejemplo:
 
@@ -172,18 +172,18 @@ attributes:
 ```
 
 :::info
-**Si estás usando la versión 1.12 necesitarás seguir estos pasos:**
+**Si usas la versión 1.12, tendrás que seguir estos pasos:**
 
 * Este proceso requiere la versión premium de EI <CustomTag type="premium" />
-* Genera tu ítem con atributos en un sitio web. Te sugerimos [https://mapmaking.fr/give1.12/](https://mapmaking.fr/give1.12/)
-* Luego dale el ítem a ti mismo dentro de Minecraft
-* Mientras lo tienes en la mano, ejecuta el comando /ei create \<id>
-* ¡Y ya está! Ahora tu EI tiene los atributos importados automáticamente.
+* Genera tu ítem con atributos en un sitio web. Sugerimos [https://mapmaking.fr/give1.12/](https://mapmaking.fr/give1.12/)
+* Luego entrégate el ítem dentro de Minecraft
+* Mientras lo sostienes en la mano, ejecuta el comando /ei create \<id>
+* ¡Y listo! Ahora tu EI tiene los atributos importados automáticamente.
 :::
 
-#### **Mantener atributos por defecto**
+#### **Keep default attributes**
 
-* Info: Valor booleano para mantener o no el atributo por defecto del ítem.
+* Info: Valor booleano para conservar o no el atributo por defecto del ítem.
 * Ejemplo:
 
 ```yaml
@@ -192,21 +192,21 @@ ignoreKeepDefaultAttributesFeature: false
 ```
 
 :::warning
-En 1.21+, un ítem sin atributos propios que no tenga estas dos líneas **pierde los atributos por defecto de su material**: una espada golpea como un puño, una pieza de armadura no da armadura. ExecutableItems lista estos ítems en la consola después de cada carga. Para corregir todos tus ítems a la vez: `/ei util-set-keepdefaultattributes-all-ei true`.
+En 1.21+, un ítem sin atributos propios que no tenga estas dos líneas **pierde los atributos por defecto de su material**: una espada golpea como un puño, una pieza de armadura no da armadura. ExecutableItems lista estos ítems en la consola después de cada carga. Para corregir todos tus ítems de una vez: `/ei util-set-keepdefaultattributes-all-ei true`.
 :::
 
-:::info Mesa de herrería
-Con `keepDefaultAttributes: true`, un ítem mejorado en la mesa de herrería (de diamante a netherite) obtiene los atributos por defecto de su nuevo material (armadura de netherite, resistencia y resistencia al retroceso). Los atributos del ítem en sí se mantienen.
+:::info Smithing table
+Con `keepDefaultAttributes: true`, un ítem mejorado en la mesa de herrería (de diamante a netherite) obtiene los atributos por defecto de su nuevo material (armadura, dureza y resistencia al empuje de netherite). Los atributos propios del ítem se conservan.
 :::
 
-* En este enlace hay un tutorial sobre atributos y sus funcionalidades.
+* En este enlace hay un tutorial sobre los atributos y sus características.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HqyF0QBYIY4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 #### **ignoreKeepDefaultAttributesFeature:** 
 
-* Info: Ignora la configuración de mantener atributos por defecto. Es útil para el tercer caso en la explicación de esta tabla:
+* Info: Ignora el ajuste de keep default attributes. Es útil para el tercer caso de la explicación de esta tabla:
 * Ejemplo:
 
 ```yaml
@@ -216,8 +216,8 @@ ignoreKeepDefaultAttributesFeature: true
 ### Custom model data <CustomTag type="version" version="1.14" />
 
 * Info: 
-  * Para la versión de Minecraft anterior a 1.21.4: Entero para establecer el valor de la funcionalidad customModelData del ítem. Útil para crear diferentes texturas para un ítem.
-  * Desde la versión 1.21.4 de Minecraft ahora puedes añadir texto y booleano.
+  * Para versiones de Minecraft anteriores a 1.21.4: Entero para establecer el valor de la característica customModelData del ítem. Útil para crear diferentes texturas para un ítem.
+  * Desde la versión 1.21.4 de Minecraft también puedes añadir texto y booleanos.
 * Ejemplo: 
 
 ```yaml
@@ -235,10 +235,10 @@ customModelData: 1.0;true;hello
 
 * Tutorial: [https:/.ssomar.com/executableitems/questions-or-guides/premium-custom-textures](https:/.ssomar.com/executableitems/questions-or-guides/premium-custom-textures)
 
-### Item Rarity features <CustomTag type="version" version="1.20.5" />
+### Características de Item Rarity <CustomTag type="version" version="1.20.5" />
 
-* Info: La rareza es una estadística vanilla aplicada a ítems y bloques para indicar su valor y facilidad de obtención. No tiene ningún efecto en la jugabilidad. Hay cuatro niveles de rareza: Common, Uncommon, Rare y Epic.
-  * `enableRarity`: Booleano que representa si la funcionalidad está habilitada o no
+* Info: La rareza es una estadística vanilla aplicada a ítems y bloques para indicar su valor y su facilidad de obtención. No tiene ningún efecto en la jugabilidad. Hay cuatro niveles de rareza: Common, Uncommon, Rare y Epic.
+  * `enableRarity`: Booleano que representa si la característica está habilitada o no
   * `rarity`: Tipo de rareza
 * Ejemplo:
 
@@ -248,19 +248,19 @@ itemRarity:
   rarity: COMMON
 ```
 
-### Equippable features <CustomTag type="version" version="1.21.2" />
+### Características de Equippable <CustomTag type="version" version="1.21.2" />
 
-* Info: Esta sección configura el comportamiento de un ítem equipable. Cuando está habilitado, el ítem se puede equipar en un slot designado, activando opcionalmente un efecto de sonido. También puedes especificar un modelo personalizado para el ítem equipado, definir si pierde durabilidad cuando el portador recibe daño, y establecer flags para permitir o restringir el intercambio y el descarte. Además, puedes restringir qué entidades pueden equipar el ítem.
-  * `enable`: Establece como true para habilitar el equipamiento de este ítem
+* Info: Esta sección configura el comportamiento de un ítem equipable. Cuando está habilitada, el ítem se puede equipar en un slot designado, con la opción de reproducir un efecto de sonido. También puedes especificar un modelo personalizado para el ítem equipado, definir si recibe daño cuando el portador es herido y establecer flags para permitir o restringir el intercambio y el descarte. Además, puedes restringir qué entidades pueden equipar el ítem.
+  * `enable`: Establécelo en true para habilitar el equipamiento de este ítem
   * `slot`: El slot de equipamiento (por ejemplo, CHEST, HEAD, LEGS, FEET) donde se equipa el ítem
   * `enableSound`: Booleano para reproducir un sonido cuando se equipa el ítem
-  * `sound`: Efecto de sonido que se reproduce al equiparse
+  * `sound`: Efecto de sonido que se reproduce al equipar
   * `equipModel`: (Opcional) modelo personalizado para el ítem equipado (por ejemplo, "mynamespace:mymodel")
   * `cameraOverlay`: (Opcional) overlay de cámara personalizado cuando el ítem está equipado
-  * `damageableOnHurt`: Booleano que selecciona si el ítem pierde durabilidad cuando el portador recibe daño
-  * `dispensable`: Booleano que selecciona si el ítem se puede descartar (quitar/soltar)
-  * `swappable`: Booleano que selecciona si el ítem se puede intercambiar por otro ítem
-  * `allowedEntities`: Lista de entidades autorizadas a equipar este ítem
+  * `damageableOnHurt`: Booleano que selecciona si el ítem pierde durabilidad cuando el portador es herido
+  * `dispensable`: Booleano que selecciona si el ítem se puede desechar (quitar / soltar)
+  * `swappable`: Booleano que selecciona si el ítem se puede equipar con clic derecho (se intercambia con el ítem que se lleva en ese slot)
+  * `allowedEntities`: Lista de entidades que pueden equipar este ítem
 * Ejemplo:
 
 ```yaml
@@ -281,11 +281,11 @@ equippableFeatures:
      - PLAYER
 ```
 
-### Repairable features <CustomTag type="version" version="1.21.2" />
+### Características de Repairable <CustomTag type="version" version="1.21.2" />
 
-* Info: Funcionalidades relacionadas con cuando se repara el ExecutableItem.
-  * `enable`: Valor booleano que selecciona si la funcionalidad está habilitada o no
-  * `repairCost`: Valor entero que representa el costo de repararlo en el yunque
+* Info: Características relacionadas con la reparación del ExecutableItem.
+  * `enable`: Valor booleano que selecciona si la característica está habilitada o no
+  * `repairCost`: Valor entero que representa el coste de repararlo en el yunque
 * Ejemplo:
 
 ```yaml
@@ -296,7 +296,7 @@ repairableFeatures:
 
 ### Glider <CustomTag type="version" version="1.21.2" />
 
-* Info: Funcionalidad para permitir planear con el ítem como normalmente harías con el ítem vanilla "elytra".
+* Info: Característica que permite planear con el ítem como lo harías normalmente con el ítem vanilla "elytra".
 * Ejemplo:
 
 ```yaml
@@ -305,7 +305,7 @@ glider: false
 
 ### itemModel <CustomTag type="version" version="1.21.2" />
 
-* Info: Ruta de un modelo de ítem personalizado en el texture pack en el formato de \<mynamespace\:model\_id> que apuntará dentro de assets/\<mynamespace>/models/item/\<model\_id>.
+* Info: Ruta de un modelo de ítem personalizado en el paquete de texturas con el formato \<mynamespace\:model\_id>, que apuntará dentro de assets/\<mynamespace>/models/item/\<model\_id>.
 * Ejemplo:
 
 ```yaml
@@ -314,20 +314,20 @@ itemModel: "" # "mynamespace:mymodel"
 
 ### tooltipModel <CustomTag type="premium" /> <CustomTag type="version" version="1.21.2" />
 
-* Info: Ruta de un modelo de tooltip personalizado en el texture pack en el formato de \<mynamespace\:model\_id> que apuntará dentro de /assets/\<mynamespace>/textures/gui/sprites/tooltip/\<id>\_frame
+* Info: Ruta de un modelo de tooltip personalizado en el paquete de texturas con el formato \<mynamespace\:model\_id>, que apuntará dentro de /assets/\<mynamespace>/textures/gui/sprites/tooltip/\<id>\_frame
 * Ejemplo:
 
 ```yaml
 tootipModel: "" # "mynamespace:mymodel"
 ```
 
-### Funcionalidades relacionadas con el ítem soltado
+### Características relacionadas con el ítem soltado
 
-Aquí aprenderás sobre funcionalidades que solo son visibles cuando el ítem se suelta en el suelo.
+Aquí conocerás las características que solo son visibles cuando el ítem se suelta en el suelo.
 
 #### Brillo al soltar
 
-* Info: Cuando se suelta el ítem, tiene un efecto de brillo
+* Info: Cuando el ítem se suelta, tiene un efecto de brillo
 * Ejemplo: 
 
 ```yaml
@@ -335,9 +335,9 @@ dropFeatures:
   glowDrop: false
 ```
 
-#### Color de brillo al soltar
+#### Color del brillo al soltar
 
-* Info: Si el ítem tiene glowEffect habilitado entonces es posible seleccionar el color del efecto de brillo cuando se suelta.
+* Info: Si el ítem tiene glowEffect habilitado, es posible seleccionar el color del efecto de brillo cuando se suelta.
 * Colores posibles: [Color reference](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html)
 * Ejemplo:
 
@@ -349,7 +349,7 @@ dropFeatures:
 
 #### Nombre visible cuando se suelta el ítem
 
-* Info: Selecciona si el ítem mostrará el nombre visible como un texto flotante cuando se suelta.
+* Info: Selecciona si el ítem mostrará su nombre visible como un texto flotante cuando se suelta.
 * Ejemplo: 
 
 ```yaml
@@ -357,17 +357,17 @@ dropFeatures:
   displayNameDrop: true
 ```
 
-### NBT Tags
+###  NBT Tags
 
-* Info: Requiere el plugin [**NBTAPI**](https://www.spigotmc.org/resources/nbt-api.7939/) disponible en Spigot.
-Esta funcionalidad te permite añadir tus propios NBT tags dentro de tu ExecutableItem.
-  * `type`: El tipo de valor que estás almacenando, por ejemplo:
+* Info: Requiere el plugin [**NBTAPI**](https://www.spigotmc.org/resources/nbt-api.7939/), disponible en Spigot.
+Esta característica te permite añadir tus propios tags NBT personalizados dentro de tu ExecutableItem.
+  * `type`: El tipo de valor que almacenas, por ejemplo:
     * BOOLEAN: true | false
     * STRING: car
     * INTEGER: 6
     * DOUBLE: 17.6
-    * COMPOUND: Ejemplo abajo, dependerá de tus necesidades y de lo que quieras añadir.
-  * `key`: La clave de tipo string que representa ese almacenamiento nbt
+    * COMPOUND: Ejemplo a continuación, dependerá de tus necesidades y de lo que quieras añadir.
+  * `key`: La clave de tipo string que representa ese almacenamiento NBT
   * `value`: Valor del NBT Tag que estás añadiendo
 * Ejemplo:
 
@@ -455,7 +455,7 @@ En el juego se representará en PublicBukkitValues, así
 "executableitems:myothertag":"blabla2"
 ```
 
-También puedes escribir placeholders %rand% en el campo de valor de los NBTs. Solo funciona para los tipos de dato STRING, INTEGER y DOUBLE
+También puedes escribir placeholders %rand% en el campo de valor de los NBT. Solo funciona con los tipos de dato STRING, INTEGER y DOUBLE
 ```yaml
 nbt:
  '1': #Id of this nbt, you can add as many as you want
@@ -463,12 +463,12 @@ nbt:
     key: 'MyKeyTag'
     value: '%rand:-100|100%'
 ```
-También funciona en el editor dentro del juego
+También funciona en el editor del juego
 ```
 INTEGER::foo::%rand:1|2%
 ```  
   
-También puedes guardar nbts en el PDC (Persistent Data Container) si quieres.
+También puedes guardar NBT en el PDC (Persistent Data Container) si quieres.
 * Ejemplo en el juego: `integer::take::0::true`
 * Config del ítem:
 ```yml
@@ -480,22 +480,22 @@ nbt:
     value: 0
 ```
 
-### Hiders features
+### Características de Hiders
 
-* Info: Configuración relacionada con ocultar funcionalidades que normalmente se muestran en tu ExecutableItem. Todas las funcionalidades, aunque estén ocultas, seguirán siendo funcionales.
-  * `hideEnchantments`: Valor booleano que representa si los encantamientos del ExecutableItem se mostrarán en el lore o no.
-  * `hideUnbreakable`: Valor booleano que representa si la descripción de indestructible se mostrará en el lore o no.
-  * `hideAttributes`: Valor booleano que representa si los atributos del ExecutableItem se mostrarán en el lore o no.
-  * `hidePotionEffects`: Valor booleano que representa si los efectos de poción del ExecutableItem se mostrarán en el lore o no. En las versiones 1.20.5 o + usa hideAdditionalTooltip.
-  *   hideAdditionalTooltip (Solo disponible en 1.20.5++) 
+* Info: Ajustes relacionados con ocultar características que normalmente se muestran en tu ExecutableItem. Todas las características, aunque estén ocultas, seguirán funcionando.
+  * `hideEnchantments`: Valor booleano que representa si los encantamientos del ExecutableItem se mostrarán o no en el lore.
+  * `hideUnbreakable`: Valor booleano que representa si la descripción de irrompible se mostrará o no en el lore.
+  * `hideAttributes`: Valor booleano que representa si los atributos del ExecutableItem se mostrarán o no en el lore.
+  * `hidePotionEffects`: Valor booleano que representa si los efectos de poción del ExecutableItem se mostrarán o no en el lore. En versiones 1.20.5 o superiores usa hideAdditionalTooltip.
+  *   hideAdditionalTooltip (solo disponible en 1.20.5++) 
 
-      Configuración para mostrar/ocultar efectos de poción, información de libros y fuegos artificiales, tooltips de mapas, patrones de estandartes, y encantamientos de libros encantados. Reemplaza al antiguo hidePotionEffects
-  * `hideUsage`: Valor booleano que representa si la funcionalidad personalizada Usage del plugin ExecutableItem del propio ítem se mostrará en el lore o no.
-    * Puedes mostrar manualmente el usage usando el placeholder %usage% añadiéndolo al editar tu lore.
-  * `hideDye`: Valor booleano que representa si el color de tinte (#\<color>) del ExecutableItem se mostrará en el lore o no.
-  * `hideArmorTrim`: Valor booleano que representa si el armor trim del ExecutableItem se mostrará en el lore o no.
-  * `hidePlacedOn`: Valor booleano que representa si el NBT Tag de "Can be placed on: \[...]" del ExecutableItem se mostrará en el lore o no.
-  * `hideDestroys`: Valor booleano que representa si el NBT Tag de "Can destroy: \[...]" del ExecutableItem se mostrará en el lore o no.
+      Ajuste para mostrar / ocultar efectos de poción, información de libros y fuegos artificiales, tooltips de mapas, patrones de estandartes y encantamientos de libros encantados. Sustituye al antiguo hidePotionEffects
+  * `hideUsage`: Valor booleano que representa si la característica personalizada Usage del plugin ExecutableItems del propio ítem se mostrará o no en el lore.
+    * Puedes mostrar el uso manualmente con el placeholder %usage% añadiéndolo al editar tu lore.
+  * `hideDye`: Valor booleano que representa si el color de tinte (#\<color>) del ExecutableItem se mostrará o no en el lore.
+  * `hideArmorTrim`: Valor booleano que representa si el armor trim del ExecutableItem se mostrará o no en el lore.
+  * `hidePlacedOn`: Valor booleano que representa si el NBT Tag de "Can be placed on: \[...]" del ExecutableItem se mostrará o no en el lore.
+  * `hideDestroys`: Valor booleano que representa si el NBT Tag de "Can destroy: \[...]" del ExecutableItem se mostrará o no en el lore.
   * `hideToolTip`: Valor booleano que representa si el tooltip está oculto o no. (Solo disponible en 1.20.5++)
 * Ejemplo:
 
@@ -514,21 +514,21 @@ hiders:
   hideToolTip: false
 ```
 
-### Usage features
+### Características de Usage
 
-Esta sección explicará qué es usage y sus funcionalidades.
+Esta sección explicará qué es Usage y sus características.
 
 #### Usage
 
-* Info: Usage es un valor entero almacenado dentro de tu ExecutableItem, se puede modificar a través de usageModification dentro de un activador o de comandos. Pero no es solo un valor almacenado, esto se hizo para representar el "sistema de durabilidad personalizado" de tu ExecutableItem, es decir, si de alguna manera el usage llega a 0, tu ítem se elimina.
+* Info: Usage es un valor entero almacenado dentro de tu ExecutableItem, se puede modificar mediante usageModification dentro de un activador o mediante comandos. Pero no es solo un valor almacenado: se creó para representar el "sistema de durabilidad personalizado" de tu ExecutableItem, lo que significa que si de algún modo el usage llega a 0, tu ítem se elimina.
 * Ejemplo: 
-  * Un usage de 1 no significa que el ítem tenga una de durabilidad, como explicamos antes, es un sistema personalizado de durabilidad. Durará mientras el usage no llegue a 0. Por ejemplo, si añades un activador a tu ítem que tenga la funcionalidad usageModification con valor "-1", una vez que el activador se active una vez, tu ítem desaparece.
-  * Siguiendo la misma idea, tenemos usage 1, si no tenemos activadores que cambien el usage del ítem, nuestro ítem durará infinitamente, hasta que de nuevo... de alguna manera, un comando o un nuevo activador añadido al ítem modifique el usage a un valor igual o menor que 0, entonces el ítem se eliminará.
+  * Un usage de 1 no significa que el ítem tenga una de durabilidad, como explicamos antes, es un sistema de durabilidad personalizado. Durará mientras el usage no llegue a 0. Por ejemplo, si añades a tu ítem un activador que tenga la característica usageModification con valor "-1", en cuanto el activador se ejecute una vez, tu ítem desaparece.
+  * Siguiendo la misma idea, si tenemos usage 1 y no hay activadores que cambien el usage del ítem, nuestro ítem durará infinitamente, hasta que, de nuevo, de algún modo un comando o un nuevo activador añadido al ítem modifique el usage a un valor igual o inferior a 0, y entonces el ítem se eliminará.
     * ```yaml
       usage: 1
       ```
-  * Como dijimos, no pienses en usage como un simple sistema de durabilidad, porque también puede subir. Por ejemplo, si tienes un activador que, en lugar de un valor negativo en usageModification, tiene un valor positivo, el usage aumentará cada vez que se active.
-  * Si no quieres que tu ítem aumente ni disminuya, simplemente no uses este almacenamiento de valor personalizado. Puedes poner usage en -1.
+  * Como dijimos, no pienses en el usage como si fuera solo un sistema de durabilidad, ¡porque también puede subir! Por ejemplo, si tenemos un activador que en lugar de un valor negativo en usageModification tiene un valor positivo, nuestro usage aumentará cada vez que se ejecute el activador ^^
+  * Ahora bien, si quieres que tu ítem no aumente ni disminuya, es decir, que no use este almacenamiento de valor personalizado, puedes establecer el usage en -1.
     * ```yaml
       usage: -1
       ```
@@ -551,14 +551,14 @@ usageLimit: 600 #Usage will not be able to go up more than this value, -1 to don
 usePerDay: 200 # -1 to ignore it
 ```
 
-### Food features <CustomTag type="version" version="1.20.5" />
+### Características de Food <CustomTag type="version" version="1.20.5" />
 
-* Info: Esta funcionalidad te permite personalizar los ajustes de comida relacionados con tu ExecutableItem
-  * `nutrition`: Valor entero que representa la cantidad de "medio-alimento" que llenará al jugador una vez que se come el ítem
-    * Para entenderlo mejor, el jugador tiene 20 de nutrición máxima, y se muestra en el juego como 10 iconos de hambre, cada icono se puede dividir en 2.
-  * `saturation`: Valor entero que representa la saturación que recibirá el jugador una vez que se come el ítem.
-  * `isMeat`: Valor booleano que hará que el ítem se considere comida. Esto se aplicará de forma forzada, es decir, si pones este valor en true, cualquier ítem, incluso los que no se pueden comer, se considerará comida, y por lo tanto serán consumibles.
-  * `canAlwaysEat`: Valor booleano que representa si el ítem siempre se puede comer aunque el jugador tenga la barra de hambre completamente llena.
+* Info: Esta característica te permite personalizar los ajustes de comida relacionados con tu ExecutableItem
+  * `nutrition`: Valor entero que representa la cantidad de "medios muslos" que rellenará al jugador cuando se coma el ítem
+    * Para entenderlo mejor, el jugador tiene un máximo de 20 de nutrición, y se muestra en el juego como 10 iconos de hambre, cada uno divisible en 2.
+  * `saturation`: Valor entero que representa la saturación que recibirá el jugador cuando se coma el ítem.
+  * `isMeat`: Valor booleano que hará que el ítem se considere comida. Se aplica de forma forzada: si estableces este valor en true, cualquier ítem, incluso los que no se pueden comer, se considerará comida y, por tanto, será consumible.
+  * `canAlwaysEat`: Valor booleano que representa si el ítem se puede comer siempre, incluso cuando la barra de comida del jugador está llena.
 *  Ejemplo:
 
 ```yaml
@@ -569,14 +569,14 @@ foodFeatures:
   canAlwaysEat: true
 ```
 
-### Consumable features <CustomTag type="version" version="1.21.4" />
+### Características de Consumable <CustomTag type="version" version="1.21.4" />
 
-* Info: Funcionalidades relacionadas con consumable, te permite personalizar las opciones de consumable, está más cerca de la funcionalidad de food.
-  * `enable`: Booleano que representa activar o desactivar las funcionalidades de consumable
-  * `animation`: ANIMATION\_TYPE que se reproducirá al comer/consumir el ExecutableItem
-  * `sound`: SOUND que se reproducirá cuando se esté comiendo/consumiendo el ítem
-  * `hasConsumeParticles`: Valor booleano que representa si el ítem soltará partículas al comerse
-  * `consumeSeconds`: Cantidad de segundos que tarda el ítem en comerse/consumirse.
+* Info: Características relacionadas con los consumibles. Te permite personalizar las opciones de consumible y es más cercana a la característica de comida.
+  * `enable`: Booleano que representa si se habilitan o deshabilitan las características de consumible
+  * `animation`: ANIMATION\_TYPE que se reproducirá al comer / consumir el ExecutableItem
+  * `sound`: SOUND que se reproducirá mientras se come / consume el ítem
+  * `hasConsumeParticles`: Valor booleano que representa si el ítem soltará partículas al ser comido
+  * `consumeSeconds`: Cantidad de segundos que tarda en comerse / consumirse el ítem.
 * Ejemplo:
 
 ```yaml
@@ -590,11 +590,11 @@ consumableFeatures:
 
 ### Potion Settings
 
-Aquí puedes personalizar las funcionalidades de poción de tu ExecutableItem si el material del ítem es una poción.
+Aquí puedes personalizar las características de poción de tu ExecutableItem si el material del ítem es una poción.
 
-#### Potion color
+#### Color de la poción
 
-* Info: Entero de MapInfo Color que representa un color. Usa una página como [https://www.tydac.ch/color/](https://www.tydac.ch/color/) para obtener el valor de MapInfo de un color.
+* Info: Entero de color de MapInfo que representa un color. Usa una página como [https://www.tydac.ch/color/](https://www.tydac.ch/color/) para obtener el valor de MapInfo de un color.
 * Ejemplo:
 
 ```yaml
@@ -602,9 +602,9 @@ potionFeatures:
   potionColor: 10265481
 ```
 
-#### Potion type
+#### Tipo de poción
 
-* Info: Potion Type que quieres que tenga el ítem de poción. Es solo una funcionalidad de visibilidad, no afecta al comportamiento real de la poción. La lista está disponible aquí [Potion types](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionType.html)
+* Info: Potion Type que quieres que sea el ítem de poción. Es solo una característica visual, no afecta al comportamiento real de la poción. La lista está disponible aquí: [Potion types](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionType.html)
 * Ejemplo:
 
 ```yaml
@@ -612,15 +612,15 @@ potionFeatures:
   potionType: WIND_CHARGED
 ```
 
-#### Potion effects
+#### Efectos de la poción
 
-* Info: Aquí puedes crear los efectos de poción que tendrá tu opción
-  * `potionEffectType`: PotionEffectType seleccionado, lista disponible aquí [Potion effects](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html)
-  * `isAmbient: Valor booleano que hace que la poción sea ambient, lo que hace que el efecto de poción produzca más partículas, translúcidas.
+* Info: Aquí puedes crear los efectos de poción que tendrá tu ítem
+  * `potionEffectType`: PotionEffectType seleccionado, lista disponible aquí: [Potion effects](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html)
+  * `isAmbient: Valor booleano que hace que la poción sea ambiental, lo que hace que el efecto de poción produzca más partículas, y translúcidas.
   * `duration`: Valor entero de ticks (20 ticks = 1 segundo) que representa la duración del efecto de poción.
-  * `amplifier`: Valor entero que representa el nivel/grado/fuerza del efecto de poción. Amplifier 0 significa nivel 1, amplifier 1 significa nivel 2 y así sucesivamente.
-  * `hasParticles`: Valor booleano que activa o desactiva mostrar partículas de efecto alrededor del jugador.
-  * `hasIcon`: Valor booleano que activa o desactiva mostrar el icono de efecto en la parte superior derecha de la pantalla del jugador.
+  * `amplifier`: Valor entero que representa el nivel / grado / fuerza del efecto de poción. Amplifier 0 significa nivel 1, amplifier 1 significa nivel 2, y así sucesivamente.
+  * `hasParticles`: Valor booleano que habilita o deshabilita mostrar las partículas del efecto alrededor del jugador.
+  * `hasIcon`: Valor booleano que habilita o deshabilita mostrar el icono del efecto en la parte superior derecha de la pantalla del jugador.
 * Ejemplo:
 
 ```yaml
@@ -637,9 +637,10 @@ potionFeatures:
       hasIcon: false
 ```
 
-### Color de armadura de cuero
+### Color de la armadura
 
-* Info: Si tu ExecutableItem es una instancia de armaduras de cuero entonces aquí puedes seleccionar un valor de MapInfo Color que puedes obtener de este sitio web [https://www.tydac.ch/color/](https://www.tydac.ch/color/) para cambiar el color.
+* Info: Si tu ExecutableItem es una instancia de armaduras de cuero, aquí puedes seleccionar un valor de color de MapInfo, que puedes obtener en este sitio web [https://www.tydac.ch/color/](https://www.tydac.ch/color/), para cambiar el color.
+  * <CustomTag type="version" version="1.21.3" /> En Paper, `armorColor` también está disponible en las demás piezas de armadura (casco, peto, pantalones, botas de cualquier material, armadura de caballo y de lobo) y en los élitros. Establece su componente vanilla `dyed_color`, que los modelos personalizados (Nexo, ItemsAdder...) usan para su tinte: sin él, un modelo así puede ser invisible. `/ei create` conserva este color desde el ítem que tienes en la mano.
 * Ejemplo:
 
 ```yaml
@@ -648,17 +649,17 @@ armorColor: 7702341
 
 ### Head Settings
 
-Aquí puedes seleccionar la configuración para los ajustes de cabeza, es decir, la cabeza personalizada a partir de un valor de cabeza de jugador o de una base de datos.
+Aquí puedes seleccionar la configuración de las cabezas, es decir, la cabeza personalizada a partir de un valor de cabeza de jugador o de una base de datos.
 
-#### Si no tienes un plugin para base de datos de cabezas <CustomTag type="version" version="1.13" />
+#### Si no tienes un plugin de base de datos de cabezas <CustomTag type="version" version="1.13" />
 
-* Si quieres añadir una cabeza personalizada para 1.13++ sin tener una base de datos de un plugin puedes seguir los siguientes pasos:
-  * Pon el material del ExecutableItem como PLAYER\_HEAD
+* Si quieres añadir una cabeza personalizada para 1.13++ sin tener un plugin de base de datos, puedes seguir estos pasos:
+  * Establece el material del ExecutableItem en PLAYER\_HEAD
   * Visita una página de cabezas personalizadas, como esta [https://minecraft-heads.com/custom-heads](https://minecraft-heads.com/custom-heads)
   *   Luego obtén el Value de la cabeza\
 
       
-  * Ahora copia ese valor y pégalo dentro de la funcionalidad headValue de ExecutableItems
+  * Ahora copia ese valor y pégalo dentro de la característica headValue de ExecutableItems
   * Ejemplo:
   * ```yaml
     headValue: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTk4ZGY0MmY0NzdmMjEzZmY1ZTlkN2ZhNWE0Y2M0YTY5ZjIwZDljZWYyYjkwYzRhZTRmMjliZDE3Mjg3YjUifX19
@@ -666,20 +667,20 @@ Aquí puedes seleccionar la configuración para los ajustes de cabeza, es decir,
 
 #### Si tienes el plugin Head Database <CustomTag type="version" version="1.12" />
 
-* Si quieres añadir una cabeza personalizada en 1.12 o superior y tienes el plugin Head Database, sigue estos pasos:
-  * Abre la GUI del plugin y copia el ID de la cabeza que quieras
-  * Pégalo en las opciones de la cabeza, en headDBID
+* Si quieres añadir una cabeza personalizada para 1.12++ y tienes el plugin Head Database, puedes seguir estos pasos:
+  * Abre la GUI de tu plugin y obtén el ID de la cabeza que quieras
+  * Luego pégalo dentro de las características de cabeza, en headDBID
   * Ejemplo:
   * ```yaml
     headDBID: 44328
     ```
-* Aquí tienes los enlaces en caso de que no lo tengas y lo quieras.
+* Aquí tienes los enlaces por si no lo tienes y lo quieres.
   * Versión premium: [Head Database](https://www.spigotmc.org/resources/head-database.14280/)
-  * Versión gratis: [Head DB](https://www.spigotmc.org/resources/headdb-head-menu-auto-update-free.84967/)
+  * Versión gratuita: [Head DB](https://www.spigotmc.org/resources/headdb-head-menu-auto-update-free.84967/)
 
 ### whitelistedWorlds
 
-* Info: Lista de Strings de los nombres de los mundos en los que quieres evitar o permitir que los jugadores usen el ExecutableItem.
+* Info: Lista de strings con los nombres de los mundos en los que quieres impedir o permitir que los jugadores usen el ExecutableItem.
 * Ejemplo:
 
 ```yaml
@@ -690,19 +691,19 @@ whitelistedWorlds:
 
 ### Store item info
 
-* Info: Valor booleano que representa si almacena o no la información en el propio ítem. Actualmente almacena la funcionalidad de "owner". Así que si quieres usar el placeholder %owner% o las condiciones relacionadas con owner debes tenerlo habilitado.
+* Info: Valor booleano que representa si se almacena o no la información en el propio ítem. Actualmente almacena la característica "owner". Por tanto, si quieres usar el placeholder %owner% o las condiciones relacionadas con el owner, debes tenerlo habilitado.
 * Ejemplo:
 
 ```yaml
 storeItemInfo: false
 ```
 
-### Owner features
+### Características de Owner
 
 #### canBeUsedOnlyByTheOwner
 
 * Info: Valor booleano que representa si el ítem solo puede ser usado por el owner o no.
-  * Esto solo funciona si store item info está activado para que el ítem tenga un owner.
+  * Esto solo funciona si store item info está activado, para que el ítem tenga un owner.
 * Ejemplo: 
 
 ```yaml
@@ -711,8 +712,8 @@ canBeUsedOnlyByTheOwner: false
 
 #### cancelEventIfNotOwner
 
-* Info: Valor booleano que representa si el ítem no es usado por el owner, entonces se cancelan todos los eventos. Esto significa que, si el activador es, por ejemplo, PLAYER\_BREAK\_BLOCK, si alguien que no es el owner intenta usar este ítem, no podrá romper ningún bloque porque todos los eventos se cancelarán.
-  * Esto solo funciona si store item info está activado para que el ítem tenga un owner.
+* Info: Valor booleano que representa que, si el ítem no lo usa el owner, se cancelan todos los eventos. Esto significa que, si el activador es, por ejemplo, PLAYER\_BREAK\_BLOCK y alguien que no es el owner intenta usar este ítem, no podrá romper ningún bloque porque todos los eventos se cancelarán.
+  * Esto solo funciona si store item info está activado, para que el ítem tenga un owner.
 * Ejemplo: 
 
 ```yaml
@@ -721,8 +722,8 @@ cancelEventIfNotOwner: false
 
 #### onlyOwnerBlackListedActivators
 
-* Info: Lista de ID de activadores de tu ExecutableItem, esta es una lista negra que desactiva las funcionalidades habilitadas de canBeUsedOnlyByTheOwner, es decir, todos los ID de activadores aquí que apunten a un activador del ExecutableItem podrán ser usados por cualquiera aunque canBeUsedOnlyByTheOwner esté en true.
-  * Esto solo funciona si store item info está activado para que el ítem tenga un owner.
+* Info: Lista de IDs de activadores de tu ExecutableItem. Es una lista negra que deshabilita las características habilitadas de canBeUsedOnlyByTheOwner, es decir, todos los IDs de activador de aquí que apunten a un activador del ExecutableItem podrán ser usados por cualquiera, incluso si canBeUsedOnlyByTheOwner está en true.
+  * Esto solo funciona si store item info está activado, para que el ítem tenga un owner.
 * Ejemplo: 
 
 ```yaml
@@ -733,15 +734,15 @@ onlyOwnerBlackListedActivators:
 
 ### cancelEventIfNoPermission
 
-* Info: Valor booleano que representa si el jugador no tiene el permiso (ei.item.\<id>) para usar el ítem, entonces se cancelan todos los eventos. Esto significa que, si el activador es, por ejemplo, PLAYER\_BREAK\_BLOCK, si alguien que no tiene el permiso para usar este ítem lo intenta usar, no podrá romper ningún bloque porque todos los eventos se cancelarán.
+* Info: Valor booleano que representa que, si el jugador no tiene el permiso (ei.item.\<id>) para usar el ítem, se cancelan todos los eventos. Esto significa que, si el activador es, por ejemplo, PLAYER\_BREAK\_BLOCK y alguien que no tiene el permiso para usar este ítem lo intenta, no podrá romper ningún bloque porque todos los eventos se cancelarán.
 
 ```yaml
 cancelEventIfNoPermission: true
 ```
 
-### Mantener el ítem al morir
+### Keep item on death
 
-* Info: Valor booleano que representa si el jugador mantendrá el ítem después de la muerte o no.
+* Info: Valor booleano que representa si el jugador conservará el ítem después de morir o no.
 * Ejemplo: 
 
 ```yaml
@@ -749,12 +750,12 @@ keepItemOnDeath: true
 ```
 
 :::info
-Es compatible con la funcionalidad keepInventory de WorldGuard y la gamerule keepInventory de Vanilla
+Es compatible con la característica keepInventory de WorldGuard y con la gamerule keepInventory de vanilla
 :::
 
 ### Disable stack <CustomTag type="premium" />
 
-* Info: Valor booleano que representa evitar o no que el ExecutableItem se pueda apilar. Poner esta funcionalidad en true hará que el customStackSize de este ítem sea 1.
+* Info: Valor booleano que representa si se impide o no que el ExecutableItem se apile. Establecer esta característica en true hará que el customStackSize de este ítem sea 1.
 * Ejemplo: 
 
 ```yaml
@@ -763,8 +764,8 @@ disableStack: true
 
 ### customStackSize <CustomTag type="premium" /> <CustomTag type="version" version="1.20.5" />
 
-* Info: Valor entero para establecer el tamaño de la pila de este ítem. Esto sobrescribirá la cantidad de pila actual.
-* Para entenderlo mejor, el diamond\_sword vanilla tiene un tamaño de pila de 1, ya que no se puede apilar, con esta funcionalidad puedes aumentar este valor. Por otro lado, la tierra tiene un tamaño de pila de 64, pero con esto puedes reducirlo, por ejemplo, a un tamaño de pila de 20.
+* Info: Valor entero para establecer el tamaño de la pila de este ítem. Sobrescribirá la cantidad de pila actual.
+* Para entenderlo mejor, el diamond\_sword vanilla tiene un tamaño de pila de 1, ya que no se puede apilar; con esta característica puedes aumentar ese valor. Por otro lado, la dirt tiene un tamaño de pila de 64, pero con esto puedes reducirlo, por ejemplo, a un tamaño de pila de 20.
 * Ejemplo: 
 
 ```yaml
@@ -773,20 +774,20 @@ customStackSize: 32
 
 ### Variables Settings
 
-* Info: Las variables son una forma de almacenar información dentro de tu ExecutableItem. Esto permite registrar cantidades, almacenar posiciones, en realidad, puedes almacenar lo que quieras. Ayudan a crear comportamientos de ítem dinámicos y personalizables, con esto queremos decir que las variables te permiten crear comportamientos únicos para cada ítem almacenando y registrando datos específicos de ese ítem. Por ejemplo, puedes registrar cuántas veces un jugador ha usado un ítem en particular o a cuántos jugadores ha matado con él.
-  * `variableName`: Nombre de la variable, se usará como referencia con %var\_\<name>% para usarla en el lore, dentro de comandos, etc. Este nombre no puede ser "id" o "usage" ni tener espacios.
-  * `type`: VariableType de la variable, puede ser los siguientes tipos con ejemplos de usos:
-    * STRING: Con este tipo de variable puedes almacenar valores STRING, como palabras, números, letras, caracteres, etc. Por ejemplo puedes almacenar el nombre del último jugador golpeado. Este tipo de variable no admite `variableModification(type:MODIFICATION)` aumentar o disminuir el valor. Es estático a menos que se reemplace con un `variableModification(type:SET)` que sobrescribirá el valor anterior.
-    * NUMBER: Con este tipo de variable puedes almacenar valores FLOAT, como números. Por ejemplo, si quieres almacenar la cantidad de bloques rotos, la cantidad de kills, registrar los segundos antes de que algo suceda, etc. Este tipo de variable admite `variableModification(type:MODIFICATION)` y `variableModification(type:SET)`.
-    * LIST: Esta variable es una variable de tipo lista que almacena valores STRING. Es útil para almacenar una lista de cosas, por ejemplo, llevar registro de los bloques clicados y añadirlos a esta lista, o añadir los jugadores matados aquí, etc.
-  * `isRefreshableClean`: Valor booleano que activa el refresh clean. Esto permite añadir líneas de lore personalizadas sin que se eliminen cuando se actualiza la variable. Se recomienda tenerlo en true.
-  * `refreshTagDoNotEdit`: Autogenerado por el plugin. Ayuda a que las funciones de `isRefreshableClean` funcionen correctamente. Así que no lo toques.
-  * `papiParser`: El valor de tipo string que contiene el string de PlaceholderAPI donde está el valor de la variable para parsearlo. Su propósito es permitirte insertar valores de variables dentro de placeholders de PlaceholderAPI y mostrar los resultados en el lore. 
+* Info: Las variables son una forma de almacenar información dentro de tu ExecutableItem. Permiten llevar la cuenta de cantidades, almacenar posiciones; en realidad, puedes almacenar lo que quieras. Ayudan a crear comportamientos de ítem dinámicos y personalizables, es decir, las variables te permiten crear comportamientos únicos para cada ítem almacenando y registrando datos específicos de ese ítem. Por ejemplo, puedes registrar cuántas veces un jugador ha usado un ítem concreto o a cuántos jugadores ha matado con él.
+  * `variableName`: Nombre de la variable, se usará como referencia con %var\_\<name>% para usarla en el lore, dentro de comandos, etc. Este nombre no puede ser "id" ni "usage" ni tener espacios.
+  * `type`: VariableType de la variable, puede ser de los siguientes tipos, con ejemplos de uso:
+    * STRING: Con este tipo de variable puedes almacenar valores STRING, como palabras, números, letras, caracteres, etc. Por ejemplo, puedes almacenar el nombre del último jugador golpeado. Este tipo de variable no admite `variableModification(type:MODIFICATION)` para aumentar o disminuir el valor. Es estática a menos que se reemplace con un `variableModification(type:SET)`, que sobrescribirá el valor anterior.
+    * NUMBER: Con este tipo de variable puedes almacenar valores FLOAT, es decir, números. Por ejemplo, si quieres almacenar la cantidad de bloques rotos, la cantidad de muertes, llevar la cuenta de los segundos antes de que ocurra algo, etc. Este tipo de variable admite `variableModification(type:MODIFICATION)` y `variableModification(type:SET)`.
+    * LIST: Esta variable es de tipo lista y almacena valores STRING. Es útil para almacenar una lista de cosas, por ejemplo, llevar el registro de los bloques clicados y añadirlos a esta lista, o añadir aquí los jugadores eliminados, etc.
+  * `isRefreshableClean`: Valor booleano que habilita el refresh clean. Esto permite añadir líneas de lore personalizadas sin que se eliminen cuando la variable se actualiza. Se recomienda tenerlo en true.
+  * `refreshTagDoNotEdit`: Generado automáticamente por el plugin. Ayuda a que las funciones de `isRefreshableClean` funcionen correctamente. Así que no lo toques.
+  * `papiParser`: El valor de tipo string que contiene el string de PlaceholderAPI donde está el valor de la variable para su procesamiento. Su propósito es permitirte insertar valores de variables dentro de placeholders de PlaceholderAPI y mostrar los resultados en el lore. 
     * Ej:
-      * Variable ID: `level`
-      * Valor de string papiParser: `%math_<VAR>*<VAR>%`
-        * El string `<VAR>` representa el valor actual de la variable al parsearse. Si quieres colocar el valor en varias partes del string del placeholder de PlaceholderAPI, simplemente escribe `<VAR>` en los lugares donde lo necesites.
-      * String de placeholder para poner en el lore: `%var_level_papi%`
+      * ID de la variable: `level`
+      * Valor del string de papiParser: `%math_<VAR>*<VAR>%`
+        * El string `<VAR>` representa el valor actual de la variable al procesarse. Si quieres colocar el valor en varias partes del string del placeholder de PlaceholderAPI, solo escribe `<VAR>` en los lugares donde lo necesites.
+      * String del placeholder para poner en el lore: `%var_level_papi%`
 * Ejemplo
   * ```yaml
     variables:
@@ -807,15 +808,15 @@ customStackSize: 32
         - '1'
         - '2'
     ```
-* Puedes consultar más información en la siguiente página sobre otros tipos de variables:
+* Puedes consultar más información sobre otros tipos de variables en la siguiente página:
   * [SCore variables](/tools-for-all-plugins-score/score-variables)
 
-### Custom give first join features
+### Características de Custom give first join
 
-* Info: Aquí puedes personalizar la funcionalidad de dar el ítem cuando el jugador se une al servidor por primera vez.
-  * giveFirstJoin: Valor booleano que representa si la funcionalidad está habilitada o no
-  * giveFirstJoinAmount: Valor entero que representa cuántos ítems se darán al jugador de este ExecutableItem.
-  * giveFirstJoinSlot: Slot donde se le dará el ExecutableItem al jugador.
+* Info: Aquí puedes personalizar la característica de entregar el ítem cuando el jugador entra por primera vez al servidor.
+  * giveFirstJoin: Valor booleano que representa si la característica está habilitada o no
+  * giveFirstJoinAmount: Valor entero que representa cuántos ítems de este ExecutableItem se entregarán al jugador.
+  * giveFirstJoinSlot: Slot donde se entregará el ExecutableItem al jugador.
 * Ejemplo:
 
 ```yaml
@@ -825,14 +826,14 @@ giveFirstJoinFeatures:
   giveFirstJoinSlot: 0
 ```
 
-### Item Recognition feature <CustomTag type="premium" />
+### Característica de Item Recognition <CustomTag type="premium" />
 
-* Info: Esta funcionalidad permite hacer que otros ítems que no son el ExecutableItem se comporten como si fueran el ExecutableItem que estás editando. Básicamente la idea es trabajar con reconocimientos, es una lista de tipos de reconocimientos que, si uno de ellos coincide entre tu ExecutableItem y otro ítem (incluso si no es un ExecutableItem), las funcionalidades que tiene el ExecutableItem estarán también en ese otro ítem. Esto funciona siempre y cuando se reconozca siguiendo los requisitos de los reconocimientos.
-  * Opciones de reconocimiento disponibles:
-    * NAME: Esto habilita el reconocimiento para todos los ítems que coincidan con el nombre personalizado del ExecutableItem
-    * MATERIAL: Esto habilita el reconocimiento para todos los ítems que coincidan con el material del ExecutableItem
-    * LORE: Esto habilita el reconocimiento para todos los ítems que coincidan con el lore del ExecutableItem
-* Por ejemplo, si creas un ExecutableItem de pico de diamante, que tiene un activador PLAYER\_RIGHT\_CLICK y en comandos "SEND\_MESSAGE I am a pickaxe", cada vez que hagas clic derecho enviará ese mensaje al chat de Minecraft. Ahora, si habilitas item recognition, digamos, para el material, ahora TODOS los picos de diamante del servidor activarán ese activador y por lo tanto se mostrará el mensaje.
+* Info: Esta característica permite que otros ítems que no son el ExecutableItem se comporten como si fueran el ExecutableItem que estás editando. Básicamente, la idea es trabajar con recognitions: es una lista de tipos de recognition y, si uno de ellos coincide entre tu ExecutableItem y otro ítem (incluso si no es un ExecutableItem), las características que tiene el ExecutableItem también estarán en el otro ítem. Esto funciona siempre que se reconozca según los requisitos de las recognitions.
+  * Opciones de recognition disponibles:
+    * NAME:  Habilita el reconocimiento para todos los ítems que coincidan con el nombre personalizado del ExecutableItem
+    * MATERIAL: Habilita el reconocimiento para todos los ítems que coincidan con el material del ExecutableItem
+    * LORE: Habilita el reconocimiento para todos los ítems que coincidan con el lore del ExecutableItem
+* Por ejemplo, si creas un ExecutableItem de pico de diamante que tiene un activador PLAYER\_RIGHT\_CLICK y en los comandos "SEND\_MESSAGE I am a pickaxe", cada vez que hagas clic derecho enviará ese mensaje al chat de Minecraft. Ahora bien, si habilitas el item recognition, por ejemplo, para el material, TODOS los picos de diamante del servidor ejecutarán ese activador y, por tanto, se mostrará el mensaje.
 * Ejemplo: 
 
 ```yaml
@@ -842,16 +843,16 @@ recognitions:
 - LORE 
 ```
 
-* Ejemplos de escenarios:
+* Escenarios de ejemplo:
   * Si un ítem EI solo tiene el item recognition de `MATERIAL` y es un DIAMOND, todos los diamantes que existan en el servidor se comportarán como ese ítem EI
   * Si un ítem EI solo tiene el item recognition de `NAME` y se llama "\&dAngle", si intentas usar cualquier ítem con el nombre "\&dAngle", se comportará como el ítem EI original. PERO si el nombre fuera "\&eAngle" u otro nombre, no funcionará.
-  * Si un ítem EI solo tiene el item recognition de `LORE`, un ítem solo se comportará como el EI si tiene EXACTAMENTE los mismos códigos de color en las líneas de lore y cada detalle de mayúsculas y minúsculas de letras y caracteres.
-  * Si un ítem EI solo tiene el item recognition de `MATERIAL` y `NAME`, los ítems deben tener el NOMBRE y MATERIAL EXACTOS del ítem EI para que el ítem se considere un ítem EI.
-* Ten en cuenta que si uno de tus ExecutableItems tiene item recognitions habilitados en MATERIAL, entonces no deberías usar más item recognitions basados en MATERIAL para otro ExecutableItem con el mismo MATERIAL. La razón es que si hay 2 ítems ExecutableItems con el reconocimiento de MATERIAL habilitado y ambos son DIAMOND\_BLOCK, solo el primero en orden alfabético será el que tenga más prioridad en caso de que alguien active un DIAMOND\_BLOCK.
+  * Si un ítem EI solo tiene el item recognition de `LORE`, un ítem solo se comportará como el EI si tiene EXACTAMENTE los mismos códigos de color en las líneas del lore y cada detalle de mayúsculas y minúsculas de letras y caracteres.
+  * Si un ítem EI solo tiene el item recognition de `MATERIAL` y `NAME`, los ítems deben tener el NOMBRE y el MATERIAL EXACTOS del ítem EI para que se considere un ítem EI.
+* Ten en cuenta que, si uno de tus ExecutableItems tiene item recognitions habilitados en MATERIAL, no debes usar más item recognitions basados en MATERIAL para otro ExecutableItem con el mismo MATERIAL. El motivo es que, si hay 2 ExecutableItems con el recognition de MATERIAL habilitado y ambos son DIAMOND\_BLOCK, solo el primero por orden alfabético tendrá la mayor prioridad en caso de que alguien ejecute un DIAMOND\_BLOCK.
 
-## Use cooldown features <CustomTag type="version" version="1.21.2" />
+## Características de Use cooldown <CustomTag type="version" version="1.21.2" />
 
-* Info: Funcionalidad que añade un cooldown de uso estilo vanilla al ítem, similar al cooldown de las ender pearls o la fruta de chorus.
+* Info: Característica que añade al ítem un cooldown de uso al estilo vanilla, similar al cooldown de las ender pearls o las chorus fruit.
   * `cooldownGroup`: Valor de tipo string que define un grupo de cooldown. Los ítems con el mismo grupo de cooldown compartirán el mismo cooldown. Debe estar en minúsculas y seguir el formato NamespacedKey (por ejemplo, "mygroup" o "namespace:mygroup")
   * `vanillaUseCooldown`: Valor entero que representa la duración del cooldown en segundos
 * Ejemplo:
@@ -863,18 +864,18 @@ useCooldown:
 ```
 
 :::info
-Este cooldown es diferente del sistema de cooldown de activador. Este es un cooldown vanilla de Minecraft que muestra el ítem "en gris" en la hotbar durante el periodo de cooldown.
+Este cooldown es distinto del sistema de cooldown de los activadores. Es un cooldown vanilla de Minecraft que muestra el ítem "atenuado" en la hotbar durante el periodo de cooldown.
 :::
 
 
-## Dependiendo del tipo de ítem
+## Según el tipo de ítem
 
-### Container Features
+### Características de Container
 
-* Info: Aquí puedes personalizar las funcionalidades de contenedor si el bloque es una instancia de contenedor como el cofre y el barril.
+* Info: Aquí puedes personalizar las características de container si el bloque es una instancia de contenedor, como el cofre y el barril.
   * `isLocked`: Valor booleano que representa si el contenedor está bloqueado o no
-  * `lockedName`: Valor de tipo string que representa el nombre clave si el contenedor está bloqueado. Es una funcionalidad de Minecraft, si tienes un ítem con el mismo nombre que lockedName entonces podrás abrir el cofre, de lo contrario no.
-  * `containerContent`: Lista de materiales dentro del contenedor cuando se coloca usando el formato de slot:\<slot>;\<material>
+  * `lockedName`: Valor de tipo string que representa el nombre de la llave si el contenedor está bloqueado. Es una característica de Minecraft: si tienes un ítem con el mismo nombre que lockedName podrás abrir el cofre; de lo contrario, no.
+  * `containerContent`: Lista de materiales dentro del contenedor cuando se coloca, con el formato slot:\<slot>;\<material>
 * Ejemplo:
 
 ```yaml
@@ -901,7 +902,7 @@ toolRules:
 
 #### Default mining speed
 
-* Info: Valor flotante para establecer la velocidad de minado por defecto del ExecutableItem.
+* Info: Valor float para establecer la velocidad de minado por defecto del ExecutableItem.
 * Ejemplo:
 
 ```yaml
@@ -912,7 +913,7 @@ toolRules:
 
 #### Damage per block break
 
-* Info: Valor entero para establecer el valor de durabilidad que se restará después de que el ExecutableItem rompa un bloque. 
+* Info: Valor entero que se establece como el valor de durabilidad que se restará después de que el ExecutableItem rompa un bloque. 
 * Ejemplo:
 
 ```yaml
@@ -923,10 +924,10 @@ toolRules:
 
 #### Specific tool rules
 
-* Info: Puedes seleccionar la velocidad de minado, si se puede soltar para ciertos bloques con el ExecutableItem, en orden de personalización de herramienta.
-  * `miningSpeed`: Valor flotante para establecer la velocidad de minado del ExecutableItem para los bloques seleccionados en la tool rule.
-  * `correctForDrops`: Valor booleano que representa si el bloque se soltará o no usando el ExecutableItem.
-  * `blocks`: Lista de BLOCKS a los que aplicar las tool rules.
+* Info: Puedes seleccionar la velocidad de minado y si suelta drops para ciertos bloques con el ExecutableItem, para personalizar la herramienta.
+  * `miningSpeed`: Valor float para establecer la velocidad de minado del ExecutableItem para los bloques seleccionados en la regla de herramienta.
+  * `correctForDrops`: Valor booleano que representa si el bloque soltará drops o no al usar el ExecutableItem.
+  * `blocks`: Lista de BLOCKS a los que aplicar las reglas de herramienta.
 * Ejemplo:
 
 ```yaml
@@ -941,8 +942,8 @@ toolRules:
 
 ### chargedProjectiles
 
-* Info: Funcionalidad que permite tener proyectiles ya cargados cuando el ExecutableItem es un ítem de ballesta y se le da al jugador.
-  * El formato del material debe ser como `minecraft:<id>`. Por ahora admite ítems vanilla.
+* Info: Característica que permite tener proyectiles ya cargados cuando el ExecutableItem es una ballesta y se entrega al jugador.
+  * El formato del material debe ser `minecraft:<id>`. Por ahora admite ítems vanilla.
 * Ejemplo:
 
 ```yaml
@@ -953,8 +954,8 @@ chargedProjectiles:
 
 ### bundleContent
 
-* Info: Funcionalidad que permite tener ítems de contenido ya puestos si el ExecutableItem es un ítem de bundle y se le da al jugador.
-  * El formato del material debe ser como `minecraft:<id>`. Por ahora admite ítems vanilla.
+* Info: Característica que permite tener ítems ya incluidos como contenido si el ExecutableItem es un bundle y se entrega al jugador.
+  * El formato del material debe ser `minecraft:<id>`. Por ahora admite ítems vanilla.
 * Ejemplo:
 
 ```yaml
@@ -964,9 +965,9 @@ bundleContent:
 - minecraft:dirt
 ```
 
-### Firework features
+### Características de Firework
 
-* Info: Funcionalidad que permite tener funcionalidades de fuegos artificiales personalizadas si el ExecutableItem es un ítem de fuegos artificiales.
+* Info: Característica que permite tener características de fuegos artificiales personalizadas si el ExecutableItem es un fuego artificial.
 * Ejemplo:
 
 ```yaml
@@ -992,23 +993,23 @@ fireworkFeatures:
 
 Para los colores, puedes usar los [Color names](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html) normales o `RGB-<0-255>-<0-255>-<0-255>`
 
-### Spawner features <CustomTag type="version" version="1.20.5" />
+### Características de Spawner <CustomTag type="version" version="1.20.5" />
 
-* Info: Funcionalidad que permite crear spawners personalizados con ExecutableItems
+* Info: Característica que permite crear spawners personalizados con ExecutableItems
 * Ajustes:
   * `spawnCount`: Define cuántas entidades aparecen en cada spawn
   * `spawnDelay`: Define el retraso del primer spawn después de colocar el spawner (en ticks, 20 ticks = 1 segundo)
   * `spawnRange`: El rango de spawn
   * `requiredPlayerRange`: Define a qué distancia máxima debe estar el jugador para activar el spawner
-  * `minSpawnDelay`: El retraso mínimo entre cada spawn (en ticks, 20 ticks = 1 segundo)
-  * `minSpawnDelay`: El retraso máximo entre cada spawn (en ticks, 20 ticks = 1 segundo)
+  * `minSpawnDelay`: El retraso mínimo entre cada spawn  (en ticks, 20 ticks = 1 segundo)
+  * `minSpawnDelay`: El retraso máximo entre cada spawn  (en ticks, 20 ticks = 1 segundo)
   * `maxNearbyEntities`: Máximo de entidades alrededor del spawner
-  * `addSpawnerNbtToItem`: Si añade o no la etiqueta de componentes del spawner en el ítem (Es mejor dejarlo en false) Cuando está en false el plugin solo añadirá las etiquetas cuando se coloque el spawner.
-  * `potentialSpawns`: Define los potentialSpawns de tu spawner con peso (weight)
+  * `addSpawnerNbtToItem`: Si añade o no el tag de componentes del spawner al ítem (es mejor dejarlo en false). Cuando es false, el plugin solo añadirá los tags cuando se coloque el spawner.
+  * `potentialSpawns`: Define los potentialSpawns de tu spawner con peso
 
 :::tip
-Es mejor crear tu spawner primero en [MCStaker](https://mcstacker.net/?cmd=give), luego dártelo dentro del juego y finalmente tenerlo en la mano + hacer /ei create.\
-Importará automáticamente las funcionalidades del spawner a tu ExecutableItems.
+Es mejor crear tu spawner primero en [MCStaker](https://mcstacker.net/?cmd=give), luego entregártelo en el juego y, por último, sostenerlo + hacer /ei create.\
+Importará automáticamente las características del spawner a tus ExecutableItems.
 :::
 
 * Ejemplo:
@@ -1029,11 +1030,11 @@ spawnerFeatures:
   addSpawnerNbtToItem: false
 ```
 
-### Instrument features <CustomTag type="version" version="1.20.5" />
+### Características de Instrument <CustomTag type="version" version="1.20.5" />
 
-* Info: Funcionalidad que te permite personalizar el sonido del cuerno de cabra para los ítems. Esta funcionalidad solo funciona para ítems de material GOAT_HORN.
-  * `enable`: Valor booleano que activa o desactiva las funcionalidades de instrument
-  * `instrument`: El sonido de instrumento musical que se reproducirá cuando se use el cuerno de cabra. [Music Instruments](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/MusicInstrument.html)
+* Info: Característica que te permite personalizar el sonido del cuerno de cabra para los ítems. Esta característica solo funciona con ítems de material GOAT_HORN.
+  * `enable`: Valor booleano que habilita o deshabilita las características de instrument
+  * `instrument`: El sonido del instrumento musical que se reproducirá cuando se use el cuerno de cabra. [Music Instruments](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/MusicInstrument.html)
 * Ejemplo:
 
 ```yaml
@@ -1043,12 +1044,12 @@ instrumentFeatures:
   instrument: DREAM_GOAT_HORN
 ```
 
-### Weapon features <CustomTag type="version" version="1.21.5" /> <CustomTag type="paper" />
+### Características de Weapon <CustomTag type="version" version="1.21.5" /> <CustomTag type="paper" />
 
-* Info: Funcionalidad que te permite configurar ajustes de combate específicos de arma para los ítems.
-  * `enable`: Valor booleano que activa o desactiva las funcionalidades de weapon
-  * `disableBlockingTime`: Valor entero que representa cuánto tiempo (en segundos) estará desactivado el escudo del objetivo después de recibir un golpe de esta arma
-  * `damagePerAttack`: Valor entero que representa el daño de durabilidad que sufre esta arma por cada ataque (por defecto: 5)
+* Info: Característica que te permite configurar ajustes de combate específicos de armas para los ítems.
+  * `enable`: Valor booleano que habilita o deshabilita las características de weapon
+  * `disableBlockingTime`: Valor entero que representa durante cuánto tiempo (en segundos) quedará deshabilitado el escudo del objetivo tras ser golpeado por esta arma
+  * `damagePerAttack`: Valor entero que representa el daño de durabilidad que sufre esta arma por ataque (por defecto: 5)
 * Ejemplo:
 
 ```yaml
@@ -1059,16 +1060,16 @@ weaponFeatures:
 ```
 
 
-### Blocks attacks features <CustomTag type="version" version="1.21.5" /> <CustomTag type="paper" />
+### Características de Blocks attacks <CustomTag type="version" version="1.21.5" /> <CustomTag type="paper" />
 
-* Info: Funcionalidad que te permite configurar cómo los ítems bloquean ataques, similar a los escudos. Esto te permite hacer que cualquier ítem sea capaz de bloquear daño.
-  * `enable`: Valor booleano que activa o desactiva las funcionalidades de block attacks
-  * `blockDelay`: Valor entero que representa el retraso en segundos antes de que el ítem pueda volver a bloquear después de usarse
+* Info: Característica que te permite configurar cómo los ítems bloquean ataques, de forma similar a los escudos. Esto permite que cualquier ítem pueda bloquear daño.
+  * `enable`: Valor booleano que habilita o deshabilita las características de block attacks
+  * `blockDelay`: Valor entero que representa el retraso en segundos antes de que el ítem pueda volver a bloquear después de ser usado
   * `blockSound`: Sonido que se reproduce al bloquear un ataque con éxito
-  * `disableSound`: Sonido que se reproduce cuando el bloqueo se desactiva (al ser superado)
-  * `disableCooldownScale`: Valor double (multiplicador) de cuánto dura la desactivación del bloqueo después de ser superado (por defecto: 1.0)
+  * `disableSound`: Sonido que se reproduce cuando el bloqueo se deshabilita (tras ser sobrepasado)
+  * `disableCooldownScale`: Valor double (multiplicador) de cuánto dura la deshabilitación del bloqueo tras ser sobrepasado (por defecto: 1.0)
   * `damageReductions`: Lista de configuraciones de reducción de daño que definen cuánto daño se reduce por tipo de daño
-  * `bypassedBy`: Tipo de daño que ignora completamente este bloqueo
+  * `bypassedBy`: Tipo de daño que ignora este bloqueo por completo
 * Ejemplo:
 
 ```yaml
@@ -1095,14 +1096,14 @@ blockAttacksFeatures:
   bypassedBy: VOID
 ```
 
-#### Configuración de reducción de daño
+#### Damage Reduction Configuration
 
 Cada entrada de reducción de daño tiene los siguientes ajustes:
 * `baseDamageBlocked`: Cantidad base de daño bloqueado (reducción fija)
 * `factorDamageBlocked`: Porcentaje de daño bloqueado (0.5 = 50% de reducción)
-* `horizontalBlockingAngle`: El ángulo en grados desde el cual se pueden bloquear ataques (90 = cuarto frontal, 180 = mitad frontal, 360 = todas las direcciones). Debe ser mayor que 0.
+* `horizontalBlockingAngle`: El ángulo en grados desde el cual se pueden bloquear los ataques (90 = cuarto frontal, 180 = mitad frontal, 360 = todas las direcciones). Debe ser mayor que 0.
 * `damageTypes`: Lista de tipos de daño a los que se aplica esta reducción. Consulta [Damage Types](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/damage/DamageType.html) para ver los tipos disponibles.
 
 :::tip
-Puedes crear "escudos" personalizados con diferentes materiales usando esta funcionalidad. Por ejemplo, ¡podrías hacer un libro que bloquee daño mágico o un diamante que bloquee ataques físicos!
+Con esta característica puedes crear "escudos" personalizados con diferentes materiales. Por ejemplo, ¡podrías hacer un libro que bloquee el daño mágico o un diamante que bloquee los ataques físicos!
 :::

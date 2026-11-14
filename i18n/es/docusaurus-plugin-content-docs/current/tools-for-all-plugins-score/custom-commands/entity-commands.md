@@ -1,21 +1,22 @@
 ---
 description: >-
-  Guía de SPlugins sobre los comandos de entidad: controla mobs, NPCs y objetos
-  soltados con comandos personalizados en ExecutableItems.
-source_hash: 513c7df4b594137b
-translated_at: '2026-10-03T10:35:09.430Z'
+  Lista de comandos de entidad de ExecutableItems: ANGRY_AT, CHANGE_INTO_ITEM,
+  CHANGE_TO, KILL, HEAL, SET_AI, teletransportes y más, con sus ajustes y
+  ejemplos.
+source_hash: f04bd6ad6572d292
+translated_at: '2026-11-13T18:15:47.639Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import LinkPreview from '@site/src/components/LinkPreview';
 
-# Comandos de Entidad
+# Comandos de entidad
 
 :::tip
-Compatibilidad "multi-mundo" para los comandos vanilla.
+Compatibilidad "multi-world" para los comandos vanilla.
 
 `execute in <<NAME_OF_YOUR_WORLD>> run ...`
 
-Ejemplo, quieres invocar un Zombie en el mundo SsomarWorld:
+Ejemplo: quieres invocar un Zombie en el mundo SsomarWorld:
 
 `execute in <<SsomarWorld>> run summon zombie 100 50 100`
 
@@ -25,10 +26,10 @@ Ejemplo con un placeholder`:`
 :::
 
 :::info
-Los comandos de entidad son compatibles con los NPCs de Citizens
+Los comandos de entidad son compatibles con los NPC de Citizens
 :::
 
-## Comandos Mixtos
+## Comandos mixtos
 
 Además de la siguiente lista de comandos, también puedes usar:
 
@@ -37,7 +38,7 @@ Además de la siguiente lista de comandos, también puedes usar:
   title="Mixed commands (Compatible with Player and Entity)"
 />
 
-Estos comandos se pueden usar tanto en los comandos relacionados con el jugador COMO en los comandos relacionados con la entidad.
+Estos comandos se pueden usar en los comandos relacionados con el jugador O en los comandos relacionados con la entidad.
 
 ## Comandos personalizados
 
@@ -45,8 +46,8 @@ _Ordenados alfabéticamente_
 
 ### ANGRY\_AT
 
-* Info: Establece el objetivo de la entidad a un UUID específico
-* Configuración del comando:
+* Info: Establece el objetivo de la entidad en un UUID específico
+* Ajuste del comando:
   * `{entityUUID}`: El UUID de la entidad objetivo
 * Ejemplo:
 
@@ -58,13 +59,13 @@ _Ordenados alfabéticamente_
 
 ### AWARENESS
 
-* Info: Establece si este mob es consciente de su entorno. Los mobs inconscientes seguirán moviéndose si son empujados, atacados, etc. pero no se moverán ni realizarán ninguna acción por su cuenta. Los mobs inconscientes también pueden tener otros comportamientos no especificados desactivados, como el ahogamiento.
+* Info: Establece si este mob es consciente de su entorno. Los mobs no conscientes seguirán moviéndose si los empujan, los atacan, etc., pero no se moverán ni realizarán ninguna acción por sí solos. Los mobs no conscientes también pueden tener desactivados otros comportamientos no especificados, como ahogarse.
 
 :::info
-Solo funciona para 1.16.5+
+solo funciona en 1.16.5+
 :::
 
-* Configuración del comando:
+* Ajuste del comando:
   * `{value}`: true o false
 * Ejemplo:
 
@@ -74,9 +75,10 @@ Solo funciona para 1.16.5+
 
 ### CHANGE\_INTO\_ITEM
 
-* Info: Reemplaza un ítem soltado (un ítem entidad en el suelo o en el aire) por un ítem vanilla o un ExecutableItem. La entidad se mantiene igual, solo cambia el ítem que lleva.
-* Pensado para el activador `PLAYER_FISH_FISH` de ExecutableItems: ahí, la entidad apuntada por `entityCommands` es el ítem capturado. Se cambia antes de que sea recogido, de modo que el jugador conserva la animación normal de pesca y recibe tu ítem en lugar del pez. No se necesita `/ei give`, ni `DELAYTICK`, ni `data merge`.
-* Configuración del comando:
+* Info: Reemplaza un ítem soltado (una entidad de ítem en el suelo o en el aire) por un ítem vanilla o un ExecutableItem. La entidad sigue siendo la misma, solo cambia el ítem que lleva.
+* Hecho para el activador `PLAYER_FISH_FISH` de ExecutableItems: allí, la entidad objetivo de `entityCommands` es el ítem pescado. Se cambia antes de recogerlo con la caña, así que el jugador conserva la animación normal de pesca y recibe tu ítem en lugar del pez. No hacen falta `/ei give`, `DELAYTICK` ni `data merge`.
+  * En ExecutableEvents (todas las cañas de pescar del servidor), escríbelo en el `targetEntityCommands` de `PLAYER_FISH_FISH`.
+* Ajustes del comando:
   * `item`: Un material (`DIAMOND`) o el id de un ExecutableItem (`my_custom_fish`).
   * `amount`: (Opcional) La cantidad del nuevo ítem. Por defecto: 1
 * Ejemplo:
@@ -95,19 +97,19 @@ activators:
 ```
 
 :::info
-* Si un ExecutableItem y un material tienen el mismo nombre, se usa el ExecutableItem. Escribe `EI:my_id` para aceptar solo un ExecutableItem.
-* El ExecutableItem se construye para el jugador que activó el activador (dueño, placeholders del ítem).
+* Si un ExecutableItem y un material tienen el mismo nombre, se usa el ExecutableItem. Escribe `EI:my_id` para aceptar únicamente un ExecutableItem.
+* El ExecutableItem se construye para el jugador que activó el activador (propietario, placeholders del ítem).
 * El comando no hace nada si la entidad objetivo no es un ítem soltado (un mob, un jugador...), e imprime un mensaje en la consola si `item` no es ni un material ni un ExecutableItem cargado.
 * Ejemplo completo con una tabla de botín aleatoria: [Custom fishing loot](/executableitems/questions-or-guides/methods-or-template/custom-fishing-loot)
 :::
 
 ### CHANGE\_TO
 
-* Info: Reemplaza el mob por una entidad de otro tipo. Mantendrá la velocidad actual de la entidad actual.
+* Info: Reemplaza el mob por una entidad de otro tipo. Conservará la velocidad actual de la entidad actual.
   * Puedes especificar un [EntityType](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html)
-  * O una definición de entidad, ejemplo: `{HasVisualFire:1b,id:"minecraft:bee"}` (1.21.+)
+  * O un ejemplo de definición de entidad: `{HasVisualFire:1b,id:"minecraft:bee"}` (1.21.+)
   * O un ID de MythicMob
-* Configuración del comando:
+* Ajuste del comando:
   * `{entity}`: La especificación de la entidad
 * Ejemplo:
 
@@ -128,11 +130,11 @@ activators:
 ### DROPEXECUTABLEITEM
 
 * Info: Suelta un Executable Item en la ubicación de la entidad
-* Configuración del comando:
-  * `{id}`: Id del ítem del ExecutableItem
+* Ajustes del comando:
+  * `{id}`: Id del ExecutableItem
   * `{quantity}`: La cantidad del ítem ejecutable que se soltará
-  * `[owner]`: (Opcional) El dueño del ítem soltado (IGN o UUID del jugador)
-  * `[itemdata]`: (Opcional) Configuración de datos del ítem que contiene:
+  * `[owner]`: (Opcional) El propietario del ítem soltado (IGN o UUID del jugador)
+  * `[itemdata]`: (Opcional) Ajustes de datos del ítem que contienen:
     * `Usage`: Establece el valor de uso
     * `Variables`: Establece variables personalizadas (formato: `{key:value}`)
     * `Durability`: Establece el valor de durabilidad
@@ -146,8 +148,8 @@ activators:
 ### DROPEXECUTABLEBLOCK
 
 * Info: Suelta un Executable Block en la ubicación de la entidad
-* Configuración del comando:
-  * `{id}`: Id del ítem del ExecutableBlock
+* Ajustes del comando:
+  * `{id}`: Id del ExecutableBlock
   * `{quantity}`: La cantidad del bloque ejecutable que se soltará
 * Ejemplo:
 
@@ -158,7 +160,7 @@ activators:
 ### DROPITEM
 
 * Info: Suelta un ítem en la ubicación de la entidad
-* Configuración del comando:
+* Ajustes del comando:
   * `{material}`: El tipo de ítem. [Referencia](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html) **(DEBE ESTAR TODO EN MAYÚSCULAS)**
   * `{quantity}`: La cantidad del ítem que se soltará
 * Ejemplo:
@@ -169,8 +171,8 @@ activators:
 
 ### HEAL
 
-* Info: Cura a la entidad con una cantidad específica, si no se especifica curará por completo a la entidad.
-* Configuración del comando:
+* Info: Cura a la entidad con una cantidad específica; si no se especifica, la curará por completo.
+* Ajuste del comando:
   * `{amount}`: La cantidad de curación
 * Ejemplo:
 
@@ -186,7 +188,7 @@ activators:
 ### KILL
 
 * Info: Mata al mob sin la animación de muerte
-* Sin configuración de comando
+* Sin ajustes del comando
 * Ejemplo:
 
 ```
@@ -195,9 +197,9 @@ activators:
 
 ### PLAYER\_RIDE\_ENTITY
 
-* Info: Hace que el jugador monte la entidad apuntada.
-* Configuración del comando:
-  * `{control}`: true/false si puedes controlar manualmente la entidad o no
+* Info: Hace que el jugador monte la entidad objetivo.
+* Ajustes del comando:
+  * `{control}`: true/false, si puedes controlar manualmente la entidad o no
   * `{speed}`: qué tan rápido puede ir la entidad mientras la montas
 * Ejemplo:
 
@@ -208,7 +210,7 @@ activators:
 ### SET\_AI
 
 * Info: Establece el estado de la IA de la entidad
-* Configuración del comando:
+* Ajustes del comando:
   * `{value}`: true para activar la IA de la entidad y false para desactivarla.
 * Ejemplo:
 
@@ -218,8 +220,8 @@ activators:
 
 ### SET\_ADULT
 
-* Info: Coloca a la entidad en su estado "adulto"
-* Sin configuración de comando
+* Info: Pone a la entidad en su estado "adulto"
+* Sin ajustes del comando
 * Ejemplo:
 
 ```
@@ -227,12 +229,12 @@ activators:
 ```
 
 * Situación de ejemplo:
-  * Si este comando se ejecuta sobre un pollo bebé, se convertirá en su forma adulta.
+  * Si este comando se ejecuta sobre una gallina bebé, se convertirá en su forma adulta.
 
 ### SET\_BABY
 
-* Info: Coloca a la entidad en su estado "bebé"
-* Sin configuración de comando
+* Info: Pone a la entidad en su estado "bebé"
+* Sin ajustes del comando
 * Ejemplo:
 
 ```
@@ -240,12 +242,12 @@ activators:
 ```
 
 * Situación de ejemplo:
-  * Si este comando se ejecuta sobre un pollo adulto, se convertirá en su forma bebé.
+  * Si este comando se ejecuta sobre una gallina adulta, se convertirá en su forma bebé.
 
 ### SET\_ENTITY\_NAME
 
-* Info: Establece forzosamente el nombre de la entidad
-* Configuración del comando:
+* Info: Establece a la fuerza el nombre de la entidad
+* Ajuste del comando:
   * `{name}`: el nuevo nombre de la entidad
 * Ejemplo:
 
@@ -256,7 +258,7 @@ activators:
 ### SHEAR
 
 * Info: Esquila a la entidad
-* Sin configuración de comando
+* Sin ajustes del comando
 * Ejemplo:
 
 ```
@@ -265,8 +267,8 @@ activators:
 
 ### TELEPORT\_ENTITY\_TO\_PLAYER
 
-* Info: Teletransporta la entidad hacia el usuario del ítem
-* Sin configuración de comando
+* Info: Teletransporta a la entidad al usuario del ítem
+* Sin ajustes del comando
 * Ejemplo:
 
 ```
@@ -275,8 +277,8 @@ activators:
 
 ### TELEPORT\_PLAYER\_TO\_ENTITY
 
-* Info: Teletransporta al usuario del ítem hacia la entidad
-* Sin configuración de comando
+* Info: Teletransporta al usuario del ítem a la entidad
+* Sin ajustes del comando
 * Ejemplo:
 
 ```
@@ -286,7 +288,7 @@ activators:
 ### TELEPORT\_POSITION
 
 * Info: Teletransporta a la entidad a una ubicación específica
-* Configuración del comando:
+* Ajustes del comando:
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z

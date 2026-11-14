@@ -1,19 +1,19 @@
 ---
 description: >-
-  Guía de SPlugins sobre restricciones y resistencias de ítems para personalizar
-  el comportamiento de los ExecutableItems.
-source_hash: 6712e593bf883efe
-translated_at: '2026-10-03T10:31:58.414Z'
+  Aprende a configurar restricciones y resistencias de ítems en ExecutableItems:
+  evita soltar, craftear, encantar o guardar ítems en contenedores.
+source_hash: bf6b77f864065099
+translated_at: '2026-11-13T18:15:28.540Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 # Restricciones/Resistencias de ítems
 
-En esta página aprenderás sobre las restricciones de ítems y algunas resistencias, esto te permitirá personalizar el comportamiento en ciertos casos del ítem.
+En esta página aprenderás sobre las restricciones de ítems y algunas resistencias, que te permitirán personalizar el comportamiento del ítem en ciertos casos.
 
 ## Restricciones globales
 
-* Info: Si quieres añadir una de las restricciones de ítems a todos los ítems que has creado en el plugin, puedes añadir la configuración de la restricción (o restricciones) que quieras dentro del archivo config.yml del plugin.
-* Ejemplo: Quiero añadir las restricciones de no usar yunque y piedra de afilar a todos los ExecutableItems creados y por crear
+* Info: Si quieres añadir alguna de las restricciones de ítems a todos los ítems que has creado en el plugin, puedes añadir la configuración de la(s) restricción(es) que desees dentro del archivo config.yml del plugin.
+* Ejemplo: Quiero añadir las restricciones de no usar yunque ni piedra de afilar a todos los ExecutableItems creados y por crear
 
 
 ```yaml
@@ -51,12 +51,12 @@ restrictions:
 
 ## Restricciones individuales
 
-En esta sección aprenderás cómo añadir una restricción individual únicamente para el ExecutableItem que estás editando actualmente.
+En esta sección aprenderás cómo añadir una restricción individual solo para el ExecutableItem que estás editando actualmente.
 
-### Cancelar la caída del ítem
+### Cancelar el drop del ítem
 
-* Info: Valor booleano que impide que el jugador suelte el ítem ejecutable.
-* Nota: cuando el ítem no puede volver al inventario (por ejemplo, estaba en el cursor mientras el inventario estaba cerrado y todos los espacios están llenos), se permite soltarlo en lugar de que el ítem sea eliminado.
+* Info: Valor booleano que impide que el jugador suelte el ExecutableItem.
+* Nota: cuando el ítem no puede volver al inventario (por ejemplo, estaba en el cursor mientras el inventario se cerraba y todos los espacios están llenos), se permite soltarlo en lugar de eliminar el ítem.
 * Ejemplo:
 
 ```yaml
@@ -66,7 +66,7 @@ restrictions:
 
 ### Cancelar la colocación del bloque en el suelo.
 
-* Info: Valor booleano que impide que el jugador coloque los Executable Items en caso de que el ítem sea una instancia de bloque en el suelo.
+* Info: Valor booleano que impide que el jugador coloque en el suelo los Executable Items cuando el ítem es una instancia de bloque.
 * Ejemplo:
 
 ```yaml
@@ -74,7 +74,7 @@ restrictions:
   cancel-item-place: true
 ```
 
-### Cancelar el uso del ítem en cualquier receta en la mesa de crafteo
+### Cancelar el uso del ítem en cualquier receta de la mesa de crafteo
 
 * Info: Valor booleano que impide que el jugador craftee recetas vanilla con el ExecutableItem.
 * Ejemplo:
@@ -86,7 +86,7 @@ restrictions:
 
 ### Cancelar el uso del ítem solo en recetas vanilla, sin afectar a las personalizadas
 
-* Info: Valor booleano que impide que el jugador craftee recetas vanilla con el ExecutableItem, pero que aún puede ser usado en recetas de crafteo personalizadas.
+* Info: Valor booleano que impide que el jugador craftee recetas vanilla con el ExecutableItem, pero se puede seguir usando en recetas de crafteo personalizadas.
 * Ejemplo:
 
 ```yaml
@@ -94,9 +94,9 @@ restrictions:
   cancel-item-craft-no-custom: true
 ```
 
-### Cancelar la interacción para decorar macetas de minecraft
+### Cancelar la interacción para decorar las vasijas de Minecraft
 
-* Info: Valor booleano que impide que el jugador coloque los ExecutableItems en las macetas decoradas
+* Info: Valor booleano que impide que el jugador coloque los ExecutableItems en las vasijas decoradas
 * Ejemplo:
 
 ```yaml
@@ -104,14 +104,25 @@ restrictions:
   cancel-decorated-pot: true
 ```
 
-### Cancelar el depósito del ítem en un almacenamiento
+### Cancelar colocar el ítem en un estante
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem en la siguiente lista:
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem en un estante (Minecraft 1.21.9+, todos los tipos de madera).
+  * Útil para un ítem que se devuelve a sí mismo mediante sus activadores (por ejemplo, un cubo de agua "infinito"): sin ella, el ítem colocado en el estante se queda ahí mientras el activador entrega uno nuevo.
+* Ejemplo:
+
+```yaml
+restrictions:
+  cancel-shelf: true
+```
+
+### Cancelar depositar el ítem en un almacenamiento
+
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem en los siguientes bloques:
   * Cofre
   * Cofre de Ender
-  * Cofre atrapado
+  * Cofre trampa
   * Barril
-  * Shulker Box
+  * Caja de shulker
 * Ejemplo: (Esta función no funciona en creativo)
 
 ```yaml
@@ -119,9 +130,9 @@ restrictions:
   cancel-deposit-in-chest: true
 ```
 
-### Cancelar el depósito del ítem en un horno
+### Cancelar depositar el ítem en un horno
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem en la siguiente lista:
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem en los siguientes bloques:
   * Horno
   * Alto horno
   * Ahumador
@@ -132,9 +143,9 @@ restrictions:
   cancel-deposit-in-furnace: true
 ```
 
-### Cancelar la quema del ítem en fuego y lava
+### Cancelar que el ítem se queme en el fuego y la lava
 
-* Info: Valor booleano que impide que el ExecutableItem se queme en fuego o lava.
+* Info: Valor booleano que impide que el ExecutableItem se queme en el fuego o la lava.
 * Ejemplo:
 
 ```yaml
@@ -142,9 +153,9 @@ restrictions:
   cancel-item-burn: true
 ```
 
-### Cancelar la eliminación del ítem por interacción con cactus
+### Cancelar que el ítem se elimine por la interacción con un cactus
 
-* Info: Valor booleano que impide que el ExecutableItem sea eliminado al tocar un bloque de cactus.
+* Info: Valor booleano que impide que el ExecutableItem se elimine al tocar un bloque de cactus.
 * Ejemplo:
 
 ```yaml
@@ -152,9 +163,9 @@ restrictions:
   cancel-item-delete-by-cactus: true
 ```
 
-### Cancelar la eliminación del ítem al ser alcanzado por un rayo
+### Cancelar que el ítem se elimine al ser alcanzado por un rayo
 
-* Info: Valor booleano que impide que el ExecutableItem sea eliminado cuando un rayo lo alcanza.
+* Info: Valor booleano que impide que el ExecutableItem se elimine cuando le cae un rayo.
 * Config: `cancel-item-delete-by-lightning: true`
 * Ejemplo:
 
@@ -175,7 +186,7 @@ restrictions:
 
 ### Cancelar la colocación del ítem dentro de un yunque 
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un yunque. Esto finalmente impide colocarlo, por lo que también impide renombrarlo y encantarlo.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un yunque. Al no poder colocarlo, también impide renombrarlo y encantarlo.
 * Ejemplo:
 
 ```yaml
@@ -183,7 +194,7 @@ restrictions:
   cancel-anvil: true
 ```
 
-### Cancelar la acción de renombrar usando un yunque
+### Cancelar la acción de renombrar con un yunque
 
 * Info: Valor booleano que impide que el jugador renombre el ExecutableItem usando un yunque.
 * Ejemplo:
@@ -193,7 +204,11 @@ restrictions:
   cancel-rename-anvil: true
 ```
 
-### Cancelar la acción de encantar usando un yunque
+:::tip
+Un ítem que se repara o se encanta en un yunque **sin ser renombrado** conserva su nombre con colores / degradado gracias a [keepNameInAnvil](/executableitems/configurations/general-configuration#keepnameinanvil) (activado por defecto). Esa opción va en `plugins/ExecutableItems/config.yml`, no en el archivo del ítem.
+:::
+
+### Cancelar la acción de encantar con un yunque
 
 * Info: Valor booleano que impide que el jugador encante el ExecutableItem usando un yunque.
 * Ejemplo:
@@ -205,7 +220,7 @@ restrictions:
 
 ### Cancelar la interacción del ítem con caballo/mula/llama
 
-* Info: Valor booleano que impide que los ExecutableItems interactúen con caballos/mulas/llamas. Esto también deshabilita el almacenamiento.
+* Info: Valor booleano que impide que los ExecutableItems interactúen con caballos/mulas/llamas. Esto también desactiva el almacenamiento.
 * Ejemplo:
 
 ```yaml
@@ -213,7 +228,7 @@ restrictions:
   cancel-horse: true
 ```
 
-### Cancelar el consumo/comer del ítem
+### Cancelar el consumo/comer el ítem
 
 * Info: Valor booleano que impide que el jugador consuma o coma el ExecutableItem.
 * Ejemplo:
@@ -243,9 +258,9 @@ restrictions:
   locked-in-inventory: true
 ```
 
-### Cancelar interacciones de herramienta
+### Cancelar las interacciones de herramienta
 
-* Info: Valor booleano que impide que el jugador use el ExecutableItem para activar interacciones de herramienta. P. ej. (Click derecho en un bloque usando un hacha para descortezarlo, usar una azada para cultivar un bloque de césped)
+* Info: Valor booleano que impide que el jugador use el ExecutableItem para activar interacciones de herramienta. Por ejemplo: (clic derecho en un bloque con un hacha para pelarlo, usar una azada para labrar un bloque de hierba)
 * Ejemplo:
 
 ```yaml
@@ -253,9 +268,9 @@ restrictions:
   cancel-tool-interactions: true
 ```
 
-### Cancelar la colocación del ítem dentro de un marco de ítem
+### Cancelar colocar el ítem dentro de un marco
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un marco de ítem.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un marco.
 * Ejemplo:
 
 ```yaml
@@ -283,9 +298,9 @@ restrictions:
   cancel-grind-stone: true
 ```
 
-### Cancelar la interacción con una cortadora de piedra
+### Cancelar la interacción con un cortapiedras
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de una cortadora de piedra.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un cortapiedras.
 * Ejemplo:
 
 ```yaml
@@ -293,9 +308,9 @@ restrictions:
   cancel-stone-cutter: true
 ```
 
-### Cancelar la interacción con un soporte de pociones 
+### Cancelar la interacción con un soporte para pociones 
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un soporte de pociones.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un soporte para pociones.
 * Ejemplo:
 
 ```yaml
@@ -313,9 +328,9 @@ restrictions:
   cancel-beacon: true
 ```
 
-### Cancelar la interacción con un bloque de cartografía
+### Cancelar la interacción con una mesa de cartografía
 
-* Info: Impide que el jugador coloque el ExecutableItem dentro de un bloque de cartografía.
+* Info: Impide que el jugador coloque el ExecutableItem dentro de una mesa de cartografía.
 * Ejemplo:
 
 ```yaml
@@ -323,9 +338,9 @@ restrictions:
   cancel-cartography: true
 ```
 
-### Cancelar la interacción con un bloque compostador
+### Cancelar la interacción con un bloque de composta
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un compostador.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de una composta.
 * Ejemplo:
 
 ```yaml
@@ -333,9 +348,9 @@ restrictions:
   cancel-composter: true
 ```
 
-### Cancelar la interacción con un bloque dispensador.
+### Cancelar la interacción con un bloque de dispensador.
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem en un bloque dispensador.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem en un bloque de dispensador.
 * Ejemplo:
 
 ```yaml
@@ -343,9 +358,9 @@ restrictions:
   cancel-dispenser: true
 ```
 
-### Cancelar la interacción con un bloque de goteo (dropper)
+### Cancelar la interacción con un bloque de soltador
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un bloque dropper.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un bloque de soltador.
 * Ejemplo:
 
 ```yaml
@@ -355,7 +370,7 @@ restrictions:
 
 ### Cancelar la interacción con un bloque de tolva
 
-* Info: Valor booleano que impide que el jugador coloque los ítems ExecutableItem dentro de una tolva. Esto significa dejar el ítem dentro del contenedor de la tolva. Esto no impide que el ítem entre en la tolva mediante un ítem soltado encima de la tolva.
+* Info: Valor booleano que impide que el jugador coloque los ExecutableItems dentro de una tolva. Esto significa dejar el ítem dentro del contenedor de la tolva. No impide que el ítem entre en la tolva si se suelta encima de ella.
 * Ejemplo:
 
 ```yaml
@@ -373,9 +388,9 @@ restrictions:
   cancel-lectern: true
 ```
 
-### Cancelar la interacción con un comerciante/mercader aldeano
+### Cancelar la interacción con un aldeano comerciante/mercader
 
-* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un intercambio de aldeano/mercader.
+* Info: Valor booleano que impide que el jugador coloque el ExecutableItem dentro de un intercambio con un aldeano/mercader.
 * Ejemplo:
 
 ```yaml
@@ -383,9 +398,9 @@ restrictions:
   cancel-merchant: true
 ```
 
-### Cancelar el intercambio de ítem entre manos
+### Cancelar el intercambio de ítems entre manos
 
-* Info: Valor booleano que impide que el jugador intercambie los ítems de una mano a la otra. Generalmente usando F en el teclado para "Swap items with offhand"
+* Info: Valor booleano que impide que el jugador intercambie los ítems de una mano a la otra. Normalmente se usa la tecla F del teclado para "Swap items with offhand"
 * Ejemplo:
 
 ```yaml
@@ -403,9 +418,9 @@ restrictions:
   cancel-horn: true
 ```
 
-### CANCELAR SOPORTE DE ARMADURA
+### CANCELAR ARMOR STAND
 
-* Info: Impide que el jugador coloque el ExecutableItem en un soporte de armadura.
+* Info: Impide que el jugador coloque el ExecutableItem en un armor stand.
 * Ejemplo:
 
 ```yaml
@@ -413,9 +428,9 @@ restrictions:
   cancel-armorstand: true
 ```
 
-### CANCELAR GENERADOR (SPAWNER)
+### CANCELAR SPAWNER
 
-* Info: Impide que el jugador use el huevo de generación del ExecutableItem en un spawner de su forma vanilla.
+* Info: Impide que el jugador use el huevo generador ExecutableItem en un spawner de la forma vanilla.
 * Ejemplo:
 
 ```yaml
@@ -423,9 +438,9 @@ restrictions:
   cancel-spawner: true
 ```
 
-### CANCELAR COLOCACIÓN EN BUNDLE
+### CANCELAR COLOCAR EN PAQUETE
 
-* Info: Impide que el jugador coloque el ExecutableItem dentro de un bundle.
+* Info: Impide que el jugador coloque el ExecutableItem dentro de un paquete.
 * Ejemplo:
 
 ```yaml

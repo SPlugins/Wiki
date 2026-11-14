@@ -1,31 +1,31 @@
 ---
 description: >-
-  Guía de SPlugins sobre comandos de jugador y objetivo: lista completa de
-  comandos personalizados, ajustes y ejemplos de uso.
-source_hash: 0e9aab386cb7c1fd
-translated_at: '2026-10-03T10:29:02.748Z'
+  Lista de comandos personalizados de jugador y objetivo de SCore (ABSORPTION,
+  BOSSBAR, LAUNCH, SET_BLOCK y más) con sus ajustes y ejemplos.
+source_hash: 0ab741c02dc34406
+translated_at: '2026-11-13T18:17:32.416Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import LinkPreview from '@site/src/components/LinkPreview';
 import CustomTag from '@site/src/components/CustomTag';
 
-# Comandos de Jugador y Objetivo
+# Comandos de Player y Target
 
 :::warning
-Debes saber que, por defecto, todos los comandos los ejecuta la consola, así que si quieres que el jugador ejecute el comando añade [**SUDO**](player-and-target-commands.md#sudo) o [**SUDO\_OP**](player-and-target-commands.md#sudo_op) antes.
+Debes saber que por defecto todos los comandos los ejecuta la consola, así que si quieres que el jugador ejecute el comando, añade [**SUDO**](player-and-target-commands.md#sudo) o [**SUDO\_OP**](player-and-target-commands.md#sudo_op) antes. 
 
 _(Haz clic en SUDO o SUDO\_OP para más información)_
 
 \
-**No uses esta opción para comandos vanilla y CUSTOM COMMANDS, para usar comandos vanilla correctamente ve a las FAQ y "How to use vanilla commands",**
+**No uses esta opción para comandos vanilla ni para CUSTOM COMMANDS. Para usar correctamente los comandos vanilla, ve a la FAQ y a "Cómo usar los comandos vanilla",**
 :::
 
 :::tip
-Compatibilidad "multi-mundo" para los comandos vanilla.
+Compatibilidad "multi-world" para los comandos vanilla.
 
 `execute in <<NAME`_`OF`_`YOUR_WORLD>> run ...`
 
-Ejemplo, quieres invocar un Zombie en el mundo SsomarWorld:
+Ejemplo: quieres invocar un Zombie en el mundo SsomarWorld:
 
 `execute in <<SsomarWorld>> run summon zombie 100 50 100`
 
@@ -35,15 +35,15 @@ Ejemplo con un placeholder`:`
 :::
 
 :::info
-¿Quieres mantener la forma HEX bruta en tu comando? Añade la etiqueta **BRUT\_HEX** en tu comando. Funciona en cualquier parte de la línea de comando, pero se recomienda ponerla en la primera parte del cmd para que sea menos confuso
+¿Quieres mantener el formato HEX en bruto en tu comando? Añade la etiqueta **BRUT\_HEX** en tu comando. Funciona en cualquier parte de la línea de comando, pero se recomienda ponerla en la primera parte del comando para que resulte menos confuso.
 :::
 
 :::info
-Por defecto todos los comandos no se ejecutan si el jugador está desconectado. (los comandos se ejecutarán en la conexión del jugador)
+Por defecto, ningún comando se ejecuta si el jugador está desconectado (los comandos se ejecutarán cuando el jugador se conecte).
 
-Pero puedes añadir la etiqueta **\[\<OFFLINE>]** en tus comandos para eliminar esta restricción.
+Pero puedes añadir la etiqueta **\[\<OFFLINE>]** en tus comandos para quitar esta restricción.
 
-_(Muy útil para comandos de broadcast, boost, giveall, etc.)_
+_(Muy útil para comandos de broadcast, boost, giveall, ...)_
 
 Ejemplo:
 
@@ -52,7 +52,7 @@ Ejemplo:
 :::
 
 :::info
-Puedes usar \[\<CLEAR\_IF\_DISCONNECT>] si quieres limpiar comandos si el jugador se desconecta
+Puedes usar \[\<CLEAR\_IF\_DISCONNECT>] si quieres borrar los comandos pendientes cuando el jugador se desconecte.
 
 Ejemplo:
 
@@ -61,14 +61,14 @@ Ejemplo:
 
 ## Comandos mixtos
 
-Además de la siguiente lista de comandos también puedes usar:
+Además de la siguiente lista de comandos, también puedes usar:
 
 <LinkPreview
   url="docs/tools-for-all-plugins-score/custom-commands/mixed-commands-player-and-entity"
   title="Mixed commands (Compatible with Player and Entity)"
 />
 
-Estos comandos se pueden usar en los comandos relacionados con jugador O en los comandos relacionados con entidad.
+Estos comandos pueden usarse en los comandos relacionados con el jugador O en los comandos relacionados con entidades.
 
 ## Comandos personalizados
 
@@ -76,10 +76,10 @@ _Ordenados alfabéticamente_
 
 ### ABSORPTION
 
-* Info: Da efecto de absorción al jugador
+* Info: Da el efecto de absorción al jugador
 * Ajustes del comando:
-  * `{amount}`: cantidad de medios corazones de absorción. Admite valores negativos para eliminar.
-  * `{time}`: duración del efecto en ticks. Déjalo vacío o en "0" si quieres que sea infinito.
+  * `{amount}`: cantidad de medios corazones de absorción. Admite valores negativos para quitar.
+  * `{time}`: duración del efecto en ticks. Déjalo vacío o en "0" si lo quieres infinito.
 * Ejemplo:
 
 ```yaml
@@ -95,7 +95,7 @@ activators:
 ```
 
 :::warning
-¡Tu valor de atributo MAX\_ABSORPTION debe estar por encima de 0!
+¡El valor de tu atributo MAX\_ABSORPTION debe ser superior a 0!
 
 Comprueba el valor escribiendo: /attribute PLAYER\_NAME minecraft:max\_absorption base get
 
@@ -124,7 +124,7 @@ activators:
 
 ### ACTIONBAR
 
-* Info: Muestra la actionbar con tu texto + el tiempo restante (59, 58, 57...).
+* Info: Muestra la action bar con tu texto + el tiempo restante (59, 58, 57...).
 * Ajustes del comando:
   * `{text}`: Tu texto a mostrar
   * `{delay}`: Duración en segundos
@@ -146,15 +146,15 @@ activators:
 
 * Info: Añade un atributo a un ítem como operación de suma o resta.
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. -1 para mainhand
+  * `{slot}`: El slot donde se aplicará. -1 para la mano principal
   * `{attribute}`: El atributo que quieres añadir. [Lista de Attributes](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/Attribute.html)
-  * `{value}`: El valor para la operación
-  * `{equipmentSlot}`: El slot donde se habilitará el atributo. [Lista de EquipmentSlot](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html)
+  * `{value}`: El valor de la operación
+  * `{equipmentSlot}`: El slot donde se activará el atributo. [Lista de EquipmentSlot](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html)
   * `{mode}`: selecciona el modo de adición
-    * `mode:ADD` (Añade el atributo al ítem)
-    * `mode:OVERRIDE` (Elimina los atributos actuales del mismo tipo del ítem + Añade el atributo al ítem)
-    * `mode:STACK` (Se acumula con el atributo presente en el ítem, si no existe ninguno lo añade)
-  * affectDefaultAttributes: true o false # Cuando es true, el modo OVERRIDE también sobrescribirá los atributos predeterminados, y para el MODE stack permite acumularse con los atributos predeterminados (verde)
+    * `mode:ADD`: Añade el atributo al ítem
+    * `mode:OVERRIDE`: Quita los atributos actuales del mismo tipo del ítem + Añade el atributo al ítem
+    * `mode:STACK`: Se acumula con el atributo presente en el ítem; si no existe ninguno, lo añade
+  * affectDefaultAttributes: true or false # Cuando es true, el modo OVERRIDE también sobrescribirá los atributos por defecto, y el modo stack permite acumularse con los atributos por defecto (en verde)
 * Ejemplo:
 
 ```yaml
@@ -171,10 +171,10 @@ activators:
 
 ### ADD\_ITEM\_ENCHANTMENT
 
-* Info: Añade un encantamiento a un ítem en un slot específico con cierto nivel
+* Info: Añade un encantamiento a un ítem en un slot específico con un nivel determinado
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. -1 para mainhand
-  * `{enchantment}`: El encantamiento que quieres que se aplique, no uses espacios, usa los encantamientos de minecraft, no los de visualización. [Enchantments](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/enchantments/Enchantment.html)
+  * `{slot}`: El slot donde se aplicará. -1 para la mano principal
+  * `{enchantment}`: El encantamiento que quieres aplicar, no uses espacios, usa los nombres de encantamientos de Minecraft, no los que se muestran en pantalla. [Enchantments](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/enchantments/Enchantment.html)
   * `{level}`: El nivel del encantamiento
 * Ejemplo:
 
@@ -194,8 +194,8 @@ activators:
 
 * Info: Añade una línea de lore
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. -1 para mainhand
-  * `{text}`: El texto para la nueva línea de lore
+  * `{slot}`: El slot donde se aplicará. -1 para la mano principal
+  * `{text}`: El texto de la nueva línea de lore
 * Ejemplo:
 
 ```yaml
@@ -212,8 +212,8 @@ activators:
 
 ### BOOTS
 
-* Info: Pone el ítem de tu mano principal en tu slot de botas. (No funcionará si el ítem tiene "Curse of Binding")
-* Sin ajustes de comando
+* Info: Coloca el ítem de tu mano principal en el slot de las botas. (No funcionará si el ítem tiene "Curse of Binding")
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -230,18 +230,18 @@ activators:
 * Ajustes del comando:
   * `{time}`: La duración de la bossbar en ticks
   * `{color}`: Color del texto de la bossbar
-  * `{text}`: texto en la bossbar (Usa guiones bajos "_" para añadir espacios en tu argumento.)
+  * `{text}`: texto de la bossbar (usa guiones bajos "_" para añadir espacios en tu argumento).
   * `{count}`: cuántas veces quieres que cuente
-    * si esta opción está presente, el argumento de tiempo ya no importará
-  * `{countTicks}`: true/false si quieres que cuente en ticks o en segundos
+    * si esta opción está presente, el argumento de tiempo dejará de importar
+  * `{countTicks}`: true/false, indica si quieres que cuente en ticks o, en su lugar, en segundos
   * `{countOrder}`:
     * ascending: hace que el temporizador cuente desde 0
     * descending: hace que el temporizador cuente desde el valor dado
   * `{overrideMode}`:
     * NO\_OVERRIDE: No sobrescribe las otras Bossbars
     * OVERRIDE\_ALL: Sobrescribirá todas las demás BossBars enviadas por SCore
-    * OVERRIDE\_SAME\_TEXT: Sobrescribirá las demás Bossbars enviadas por SCore que contengan el mismo texto
-  * `{barProgress}`: (por defecto = 1.0) El progreso inicial de la barra (0.0 a 1.0). Funciona tanto con barras estáticas como con cuenta atrás (solo cuenta atrás descendente)
+    * OVERRIDE\_SAME\_TEXT: Sobrescribirá las otras Bossbars enviadas por SCore que contengan el mismo texto
+  * `{barProgress}`: (por defecto = 1.0) El progreso inicial de la barra (0.0 a 1.0). Funciona tanto con barras estáticas como con cuentas atrás (solo cuenta atrás descendente)
 * Ejemplo:
 
 ```yaml
@@ -257,10 +257,10 @@ activators:
 
 ### CANCEL\_PICKUP
 
-* Info: Desactiva la recogida de ítems en un jugador durante un tiempo determinado
+* Info: Desactiva la recogida de ítems de un jugador durante un tiempo determinado
 * Ajustes del comando:
-  * `{time}`: La duración en ticks de cuánto tardará el jugador en poder recoger ítems de nuevo
-  * `{material}`: Si se establece, el jugador no podrá recoger solo el material especificado; si es null, no podrá recoger nada
+  * `{time}`: La duración en ticks hasta que el jugador pueda volver a recoger ítems
+  * `{material}`: Si se define, el jugador no puede recoger solo el material especificado; si es null, no puede recoger nada
 * Ejemplo:
 
 ```yaml
@@ -273,7 +273,7 @@ activators:
 ```
 
 :::info
-La única forma de RESETEAR este comando después de establecer un tiempo en ticks es recargando o reiniciando el servidor. Si quieres una forma de resetearlo, sugiérelo en el canal #suggestions de Discord.
+La única forma de RESETEAR este comando después de definir un tiempo en ticks es recargar o reiniciar el servidor. Si te gustaría tener una forma de resetearlo, sugiérelo en el canal #suggestions de Discord.
 :::
 
 ### CHAT
@@ -293,8 +293,8 @@ activators:
 
 ### CHESTPLATE
 
-* Info: Pone el ítem de tu mano principal en tu slot de pechera. (No funcionará si el ítem tiene "Curse of Binding")
-* Sin ajustes de comando
+* Info: Coloca el ítem de tu mano principal en el slot del peto. (No funcionará si el ítem tiene "Curse of Binding")
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -308,7 +308,7 @@ activators:
 ### CLOSE\_INVENTORY
 
 * Info: Cierra el inventario al jugador
-* Sin ajustes de comando
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -321,16 +321,16 @@ activators:
 
 ### CROPS\_GROWTH\_BOOST
 
-* Info: Impulsa el crecimiento de los cultivos a tu alrededor
+* Info: Acelera el crecimiento de los cultivos a tu alrededor
 * Ajustes del comando:
-  * `{radius}`: El radio del impulso (por defecto 5)
-  * `{delay}`: El retraso en ticks entre cada impulso de crecimiento
-  * `{duration}`: La duración en ticks del impulso total
-  * `{chance}`: La probabilidad de crecimiento que tienen los bloques cuando se aplica el impulso
+  * `{radius}`: El radio del boost (por defecto 5)
+  * `{delay}`: El retraso en ticks entre cada boost de crecimiento
+  * `{duration}`: La duración total del boost en ticks
+  * `{chance}`: La probabilidad de crecimiento que tienen los bloques cuando se aplica el boost
 * Ejemplo:
 
-El siguiente comando generará 20 impulsos de crecimiento cada 10 ticks.\
-Todos los bloques dentro del radio tendrán un 50% de probabilidad de crecer cuando se aplique un impulso.
+El siguiente comando generará 20 boosts de crecimiento cada 10 ticks.\
+Todos los bloques dentro del radio tendrán un 50% de probabilidad de crecer cada vez que se aplique un boost.
 
 ```yaml
 activators:
@@ -342,10 +342,10 @@ activators:
 
 ### DISABLE\_FLY\_ACTIVATION
 
-* Info: Niega el uso del vuelo a un jugador (deslizarse con Elytra no se considera volar)
+* Info: Niega el uso del vuelo a un jugador (planear con Elytra no se considera volar)
 * Ajuste del comando:
-  * `{time}`: La duración en segundos del efecto
-* Ejemplo: (el comando siguiente desactiva la activación del vuelo durante 1 minuto)
+  * `{time}`: La duración del efecto en segundos
+* Ejemplo: (el comando de abajo desactiva la activación del vuelo durante 1 minuto)
 
 ```yaml
 activators:
@@ -357,10 +357,10 @@ activators:
 
 ### DISABLE\_GLIDE\_ACTIVATION
 
-* Info: Niega el uso del elytra durante un periodo de tiempo
+* Info: Niega el uso de la elytra durante un periodo de tiempo
 * Ajustes del comando:
-  * `{time}`: La duración en segundos del efecto
-* Ejemplo: (el comando siguiente desactiva el uso del elytra durante 20 segundos)
+  * `{time}`: La duración del efecto en segundos
+* Ejemplo: (el comando de abajo desactiva el uso de la elytra durante 20 segundos)
 
 ```yaml
 activators:
@@ -374,10 +374,10 @@ activators:
 
 * Info: Aplica un cooldown a un ExecutableItems específico
 * Ajustes del comando:
-  * `{PLAYER}`: El jugador objetivo del comando
+  * `{PLAYER}`: El jugador al que se dirige el comando
   * `{ID}`: El id del ExecutableItem o "all" para todos los ExecutableItems
   * `{DURATION}`: La cantidad de tiempo
-  * `{boolean TICKS}`: (Por defecto: false) Si es false, el valor del argumento de duración se verá en segundos. Si es true, se verá en ticks.
+  * `{boolean TICKS}`: (Por defecto: false) Si es false, el valor del argumento de duración se interpreta en segundos. Si es true, se interpreta en ticks.
   * `[optional activator id]`: (Opcional) Puedes aplicarlo a un id de activador específico
 * Ejemplo: 
 
@@ -390,14 +390,39 @@ activators:
     - EICOOLDOWN %player% all 10 true # For all ExecutableItems
 ```
 
+:::info
+`EICOOLDOWN` solo puede **añadir** un cooldown: cuando varios cooldowns se ejecutan sobre el mismo activador, gana el más largo. Para acortar o quitar un cooldown, usa [`EICOOLDOWN_RESET`](#eicooldown_reset).
+:::
+
+### EICOOLDOWN_RESET
+
+* Info: Quita el cooldown de un ExecutableItem para un jugador (todos sus activadores, o solo uno). El cooldown visual vanilla (`enableVisualCooldown`) también se resetea.
+* Ajustes del comando:
+  * `{PLAYER}`: El jugador al que se dirige el comando
+  * `{ID}`: El id del ExecutableItem o "all" para todos los ExecutableItems
+  * `[optional activator id]`: (Opcional) Solo quita el cooldown de este activador; los demás activadores conservan el suyo
+* Ejemplo:
+
+```yaml
+activators:
+  activator0: # Activator ID, you can create as many activator on the activators list
+    option: # Here goes an activator that is at least instance of player
+    playerCommands:
+    - EICOOLDOWN_RESET %player% thisismyid activator1 # Only activator1 of the ExecutableItem thisismyid
+    - EICOOLDOWN_RESET %player% thisismyid # All the activators of thisismyid
+    - EICOOLDOWN_RESET %player% all # All ExecutableItems
+```
+
+Desde la consola, `/score cooldowns clear EI:{ID}:{activator id} {player}` hace lo mismo para un activador.
+
 ### EBCOOLDOWN
 
 * Info: Aplica un cooldown a un ExecutableBlocks específico
 * Ajustes del comando:
-  * `{PLAYER}`: El jugador objetivo del comando
+  * `{PLAYER}`: El jugador al que se dirige el comando
   * `{ID}`: El id del ExecutableBlocks o "all" para todos los ExecutableBlocks
   * `{DURATION}`: La cantidad de tiempo
-  * `{boolean TICKS}`: (Por defecto: false) Si es false, el valor del argumento de duración se verá en segundos. Si es true, se verá en ticks.
+  * `{boolean TICKS}`: (Por defecto: false) Si es false, el valor del argumento de duración se interpreta en segundos. Si es true, se interpreta en ticks.
   * `[optional activator id]`: (Opcional) Puedes aplicarlo a un id de activador específico
 * Ejemplo: 
 
@@ -414,10 +439,10 @@ activators:**
 
 * Info: Aplica un cooldown a un ExecutableItems específico
 * Ajustes del comando:
-  * `{PLAYER}`: El jugador objetivo del comando
+  * `{PLAYER}`: El jugador al que se dirige el comando
   * `{ID}`: El id del ExecutableEvent o "all" para todos los ExecutableEvents
   * `{DURATION}`: La cantidad de tiempo
-  * `{boolean TICKS}`: (Por defecto: false) Si es false, el valor del argumento de duración se verá en segundos. Si es true, se verá en ticks.
+  * `{boolean TICKS}`: (Por defecto: false) Si es false, el valor del argumento de duración se interpreta en segundos. Si es true, se interpreta en ticks.
   * `[optional activator id]`: (Opcional) Puedes aplicarlo a un id de activador específico
 * Ejemplo: 
 
@@ -431,10 +456,10 @@ activators:
 ```
 
 ### FIREWORK\_BOOST
-* Info: Si este comando se ejecuta mientras el lanzador está deslizándose con el elytra, generará un cohete de fuegos artificiales de forma similar a cuando los jugadores
-hacen clic derecho con un fuego artificial en la mano mientras se deslizan para ganar distancia.
+* Info: Si este comando se ejecuta mientras el lanzador planea con la elytra, generará un cohete de fuegos artificiales de forma similar a cuando los jugadores
+hacen clic derecho con un cohete en la mano mientras planean para ganar distancia.
 * Ajustes del comando:
-  * `{duration}`: La duración de vida del fuego artificial en segundos
+  * `{duration}`: La duración de vida del cohete en segundos
 * Ejemplo:
 
 ```yaml
@@ -447,9 +472,9 @@ activators:
 
 ### FLY OFF
 
-* Info: Desactiva el vuelo creativo en el jugador y, si el vuelo del jugador se desactiva en el aire, el jugador será teletransportado al posible bloque bajo el jugador.
+* Info: Desactiva el vuelo creativo del jugador y, si el vuelo del jugador se desactiva en pleno aire, el jugador será teletransportado al posible bloque que tenga debajo.
 * Ajuste del comando:
-  * `[teleportOnTheGround]`: (Opcional) (por defecto = true) Si el jugador será teletransportado al suelo o no
+  * `[teleportOnTheGround]`: (Opcional) (por defecto = true) Indica si el jugador será teletransportado al suelo o no
 * Ejemplo:
 
 ```yaml
@@ -462,8 +487,8 @@ activators:
 
 ### FLY\_ON
 
-* Info: Da al jugador vuelo creativo
-* Sin ajustes de comando
+* Info: Da vuelo creativo al jugador
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -476,9 +501,9 @@ activators:
 
 ### FORMAT\_ENCHANTMENTS
 
-* Info: Formatea todos los encantamientos en tu lore
+* Info: Da formato a todos los encantamientos de tu lore
 * Ajustes del comando:
-  * `{slot}`: El slot objetivo (-1 para mainhand)
+  * `{slot}`: El slot objetivo (-1 para la mano principal)
 * Ejemplo:
 
 ```yaml
@@ -509,8 +534,8 @@ activators:
 
 ### GRAVITY\_DISABLE
 
-* Info: Detiene la gravedad para el jugador, impidiendo que el jugador "caiga" o suba.
-* Sin ajustes de comando
+* Info: Detiene la gravedad del jugador, impidiendo que "caiga" o suba.
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -525,8 +550,8 @@ activators:
 
 ### GRAVITY\_ENABLE
 
-* Info: Activa de nuevo la gravedad para el jugador, así el jugador caerá normalmente.
-* Sin ajustes de comando
+* Info: Vuelve a activar la gravedad del jugador, de modo que caerá con normalidad.
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -541,8 +566,8 @@ activators:
 
 ### HEAD
 
-* Info: Pone el ítem de tu mano principal en tu slot de cabeza. (No funcionará si el ítem tiene "Curse of Binding")
-* Sin ajustes de comando
+* Info: Coloca el ítem de tu mano principal en el slot de la cabeza. (No funcionará si el ítem tiene "Curse of Binding")
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -555,10 +580,10 @@ activators:
 
 ### JOBS\_MONEY\_BOOST
 
-* Info: Aumenta temporalmente el dinero obtenido. Para [Jobs reborn](https://www.spigotmc.org/resources/jobs-reborn.4216/)
+* Info: Aumenta temporalmente el dinero ganado. Para [Jobs reborn](https://www.spigotmc.org/resources/jobs-reborn.4216/)
 * Ajustes del comando:
-  * `{multiplier}`: Valor multiplicador
-  * `{time}`: Duración del impulso en segundos
+  * `{multiplier}`: Valor del multiplicador
+  * `{time}`: Duración del boost en segundos
 * Ejemplo:
 
 ```yaml
@@ -570,17 +595,17 @@ activators:
 ```
 
 :::info
-El multiplicador no afecta a los valores de la actionbar de Jobs. El multiplicador de este comando solo se aplica cuando el plugin Jobs decide incrementar el dinero, xp y puntos obtenidos.
+El multiplicador no afecta a los valores de la actionbar de Jobs. El multiplicador de este comando solo se aplica cuando el plugin Jobs decide incrementar el dinero, la xp y los puntos obtenidos.
 
-Si se ejecuta varias veces con suficiente duración en cada impulso, todos los impulsos en curso pueden acumularse.
+Si se ejecuta varias veces con suficiente duración en cada boost, todos los boosts en curso pueden acumularse.
 :::
 
 ### JOBS\_XP\_BOOST
 
-* Info: Multiplica temporalmente las ganancias de XP del plugin Jobs. Para [Jobs reborn](https://www.spigotmc.org/resources/jobs-reborn.4216/)
+* Info: Multiplica temporalmente la ganancia de XP del plugin Jobs. Para [Jobs reborn](https://www.spigotmc.org/resources/jobs-reborn.4216/)
 * Ajustes del comando:
-  * `{multiplier}`: Valor multiplicador de XP (por ejemplo, 2.0 para XP doble)
-  * `{time}`: Duración en segundos antes de que el impulso caduque
+  * `{multiplier}`: Valor del multiplicador de XP (por ejemplo, 2.0 para doble XP)
+  * `{time}`: Duración en segundos antes de que expire el boost
 * Ejemplo:
 
 ```yaml
@@ -592,13 +617,13 @@ activators:
 ```
 
 :::info
-El multiplicador no afecta a los valores de la actionbar de Jobs. El multiplicador de este comando solo se aplica cuando el plugin Jobs decide incrementar el dinero, xp y puntos obtenidos.
+El multiplicador no afecta a los valores de la actionbar de Jobs. El multiplicador de este comando solo se aplica cuando el plugin Jobs decide incrementar el dinero, la xp y los puntos obtenidos.
 
-Si se ejecuta varias veces con suficiente duración en cada impulso, todos los impulsos en curso pueden acumularse.
+Si se ejecuta varias veces con suficiente duración en cada boost, todos los boosts en curso pueden acumularse.
 :::
 
 :::info
-Este comando admite acumular varios impulsos de forma multiplicativa.
+Este comando admite acumular varios boosts de forma multiplicativa.
 :::
 
 ### LAUNCH
@@ -606,7 +631,7 @@ Este comando admite acumular varios impulsos de forma multiplicativa.
 * Info: Lanza un proyectil personalizado. [Referencia](/ExecutableItems/wiki/%E2%9E%A4-Custom-Projectiles#type)
 * Lista: 
 <details>
-<summary>Tipos de proyectil</summary>
+<summary>Projectile Types</summary>
 * ARROW
 * DRAGONFIREBALL
 * EGG
@@ -615,7 +640,7 @@ Este comando admite acumular varios impulsos de forma multiplicativa.
 * LARGEFIREBALL
 * LINGENRINGPOTION
 * LLAMASPIT
-* SHULKERBULLET (Solo disponible para 1.12+)
+* SHULKERBULLET (Solo disponible en 1.12+)
 * SIZEDFIREBALL
 * SNOWBALL
 * TRIDENT
@@ -623,10 +648,14 @@ Este comando admite acumular varios impulsos de forma multiplicativa.
 </details>
 
 * Ajustes del comando:
-  * `{projectile}`: el tipo de proyectil o el ID de proyectil personalizado de SCore ( [Referencia](/ExecutableItems/wiki/%E2%9E%A4-Custom-Projectiles#type) )
-  * `[angleRotationVertical]`: (Opcional) (por defecto = 0) <CustomTag type="version" version="1.14" /> (en grados) Define la dirección en la que se lanzará la entidad
-  * `[angleRotationHorizontal]`: (Opcional) (por defecto = 0) <CustomTag type="version" version="1.14" /> (en grados) Define la dirección en la que se lanzará la entidad
-  * `[velocity]`: (Opcional) (por defecto = 1) Para personalizar la velocidad del proyectil
+  * `{projectile}`: el tipo de proyectil o el ID del proyectil personalizado de SCore ( [Referencia](/ExecutableItems/wiki/%E2%9E%A4-Custom-Projectiles#type) )
+  * `[angleRotationVertical]`: (Opcional) (por defecto = 0) (en grados) Define la dirección en la que se lanzará la entidad
+  * `[angleRotationHorizontal]`: (Opcional) (por defecto = 0) (en grados) Define la dirección en la que se lanzará la entidad
+  * `[velocity]`: (Opcional) (por defecto = 1) Para personalizar la velocidad del proyectil (también funciona de 1.8 a 1.12)
+  * `[name]`: (Opcional) Nombre personalizado dado al proyectil lanzado, por ejemplo para reconocerlo más tarde en una condición (`name:&cFire_ball`).
+  * `[strictYaw]`: (Opcional) (en grados) Dirección horizontal del lanzamiento, usada en lugar de la dirección en la que mira el jugador (`0` = sur, `90` = oeste, `180` = norte, `-90` = este). Los ajustes `angleRotation...` se suman a ella.
+  * `[strictPitch]`: (Opcional) (en grados) Dirección vertical del lanzamiento, usada en lugar de la dirección en la que mira el jugador (`0` = recto hacia delante, `-90` = arriba, `90` = abajo). Los ajustes `angleRotation...` se suman a ella.
+    * <CustomTag type="version" version="1.20.5" /> También cambia la velocidad de las bolas de fuego (FIREBALL, SIZEDFIREBALL, LARGEFIREBALL, DRAGONFIREBALL, WITHERSKULL): `velocity:2` vuela al doble de velocidad, `velocity:1` mantiene la velocidad vanilla. Antes de 1.20.5 mantienen su velocidad vanilla.
 * Ejemplo:
 
 ```yaml
@@ -637,7 +666,7 @@ activators:
     - LAUNCH projectile:My_Custom_Proj velocity:5
 ```
 
-* Ejemplo de múltiples disparos:
+* Ejemplo de disparos múltiples:
 
 ```yaml
 activators:
@@ -647,6 +676,16 @@ activators:
     - LAUNCH projectile:WITHERSKULL
     - LAUNCH projectile:WITHERSKULL angleRotationVertical:20
     - LAUNCH projectile:WITHERSKULL angleRotationVertical:-20
+```
+
+* Ejemplo: lanzar siempre recto hacia delante (en horizontal), sin importar si el jugador mira hacia arriba o hacia abajo, con un proyectil con nombre:
+
+```yaml
+activators:
+  activator0:
+    option: PLAYER_RIGHT_CLICK
+    playerCommands:
+    - LAUNCH projectile:SNOWBALL strictPitch:0 name:Frost_Ball
 ```
 
 :::info
@@ -659,13 +698,13 @@ Si usas SHULKERBULLET como tipo de proyectil, tomará el cursor del lanzador com
 
 :::warning
 Problemas actuales:  
-Los Shulker Bullets no se pueden usar en 1.9.4, 1.10.2, 1.11.2. A partir de 1.12 no debería haber complicaciones, aparte de tener que crear un proyectil de SCore para dar al Shulker Bullet una velocidad de vuelo adecuada.
+- Los Shulker Bullets no se pueden usar en 1.9.4, 1.10.2, 1.11.2. De 1.12 en adelante no debería haber complicaciones, salvo que hay que crear un proyectil de SCore para darle a un Shulker Bullet una velocidad de vuelo adecuada.
 :::
 
 ### LEGGINGS
 
-* Info: Pone el ítem de tu mano principal en tu slot de pantalones. (No funcionará si el ítem tiene "Curse of Binding")
-* Sin ajustes de comando
+* Info: Coloca el ítem de tu mano principal en el slot de los pantalones. (No funcionará si el ítem tiene "Curse of Binding")
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -680,11 +719,11 @@ activators:
 
 * Info: Lanza un proyectil en una ubicación específica
 * Ajustes del comando:
-  * `{projectileType}`: el tipo de proyectil o el ID de proyectil personalizado de SCore ( [Referencia](/ExecutableItems/wiki/%E2%9E%A4-Custom-Projectiles#type) )
-  * `[frontValue]`: (Opcional) (por defecto = 0) positivo=delante, negativo=detrás - Posición delante/detrás. Por ejemplo, si quieres generar el proyectil 5 bloques lejos de donde estás mirando, usa un valor positivo más alto
-  * `[rightValue]`: (Opcional) (por defecto = 0) derecha=positivo, negativo=izquierda - Posición derecha/izquierda. Por ejemplo, si quieres que el proyectil se genere a tu izquierda, usa un valor negativo más alto
-  * `[yValue]`: (Opcional) (por defecto = 0) A qué altura por encima de tu posición Y se generará el proyectil.
-  * `[velocity]`: (Opcional) (por defecto = 1) A qué velocidad volará el proyectil. Pon el valor en 0 para que el proyectil caiga hacia abajo al generarse.
+  * `{projectileType}`: el tipo de proyectil o el ID del proyectil personalizado de SCore ( [Referencia](/ExecutableItems/wiki/%E2%9E%A4-Custom-Projectiles#type) )
+  * `[frontValue]`: (Opcional) (por defecto = 0) positivo = delante, negativo = detrás - Posición delante/detrás. Por ejemplo, si quieres generar el proyectil a 5 bloques de distancia hacia donde miras, usa un valor positivo más alto
+  * `[rightValue]`: (Opcional) (por defecto = 0) derecha = positivo, negativo = izquierda - Posición derecha/izquierda. Por ejemplo, si quieres que el proyectil aparezca a tu izquierda, usa un valor negativo más alto
+  * `[yValue]`: (Opcional) (por defecto = 0) A qué altura sobre tu posición Y aparecerá el proyectil.
+  * `[velocity]`: (Opcional) (por defecto = 1) La velocidad a la que volará el proyectil. Pon el valor en 0 para que el proyectil caiga hacia abajo al generarse.
   * `[angleRotationVertical]`: (Opcional) (por defecto = 0) <CustomTag type="version" version="1.14" /> puedes añadir una rotación vertical a tu proyectil (en grados)
   * `[angleRotationHorizontal]`: (Opcional) (por defecto = 0) <CustomTag type="version" version="1.14" /> puedes añadir una rotación horizontal a tu proyectil (en grados)
 * Ejemplo:
@@ -699,9 +738,9 @@ activators:
 
 ### MINECART\_BOOST
 
-* Info: Te impulsa cuando viajas en una minecart (efecto similar a cuando subes por un rail con energía)
+* Info: Te da un boost cuando vas montado en una vagoneta (efecto cercano al de subir a un raíl propulsor)
 * Ajuste del comando:
-  * `{boost}`: La velocidad del impulso
+  * `{boost}`: La velocidad del boost
 * Ejemplo:
 
 ```yaml
@@ -715,7 +754,7 @@ activators:
 ### MIX\_HOTBAR
 
 * Info: mezcla la hotbar del jugador
-* Sin ajustes de comando
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -730,10 +769,10 @@ activators:
 
 * Modifica la durabilidad de un ítem específico en un slot específico
 * Ajustes del comando:
-  * `{modification}`: Valor positivo para aumentar la durabilidad. Valor negativo para disminuir la durabilidad
-  * `{slot}`: El número de slot del ítem (-1 para el slot sostenido)
+  * `{modification}`: Valor positivo para aumentar la durabilidad. Valor negativo para disminuirla
+  * `{slot}`: El número de slot del ítem (-1 para el slot en mano)
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-  * `{supportUnbreaking}`: (true o false) Si admite el encantamiento unbreaking o no
+  * `{supportUnbreaking}`: (true o false) Indica si admite el encantamiento unbreaking o no
 * Ejemplo:
 
 ```yaml
@@ -752,7 +791,7 @@ activators:
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z
-  * `[bypassProtections]`: (Opcional) (por defecto = false) Si abrirá el cofre de todos modos aunque esté protegido
+  * `[bypassProtections]`: (Opcional) (por defecto = false) Indica si abrirá el cofre de todos modos aunque esté protegido
 * Ejemplo:
 
 ```yaml
@@ -765,8 +804,8 @@ activators:
 
 ### OPEN\_ENDERCHEST
 
-* Info: Abre el ender chest para el jugador que ejecuta el activador
-* Sin ajustes de comando
+* Info: Abre el cofre del End al jugador que ejecuta el activador
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -779,8 +818,8 @@ activators:
 
 ### OPEN\_WORKBENCH
 
-* Info: Abre una mesa de trabajo para el jugador que ejecuta el activador
-* Sin ajustes de comando
+* Info: Abre una mesa de crafteo al jugador que ejecuta el activador
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -795,7 +834,7 @@ activators:
 
 * Info: Da oxígeno al objetivo
 * Ajuste del comando:
-  * `{time}`: La duración en ticks de oxígeno que quieres dar
+  * `{time}`: La duración en ticks del oxígeno que quieres dar
 * Ejemplo:
 
 ```yaml
@@ -808,9 +847,9 @@ activators:
 
 ### PROJECTILE\_CUSTOMDASH1
 
-* Info: Similar a CUSTOMDASH1 pero el xyz será reemplazado por las coordenadas xyz del proyectil más cercano a ti.
+* Info: Similar a CUSTOMDASH1, pero las xyz se sustituirán por las coordenadas xyz del proyectil más cercano a ti.
 * Ajustes del comando:
-  * `{fallDamage}`: Si recibirás daño por caída o no (si olvidas establecer si es true o false, por defecto será false. Para recibir daño por caída, pon esto en true)
+  * `{fallDamage}`: Indica si recibirás daño por caída o no (si olvidas indicar true o false, por defecto será false. Para recibir daño por caída, pon true)
 * Ejemplo:
 
 ```yaml
@@ -825,7 +864,7 @@ activators:
 
 * Info: Te da una cantidad específica de comida/saturación
 * Ajustes del comando:
-  * `{amount}`: La cantidad de puntos de saturación que quieres ganar. Usa valores negativos para reducir puntos de hambre
+  * `{amount}`: La cantidad de puntos de saturación que quieres ganar. Usa valores negativos para reducir los puntos de hambre
 * Ejemplo:
 
 ```yaml
@@ -838,7 +877,7 @@ activators:
 
 ### REGAIN\_MAGIC
 
-* Info: Da al jugador valores específicos de la magia de un [Ecoskills](https://www.spigotmc.org/resources/ecoskills-%E2%AD%95-addictive-mmorpg-skills-%E2%9C%85-create-skills-stats-effects-mana-%E2%9C%A8-plug-play.95541/) específico.  
+* Info: Da al jugador valores específicos de la magia de [Ecoskills](https://www.spigotmc.org/resources/ecoskills-%E2%AD%95-addictive-mmorpg-skills-%E2%9C%85-create-skills-stats-effects-mana-%E2%9C%A8-plug-play.95541/) indicada.  
 * Ajustes del comando:
   * `{ecoSkillsMagicID}`: El ID de la magia de Ecoskills.
   * `{amount}`: La cantidad a obtener.
@@ -860,7 +899,7 @@ Admite valores negativos.
 
 * Info: Te da una cantidad específica de saturación
 * Ajustes del comando:
-  * `{amount}`: La cantidad de saturación que puedes dar
+  * `{amount}`: La cantidad de saturación que quieres dar
 * Ejemplo:
 
 ```yaml
@@ -873,11 +912,11 @@ activators:
 
 ### REMOVE\_ENCHANTMENT
 
-* Info: Elimina un encantamiento de un slot
+* Info: Quita un encantamiento de un slot
 * Ajustes del comando:
-  * `{slot}`: Slot del que eliminar el encantamiento (-1 para el slot sostenido)
+  * `{slot}`: Slot del que quitar el encantamiento (-1 para el slot en mano)
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-  * `{enchantment}`: Encantamiento a eliminar (ALL para todos los encantamientos)
+  * `{enchantment}`: Encantamiento a quitar (ALL para todos los encantamientos)
 * Ejemplo:
 
 ```yaml
@@ -890,11 +929,11 @@ activators:
 
 ### REMOVE\_LORE
 
-* Info: Elimina una línea de lore
+* Info: Quita una línea de lore
 * Ajustes del comando:
-  * `{slot}`: Slot del que eliminar el lore (-1 para el slot sostenido)
+  * `{slot}`: Slot del que quitar el lore (-1 para el slot en mano)
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-  * `{line}`: La línea que quieres eliminar
+  * `{line}`: La línea que quieres quitar
 * Ejemplo:
 
 ```yaml
@@ -907,9 +946,9 @@ activators:
 
 ### REPLACE\_BLOCK
 
-* Info: Reemplaza el bloque al que está mirando el jugador por uno diferente
+* Info: Reemplaza el bloque al que mira el jugador por uno diferente
 * Ajustes del comando:
-  * `{material}`: ID de bloque (se admiten block states)
+  * `{material}`: ID del bloque (se admiten los estados de bloque)
 * Ejemplo:
 
 ```yaml
@@ -924,7 +963,7 @@ activators:
 ### SEND\_BLANK\_MESSAGE
 
 * Info: Te envía un mensaje en blanco
-* Sin ajustes de comando
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -971,11 +1010,11 @@ activators:
 
 ### SET\_ARMOR\_TRIM
 
-* Info: Establece el armor trim específico con el patrón específico para el slot especificado
+* Info: Define el armor trim específico con el patrón específico para el slot indicado
 * Ajustes del comando:
-  * `{slot}`: El slot al que aplicar el comando (slot -1 para mano principal)
+  * `{slot}`: El slot al que aplicar el comando (slot -1 para la mano principal)
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-  * `{pattern}`: El patrón del trim (si es 'null' o 'remove' eliminará el patrón actual). [Lista de TrimPattern](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/meta/trim/TrimPattern.html)
+  * `{pattern}`: El patrón del trim (si es 'null' o 'remove', quitará el patrón actual). [Lista de TrimPattern](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/meta/trim/TrimPattern.html)
   * `{patternMaterial}`: El material del patrón. [Lista de TrimMaterial](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/meta/trim/TrimMaterial.html)
 * Ejemplo:
 
@@ -991,12 +1030,12 @@ activators:
 
 ### SET\_BLOCK
 
-* Info: Coloca un bloque en el bloque al que apunta el jugador
+* Info: Coloca un bloque sobre el bloque al que apunta el jugador
 * Ajustes del comando:
-  * `{blockface}`: Puedes especificar o no un blockFace para forzar la colocación por encima, por ejemplo. [BlockFaces](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/block/BlockFace.html)
-  * `{material}`: ID de bloque (se admiten block states) 
-  * `{bypassProtection}`: Si colocará el bloque incluso si el jugador no tiene el permiso
-  * `[whitelistCurrentBlock]`: (Opcional) (por defecto = se puede establecer en todos los tipos de bloque) Lista de bloques que el bloque actual debe coincidir para ser reemplazado
+  * `{blockface}`: Puedes especificar o no un blockFace para forzar la colocación, por ejemplo, encima. [BlockFaces](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/block/BlockFace.html)
+  * `{material}`: ID del bloque (se admiten los estados de bloque) 
+  * `{bypassProtection}`: Indica si colocará el bloque incluso si el jugador no tiene el permiso
+  * `[whitelistCurrentBlock]`: (Opcional) (por defecto = se puede colocar sobre cualquier tipo de bloque) Lista de bloques con los que debe coincidir el bloque actual para ser reemplazado
     * Ejemplos:
     * AIR, WATER
     * !STONE, !COBBLESTONE
@@ -1014,15 +1053,15 @@ activators:
 
 ### SET\_BLOCK\_POS
 
-* Info: Establece un bloque en una posición específica
+* Info: Coloca un bloque en una posición específica
 * Ajustes del comando:
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z
   * `{material}`: el material del bloque
-  * `[bypassProtection]`: (Opcional) (por defecto = false), si evita o no la protección de región, claim, isla
-  * `[replace]`: (Opcional) (por defecto = true), si reemplaza el bloque si ya existe uno
-  * `[whitelistCurrentBlock]`: (Opcional) (por defecto = se puede establecer en todos los tipos de bloque) Lista de bloques que el bloque actual debe coincidir para ser reemplazado
+  * `[bypassProtection]`: (Opcional) (por defecto = false), indica si ignora las protecciones de región, claim e isla
+  * `[replace]`: (Opcional) (por defecto = true), indica si reemplaza el bloque cuando ya existe uno
+  * `[whitelistCurrentBlock]`: (Opcional) (por defecto = se puede colocar sobre cualquier tipo de bloque) Lista de bloques con los que debe coincidir el bloque actual para ser reemplazado
     * Ejemplos:
     * AIR, WATER
     * !STONE, !COBBLESTONE
@@ -1039,7 +1078,7 @@ activators:
 
 ### SET\_EQUIPPABLE\_MODEL
 
-* Info: Establece el equippable model data de un ítem en un slot específico
+* Info: Define los datos del modelo equipable de un ítem en un slot específico
 * Ajustes del comando:
   * `{slot}`: El número de slot donde está el ítem objetivo
   * `{model}`: El nombre del modelo de equipamiento que quieres asignar al ítem
@@ -1055,15 +1094,15 @@ activators:
 
 ### SET\_EXECUTABLE\_BLOCK
 
-* Info: Setblock pero para Executable Blocks. **(EXECUTABLE BLOCKS DEBE ESTAR INSTALADO)**
+* Info: Setblock, pero para Executable Blocks. **(EXECUTABLE BLOCKS DEBE ESTAR INSTALADO)**
 * Ajustes del comando:
-  * `{id}`: ID del executable block que estás intentando colocar
+  * `{id}`: ID del executable block que intentas colocar
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z
   * `{world}`: Nombre del mundo
-  * `[replace]`: (Opcional) (por defecto = true). Si reemplazará el bloque existente en dichas coordenadas o no
-  * `[bypassProtection]`: (Opcional) (por defecto = false) si quieres evitar las protecciones como worldguard
+  * `[replace]`: (Opcional) (por defecto = true). Indica si reemplazará el bloque existente en las coordenadas indicadas o no
+  * `[bypassProtection]`: (Opcional) (por defecto = false) si quieres ignorar las protecciones como WorldGuard
   * `[ownerUUID]`: (Opcional) (por defecto = sin propietario) El uuid del supuesto propietario del executable block
 * Ejemplo:
 
@@ -1077,12 +1116,12 @@ activators:
 
 ### SET\_ITEM\_COLOR
 
-* Info: Establece un color específico para el ítem (ítems que admiten color como armadura de cuero / estrella de fuegos artificiales)
+* Info: Define un color específico para el ítem (ítems coloreables como la armadura de cuero / la estrella de fuegos artificiales)
 *  Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. (-1 para mainhand)
+  * `{slot}`: El slot donde se aplicará. (-1 para la mano principal)
 
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-  * `{color}`: valor numérico del color. [Página para elegir color](https://www.tydac.ch/color/)
+  * `{color}`: valor numérico del color. [Sitio web de selector de color](https://www.tydac.ch/color/)
 * Ejemplo:
 
 ```yaml
@@ -1095,12 +1134,12 @@ activators:
 
 ### SET\_ITEM\_ATTRIBUTE
 
-* Info: Establece un atributo a un ítem.
+* Info: Define un atributo en un ítem.
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. (-1 para mainhand)
+  * `{slot}`: El slot donde se aplicará. (-1 para la mano principal)
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{attribute}`: El atributo que quieres añadir. [Attributes](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/Attribute.html)
-  * `{value}`: El valor para la operación
+  * `{value}`: El valor de la operación
   * `{equipmentSlot}`: El slot para el atributo [EquipmentSlots](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html)
 * Ejemplo:
 
@@ -1115,9 +1154,9 @@ activators:
 
 ### SET\_ITEM\_COOLDOWN
 
-* Da al jugador/objetivo cooldown en un ítem
+* Da al jugador/objetivo un cooldown sobre un ítem
 * Ajustes del comando:
-  * `{material or group}`: El tipo de material o el grupo. [Más información sobre grupo](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-2)
+  * `{material or group}`: El tipo de material o el grupo. [Más información sobre el grupo](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-2)
   * `{cooldown}`: cooldown en segundos
 * Ejemplo:
 
@@ -1139,9 +1178,9 @@ activators:
 
 ### SET\_ITEM\_CUSTOM\_MODEL\_DATA
 
-* Info: Establece un customModelData específico al ítem específico
+* Info: Define un custom model data específico para el ítem indicado
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. (-1 para mainhand)
+  * `{slot}`: El slot donde se aplicará. (-1 para la mano principal)
     ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{customModelData}`: valor del customModelData
 * Ejemplo:
@@ -1156,13 +1195,13 @@ activators:
 
 ### SET\_ITEM\_LORE
 
-* Info: Establece una línea de lore
+* Info: Define una línea de lore
 * Ajustes del comando:
-  * `{slot}`: Número de slot (-1 para mainhand)
+  * `{slot}`: Número de slot (-1 para la mano principal)
 
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-* `{line}` : Si quieres establecer el lore del primer tipo 1
-* `{text}`: El nuevo texto de línea
+* `{line}` : Si quieres definir la primera línea de lore, pon 1
+* `{text}`: El texto de la nueva línea
 * Ejemplo:
 
 ```yaml
@@ -1176,9 +1215,9 @@ activators:
 ### SET\_ITEM\_MATERIAL 
 
 <CustomTag type="version" version="1.20.5" />
-* Reemplaza el material del ítem con un material diferente manteniendo el nbt del ítem objetivo
+* Reemplaza el material del ítem por un material diferente conservando el nbt del ítem objetivo
 * Ajustes del comando:
-  * `{slot}`: Número de slot (-1 para mainhand)
+  * `{slot}`: Número de slot (-1 para la mano principal)
 
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{material}`: El material en el que quieres que se convierta el ítem
@@ -1194,11 +1233,11 @@ activators:
 
 ### SET\_ITEM\_MODEL
 
-* Info: Establece un modelo personalizado para tu ítem en un slot específico
+* Info: Define un modelo personalizado para tu ítem en un slot específico
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. (-1 para mainhand)
+  * `{slot}`: El slot donde se aplicará. (-1 para la mano principal)
     ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-  * `{model}`: el valor de modelo que quieres aplicar al ítem objetivo
+  * `{model}`: el valor del modelo que quieres aplicar al ítem objetivo
 * Ejemplo:
 
 ```yaml
@@ -1211,9 +1250,9 @@ activators:
 
 ### SET\_ITEM\_NAME
 
-* Info: Establece un nombre personalizado para tu ítem en un slot específico
+* Info: Define un nombre personalizado para tu ítem en un slot específico
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. (-1 para mainhand)
+  * `{slot}`: El slot donde se aplicará. (-1 para la mano principal)
     ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{name}`: el nuevo nombre del ítem
 * Ejemplo:
@@ -1228,9 +1267,9 @@ activators:
 
 ### SET\_ITEM\_POTIONCOLOR
 
-* Info: Establece un color personalizado al color de poción de un ítem en un slot específico
+* Info: Define un color personalizado para la poción de un ítem en un slot específico
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. (-1 para mainhand)
+  * `{slot}`: El slot donde se aplicará. (-1 para la mano principal)
     ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{color}`: El color que quieres aplicar. Para el color, ve a `https://www.tydac.ch/color/` y obtén el valor `MapInfo Color` del color que elijas.
 * Ejemplo:
@@ -1245,9 +1284,9 @@ activators:
 
 ### SET\_ITEM\_TOOLTIPSTYLE
 
-* Info: Establece el tooltip style personalizado del ítem en el slot.
+* Info: Define el estilo de tooltip personalizado del ítem en el slot.
 * Ajustes del comando:
-  * `{slot}`: El slot donde se aplicará. (-1 para mainhand)
+  * `{slot}`: El slot donde se aplicará. (-1 para la mano principal)
     ![](https://media.ssomar.com/m/docs-img-slots-info.png)
   * `{tooltipModel}`: (Valor por defecto: `namespace:id`) El id del tooltip.
 * Ejemplo:
@@ -1262,10 +1301,10 @@ activators:
 
 ### SET\_PLAYER\_TIME
 
-* Info: Establece la hora del jugador sin afectar la hora del servidor.
+* Info: Define la hora del jugador sin afectar a la hora del lado del servidor.
 * Ajustes del comando:
-  * `{time}`: El valor de tiempo. Introduce `-1` para restablecer la hora del jugador y que dependa de nuevo de la hora del servidor.
-  * `{relative}`: (Valor por defecto: false) Si no es true, establecerá la hora de la POV del usuario a ese valor literalmente. Pero si es true, tomará la hora actual del mundo y le sumará el valor proporcionado para establecer tu hora actual de POV.
+  * `{time}`: El valor de la hora. Introduce `-1` para que la hora del jugador vuelva a depender de la hora del servidor.
+  * `{relative}`: (Valor por defecto: false) Si no es true, definirá la hora del punto de vista del usuario literalmente con ese valor. Pero si es true, tomará la hora actual del mundo y le sumará el valor proporcionado para definir la hora actual de tu punto de vista.
 * Ejemplo:
 
 ```yaml
@@ -1278,13 +1317,13 @@ activators:
 
 ### SET\_PLAYER\_WEATHER
 
-* Info: Establece el clima del jugador sin afectar la hora del servidor.
+* Info: Define el clima del jugador sin afectar al clima del lado del servidor.
 * Ajustes del comando:
-  * `{weather The time value}`: Establece el clima del jugador en su POV
+  * `{weather The time value}`: Define el clima del jugador desde su punto de vista
     * Opciones:
-      * RESET: Lo restaura al clima del servidor
-      * DOWNFALL: Lluvia o nieve según el bioma
-      * CLEAR: Clima despejado, nubes pero sin lluvia.
+      * RESET : Lo restaura al clima del lado del servidor
+      * DOWNFALL : Lluvia o nieve según el bioma
+      * CLEAR : Clima despejado, nubes pero sin lluvia.
 * Ejemplo:
 
 ```yaml
@@ -1297,16 +1336,16 @@ activators:
 
 ### SET\_TEMP\_BLOCK\_POS
 
-* Info: Establece un bloque temporal
+* Info : Coloca un bloque temporal
 * Ajustes del comando:
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
   * `{z}`: Coordenada Z
   * `{world}`: Nombre del mundo
-  * `{material}`: ID de bloque
+  * `{material}`: ID del bloque
   * `{time}`: Tiempo en ticks
-  * `[bypassProtection]`: (Opcional) (por defecto = false) Si ignora la intervención de terceros o no
-  * `[whitelistCurrentBlock]`: (Opcional) (por defecto = se puede establecer en todos los tipos de bloque) Lista de bloques a vigilar
+  * `[bypassProtection]`: (Opcional) (por defecto = false) Indica si se ignora o no la intervención de terceros
+  * `[whitelistCurrentBlock]`: (Opcional) (por defecto = se puede colocar sobre cualquier tipo de bloque) Lista de bloques a tener en cuenta
     * Ejemplos:
     * AIR, WATER
     * !STONE, !COBBLESTONE
@@ -1321,19 +1360,19 @@ activators:
 ```
 
 :::warning
-No reemplaza bloques que tienen datos adicionales (inventario, rotación, etc.)
+No reemplaza los bloques que tienen datos extra (inventario, rotación, etc.)
 :::
 
 ### SPAWN\_ENTITY\_ON\_CURSOR
 
 * Info: Genera entidades en tu cursor
   * Puedes especificar un [EntityType](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html)
-  * O una definición de entidad, ejemplo: `{HasVisualFire:1b,id:"minecraft:bee"}` (1.21.+)
+  * O una definición de entidad, por ejemplo: `{HasVisualFire:1b,id:"minecraft:bee"}` (1.21.+)
   * O un ID de MythicMob
 * Ajustes del comando:
   * `{entity}`: La especificación de la entidad
-  * `{amount}`: La cantidad de mobs que se generarán en ese punto
-  * `[maxRange]`: (Opcional) (por defecto = 200) El rango máximo de la generación
+  * `{amount}`: La cantidad de mobs que aparecerán en ese punto
+  * `[maxRange]`: (Opcional) (por defecto = 200) El alcance máximo de la aparición
 * Ejemplo:
 
 ```yaml
@@ -1370,8 +1409,8 @@ activators:
 
 ### SUDO\_OP
 
-* Info: Da OP al jugador, le hace SUDO y le quita el OP
-* Información extra: Durante el OP, el jugador solo puede ejecutar el comando especificado después del SUDOOP, todos los demás comandos se bloquean mientras el jugador es OP, y si el servidor se cae, no hay problema. Al jugador se le quitará el OP cuando se reconecte.
+* Info: Da OP al jugador, le hace ejecutar el comando con SUDO y le quita el OP (DEOP)
+* Info adicional: Durante el OP, el jugador solo puede ejecutar el comando especificado tras SUDOOP; todos los demás comandos están bloqueados mientras el jugador es OP, y si el servidor se cae, no hay problema. Al volver a conectarse, el jugador perderá el OP.
 * Ajustes del comando:
   * `{command}`: El comando a ejecutar con OP
 * Ejemplo:
@@ -1388,15 +1427,15 @@ activators:
 ```
 
 :::danger
-No se recomienda usar esto **demasiado**. Como se explica al principio de esta página, si quieres ejecutar comandos vanilla usa el comando execute (explicado en las FAQ [How to use vanilla commands](/executableitems/questions-or-guides/frequently-asked-questions/how-to-use-vanilla-commands)).
+No se recomienda usar esto **mucho**. Como se explica al principio de esta página, si quieres ejecutar comandos vanilla, usa el comando execute (explicado en la FAQ [Cómo usar los comandos vanilla](/executableitems/questions-or-guides/frequently-asked-questions/how-to-use-vanilla-commands)).
 
-Usa SUDOOP solo si no hay absolutamente ninguna otra opción: debe ser tu último recurso, no tu primera opción.
+Usa SUDOOP solo si no hay absolutamente ninguna otra opción: debería ser tu último recurso, no tu primera elección.
 :::
 
 ### SWAP\_HAND
 
-* Info: Intercambia el ítem actual con el de tu mano secundaria
-* Sin ajustes de comando
+* Info: Intercambia el ítem actual con el ítem de tu mano secundaria
+* Sin ajustes del comando
 * Ejemplo:
 
 ```yaml
@@ -1409,19 +1448,19 @@ activators:
 
 ### TRANSFER\_ITEM
 
-* Info: Intercambia 2 ítems en el inventario por slot
+* Info: Intercambia 2 ítems del inventario por slot
 * Ajustes del comando:
   * `{slot of launcher}`: Slot objetivo para el slot n.º 1
   * `{slot of receiver}`: Slot objetivo para el slot n.º 2
   
 ![](https://media.ssomar.com/m/docs-img-slots-info.png)
-  * `[boolean drop]`: (Opcional) (por defecto = false) Si el slot del lanzador se suelta durante el intercambio o no
+  * `[boolean drop]`: (Opcional) (por defecto = false) Indica si el slot del lanzador se suelta o no durante el intercambio
 
 ### XP_BOOST
 
-* Info: Impulsa la ganancia de xp durante un tiempo.
+* Info: Aumenta la ganancia de xp durante un tiempo.
 * Ajustes del comando:
-  * `{multiplier}`: Valor multiplicador de XP
+  * `{multiplier}`: Valor del multiplicador de XP
   * `{timeinsecs}`: Duración en segundos
 * Ejemplo:
 
@@ -1434,14 +1473,14 @@ activators:
 ```
 
 :::info
-¡Cuidado! Este comando puede acumularse, así que si lo ejecutas varias veces obtendrás más y más multiplicadores si el tiempo entre ellos no es suficiente para que desaparezca el último impulso.\
+¡Ten cuidado! Este comando puede acumularse, así que si lo ejecutas varias veces obtendrás multiplicadores cada vez mayores si el tiempo entre ellos no basta para que el último boost desaparezca.\
 ```yaml
 - XP_BOOST 2 5
 - DELAY 1
 - XP_BOOST 2 5
 ```
 
-Esto significa que la XP se potenciará en este orden:
+Esto significa que la XP se aumentará en este orden:
 * 1 segundo: x2
 * 4 segundos: x4
 * 1 segundo: x2

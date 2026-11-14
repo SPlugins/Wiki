@@ -1,9 +1,9 @@
 ---
 description: >-
-  Guia dos comandos de entidade do ExecutableItems: CHANGE_TO, HEAL, SET_AI,
-  TELEPORT e outros, no plugin SPlugins.
-source_hash: 513c7df4b594137b
-translated_at: '2026-10-03T10:48:01.867Z'
+  Veja a lista de comandos de entidade do SCore para ExecutableItems e
+  ExecutableBlocks: CHANGE_TO, HEAL, KILL, SET_AI, teleportes e muito mais.
+source_hash: f04bd6ad6572d292
+translated_at: '2026-11-13T18:15:53.703Z'
 translator: claude sonnet (SPluginsWebsite/scripts/i18n/translate-docs.mjs)
 ---
 import LinkPreview from '@site/src/components/LinkPreview';
@@ -15,7 +15,7 @@ Compatibilidade "multi-world" para os comandos vanilla.
 
 `execute in <<NAME_OF_YOUR_WORLD>> run ...`
 
-Exemplo, você quer invocar um Zombie no mundo SsomarWorld:
+Exemplo: você quer invocar um Zombie no mundo SsomarWorld:
 
 `execute in <<SsomarWorld>> run summon zombie 100 50 100`
 
@@ -37,7 +37,7 @@ Além da lista de comandos a seguir, você também pode usar:
   title="Mixed commands (Compatible with Player and Entity)"
 />
 
-Esses comandos podem ser usados tanto nos comandos relacionados a Player quanto nos comandos relacionados a Entity.
+Esses comandos podem ser usados nos comandos relacionados ao jogador OU nos comandos relacionados à entidade.
 
 ## Comandos personalizados
 
@@ -45,7 +45,7 @@ _Ordenados em ordem alfabética_
 
 ### ANGRY\_AT
 
-* Info: Define o alvo da entidade para um UUID específico
+* Info: Define o alvo da entidade como um UUID específico
 * Configuração do comando:
   * `{entityUUID}`: O UUID da entidade alvo
 * Exemplo:
@@ -58,10 +58,10 @@ _Ordenados em ordem alfabética_
 
 ### AWARENESS
 
-* Info: Define se esse mob está consciente do seu entorno. Mobs inconscientes ainda vão se mover se forem empurrados, atacados, etc. mas não vão se mover ou executar nenhuma ação por conta própria. Mobs inconscientes também podem ter outros comportamentos não especificados desativados, como se afogar.
+* Info: Define se este mob está ciente do que o cerca. Mobs sem consciência ainda se movem se forem empurrados, atacados etc., mas não se movem nem realizam nenhuma ação por conta própria. Mobs sem consciência também podem ter outros comportamentos não especificados desativados, como se afogar.
 
 :::info
-funciona apenas para 1.16.5+
+só funciona na 1.16.5+
 :::
 
 * Configuração do comando:
@@ -74,8 +74,9 @@ funciona apenas para 1.16.5+
 
 ### CHANGE\_INTO\_ITEM
 
-* Info: Substitui um item dropado (um item entity no chão ou no ar) por um item vanilla ou um ExecutableItem. A entidade permanece a mesma, apenas o item que ela carrega muda.
-* Feito para o ativador `PLAYER_FISH_FISH` do ExecutableItems: lá, a entidade alvo de `entityCommands` é o item capturado. Ele é alterado antes de ser recolhido, então o jogador mantém a animação normal de pesca e recebe seu item em vez do peixe. Não é necessário `/ei give`, `DELAYTICK` ou `data merge`.
+* Info: Substitui um item largado (uma entidade de item no chão ou no ar) por um item vanilla ou por um ExecutableItem. A entidade continua a mesma, apenas o item que ela carrega muda.
+* Feito para o ativador `PLAYER_FISH_FISH` do ExecutableItems: nele, a entidade alvo de `entityCommands` é o item capturado. Ele é trocado antes de ser puxado, então o jogador mantém a animação normal de pesca e recebe o seu item no lugar do peixe. Não é necessário `/ei give`, nem `DELAYTICK`, nem `data merge`.
+  * No ExecutableEvents (todas as varas de pesca do servidor), escreva-o no `targetEntityCommands` de `PLAYER_FISH_FISH`.
 * Configurações do comando:
   * `item`: Um material (`DIAMOND`) ou o id de um ExecutableItem (`my_custom_fish`).
   * `amount`: (Opcional) A quantidade do novo item. Padrão: 1
@@ -96,14 +97,14 @@ activators:
 
 :::info
 * Se um ExecutableItem e um material tiverem o mesmo nome, o ExecutableItem é usado. Escreva `EI:my_id` para aceitar apenas um ExecutableItem.
-* O ExecutableItem é construído para o jogador que acionou o ativador (proprietário, placeholders do item).
-* O comando não faz nada se a entidade alvo não for um item dropado (um mob, um player...), e imprime uma mensagem no console se `item` não for nem um material nem um ExecutableItem carregado.
+* O ExecutableItem é criado para o jogador que acionou o ativador (dono, placeholders do item).
+* O comando não faz nada se a entidade alvo não for um item largado (um mob, um jogador...), e exibe uma mensagem no console se `item` não for nem um material nem um ExecutableItem carregado.
 * Exemplo completo com uma tabela de loot aleatória: [Custom fishing loot](/executableitems/questions-or-guides/methods-or-template/custom-fishing-loot)
 :::
 
 ### CHANGE\_TO
 
-* Info: Substitui o mob por uma entidade de outro tipo. Ele vai manter a velocidade atual da entidade atual.
+* Info: Substitui o mob por uma entidade de outro tipo. Ele mantém a velocidade atual da entidade atual.
   * Você pode especificar um [EntityType](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html)
   * Ou um exemplo de definição de entidade: `{HasVisualFire:1b,id:"minecraft:bee"}` (1.21.+)
   * Ou um ID de MythicMob
@@ -127,11 +128,11 @@ activators:
 
 ### DROPEXECUTABLEITEM
 
-* Info: Dropa um Executable Item na localização da entidade
+* Info: Larga um Executable Item na localização da entidade
 * Configurações do comando:
   * `{id}`: Id do item do ExecutableItem
-  * `{quantity}`: A quantidade do executable item que vai dropar
-  * `[owner]`: (Opcional) O proprietário do item dropado (IGN ou UUID do jogador)
+  * `{quantity}`: A quantidade do executable item que será largada
+  * `[owner]`: (Opcional) O dono do item largado (nick do jogador ou UUID)
   * `[itemdata]`: (Opcional) Configurações de dados do item contendo:
     * `Usage`: Define o valor de uso
     * `Variables`: Define variáveis personalizadas (formato: `{key:value}`)
@@ -145,10 +146,10 @@ activators:
 
 ### DROPEXECUTABLEBLOCK
 
-* Info: Dropa um Executable Block na localização da entidade
+* Info: Larga um Executable Block na localização da entidade
 * Configurações do comando:
   * `{id}`: Id do item do ExecutableBlock
-  * `{quantity}`: A quantidade do executable block que vai dropar
+  * `{quantity}`: A quantidade do executable block que será largada
 * Exemplo:
 
 ```
@@ -157,10 +158,10 @@ activators:
 
 ### DROPITEM
 
-* Info: Dropa um item na localização da entidade
+* Info: Larga um item na localização da entidade
 * Configurações do comando:
   * `{material}`: O tipo do item. [Referência](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html) **(DEVE ESTAR TODO EM MAIÚSCULAS)**
-  * `{quantity}`: A quantidade do item que vai dropar
+  * `{quantity}`: A quantidade do item que será largada
 * Exemplo:
 
 ```
@@ -169,9 +170,9 @@ activators:
 
 ### HEAL
 
-* Info: Cura a entidade com uma quantidade específica, se não for especificado vai curar totalmente a entidade.
+* Info: Cura a entidade em uma quantidade específica; se não for especificada, cura totalmente a entidade.
 * Configuração do comando:
-  * `{amount}`: A quantidade da cura
+  * `{amount}`: A quantidade de cura
 * Exemplo:
 
 ```
@@ -197,8 +198,8 @@ activators:
 
 * Info: Faz o jogador montar na entidade alvo.
 * Configurações do comando:
-  * `{control}`: true/false se você pode controlar manualmente a entidade ou não
-  * `{speed}`: quão rápido a entidade pode ir enquanto você a monta
+  * `{control}`: true/false define se você pode controlar a entidade manualmente ou não
+  * `{speed}`: a velocidade que a entidade pode atingir enquanto você a monta
 * Exemplo:
 
 ```yaml
@@ -207,7 +208,7 @@ activators:
 
 ### SET\_AI
 
-* Info: Define o estado de IA da entidade
+* Info: Define o estado da IA da entidade
 * Configurações do comando:
   * `{value}`: true para ativar a IA da entidade e false para desativar.
 * Exemplo:
@@ -218,7 +219,7 @@ activators:
 
 ### SET\_ADULT
 
-* Info: Define a entidade em seu estado "adulto"
+* Info: Coloca a entidade no estado "adulto"
 * Sem configuração de comando
 * Exemplo:
 
@@ -226,12 +227,12 @@ activators:
 - SET_ADULT
 ```
 
-* Exemplo de Situação:
-  * Se esse comando for executado em uma galinha bebê, ela vai se transformar em sua forma adulta.
+* Situação de exemplo:
+  * Se este comando for executado em uma galinha filhote, ela se transformará em sua forma adulta.
 
 ### SET\_BABY
 
-* Info: Define a entidade em seu estado "bebê"
+* Info: Coloca a entidade no estado "filhote"
 * Sem configuração de comando
 * Exemplo:
 
@@ -239,12 +240,12 @@ activators:
 - SET_BABY
 ```
 
-* Exemplo de Situação:
-  * Se esse comando for executado em uma galinha adulta, ela vai se transformar em sua forma bebê.
+* Situação de exemplo:
+  * Se este comando for executado em uma galinha adulta, ela se transformará em sua forma de filhote.
 
 ### SET\_ENTITY\_NAME
 
-* Info: Define forçadamente o nome da entidade
+* Info: Define à força o nome da entidade
 * Configuração do comando:
   * `{name}`: o novo nome da entidade
 * Exemplo:
@@ -255,7 +256,7 @@ activators:
 
 ### SHEAR
 
-* Info: Tosa a entidade
+* Info: Tosquia a entidade
 * Sem configuração de comando
 * Exemplo:
 
@@ -265,7 +266,7 @@ activators:
 
 ### TELEPORT\_ENTITY\_TO\_PLAYER
 
-* Info: Teleporta a entidade para o usuário do item
+* Info: Teletransporta a entidade para o usuário do item
 * Sem configuração de comando
 * Exemplo:
 
@@ -275,7 +276,7 @@ activators:
 
 ### TELEPORT\_PLAYER\_TO\_ENTITY
 
-* Info: Teleporta o usuário do item para a entidade
+* Info: Teletransporta o usuário do item para a entidade
 * Sem configuração de comando
 * Exemplo:
 
@@ -285,7 +286,7 @@ activators:
 
 ### TELEPORT\_POSITION
 
-* Info: Teleporta a entidade para uma localização específica
+* Info: Teletransporta a entidade para uma localização específica
 * Configurações do comando:
   * `{x}`: Coordenada X
   * `{y}`: Coordenada Y
