@@ -15,6 +15,7 @@ globalSilenceOutputs: # You can blacklist sentences that are sent to the console
   - "blacklist the sentence here"
 disableCustomMetadataOnEntities: false # to disable the metadata fromSpawner and bowForce to be added to entities
 beforeDeathIgnoreCancelledDamage: false # true: PLAYER_BEFORE_DEATH and ENTITY_BEFORE_DEATH are checked after the other plugins and don't run when one of them cancelled the damage (a damage cap, a protected region...)
+rightClickBeforeOtherPlugins: false # true: the right click activators (PLAYER_RIGHT_CLICK...) run before the other plugins, for plugins that change the item in hand on a right click (ex. a PyroFarming grow station empties a water bucket). The cancellations of the other plugins (crates, protections) are then not seen
 
 #MIN : it will save only the modified settings
 #NORMAL : it will save modified settings + frequently used settings
@@ -58,3 +59,34 @@ The activators `PLAYER_BEFORE_DEATH` and `ENTITY_BEFORE_DEATH` (a custom totem, 
 * `beforeDeathIgnoreCancelledDamage: true`: the damage is checked after the other plugins, with the damage they leave, and a damage that one of them cancelled never runs these activators.
 
 If the option is not in your `config.yml`, it is disabled. To ignore a cancelled event for one activator only, use [noActivatorRunIfTheEventIsCancelled](/executableitems/configurations/activator-configuration/activators-features#noactivatorruniftheeventiscancelled).
+
+## rightClickBeforeOtherPlugins
+
+The right click activators (`PLAYER_RIGHT_CLICK`, `PLAYER_RIGHT_CLICK_ON_BLOCK`...) are checked when a player right clicks.
+
+* `rightClickBeforeOtherPlugins: false` (default): the right click is checked after the other plugins, so the activators see what they cancelled (a crate plugin, a protected region...).
+* `rightClickBeforeOtherPlugins: true`: the right click is checked before the other plugins. Use it when a plugin changes the item in hand on a right click, even when the click is cancelled: for example a PyroFarming grow station takes the water bucket and gives back an empty one, so the activators of your item never found it. The cancellations of the other plugins are then not seen by these activators.
+
+Example: an infinite water bucket that fills a grow station and stays in the hand.
+
+```yaml
+# plugins/SCore/config.yml
+rightClickBeforeOtherPlugins: true
+```
+
+```yaml
+# the activator of the ExecutableItem (material: WATER_BUCKET, id: InfinityWaterBucket)
+  growstation:
+    option: PLAYER_RIGHT_CLICK
+    detailedBlocks:
+      blocks:
+      - '#minecraft:flower_pots' # the grow station: an empty flower pot or a pot with a plant
+    playerCommands:
+    - 'DELAY 1'
+    # only when the grow station really took the bucket (not when it is full, or on a pot that is not a station)
+    - 'IF %executableitems_checkamount_id:InfinityWaterBucket%=0 clear %player% bucket 1 <+> ei give %player% InfinityWaterBucket 1'
+```
+
+The `IF` gives the bucket back only when it is no longer in the inventory: a full grow station or a simple flower pot gives no extra bucket, and an empty bucket the player already had is kept. It needs PlaceholderAPI for `%executableitems_checkamount_...%`.
+
+If the option is not in your `config.yml`, it is disabled. Restart the server after changing it.

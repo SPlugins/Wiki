@@ -61,7 +61,7 @@ Activator features are features that are exclusive to that activator.
 ![](https://media.ssomar.com/m/docs-img-image-381.png)
 
 
-### DESTROYED\_BY\_LIQUIQ <CustomTag type="premium" />
+### DESTROYED\_BY\_LIQUID <CustomTag type="premium" />
 
 * Info: Activates when the Executable Block detroyed by liquid.
 
@@ -186,11 +186,11 @@ activators:
 
 ![](https://camo.githubusercontent.com/c0dcdc6458928082bc28df8e3af400734a7ee2a4faebe31bad6b089266538a14/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f5a53754858325455465a5a374264327534512f67697068792e676966)
 
-### PLAYER\_SCROLL\_DOWN\_BY\_TARGETTING\_THE\_EB <CustomTag type="premium" />
+### PLAYER\_SCROLL\_DOWN\_BY\_TARGETING\_THE\_EB <CustomTag type="premium" />
 
 * Info: Activates when the player is looking at the eb and scrolls down
 
-### PLAYER\_SCROLL\_UP\_BY\_TARGETTING\_THE\_EB <CustomTag type="premium" />
+### PLAYER\_SCROLL\_UP\_BY\_TARGETING\_THE\_EB <CustomTag type="premium" />
 
 * Info: Activates when the player is looking at the eb and scrolls up
 

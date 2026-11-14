@@ -186,7 +186,7 @@ activators:
 - KILL
 ```
 
-### PLAYER\_RIDE\_ENTITY
+### PLAYER\_RIDE\_ON\_ENTITY
 
 * Info: Makes the player to ride the entity targeted.
 * Command settings:

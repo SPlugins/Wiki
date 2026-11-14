@@ -555,14 +555,14 @@ activators:
       Otherwise, the spigot damage type is CUSTOM
 * Command settings:
   * `{amount}`: Amount of damage in hitpoints (Not in hearts)
-  * `{amplified If Strength Effect}`: true or false, Strength 1 -> + 1.5 damage, ....
-  * `{amplified with attack attribute}`: true or false, it will get the sum of all your existing ATTACK_DAMAGE attributes that has the operator `MULTIPLY_SCALAR_1`, multiply it based on your current attack damage (including strength effect if enabled)
+  * `ifStr:` (default false): true or false, amplified by the Strength effect, Strength 1 -> + 1.5 damage, ....
+  * `ifAttr:` (default false): true or false, amplified with the attack attribute: it will get the sum of all your existing ATTACK_DAMAGE attributes that has the operator `MULTIPLY_SCALAR_1`, multiply it based on your current attack damage (including strength effect if enabled)
   <br/>
   :::info
   Formula:  
   `total damage` = (`amount` * `strength effect`) * (`sum of all of your attack damage attributes with the operator (add_multiplied_total/MULTIPLY_SCALAR_1)`+1) 
   :::
-  * `{damageType}`: The type of damage -> [DamageType List](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/damage/DamageType.html)
+  * `type:` The type of damage, example `type:MAGIC` -> [DamageType List](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/damage/DamageType.html)
 * Example:
 
 ```yaml
@@ -614,8 +614,8 @@ minecraft\:damage %target% 10 by %player%\
       Otherwise, the spigot damage type is CUSTOM
 * Command settings:
   * `{amount}`: Amount of damage in hitpoints (Not in hearts)
-  * `{amplified If Strength Effect}`: true or false, Strength 1 -> + 1.5 damage, ....
-  * `{amplified with attack attribute}`: true or false, player with 500% bonus damage, the command will do 5 x "\<damage>".
+  * `ifStr:` (default false): true or false, amplified by the Strength effect, Strength 1 -> + 1.5 damage, ....
+  * `ifAttr:` (default false): true or false, amplified with the attack attribute: player with 500% bonus damage, the command will do 5 x "\<damage>".
 * Example:
 
 ```yaml
