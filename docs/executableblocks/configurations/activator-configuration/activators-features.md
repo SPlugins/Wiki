@@ -68,8 +68,8 @@ To make the features more understandable on where activators do they work, we wi
   * PLAYER_PLACE
   * PLAYER_PRESS_PLATE <CustomTag type="premium" compact />
   * PLAYER_RIGHT_CLICK_ON
-  * PLAYER_SCROLL_DOWN_BY_TARGETTING_THE_EB <CustomTag type="premium" compact />
-  * PLAYER_SCROLL_UP_BY_TARGETTING_THE_EB <CustomTag type="premium" compact />
+  * PLAYER_SCROLL_DOWN_BY_TARGETING_THE_EB <CustomTag type="premium" compact />
+  * PLAYER_SCROLL_UP_BY_TARGETING_THE_EB <CustomTag type="premium" compact />
   * PLAYER_SNEAK_ON
   * PLAYER_SPRINT_ON <CustomTag type="premium" compact />
   * PLAYER_WALK_ON

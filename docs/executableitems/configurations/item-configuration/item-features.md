@@ -536,11 +536,14 @@ usageLimit: 600 #Usage will not be able to go up more than this value, -1 to don
 
 #### Uses per day
 
-* Info: Integer value that limits how many times you can use the item each day In real life
+* Info: Limits how many times you can use the item each day in real life
 * Example: 
 
 ```yaml
-usePerDay: 200 # -1 to ignore it
+usePerDay:
+  maxUsePerDay: 200 # -1 to ignore it
+  messageIfMaxReached: '&4&l[ERROR] &c&oYou have reached the max use per day'
+  cancelEventIfMaxReached: false
 ```
 
 ### Food features <CustomTag type="version" version="1.20.5" />
@@ -842,17 +845,17 @@ recognitions:
   * If an EI item only has the item recognition of `MATERIAL` and `NAME`, the items must have the EXACT NAME and MATERIAL of the EI item for the item to be considered as an EI item.
 * Keep in mind that if one of your ExecutableItems has item recognitions enabled on MATERIAL, then you shouldn't use more item recognitions based on MATERIAL for another ExecutableItem with the same MATERIAL. The reason is because if there are 2 ExecutableItems items with the recognition of MATERIAL enabled and both are DIAMOND\_BLOCK, only the first one in the alphabetic order will be the one who will have the most priority in case someone triggers a DIAMOND\_BLOCK.
 
-## Use cooldown features <CustomTag type="version" version="1.21.2" />
+## Use cooldown features <CustomTag type="version" version="1.21.2" /> <CustomTag type="premium" />
 
 * Info: Feature that adds a vanilla-style use cooldown to the item, similar to the cooldown on ender pearls or chorus fruit.
   * `cooldownGroup`: String value that defines a cooldown group. Items with the same cooldown group will share the same cooldown. Must be in lowercase and follow the NamespacedKey format (e.g., "mygroup" or "namespace:mygroup")
   * `vanillaUseCooldown`: Integer value that represents the cooldown duration in seconds
+* The two keys are at the root of the item config (not in a section)
 * Example:
 
 ```yaml
-useCooldown:
-  cooldownGroup: "custom_weapon_group"
-  vanillaUseCooldown: 5
+cooldownGroup: "custom_weapon_group"
+vanillaUseCooldown: 5
 ```
 
 :::info

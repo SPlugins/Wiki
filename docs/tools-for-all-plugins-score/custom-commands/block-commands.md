@@ -46,9 +46,9 @@ _Sorted by alphabetical order_
 * Info: Targets players in a specific radius and makes them run commands
 * Command settings
     * `{distance}`: To how far in radius the command will select players
-    * `{affectThePlayerThatActivatesTheActivator}`: true/false. If true, it will not affect the caster.
+    * `{affectThePlayerThatActivesTheActivator}`: true/false (default true). If true, the player who activated the activator is affected too.
       * Example situation: When you run an ExecutableItem's activator and that activator supports block commands,
-      it will ignore the person who activated the activator. However, if this option is false, it will affect you too.
+      with `affectThePlayerThatActivesTheActivator:false` it ignores the person who activated the activator. With `true` (the default), it affects you too.
     * `{throughBlocks}`: it will affect or not the mobs that are behind blocks
     * `{limit}`: The amount of targets that can be affected
     * `{sort}`: Useful for the limit option.
@@ -65,7 +65,7 @@ _Sorted by alphabetical order_
 * This summons lightning at players in a 20 block radius around the clicked block.
 
 :::info
-**Number of targets:** `%around_target_count%` gives the number of players selected by the command. It is the same for every target, and it counts the targets kept after `distance`, `affectThePlayerThatActivatesTheActivator`, `throughBlocks`, `regionCheck` and `limit`. The `CONDITIONS(...)` checked on each target are not taken into account. It accepts the `+N` / `-N` shorthand: `%around_target_count%-1`.
+**Number of targets:** `%around_target_count%` gives the number of players selected by the command. It is the same for every target, and it counts the targets kept after `distance`, `affectThePlayerThatActivesTheActivator`, `throughBlocks`, `regionCheck` and `limit`. The `CONDITIONS(...)` checked on each target are not taken into account. It accepts the `+N` / `-N` shorthand: `%around_target_count%-1`.
 
 Example: `AROUND 10 SEND_MESSAGE &e%around_target_count% players are around the block`
 :::

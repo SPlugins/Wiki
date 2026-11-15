@@ -2,7 +2,7 @@ import CustomTag from '@site/src/components/CustomTag';
 
 # List of the Activators
 
-## Activators of ExecutableItems
+## Activators of MyFurniture
 
 Here you have the list of activators available with their description and some examples. The activators allow you to execute custom actions,  it can have conditions, run commands, have cooldown, etc.
 

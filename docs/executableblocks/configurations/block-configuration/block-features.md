@@ -81,10 +81,10 @@ dropBlockIfItIsBroken: true
 * Example: 
 
 ```yaml
-dropBlockIfItIsBurns: true
+dropBlockWhenItBurns: true
 ```
 
-* Required: NO (Default: false)
+* Required: NO (Default: true)
 
 ### DROP BLOCK WHEN IT EXPLODES
 
