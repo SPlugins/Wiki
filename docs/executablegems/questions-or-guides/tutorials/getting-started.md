@@ -82,19 +82,12 @@ Spawn a training dummy. It never dies and shows each hit as a floating number:
 
 ## 8. Let your players use gems
 
-:::danger
-**Give your players the permission `ei.item.*`**
+:::info
+**Players need no permission to use the gems**
 
-A gem runs through ExecutableItems, which checks the permission of the item. A player who is not OP needs **`ei.item.*`**, or every gem shows "You do not have the permission to use eg_..." and does nothing.
+Every gem has the permission `executablegems.use.<gem>` and every runeword `executablegems.use.runeword.<id>`. Everyone has them by default, so you have nothing to set.
 
-With LuckPerms: `/lp group default permission set ei.item.* true`
-
-Without a permission plugin, put this in the `permissions.yml` of your server and restart:
-
-```yaml
-ei.item.*:
-  default: true
-```
+To forbid a gem to a group, set its permission to false. With LuckPerms: `/lp group default permission set executablegems.use.vampire false`
 :::
 
 ## 9. Choose what's next

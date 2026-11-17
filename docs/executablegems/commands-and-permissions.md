@@ -18,21 +18,15 @@ On this page, `<value>` is required and `[value]` is optional.
 | `executablegems.admin` | OP | Every `/eg` command, except `/eg codex` for yourself and `/eg cinematic`, which are open to everyone |
 | `executablegems.forge.remove` | OP | Pick up a forge with sneak + left click |
 | `executablegems.forge.bypass` | OP | Work on an item another player laid on a forge |
-| `ei.item.*` | OP | **From ExecutableItems. Every player needs it for the gems to work.** |
+| `executablegems.use.<gem>` | Everyone | Use this gem. `executablegems.use.*` holds every gem and runeword |
+| `executablegems.use.runeword.<id>` | Everyone | Awaken this runeword |
 
-:::danger
-**Give your players the permission `ei.item.*`**
+:::info
+**Players need no permission to use the gems**
 
-A gem runs through ExecutableItems, which checks the permission of the item. A player who is not OP needs **`ei.item.*`**, or every gem shows "You do not have the permission to use eg_..." and does nothing.
+Every gem has the permission `executablegems.use.<gem>` and every runeword `executablegems.use.runeword.<id>`. Everyone has them by default, so you have nothing to set.
 
-With LuckPerms: `/lp group default permission set ei.item.* true`
-
-Without a permission plugin, put this in the `permissions.yml` of your server and restart:
-
-```yaml
-ei.item.*:
-  default: true
-```
+To forbid a gem to a group, set its permission to false. With LuckPerms: `/lp group default permission set executablegems.use.vampire false`
 :::
 
 Players need no other permission to socket gems, use a forge, buy from the jeweller or read the Codex.

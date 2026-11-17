@@ -5,9 +5,13 @@ description: Solve common ExecutableGems problems - gems shown as amethyst shard
 
 # Troubleshooting
 
+## "You are not allowed to use ..."
+
+The player's group has the permission `executablegems.use.<gem>` set to false (everyone has it by default). OPs have every permission, which is why a gem can work for you and not for your players. See [Permissions](how-to-install-correctly.md#permissions). You can change this message, or turn it off with `''`, with the text `gem.not-allowed` of the [language file](../../configurations/general-configuration.md#language).
+
 ## "You do not have the permission to use eg_..."
 
-The player needs the permission `ei.item.*`. OPs have it, which is why a gem can work for you and not for your players. See [Permissions](how-to-install-correctly.md#permissions).
+Your ExecutableItems is too old for this ExecutableGems: update ExecutableItems.
 
 ## Gems look like amethyst shards
 
