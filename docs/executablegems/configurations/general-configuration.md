@@ -259,14 +259,24 @@ post-effects:
   ticks: 12
 ```
 
-## Permissions
+## Language
 
 ```yaml
-permissions:
-  # Every gem has executablegems.use.<gem> and every runeword executablegems.use.runeword.<id>, given to everyone by
-  # default (executablegems.use.* holds them all). Set one to false in your permission plugin to forbid it to a group.
-  # ExecutableItems' item permissions (ei.item.*) are not needed for the gems.
-  deny-message: '<red>You are not allowed to use %gem%<red>.'   # '' = say nothing
+language: en   # en or fr: the file plugins/ExecutableGems/lang/<language>.yml
 ```
 
-The message is sent at most every 30 seconds per gem, and never for a LOOP activator.
+Every text the players see (chat, action bar, titles, tool names and lore, menus, holograms, the Jeweller's lines) is in
+`plugins/ExecutableGems/lang/`. English and French come with the plugin. To translate or reword, edit the file of your
+language (or copy `en.yml` to a new file and set `language` to its name), then run `/eg reload`. The plugin never
+overwrites these files: a text missing from yours is taken from the plugin's own file, and the console lists the missing
+ones once per reload. The texts are in [MiniMessage](https://docs.advntr.dev/minimessage/format.html); keep the
+`%placeholders%`.
+
+The names and descriptions of the gems and runewords stay in their own files (`gems/`, `runewords/`).
+
+## Permissions
+
+Every gem has `executablegems.use.<gem>` and every runeword `executablegems.use.runeword.<id>`, given to everyone by
+default (`executablegems.use.*` holds them all). A player whose permission is set to false sees the text
+`gem.not-allowed` of the language file, at most every 30 seconds per gem and never for a LOOP activator. Set it to
+`''` to say nothing.
