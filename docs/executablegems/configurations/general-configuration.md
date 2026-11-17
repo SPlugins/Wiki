@@ -258,3 +258,15 @@ post-effects:
   inspect: 'executablegems:inspect'  # inspecting a weapon: a dark vignette around it
   ticks: 12
 ```
+
+## Permissions
+
+```yaml
+permissions:
+  # Every gem has executablegems.use.<gem> and every runeword executablegems.use.runeword.<id>, given to everyone by
+  # default (executablegems.use.* holds them all). Set one to false in your permission plugin to forbid it to a group.
+  # ExecutableItems' item permissions (ei.item.*) are not needed for the gems.
+  deny-message: '<red>You are not allowed to use %gem%<red>.'   # '' = say nothing
+```
+
+The message is sent at most every 30 seconds per gem, and never for a LOOP activator.
