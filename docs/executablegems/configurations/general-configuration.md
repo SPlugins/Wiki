@@ -83,9 +83,22 @@ socketing:
   confirm-below-chance: 100    # socketing with a lower success chance asks for a confirmation (before / after)
   hold-to-socket: true         # gem in one hand, item in the other, hold right click: socketed when the bar is full
   hold-seconds: 1.6
+  allowed-inventory-holders: []  # other plugins' virtual storages where drag and drop and the extractor work
 ```
 
 Set `confirm-below-chance: 0` to never ask for a confirmation.
+
+Drag and drop and the extractor work in the player's inventory and in real storages: chests, barrels, shulker boxes,
+ender chests, chest minecarts and boats. They never work in another plugin's menu, because a shop or an auction house
+that shows a copy of an item would let a player pull a real gem out of a picture.
+
+If you use a plugin whose virtual storages hold real items (PlayerVaults, a backpack plugin), list it in
+`allowed-inventory-holders`, by plugin name or by the class of its inventory holder:
+
+```yaml
+socketing:
+  allowed-inventory-holders: [PlayerVaults, MinePacks]
+```
 
 ## Forge
 
@@ -280,3 +293,16 @@ Every gem has `executablegems.use.<gem>` and every runeword `executablegems.use.
 default (`executablegems.use.*` holds them all). A player whose permission is set to false sees the text
 `gem.not-allowed` of the language file, at most every 30 seconds per gem and never for a LOOP activator. Set it to
 `''` to say nothing.
+
+## Audit log
+
+```yaml
+audit-log: false
+```
+
+Set it to `true` to write one line per item the plugin takes or gives back in `plugins/ExecutableGems/logs/audit.log`:
+weapons laid on a forge and taken back, forges picked up, socketings, fusions, extractions, jeweller purchases and
+appraisals. Use it to check a "the forge ate my sword" report.
+
+Items owed to a player who left in the middle of an animation, or whose weapon was on a forge that got picked up, are
+kept in `plugins/ExecutableGems/pending.yml` and given at their next join.

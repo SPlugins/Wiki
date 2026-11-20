@@ -54,7 +54,8 @@ These commands act on the item in the player's **main hand**.
 
 | Command | What it does |
 |---|---|
-| `/eg forge` | Places a forge at your feet. *In game only.* |
+| `/eg forge` | Places a forge at your feet, if you can build there (protection plugins decide). *In game only.* |
+| `/eg forge force` | Places a forge at your feet, even in a protected area. *In game only.* |
 | `/eg forge remove` | Removes the nearest forge within 6 blocks. *In game only.* |
 
 Players can also place a forge with the **Gem Forge** item. See [The Gem Forge](player-guide/the-gem-forge.md).

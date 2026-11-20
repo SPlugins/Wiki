@@ -9,7 +9,7 @@ There are three ways to put a gem in an item. They all follow the same rules.
 
 ## 1. In your inventory
 
-Pick up the gem and **click on the item**. It works in your inventory, chests, barrels, ender chests and shulker boxes.
+Pick up the gem and **click on the item**. It works in your inventory, chests, barrels, ender chests and shulker boxes, not in other plugins' menus (your server can allow some, see the [general configuration](../configurations/general-configuration.md)).
 
 While a gem is on your cursor, the items it fits show their chance of success.
 
