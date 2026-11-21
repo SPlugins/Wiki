@@ -39,7 +39,11 @@ It works on vanilla items and on ExecutableItems items, and it needs no client m
 
 - **Server:** [Paper](https://papermc.io/) or [Folia](https://papermc.io/software/folia) 1.21.11 or newer. Spigot is not supported: on an older server or on Spigot, ExecutableGems disables itself with one line in the console.
   On Folia, the jeweller's marker on the locator bar keeps its range but not its colour and style (Folia has no `/waypoint` command).
-- **Plugins:** [SCore](https://modrinth.com/plugin/score) and [ExecutableItems](../executableitems/information-ei.md), both up to date.
+- **Plugins:** [SCore](https://modrinth.com/plugin/score) and [ExecutableItems](../executableitems/information-ei.md), free or premium, both up to date. Every gem works with the free version of ExecutableItems, on vanilla items and on ExecutableItems items.
+
+:::tip
+**With the free version of ExecutableItems**, an ExecutableItems item uses one of its uses each time one of its own activators runs (the free version cannot change that). Gems never use any, but an item with a limited number of uses will still run out, and the gems socketed in it go with it. For items meant to carry gems, set `usage: -1`.
+:::
 - **Players:** the server's Minecraft version, with the resource pack accepted.
 
 :::info
