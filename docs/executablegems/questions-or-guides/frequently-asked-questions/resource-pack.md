@@ -108,6 +108,8 @@ The EG pack only uses its own folders (`assets/executablegems/` and `assets/ei/.
 
 If the command says your `pack.mcmeta` doesn't cover the formats of the EG pack, raise the `max_format` of your pack. The EG pack is made for Minecraft 1.21.11 (format 75) to 26.3 (format 97).
 
+The only vanilla files of the EG pack are two text shaders, in the folders `ov_text_1_21_11/` and `ov_text_26_3/`. They make the names of runewords and Radiant gems shine. If your pack has its own text shader (a custom HUD, for example), the merge keeps yours and lists the EG shader as a conflict. The names then show without the animation, and everything else works.
+
 ### Export without merging
 
 `/eg pack export zip` writes a copy of the EG pack to `plugins/ExecutableGems/pack/export/ExecutableGems_Pack.zip`.
