@@ -59,7 +59,8 @@ Every key except `name` is optional.
 | `name` | the id | The name. See [text format](#text-format). |
 | `color` | `#ffffff` | Beams, frames, particles, the tint of a generic cut. `%gem_color%` in activators. |
 | `color2` | a lighter `color` | The inner light of a generic cut. |
-| `model` | the shipped model | See [models](#models). |
+| `model` | the shipped model, else `cut:brilliant` | See [models](#models). |
+| `icon` | from the model | The small image before the gem's name in texts: a texture such as `'my_pack:item/gems/ruby'` (`%tier%` = 1 to 4), or `none` for the ◆. See [The icon in texts](../questions-or-guides/tutorials/your-own-3d-model.md#the-icon-in-texts). |
 | `enabled` | `true` | `false` switches the gem off without deleting it. |
 | `category` | the folder | Puts the gem in another category than its folder. |
 | `description` | none | Lines of the tooltip. Use `%value%` for a [value](#levels-and-values). |
@@ -73,7 +74,9 @@ Every key except `name` is optional.
 | `namespace:path` | An item model of a resource pack. The same model at every tier. |
 | `name` without `:` | The models `ei:gems/<name>_t1` to `_t4`, one per tier. |
 
-See [Use your own 3D model](../questions-or-guides/tutorials/your-own-3d-model.md).
+A gem never shows the black and magenta texture of a missing model. A gem without `model:` that has no shipped model, or with a cut that doesn't exist, shows `cut:brilliant`, and the console says why. Adding a gem never needs a new pack.
+
+See [Use your own 3D model](../questions-or-guides/tutorials/your-own-3d-model.md) and [The resource pack on your server](../questions-or-guides/frequently-asked-questions/resource-pack.md).
 
 ![The generic cuts next to the shipped gems](https://media.ssomar.com/m/docs-img-eg-cuts-sheet.jpg)
 

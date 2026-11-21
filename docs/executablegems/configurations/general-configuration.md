@@ -27,6 +27,20 @@ plugins/ExecutableGems/
 
 After a change, run `/eg reload`. If a key is missing from your `config.yml`, the plugin uses its default value.
 
+## Resource pack
+
+```yaml
+resource-pack:
+  self-host: true    # true: SCore sends the EG pack next to the pack of ExecutableItems. false: ExecutableGems sends nothing
+  url: ''            # self-host false: a link where you host the EG pack yourself, sent at join
+  required: false    # players who decline the pack are kicked
+  prompt: ''         # the text of the download screen ('' = Minecraft's)
+```
+
+These are the pack settings of ExecutableItems: `selfHostPack`, `texturesPackUrl` and `texturesPackRequired`. Apply a change with `/eg pack refresh`.
+
+With ItemsAdder, Nexo, Oraxen, CraftEngine, your own pack or a proxy, see [The resource pack on your server](../questions-or-guides/frequently-asked-questions/resource-pack.md).
+
 ## Sockets
 
 ```yaml

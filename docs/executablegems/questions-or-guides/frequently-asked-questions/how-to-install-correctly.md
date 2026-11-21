@@ -49,4 +49,6 @@ selfHostPackIp: 'your.public.ip'
 
 The pack is served on the Minecraft server's own port, so you don't need to open another port.
 
+With ItemsAdder, Nexo, Oraxen, CraftEngine, your own pack or a proxy, see [The resource pack on your server](resource-pack.md).
+
 If you prefer to play without any pack, see the [config tip](../../configurations/general-configuration.md#interface).

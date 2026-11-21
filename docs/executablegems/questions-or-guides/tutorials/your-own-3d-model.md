@@ -99,7 +99,7 @@ For a flat item like a vanilla diamond, this is all you need:
 
 **File 3: the image.** `assets/my_pack/textures/item/gems/blood_opal.png`
 
-A square PNG, such as 16×16 or 32×32. To try the tutorial, save [this example](https://media.ssomar.com/m/docs-img-eg-example-blood-opal.png). The plugin also uses this image as the small icon in tooltips.
+A square PNG, such as 16×16 or 32×32. To try the tutorial, save [this example](https://media.ssomar.com/m/docs-img-eg-example-blood-opal.png). The plugin also uses this image as the small icon in tooltips: it reads File 1 and File 2 to find it.
 
 ### 2. Use a real 3D model (optional)
 
@@ -151,7 +151,7 @@ The new pack is sent to the players who are online, without reconnecting. Those 
 /eg give YourName blood_opal 7
 ```
 
-The gem has your model, and your image shows next to its name in tooltips:
+The gem has your model, and your image shows next to its name in tooltips. If you see a ◆ instead, see [The icon in texts](#the-icon-in-texts).
 
 ![A socketed sword showing the icons of two custom gems](https://media.ssomar.com/m/docs-img-eg-pack-tooltip.png)
 
@@ -189,7 +189,7 @@ assets/
         └── ... (t2, t3, t4)
 ```
 
-`t1` is Chipped, `t2` Flawless, `t3` Perfect and `t4` Radiant. The icons in `executablegems/` are the small images shown in texts, and the shipped ones are 32×32.
+`t1` is Chipped, `t2` Flawless, `t3` Perfect and `t4` Radiant. The icons in `executablegems/` are the small images shown in texts, and the shipped ones are 32×32. They are optional for flat items: without them, the plugin shows the `layer0` texture of each model.
 
 An item file, here for tier 1:
 
@@ -215,6 +215,37 @@ A model file, for a flat item:
 
 Then run `/eg reload` and `/ei refresh-pack`.
 
+## The icon in texts
+
+Tooltips, chat, menus and the socket bar show a small icon before the gem's name. The plugin takes it, in this order:
+
+1. The `icon:` of the gem, if you set one.
+2. The image of your model, if the plugin can read your files (in the folder of ExecutableItems above): the `layer0` texture of a flat item, or File 3 of this tutorial, `textures/item/<the path of model:>.png`. It must be in a `textures/item/` folder.
+3. A ◆ in the gem's colour.
+
+So the plugin never shows a missing texture. `/eg pack info` lists the gems that show the ◆.
+
+Set `icon:` when your pack is elsewhere (ItemsAdder, Nexo, your own host), or to choose another image:
+
+```yaml
+model: 'my_pack:gems/blood_opal'
+icon: 'my_pack:item/gems/blood_opal'     # a texture: assets/my_pack/textures/item/gems/blood_opal.png
+```
+
+| `icon:` | Result |
+|---|---|
+| `'my_pack:item/gems/blood_opal'` | This texture. Write its path from `textures/`, without `.png`. It must be in a `textures/item/` folder. |
+| `'my_pack:item/gems/blood_opal_t%tier%'` | One image per tier: `%tier%` becomes 1, 2, 3 or 4. |
+| `'minecraft:item/emerald'` | A vanilla item texture. |
+| `'minecraft:block/amethyst_block'` | A vanilla block texture. |
+| `none` | Always the ◆. |
+
+The plugin doesn't check an `icon:` you set: if the texture doesn't exist, players see the black and magenta square.
+
+## The tooltip frame
+
+The tooltip of a gem has a frame in its colour. A gem you add gets the frame of the shipped gem with the closest colour, at the same tier. You have nothing to draw or rebuild.
+
 ## Each time you change something
 
 | You changed | Run |
@@ -225,14 +256,17 @@ Then run `/eg reload` and `/ei refresh-pack`.
 
 ## If you host your pack yourself
 
-This is only for servers that **don't** use the folder above: `selfHostPack: false` in the config of ExecutableItems, or a pack set in `server.properties`. In that case `/ei refresh-pack` can't help.
+This is only for servers that **don't** use the folder above: `selfHostPack: false` in the config of ExecutableItems, ItemsAdder, Nexo, or a pack set in `server.properties`. In that case `/ei refresh-pack` can't help.
 
-1. Add the same files to the `assets/` folder of your pack.
+1. Add the same files to the `assets/` folder of your pack (for ItemsAdder or Nexo, where they take your own files).
 2. Make a zip with `pack.mcmeta` and `assets/` **directly at its root**, not inside another folder.
 3. Upload it again and update its link and hash. See [Uploading a texture pack](../../../executableitems/questions-or-guides/custom-textures/custom-textures-1.21/uploading-texture-pack.md).
 4. Players reconnect to get it.
+5. Set `icon:` in the gem: the plugin can't read a pack hosted elsewhere, so without it the gem shows a ◆ in texts.
 
-Your pack and the ExecutableGems pack work together: Minecraft stacks them.
+The console shows a line for a gem whose model is in no pack the plugin can read. It is only a hint: ignore it if your pack has the model.
+
+Your pack and the ExecutableGems pack work together: Minecraft stacks them. To send a single pack, see [The resource pack on your server](../frequently-asked-questions/resource-pack.md).
 
 ## Common mistakes
 
@@ -244,7 +278,8 @@ Your pack and the ExecutableGems pack work together: Minecraft stacks them.
 | A black and magenta item with the right shape | Minecraft can't find the image | Check the path in File 2 and the location of File 3. |
 | Nothing changed | The pack wasn't sent again | Run `/ei refresh-pack`. |
 | `/ei refresh-pack` says to set `selfHostPack` | You host your pack yourself | See the section above. |
-| A square instead of the icon in tooltips | The icon image is missing | Add File 3, or the 4 icons for one model per tier. |
+| A ◆ instead of the icon in tooltips | The plugin can't find the image | Add File 3 in a `textures/item/` folder, the 4 icons for one model per tier, or set `icon:` in the gem. |
+| A generic cut instead of your model | The gem has no `model:`, or a cut that doesn't exist | Read the line about the gem in the console, and fix `model:`. |
 
 :::warning
 Don't edit `plugins/ExecutableGems/pack/ExecutableGems_Pack.zip`: it is replaced at each start. Your files go in the folder of ExecutableItems.

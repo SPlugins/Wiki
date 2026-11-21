@@ -69,6 +69,17 @@ Players can also place a forge with the **Gem Forge** item. See [The Gem Forge](
 | `/eg reload` | Reloads the config, the gems, the runewords and the forges. New native enchantments need a restart. |
 | `/eg discoveries reset [runeword]` | Hides the runewords again in the Codex (one, or all). |
 
+## Resource pack
+
+See [The resource pack on your server](questions-or-guides/frequently-asked-questions/resource-pack.md).
+
+| Command | What it does |
+|---|---|
+| `/eg pack info` | How the pack is sent, its size and versions, and the gems that show a ◆ in texts. |
+| `/eg pack refresh` | Reads the `resource-pack` settings again and sends the pack again to the players online. |
+| `/eg pack export <zip\|folder\|Nexo\|Oraxen\|ItemsAdder\|CraftEngine>` | Writes a copy of the EG pack where you, or your pack plugin, can merge it. |
+| `/eg pack merge <your pack.zip> [new.zip]` | Writes your pack with the EG pack merged in, and lists the conflicting files. Your zip doesn't change. |
+
 ## For players
 
 | Command | What it does |
