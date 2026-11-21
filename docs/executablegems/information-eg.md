@@ -37,7 +37,8 @@ It works on vanilla items and on ExecutableItems items, and it needs no client m
 
 ## Requirements
 
-- **Server:** [Paper](https://papermc.io/) 1.21.11 or newer. Spigot is not supported.
+- **Server:** [Paper](https://papermc.io/) or [Folia](https://papermc.io/software/folia) 1.21.11 or newer. Spigot is not supported: on an older server or on Spigot, ExecutableGems disables itself with one line in the console.
+  On Folia, the jeweller's marker on the locator bar keeps its range but not its colour and style (Folia has no `/waypoint` command).
 - **Plugins:** [SCore](https://modrinth.com/plugin/score) and [ExecutableItems](../executableitems/information-ei.md), both up to date.
 - **Players:** the server's Minecraft version, with the resource pack accepted.
 

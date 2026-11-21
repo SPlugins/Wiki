@@ -15,7 +15,7 @@ Put these three files in your `plugins/` folder, then **stop and start** the ser
 - `ExecutableItems`
 - `ExecutableGems`
 
-The server must run [Paper](https://papermc.io/) 1.21.11 or newer. See [How to install correctly](../frequently-asked-questions/how-to-install-correctly.md) if something goes wrong.
+The server must run [Paper](https://papermc.io/) or [Folia](https://papermc.io/software/folia) 1.21.11 or newer. See [How to install correctly](../frequently-asked-questions/how-to-install-correctly.md) if something goes wrong.
 
 In the console, you should see:
 
