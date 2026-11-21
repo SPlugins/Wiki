@@ -37,27 +37,25 @@ It works on vanilla items and on ExecutableItems items, and it needs no client m
 
 ## Requirements
 
-- **Server:** [Paper](https://papermc.io/) 1.21.11 or newer. Spigot is not supported.
-- **Plugins:** [SCore](https://modrinth.com/plugin/score) and [ExecutableItems](../executableitems/information-ei.md), both up to date.
+- **Server:** [Paper](https://papermc.io/) or [Folia](https://papermc.io/software/folia) 1.21.11 or newer. Spigot is not supported: on an older server or on Spigot, ExecutableGems disables itself with one line in the console.
+  On Folia, the jeweller's marker on the locator bar keeps its range but not its colour and style (Folia has no `/waypoint` command).
+- **Plugins:** [SCore](https://modrinth.com/plugin/score) and [ExecutableItems](../executableitems/information-ei.md), free or premium, both up to date. Every gem works with the free version of ExecutableItems, on vanilla items and on ExecutableItems items.
+
+:::tip
+**With the free version of ExecutableItems**, an ExecutableItems item uses one of its uses each time one of its own activators runs (the free version cannot change that). Gems never use any, but an item with a limited number of uses will still run out, and the gems socketed in it go with it. For items meant to carry gems, set `usage: -1`.
+:::
 - **Players:** the server's Minecraft version, with the resource pack accepted.
 
 :::info
 The full-screen effects (the shockwave when a gem is socketed, the screen that cracks when it shatters) need a **26.3** server or newer. On older servers everything else works and these effects are skipped.
 :::
 
-:::danger
-**Give your players the permission `ei.item.*`**
+:::info
+**Players need no permission to use the gems**
 
-A gem runs through ExecutableItems, which checks the permission of the item. A player who is not OP needs **`ei.item.*`**, or every gem shows "You do not have the permission to use eg_..." and does nothing.
+Every gem has the permission `executablegems.use.<gem>` and every runeword `executablegems.use.runeword.<id>`. Everyone has them by default, so you have nothing to set.
 
-With LuckPerms: `/lp group default permission set ei.item.* true`
-
-Without a permission plugin, put this in the `permissions.yml` of your server and restart:
-
-```yaml
-ei.item.*:
-  default: true
-```
+To forbid a gem to a group, set its permission to false. With LuckPerms: `/lp group default permission set executablegems.use.vampire false`
 :::
 
 ## Where to go next

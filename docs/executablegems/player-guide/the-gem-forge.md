@@ -62,6 +62,7 @@ These are the default values. Your server may have changed them.
 
 ## Placing and removing a forge
 
-- **Place:** right-click the top of a block with a **Gem Forge** item. You can buy one from a jeweller.
+- **Place:** right-click the top of a block with a **Gem Forge** item. You can buy one from a jeweller. The spot must be free, and you must be allowed to build there: protection plugins such as WorldGuard, GriefPrevention or Lands are respected.
+- **A weapon on a forge that gets removed** goes back to its owner, even if they are offline (they get it at their next join).
 - **Remove:** players with the permission can **sneak + left-click** it to get the item back.
 - Forges show on the locator bar, so players can find them.

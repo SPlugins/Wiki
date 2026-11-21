@@ -27,6 +27,20 @@ plugins/ExecutableGems/
 
 After a change, run `/eg reload`. If a key is missing from your `config.yml`, the plugin uses its default value.
 
+## Resource pack
+
+```yaml
+resource-pack:
+  self-host: true    # true: SCore sends the EG pack next to the pack of ExecutableItems. false: ExecutableGems sends nothing
+  url: ''            # self-host false: a link where you host the EG pack yourself, sent at join
+  required: false    # players who decline the pack are kicked
+  prompt: ''         # the text of the download screen ('' = Minecraft's)
+```
+
+These are the pack settings of ExecutableItems: `selfHostPack`, `texturesPackUrl` and `texturesPackRequired`. Apply a change with `/eg pack refresh`.
+
+With ItemsAdder, Nexo, Oraxen, CraftEngine, your own pack or a proxy, see [The resource pack on your server](../questions-or-guides/frequently-asked-questions/resource-pack.md).
+
 ## Sockets
 
 ```yaml
@@ -83,9 +97,22 @@ socketing:
   confirm-below-chance: 100    # socketing with a lower success chance asks for a confirmation (before / after)
   hold-to-socket: true         # gem in one hand, item in the other, hold right click: socketed when the bar is full
   hold-seconds: 1.6
+  allowed-inventory-holders: []  # other plugins' virtual storages where drag and drop and the extractor work
 ```
 
 Set `confirm-below-chance: 0` to never ask for a confirmation.
+
+Drag and drop and the extractor work in the player's inventory and in real storages: chests, barrels, shulker boxes,
+ender chests, chest minecarts and boats. They never work in another plugin's menu, because a shop or an auction house
+that shows a copy of an item would let a player pull a real gem out of a picture.
+
+If you use a plugin whose virtual storages hold real items (PlayerVaults, a backpack plugin), list it in
+`allowed-inventory-holders`, by plugin name or by the class of its inventory holder:
+
+```yaml
+socketing:
+  allowed-inventory-holders: [PlayerVaults, MinePacks]
+```
 
 ## Forge
 
@@ -258,3 +285,38 @@ post-effects:
   inspect: 'executablegems:inspect'  # inspecting a weapon: a dark vignette around it
   ticks: 12
 ```
+
+## Language
+
+```yaml
+language: en   # en or fr: the file plugins/ExecutableGems/lang/<language>.yml
+```
+
+Every text the players see (chat, action bar, titles, tool names and lore, menus, holograms, the Jeweller's lines) is in
+`plugins/ExecutableGems/lang/`. English and French come with the plugin. To translate or reword, edit the file of your
+language (or copy `en.yml` to a new file and set `language` to its name), then run `/eg reload`. The plugin never
+overwrites these files: a text missing from yours is taken from the plugin's own file, and the console lists the missing
+ones once per reload. The texts are in [MiniMessage](https://docs.advntr.dev/minimessage/format.html); keep the
+`%placeholders%`.
+
+The names and descriptions of the gems and runewords stay in their own files (`gems/`, `runewords/`).
+
+## Permissions
+
+Every gem has `executablegems.use.<gem>` and every runeword `executablegems.use.runeword.<id>`, given to everyone by
+default (`executablegems.use.*` holds them all). A player whose permission is set to false sees the text
+`gem.not-allowed` of the language file, at most every 30 seconds per gem and never for a LOOP activator. Set it to
+`''` to say nothing.
+
+## Audit log
+
+```yaml
+audit-log: false
+```
+
+Set it to `true` to write one line per item the plugin takes or gives back in `plugins/ExecutableGems/logs/audit.log`:
+weapons laid on a forge and taken back, forges picked up, socketings, fusions, extractions, jeweller purchases and
+appraisals. Use it to check a "the forge ate my sword" report.
+
+Items owed to a player who left in the middle of an animation, or whose weapon was on a forge that got picked up, are
+kept in `plugins/ExecutableGems/pending.yml` and given at their next join.

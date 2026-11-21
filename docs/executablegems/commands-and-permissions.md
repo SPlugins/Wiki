@@ -18,21 +18,15 @@ On this page, `<value>` is required and `[value]` is optional.
 | `executablegems.admin` | OP | Every `/eg` command, except `/eg codex` for yourself and `/eg cinematic`, which are open to everyone |
 | `executablegems.forge.remove` | OP | Pick up a forge with sneak + left click |
 | `executablegems.forge.bypass` | OP | Work on an item another player laid on a forge |
-| `ei.item.*` | OP | **From ExecutableItems. Every player needs it for the gems to work.** |
+| `executablegems.use.<gem>` | Everyone | Use this gem. `executablegems.use.*` holds every gem and runeword |
+| `executablegems.use.runeword.<id>` | Everyone | Awaken this runeword |
 
-:::danger
-**Give your players the permission `ei.item.*`**
+:::info
+**Players need no permission to use the gems**
 
-A gem runs through ExecutableItems, which checks the permission of the item. A player who is not OP needs **`ei.item.*`**, or every gem shows "You do not have the permission to use eg_..." and does nothing.
+Every gem has the permission `executablegems.use.<gem>` and every runeword `executablegems.use.runeword.<id>`. Everyone has them by default, so you have nothing to set.
 
-With LuckPerms: `/lp group default permission set ei.item.* true`
-
-Without a permission plugin, put this in the `permissions.yml` of your server and restart:
-
-```yaml
-ei.item.*:
-  default: true
-```
+To forbid a gem to a group, set its permission to false. With LuckPerms: `/lp group default permission set executablegems.use.vampire false`
 :::
 
 Players need no other permission to socket gems, use a forge, buy from the jeweller or read the Codex.
@@ -60,7 +54,8 @@ These commands act on the item in the player's **main hand**.
 
 | Command | What it does |
 |---|---|
-| `/eg forge` | Places a forge at your feet. *In game only.* |
+| `/eg forge` | Places a forge at your feet, if you can build there (protection plugins decide). *In game only.* |
+| `/eg forge force` | Places a forge at your feet, even in a protected area. *In game only.* |
 | `/eg forge remove` | Removes the nearest forge within 6 blocks. *In game only.* |
 
 Players can also place a forge with the **Gem Forge** item. See [The Gem Forge](player-guide/the-gem-forge.md).
@@ -73,6 +68,17 @@ Players can also place a forge with the **Gem Forge** item. See [The Gem Forge](
 | `/eg list` | Lists every category, gem and runeword, with the weights. |
 | `/eg reload` | Reloads the config, the gems, the runewords and the forges. New native enchantments need a restart. |
 | `/eg discoveries reset [runeword]` | Hides the runewords again in the Codex (one, or all). |
+
+## Resource pack
+
+See [The resource pack on your server](questions-or-guides/frequently-asked-questions/resource-pack.md).
+
+| Command | What it does |
+|---|---|
+| `/eg pack info` | How the pack is sent, its size and versions, and the gems that show a ◆ in texts. |
+| `/eg pack refresh` | Reads the `resource-pack` settings again and sends the pack again to the players online. |
+| `/eg pack export <zip\|folder\|Nexo\|Oraxen\|ItemsAdder\|CraftEngine>` | Writes a copy of the EG pack where you, or your pack plugin, can merge it. |
+| `/eg pack merge <your pack.zip> [new.zip]` | Writes your pack with the EG pack merged in, and lists the conflicting files. Your zip doesn't change. |
 
 ## For players
 

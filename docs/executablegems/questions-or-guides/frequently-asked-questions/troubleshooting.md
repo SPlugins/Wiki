@@ -5,21 +5,31 @@ description: Solve common ExecutableGems problems - gems shown as amethyst shard
 
 # Troubleshooting
 
+## "You are not allowed to use ..."
+
+The player's group has the permission `executablegems.use.<gem>` set to false (everyone has it by default). OPs have every permission, which is why a gem can work for you and not for your players. See [Permissions](how-to-install-correctly.md#permissions). You can change this message, or turn it off with `''`, with the text `gem.not-allowed` of the [language file](../../configurations/general-configuration.md#language).
+
 ## "You do not have the permission to use eg_..."
 
-The player needs the permission `ei.item.*`. OPs have it, which is why a gem can work for you and not for your players. See [Permissions](how-to-install-correctly.md#permissions).
+Your ExecutableItems is too old for this ExecutableGems: update ExecutableItems.
 
 ## Gems look like amethyst shards
 
 The resource pack is missing. Either the player declined it, or it could not be sent. Check `selfHostPackIp` in [How to install correctly](how-to-install-correctly.md#the-resource-pack).
 
+With ItemsAdder, Nexo, Oraxen, CraftEngine, your own pack or a proxy, see [The resource pack on your server](resource-pack.md). `/eg pack info` shows how the pack is sent.
+
 ## The Codex or the confirmation window has no drawing
 
 Same cause. Without a pack, set `ui.codex` and `ui.confirm` to `dialog`.
 
-## A small square instead of a gem icon in the texts
+## A ◆ instead of a gem icon in the texts
 
-Your gem uses a model of its own without the icon texture. See [Use your own 3D model](../tutorials/your-own-3d-model.md). You can also turn the icons off with `ui.icons: false`.
+The plugin found no image for the gem's icon. This happens with a model of your own pack that the plugin can't read. Set `icon:` in the gem, see [The icon in texts](../tutorials/your-own-3d-model.md#the-icon-in-texts). `/eg pack info` lists these gems.
+
+## A black and magenta square instead of a gem icon
+
+The `icon:` of the gem points to a texture that doesn't exist. Check its path, see [The icon in texts](../tutorials/your-own-3d-model.md#the-icon-in-texts). You can also turn the icons off with `ui.icons: false`.
 
 ## My gem doesn't trigger
 
