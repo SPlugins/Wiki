@@ -52,7 +52,8 @@ All the activators ExecutableItems runs for an item in a slot. These are the one
 `chance` is read by ExecutableGems, not by ExecutableItems. It is a number or a formula, usually a value of the gem.
 
 - A support gem can add to it.
-- `/eg luck <player>` makes it always succeed, which is how you test a gem.
+- `/eg luck <player> on` makes it always succeed, which is how you test a gem.
+- It must be a number between 0 and 100 at every level. If it is not a number, the activator never runs, and `/eg reload` names it.
 - If you leave it out, the activator always runs.
 
 ## Commands and targets
@@ -112,6 +113,16 @@ The plugin adds [`eg fx` commands](../commands-and-permissions.md#for-your-activ
 - 'eg fx spiral %player% #5ee6d0 24'
 - 'eg fx shockwave %player% 4 #d08a3a'
 ```
+
+## When an activator has a mistake
+
+ExecutableItems checks the activators when the gem loads. Its errors are shown with the gem, at `/eg reload` and with `/eg check <id>`:
+
+```
+[ExecutableGems] Gem blood_opal (gems/custom/blood_opal.yml): activators: ...
+```
+
+If an activator fails while a player uses the gem, the console names the gem, the activator and its event, once a minute at most for the same error. See [Checks at load](gem-configuration.md#checks-at-load).
 
 ## Good habits
 

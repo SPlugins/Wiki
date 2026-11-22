@@ -8,8 +8,12 @@ description: Every key of a gem file in ExecutableGems - name, model, levels, va
 A gem is one file: `plugins/ExecutableGems/gems/<category>/<id>.yml`. The file name is the gem's id, and the folder is its [category](category-configuration.md).
 
 :::tip
-Run `/eg new <category> <id>` to get a file with every key commented. Files whose name starts with `_` are ignored.
+Run `/eg new <category> <id>` to get a file with every key commented. See [Create your first gem](../questions-or-guides/tutorials/your-first-gem.md).
 :::
+
+**The file name** takes lowercase letters, digits and `_` only. A file whose name has a space, an accent or another sign is not loaded, and the console says so. A file whose name starts with `_` is ignored: use it to switch a gem off without deleting it.
+
+After an edit, run `/eg reload`. It names every mistake it finds: see [Checks at load](#checks-at-load).
 
 ## A complete example
 
@@ -61,10 +65,12 @@ Every key except `name` is optional.
 | `color2` | a lighter `color` | The inner light of a generic cut. |
 | `model` | the shipped model, else `cut:brilliant` | See [models](#models). |
 | `icon` | from the model | The small image before the gem's name in texts: a texture such as `'my_pack:item/gems/ruby'` (`%tier%` = 1 to 4), or `none` for the ◆. See [The icon in texts](../questions-or-guides/tutorials/your-own-3d-model.md#the-icon-in-texts). |
-| `enabled` | `true` | `false` switches the gem off without deleting it. |
+| `enabled` | `true` | `false` switches the gem off without deleting it. See [Switching a gem off](#switching-a-gem-off). |
 | `category` | the folder | Puts the gem in another category than its folder. |
 | `description` | none | Lines of the tooltip. Use `%value%` for a [value](#levels-and-values). |
 | `lore` | none | Flavour text, in grey italic. |
+
+`description`, `lore`, `applicable-on` and `incompatible-with` are lists. When there is only one entry, you can write it as one text: `description: '<gray>Hits burn the target'`.
 
 ## Models
 
@@ -106,6 +112,12 @@ Formulas accept `+ - * / % ^`, parentheses and `min`, `max`, `floor`, `ceil`, `r
 
 A support gem boosting this gem changes the level used for the values.
 
+A formula can't use another value: write its numbers. Decimals take a dot (`0.5`).
+
+:::info
+**Lowering `max-level`** never destroys levels. A gem that is already above the new maximum keeps its level, and acts as a gem of the maximum level. Its tooltip says so. It gets its level back if you raise `max-level` again.
+:::
+
 ## Where it can go
 
 | Key | Default | Description |
@@ -122,18 +134,21 @@ A support gem boosting this gem changes the level used for the values.
 |---|---|
 | `'#weapons'` | Swords, axes, maces, tridents, spears |
 | `'#swords'` `'#axes'` | |
-| `'#armor'` | Every armour piece |
+| `'#armor'` | Every armour piece, and the elytra |
 | `'#helmets'` `'#chestplates'` `'#leggings'` `'#boots'` | `#chestplates` includes the elytra |
 | `'#tools'` | Pickaxes, shovels, hoes, axes |
 | `'#pickaxes'` `'#shovels'` `'#hoes'` | |
 | `'#bows'` | Bows and crossbows |
 | `'#ranged'` | Bows, crossbows and tridents |
 | `'#shields'` | |
-| `'#any_minecraft_tag'` | A vanilla item tag, such as `'#swords'` |
+| `'#trimmable_armor'` `'#minecraft:hoes'` | A vanilla item tag, with or without `minecraft:` |
+| `'#my_datapack:staffs'` | An item tag of a datapack |
 | `DIAMOND_SWORD` | A material |
 | `'ei:*'` | Every ExecutableItems item |
 | `'ei:MyItem'` | One ExecutableItems item |
 | `'*'` | Anything |
+
+A word the plugin doesn't know fits nothing, and the console names it. The most common mistake is a word without its `#`: write `'#swords'`, not `swords`.
 
 **Shipped groups:** `right-click`, `sneak-right-click` and `relic`. Use them on your own abilities so two abilities never share a button.
 
@@ -141,7 +156,7 @@ A support gem boosting this gem changes the level used for the values.
 
 | Key | Default | Description |
 |---|---|---|
-| `apply.chance` | `100` | Success chance in %. A formula of `level`. |
+| `apply.chance` | `100` | Success chance in %. A formula of `level`. Keep it between 1 and 100 at every level. |
 | `apply.on-fail` | `DESTROY_GEM` | `DESTROY_GEM`: the gem shatters. `KEEP_GEM`: it slips out. |
 
 ## XP
@@ -205,22 +220,67 @@ held:
 
 The gem works on its own while it is held in the off hand, without being socketed. Activators without `detailedSlots` then listen to the main hand and the off hand.
 
+## Switching a gem off
+
+Set `enabled: false`, start the file name with `_`, or delete the file. Then run `/eg reload`.
+
+The gems of that kind already socketed in items are not lost:
+
+- the socket stays taken, and shows **Unknown gem (id)** in the tooltip;
+- the gem does nothing;
+- a Gem Extractor leaves it in the item, and tells the player that the gem is disabled on this server;
+- it works again, with its level and XP, as soon as the gem is back.
+
 ## Native enchantment
 
-These keys go in a `native-enchantment:` section.
+A gem with a `native-enchantment:` section is a real Minecraft enchantment. Start from `/eg new enchantment <id>`: see [Create your own enchantment](../questions-or-guides/tutorials/native-enchantments.md).
+
+These keys go in the `native-enchantment:` section.
 
 | Key | Default | Description |
 |---|---|---|
 | `enabled` | `false` | Makes the gem a real Minecraft enchantment. |
-| `supported` | `#swords` | `#swords`, `#axes`, `#pickaxes`, `#weapons`, `#sharp_weapons`, `#tools`, `#mining`, `#armor`, `#bows`, or a Minecraft item tag. |
-| `weight` | `5` | Odds in the enchanting table. |
-| `anvil-cost` | `4` | Anvil cost. |
+| `name` | the gem's `name`, without its colours | The name on items, when it must differ from `name`. Plain text, no colour tag. |
+| `supported` | `#swords` | The items it goes on: one word, or a list. See below. |
+| `weight` | `5` | From 1 to 1024. How often the enchanting table, villagers and loot pick it. Sharpness is 10, Mending is 2. |
+| `anvil-cost` | `4` | 0 or more. The levels it costs at the anvil. |
 | `enchanting-table` | `true` | Offered by the enchanting table. |
 | `tradeable` | `true` | Sold by librarians. |
-| `loot` | `true` | Found on random loot. |
-| `treasure` | `false` | Treasure enchantment. |
+| `loot` | `true` | Found on the books and gear of chests, fishing and mobs. |
+| `treasure` | `false` | A treasure enchantment, like Mending. Then set `enchanting-table: false`. |
 
-See [Native enchantments](../questions-or-guides/tutorials/native-enchantments.md). Adding one needs a server restart.
+The `max-level` of the gem is the highest level of the enchantment, from 1 to 255.
+
+A number outside its range (`weight: 0`, `max-level: 300`) is brought back into the range, with a line in the console. A mistake in this section never keeps the server from starting.
+
+**`supported`** takes one word, or a list such as `['#swords', '#axes', MACE]`:
+
+| Value | Items |
+|---|---|
+| `'#weapons'` | Minecraft's set of enchantable weapons. **No trident.** |
+| `'#sharp_weapons'` | The items Sharpness goes on |
+| `'#swords'` `'#axes'` `'#maces'` `'#spears'` `'#tridents'` | |
+| `'#armor'` | Every armour piece |
+| `'#helmets'` `'#chestplates'` `'#leggings'` `'#boots'` | |
+| `'#tools'` or `'#mining'` | The items Efficiency goes on. **It includes the shears.** |
+| `'#pickaxes'` `'#shovels'` `'#hoes'` | |
+| `'#bows'` | Bows and crossbows |
+| `'#crossbows'` | |
+| `'#ranged'` | Bows, crossbows and tridents |
+| `'#fishing_rods'` `'#shields'` | |
+| `'#breakable'` | Everything that has durability |
+| `'#trimmable_armor'` | A vanilla item tag |
+| `ELYTRA` | An item |
+
+:::warning
+These words are Minecraft's own "enchantable" sets, the ones Sharpness, Protection or Efficiency use. They are **not** the words of `applicable-on`: here `#weapons` has no trident and `#tools` has the shears.
+:::
+
+A word the plugin doesn't know is left out, and the console names it. If no item is left, the enchantment is not registered.
+
+**A native enchantment is not a gem to socket.** A gem with `native-enchantment` and no `applicable-on` fits no item as a gem, and is never in random loot or in an Unidentified Gem: it comes as an enchanted book. These keys are ignored on it, and the console says so: `xp`, `apply`, `attributes`, `incompatible-with`, `exclusive-group`, `obtain`, `max-per-item`, `removable`, `socket-type`, `support`.
+
+**What needs a restart.** Minecraft registers its enchantments when the server starts. A new enchantment, its `max-level`, its `name`, its `color` and every key of `native-enchantment` wait for a restart. The `description`, the `values` and the `activators` change with `/eg reload`, which tells you what still waits for a restart.
 
 ## Activators
 
@@ -234,15 +294,57 @@ With the plugin's pack, three more tags animate the text: `<shine>`, `<prism>` a
 
 ## Checks at load
 
-Each gem is checked at every level when it loads, and the console names the gem and the mistake:
+Each gem is checked at every level when it loads: at the start, at `/eg reload` and after `/eg new`. Every problem is one line in the console, which starts with the gem and its file:
 
 ```
-[ExecutableGems] Gem badgem: description uses %power% but values has no 'power'
-[ExecutableGems] Gem badgem: activators use %gem_nope% but values has no 'nope'
-[ExecutableGems] Gem badgem: apply.chance is 120.0% at level 1 (0-100)
-[ExecutableGems] Gem badgem: activator a: chance 150.0% at level 3 (0-100)
-[ExecutableGems] Gem badgem: tiers [1, 5, 2, 3] should rise and end at max-level 3
-[ExecutableGems] Gem badgem: no applicable-on: it can be socketed in ANY item
+[ExecutableGems] Gem badgem (gems/custom/badgem.yml): aply: unknown key, ignored (did you mean apply?)
+[ExecutableGems] Gem badgem (gems/custom/badgem.yml): description uses %power% but values has no 'power'
+[ExecutableGems] Gem badgem (gems/custom/badgem.yml): activators use %gem_nope% but values has no 'nope'
+[ExecutableGems] Gem badgem (gems/custom/badgem.yml): tiers [1, 5, 2, 3] should rise and end at max-level 3
+[ExecutableGems] Gem badgem (gems/custom/badgem.yml): no applicable-on: it can be socketed in ANY item (write applicable-on: ['*'] if that is wanted)
+[ExecutableGems] Gem brokengem (gems/custom/brokengem.yml) NOT LOADED: YAML error at line 12, column 5: mapping values are not allowed here. Check the indentation (spaces, never tabs), the quotes and the colons around that line
 ```
 
-ExecutableItems reports its own errors on the activators, under the name `eg_<id>_<level>`.
+The load ends with a summary:
+
+```
+[ExecutableGems] Gems: 38 loaded, 1 with warnings, 1 not loaded in 8 categories; runewords: 12 loaded, 0 with warnings, 0 not loaded (/eg check shows the problems again)
+```
+
+In game, `/eg reload` answers with the same summary and the first problems. `/eg check` shows them all again without reloading, and `/eg check <id>` shows those of one gem.
+
+What is checked:
+
+| Check | Example of what it finds |
+|---|---|
+| The YAML of the file | A bad indentation, a missing quote. The line and the column are given. |
+| The keys | A key the plugin doesn't know, with the closest key it knows. A key written twice. A colour without quotes. |
+| The formulas, at every level | A formula that is not a number, an `apply.chance` outside 1-100, a division by zero. |
+| The texts | A `%value%` that is not in `values`. |
+| `attributes` | An unknown attribute, operation or slot. |
+| `applicable-on` | A word that is not known. |
+| `native-enchantment` | A number outside its range, an unknown word in `supported`. |
+| The activators | The errors of ExecutableItems, shown as `activators: ...` on the gem's line. A `chance` outside 0-100. |
+
+### What a mistake does
+
+The plugin never guesses. A part it can't read is switched off until you fix it, and the rest of the gem keeps working:
+
+| Mistake | Result |
+|---|---|
+| A YAML error | The gem is **not loaded**. |
+| An unknown key | The key is ignored. |
+| A value of `values` that can't be read | It counts as 0. |
+| An `apply.chance` that can't be read | The gem can't be socketed. The gems already socketed keep working. |
+| An `xp.to-next` that can't be read | The gem gains no XP. |
+| A `support` bonus that can't be read | That bonus is ignored. |
+| A wrong line of `attributes` | That attribute is not applied. |
+| A `chance` of an activator that is not a number | That activator never runs. |
+
+### When an activator fails in game
+
+If an activator throws an error while a player uses the gem, the console names the gem, the activator and its event, once a minute at most for the same error:
+
+```
+[ExecutableGems] Gem badgem: activator 'strike' (PLAYER_HIT_ENTITY) failed with ... Check this activator in gems/custom/badgem.yml (the same error is reported once a minute at most).
+```
