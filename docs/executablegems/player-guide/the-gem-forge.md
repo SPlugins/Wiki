@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-description: How to use the Gem Forge of ExecutableGems - socketing with a bonus, the perfect strike, fusing gems, upgrading the forge and placing it.
+description: How to use the Gem Forge of ExecutableGems - socketing with a bonus, the perfect strike, fusing gems, upgrading the forge, placing it and picking it up.
 ---
 
 # 🔥 The Gem Forge
@@ -21,7 +21,7 @@ Stand in front of the forge. A panel at eye height shows what you can do with th
 | A gem (an item is on the forge) | Right-click | Socket the gem, with the ritual |
 | 3 identical gems | Sneak + right-click | Fuses them into one gem of the next level |
 | A Socket Drill | Right-click | Drills a socket in the item on the forge |
-| A Gem Extractor | Right-click | Takes out the gem you are looking at |
+| A Gem Extractor | Right-click | Takes out the gem you are looking at (a gem the server has disabled stays in its socket) |
 | An Unidentified Gem | Right-click | [Appraises it](the-jeweller.md) |
 | Nothing | Right-click | Takes your item back |
 | Nothing | Sneak + right-click | Opens the upgrade menu |
@@ -60,9 +60,22 @@ A forge can be upgraded twice. A better forge adds to the chance of **every** so
 
 These are the default values. Your server may have changed them.
 
-## Placing and removing a forge
+## Placing your forge
 
-- **Place:** right-click the top of a block with a **Gem Forge** item. You can buy one from a jeweller. The spot must be free, and you must be allowed to build there: protection plugins such as WorldGuard, GriefPrevention or Lands are respected.
-- **A weapon on a forge that gets removed** goes back to its owner, even if they are offline (they get it at their next join).
-- **Remove:** players with the permission can **sneak + left-click** it to get the item back.
-- Forges show on the locator bar, so players can find them.
+Right-click the top of a block with a **Gem Forge** item. You can buy one from a jeweller.
+
+- The spot must be free, and you must be allowed to build there: protection plugins such as WorldGuard, GriefPrevention or Lands are respected.
+- It can't stand right next to another forge: by default, 3 blocks apart at least.
+- You can have **one forge** placed at a time by default. To move it, pick it up and place it again.
+
+Forges show on the locator bar, so players can find them.
+
+## Picking your forge up
+
+**Sneak + left-click** the forge you placed. You get the Gem Forge item back.
+
+- An upgraded forge keeps its level: place the item again and you get the same Obsidian or Celestial Forge.
+- An item lying on the forge goes back to its owner, even if they are offline (they get it at their next join).
+- You can't pick up a forge someone else placed, or a forge of the server. Only the staff can.
+
+These are the default values. Your server may have changed them.

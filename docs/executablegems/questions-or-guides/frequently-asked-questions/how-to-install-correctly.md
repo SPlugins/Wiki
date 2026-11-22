@@ -19,13 +19,31 @@ The server must run Java 21 for 1.21.11, and Java 25 for 26.x.
 4. Check the console:
 
 ```
-[ExecutableGems] Gems loaded: 37 in 7 categories, runewords: 12
+[ExecutableGems] Gems: 37 loaded, 0 with warnings, 0 not loaded in 7 categories; runewords: 12 loaded, 0 with warnings, 0 not loaded
 [ExecutableGems] Ready. Gems run through ExecutableItems' activators.
 ```
 
 :::info
-SCore, ExecutableItems and ExecutableGems must all be up to date. ExecutableGems uses recent features of ExecutableItems.
+SCore, ExecutableItems and ExecutableGems must all be up to date. ExecutableGems needs the ExecutableItems release that comes with ExecutableGems, or a newer one.
 :::
+
+With an older ExecutableItems, ExecutableGems does not start, and the console says why in one line:
+
+```
+ExecutableGems needs ExecutableItems ... or newer (this server: ExecutableItems ...): update ExecutableItems, then restart. Disabling.
+```
+
+Update ExecutableItems and SCore, then restart.
+
+## Optional plugins
+
+ExecutableGems works without them. Install them only if you need what they bring:
+
+| Plugin | What it brings |
+|---|---|
+| PlaceholderAPI | The [`%executablegems_...%` placeholders](../../placeholders.md) for scoreboards, holograms, quests and menus. |
+| Vault, with an economy plugin | Prices in money in the [jeweller's shop](../../configurations/general-configuration.md#jewellers-shop). |
+| MythicMobs | MythicMobs bosses in the [boss drops](../../configurations/general-configuration.md#loot). |
 
 ## Permissions
 

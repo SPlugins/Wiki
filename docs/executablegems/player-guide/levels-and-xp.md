@@ -14,7 +14,7 @@ A socketed gem grows with you.
 | Wards (armour) | Hits you take, and kills |
 | Tool gems | Blocks you mine |
 
-Each gain shows on the action bar, with the XP of each gem:
+Each gain shows at once on the action bar, with the XP of each gem. The XP bar in the item's tooltip follows a few seconds later:
 
 ![The XP bar of a gem on the action bar](https://media.ssomar.com/m/docs-img-eg-xp-bar.jpg)
 
