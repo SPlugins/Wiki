@@ -20,7 +20,7 @@ The server must run [Paper](https://papermc.io/) or [Folia](https://papermc.io/s
 In the console, you should see:
 
 ```
-[ExecutableGems] Gems loaded: 37 in 7 categories, runewords: 12
+[ExecutableGems] Gems: 37 loaded, 0 with warnings, 0 not loaded in 7 categories; runewords: 12 loaded, 0 with warnings, 0 not loaded
 [ExecutableGems] Ready. Gems run through ExecutableItems' activators.
 ```
 
@@ -54,6 +54,8 @@ The sword now has a gem. Hover over it to see it:
 
 Hold the **Gem Forge** and right-click the top of a block. A jeweller appears next to it.
 
+The forge is yours: **sneak + left-click** it to pick it up and place it somewhere else. By default a player may have one forge placed at a time (OPs have no limit).
+
 ![A forge and its jeweller](https://media.ssomar.com/m/docs-img-eg-jeweller.jpg)
 
 ## 6. Use the forge
@@ -78,7 +80,7 @@ Spawn a training dummy. It never dies and shows each hit as a floating number:
 /eg luck YourName on
 ```
 
-`/eg luck` makes every chance succeed, so you see the gem work at each hit. Turn it off afterwards with `/eg luck YourName off`.
+`/eg luck` makes every chance succeed, so you see the gem work at each hit. Turn it off afterwards with `/eg luck YourName off` (it also ends when you leave the server). `/eg dummy remove` takes the dummy away.
 
 ## 8. Let your players use gems
 
@@ -94,4 +96,5 @@ To forbid a gem to a group, set its permission to false. With LuckPerms: `/lp gr
 
 - Read the [config](../../configurations/general-configuration.md) to change the drop rates and prices.
 - See the [list of gems](../../gems/overview.md).
-- [Create your first gem](your-first-gem.md).
+- [Create your first gem](your-first-gem.md), then [a runeword](runeword.md) and [your own enchantment](native-enchantments.md).
+- Type `/eg help` to see every command.

@@ -20,13 +20,15 @@ In the commands of this wiki, replace `YourName` with your name. Unlike vanilla 
 | Part | Meaning |
 |---|---|
 | `custom` | The category. It is also the folder. It is created if needed. |
-| `blood_opal` | The id of the gem. Lowercase and underscores. |
-| `oval` | The shape: `brilliant`, `oval`, `emerald`, `marquise`, `pear` or `trillion`. |
-| `#e0115f` | The colour. |
+| `blood_opal` | The id of the gem, and the name of its file. Lowercase letters, digits and `_`. |
+| `oval` | The shape: `brilliant`, `oval`, `emerald`, `marquise`, `pear` or `trillion`. Optional. |
+| `#e0115f` | The colour. Optional: without it, the plugin picks one. |
 
-The file is created and loaded at once:
+The file is created and loaded at once. The chat tells you where it is and how to try it:
 
-![The message after /eg new](https://media.ssomar.com/m/docs-img-eg-eg-new-chat.jpg)
+```
+Created gems/custom/blood_opal.yml. Edit it, then /eg reload. To try it: /eg give YourName blood_opal 10
+```
 
 Try it right away:
 
@@ -160,7 +162,15 @@ activators:
 /eg reload
 ```
 
-Read the console: if you made a mistake, it says which one. Then test it:
+The answer is a summary of what was loaded. If you made a mistake, it is named in the chat and in the console, with the file, and the part that can't be read is switched off until you fix it:
+
+```
+⚠ gem blood_opal (gems/custom/blood_opal.yml): description uses %damge% but values has no 'damge'
+```
+
+`/eg check blood_opal` shows the problems of the gem again, without reloading. See [Checks at load](../../configurations/gem-configuration.md#checks-at-load).
+
+Then test it:
 
 ```
 /give @s netherite_sword
@@ -178,4 +188,6 @@ Turn off the luck with `/eg luck YourName off` and check that the gem triggers a
 ## Next
 
 - [Add a right-click ability](right-click-ability.md)
+- [Create a runeword](runeword.md) with `/eg new runeword`
+- [Create your own enchantment](native-enchantments.md) with `/eg new enchantment`
 - [Every key of a gem](../../configurations/gem-configuration.md)
