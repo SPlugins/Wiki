@@ -65,7 +65,7 @@ Work through this list:
 2. **Run `/eg check <id>`**, or read the answer of `/eg reload`. Mistakes are listed with the gem and its file, in the chat and in the console. The errors of ExecutableItems on the activators come on the gem's line, as `activators: ...`. A part the plugin can't read is switched off until it is fixed: see [What a mistake does](../../configurations/gem-configuration.md#what-a-mistake-does).
 3. **Remove the luck factor:** `/eg luck YourName on`. If it now works, the chance was just low.
 4. **Check `detailedSlots`:** `[-1]` for the main hand, `[36, 37, 38, 39]` for armour.
-5. **Check the trigger:** `LOOP` does not run for gems. Use `attributes` for a permanent bonus.
+5. **Check the trigger:** a [`LOOP`](../../configurations/activators-in-gems.md#loop-activators) only runs while the item is in a slot of its `detailedSlots`, every `delay` seconds. For a permanent stat bonus, use `attributes`.
 6. **Check the target:** in `MOB_AROUND` commands, use `%around_target_uuid%`.
 7. **Remove `silenceOutput: true`** for a moment, to see the messages of the commands.
 8. **Read the console while you use the gem.** If an activator fails, the console names the gem, the activator and its event: `Gem blood_opal: activator 'bleed' (PLAYER_HIT_ENTITY) failed with ...`.
@@ -112,7 +112,7 @@ Check these settings of `config.yml`, in the [loot section](../../configurations
 
 ## A forge disappeared with its world
 
-The forges of a world that is not loaded wait in `forges.yml` and come back with the world. `/eg forge list` shows them with `(world not loaded)`.
+The forges of a world that is not loaded wait in `forges.yml` and come back with the world (on Paper: Folia never loads or unloads a world while it runs). `/eg forge list` shows them with `(world not loaded)`.
 
 If the console says that `forges.yml` could not be read, the plugin has set the file aside as `forges.yml.broken-<time>` and tells you how to get its content back. `forges.yml.bak` is the last file that was read without error.
 

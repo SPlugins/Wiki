@@ -31,9 +31,7 @@ All the activators ExecutableItems runs for an item in a slot. These are the one
 | `PLAYER_BLOCK_BREAK` | You break a block | Tools |
 | `PROJECTILE_HIT_ENTITY` | Your projectile hits an entity | Bows |
 
-:::warning
-`LOOP` activators do **not** run for gems. For a permanent bonus, use [`attributes`](gem-configuration.md#passive-bonuses).
-:::
+`LOOP` works too. It is not used by the shipped gems: see [below](#loop-activators).
 
 ## Slots
 
@@ -46,6 +44,31 @@ All the activators ExecutableItems runs for an item in a slot. These are the one
 | `[-1, 40]` | Either hand (bows) |
 | `[36]` `[37]` `[38]` `[39]` | Boots, leggings, chestplate, helmet |
 | `[36, 37, 38, 39]` | Any armour piece |
+
+## LOOP activators
+
+A `LOOP` activator runs again and again, every `delay` seconds, while the item that holds the gem is in a slot of its `detailedSlots`. It stops as soon as the item leaves that slot.
+
+```yaml
+activators:
+  swift:
+    option: LOOP
+    delay: 2                   # every 2 seconds
+    silenceOutput: true
+    detailedSlots: [-1]        # only while the item is held in the main hand
+    playerCommands:
+      - 'effect give %player% speed 3 0 true'
+```
+
+- `delay` is in seconds. For the other settings of a loop, see the [LOOP activator of ExecutableItems](../../executableitems/configurations/activator-configuration/list-of-the-activators.md).
+- Always set `detailedSlots`. With `[-1]`, the loop runs while the item is held in the main hand, and never while it sits elsewhere in the inventory.
+- The loop keeps running after `/eg reload` and `/ei reload`.
+- A player who is not allowed to use the gem gets no message from a `LOOP`: it just doesn't run.
+- It works on Paper and on Folia, with the free and the premium version of ExecutableItems.
+
+:::tip
+For a plain stat bonus (armour, health, speed), use [`attributes`](gem-configuration.md#passive-bonuses) instead of a `LOOP`: it needs no timer, and the vanilla tooltip shows it.
+:::
 
 ## Chance
 
