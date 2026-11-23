@@ -138,11 +138,11 @@ In both cases, the gem gets the tooltip frame of the shipped gem with the closes
 
 If something the gem needs is missing, the plugin uses something that exists, so players never see the black and magenta texture:
 
-| Missing | What players see | Console |
+| Missing | What players see | `/eg check` and the console |
 |---|---|---|
-| `model:` in the gem file | The cut `cut:brilliant` | A line about the gem |
-| A cut that doesn't exist (`cut:hexagon`) | The cut `cut:brilliant` | A line about the gem |
+| `model:` in the gem file | The cut `cut:brilliant` | A warning of the gem |
+| A cut that doesn't exist (`cut:hexagon`) | The cut `cut:brilliant` | A warning of the gem |
 | The icon of the gem | A ◆ in the gem's colour | Nothing, see `/eg pack info` |
-| A model of your own pack that the plugin can't see | Your model, if your pack has it | A hint: fine if you send that pack yourself |
+| A model of your own pack that the plugin can't see | Your model, if your pack has it | A note (ℹ): fine if you send that pack yourself |
 
 `/eg new` only accepts the 6 cuts.

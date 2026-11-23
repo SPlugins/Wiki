@@ -12,7 +12,7 @@ The main command is `/eg`. `/executablegems` and `/gems` are aliases. Every comm
 
 On this page, `<value>` is required and `[value]` is optional.
 
-`/eg help`, or `/eg` alone, lists the commands you may use, each with its arguments and what it does. A command that misses a word answers with its usage, and the commands that change an item say what they did, or that nothing was done.
+`/eg help`, or `/eg` alone, lists the commands you may use, each with its arguments and what it does. A command that misses a word, or gets a word it doesn't know (`/eg forge` and `/eg defaults` included), answers with its usage, and the commands that change an item say what they did, or that nothing was done.
 
 ## Permissions
 
@@ -31,7 +31,7 @@ On this page, `<value>` is required and `[value]` is optional.
 | `executablegems.forge.limit.<n>` | Nobody | The group may have `n` forges placed at once, when `n` is above `forge.max-per-player` of `config.yml`. The highest `n` wins |
 | `executablegems.forge.limit.unlimited` | OP | No limit on the forges placed |
 | `executablegems.forge.remove` | OP | Pick up anybody's forge with sneak + left click, the server's forges included |
-| `executablegems.forge.bypass` | OP | Work on an item another player laid on a forge |
+| `executablegems.forge.bypass` | OP | Work on the item another player laid on a forge: take it back, socket, extract |
 
 `executablegems.feature.*` holds the six `feature` permissions.
 
@@ -100,6 +100,8 @@ A forge placed by command is a **server forge**: it belongs to nobody, it doesn'
 | `/eg forge stats` | How many forges are up, shown and animated, and what they cost the server. |
 
 A weapon lying on a forge that gets removed goes back to its owner, at their next join if they are offline.
+
+On Folia, `/eg forge remove <id>` and the `[teleport]` of `/eg forge list` also work for a forge in another region.
 
 Players place their own forge with the **Gem Forge** item. See [The Gem Forge](player-guide/the-gem-forge.md) and the [forge settings](configurations/general-configuration.md#forge).
 
@@ -183,7 +185,7 @@ Use these inside the commands of a gem or a runeword. See [Activators in gems](c
 | `eg fx spiral <entity> <#hex> [ticks]` | A spiral around the entity |
 | `eg fx shockwave <entity> <radius> <#hex>` | An expanding shockwave |
 | `eg sweep <player> <seconds> [offhand]` | The vanilla cooldown animation on the held item |
-| `eg drop <rough_gem\|tool\|gem:id:level> <world> <x> <y> <z>` | Drops an item with its beam at a block |
+| `eg drop <rough_gem\|tool\|gem:id:level> <world> <x> <y> <z>` | Drops an item with its beam at a block. A native enchantment drops as its enchanted book |
 | `eg rain <target uuid> <arrows> <height> [shooter]` | A rain of arrows that nobody can pick up |
 | `eg star <player> <radius> <damage>` | A falling star on the nearest enemy |
 

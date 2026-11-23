@@ -66,6 +66,7 @@ public final class GemQuests extends JavaPlugin implements Listener {
     @EventHandler
     public void onSocketed(GemSocketedEvent e) {
         if (e.getOutcome() != GemSocketedEvent.Outcome.SUCCESS) return;
+        if (!e.getPlayer().isOnline()) return; // they left during the ritual of a forge
         int gems = ExecutableGemsAPI.gems(e.getItem()).size();
         e.getPlayer().sendMessage("Your item now holds " + gems + " gem(s).");
     }
@@ -88,6 +89,10 @@ public final class GemQuests extends JavaPlugin implements Listener {
 ## The events
 
 All the events are synchronous. They are fired on the server thread on Paper, and on the thread that owns the player on Folia, so you can use the player and their inventory in your listener. The items they carry are **copies**: changing them changes nothing in the game.
+
+:::warning
+**The player can be offline.** A socketing at a forge ends a few seconds after it starts. If the player left during the ritual, the socketing still happens, and `GemSocketedEvent` and `RunewordAwakenedEvent` are still fired, on Paper and on Folia. In these two events, check `e.getPlayer().isOnline()` before you send a message or touch the inventory. On Folia they are then fired on the thread of the forge.
+:::
 
 | Event | When | Cancellable |
 |---|---|---|
@@ -121,6 +126,8 @@ What each event gives you:
 
 `getSource()` is a `SocketSource`: `INVENTORY` (drag and drop), `HOLD` (hold to socket) or `FORGE`.
 
+`getChance()` at a forge: in `GemSocketEvent` it holds the bonus of the forge's level but not the bonus of the perfect strike, which is not known yet. In `GemSocketedEvent` it is the chance that was really rolled, with the strike bonus when the player struck in time.
+
 In a `GemDropEvent`, `getPlayer()` is the killer of the monster or the player who opened the chest, and can be `null` (a chest emptied by a hopper). `getEntity()` is `null` for a chest. `setItem(...)` replaces what drops, and `setItem(null)` drops nothing.
 
 ## ExecutableGemsAPI
@@ -150,9 +157,9 @@ A `SocketInfo` has `index()` (from 0), `type()`, `gemId()` (`null` when empty), 
 
 | Method | Does |
 |---|---|
-| `createGem(String gemId, int level, int amount)` | A gem item, or `null` when no gem has this id |
+| `createGem(String gemId, int level, int amount)` | A gem item, or `null` when no gem has this id. For a native enchantment: its enchanted book, or `null` while the server has not registered the enchantment |
 | `createTool(String toolId, int amount)` | A tool item, or `null` when the id is not a tool |
-| `giveGem(Player player, String gemId, int level, int amount)` | Gives gems to a player: into the inventory, at their feet when it is full, at their next join when they are offline or dead. `false` when no gem has this id |
+| `giveGem(Player player, String gemId, int level, int amount)` | Gives gems to a player: into the inventory, at their feet when it is full, at their next join when they are offline or dead. `false` when no gem has this id, and for a native enchantment (given as its enchanted book) while the server has not registered it |
 
 ### Players and definitions
 

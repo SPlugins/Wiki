@@ -70,7 +70,7 @@ activators:
 
 What each part does:
 
-- **`name`, `color`, `model`**: its name and picture in the Codex and in `/eg list`. `color` is also the colour of the enchantment's name on items.
+- **`name`, `color`, `model`**: its name and picture in the Codex and in `/eg list`. `color` is also the colour of the enchantment's name on items. Its page in the Codex shows what it goes on, from `supported`.
 - **`max-level`**: the highest level of the enchantment, from 1 to 255.
 - **`native-enchantment`**: what Minecraft needs to know. `supported` says which items accept it, here the pickaxes. `weight` is how often the enchanting table, villagers and loot pick it (Sharpness is 10, Mending is 2). See [every key and every word of `supported`](../../configurations/gem-configuration.md#native-enchantment).
 - **`description` and `values`**: its page in the Codex, and the numbers that change with the level. They work as in a gem: `%food%` in the description, `%gem_chance%` and `%gem_level%` in the activators.
@@ -110,6 +110,8 @@ Two other ways to get it:
 | `/eg apply YourName deep_harvest 3` | Puts the enchantment on the item you hold. |
 
 Players get it like any enchantment: at the enchanting table (`enchanting-table`), from librarians (`tradeable`) and on the books and gear of chests, fishing and mobs (`loot`).
+
+You can also sell its book at the jeweller's shop, with a ware such as `ench: {item: 'gem:deep_harvest:2', price: 'EMERALD:16'}` under `jeweller-shop.wares` in `config.yml`. See [the jeweller's shop settings](../../configurations/general-configuration.md#jewellers-shop).
 
 ## 5. Change it later
 

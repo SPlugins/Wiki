@@ -117,7 +117,7 @@ Set `ui.codex` and `ui.confirm` to `dialog`, and `ui.icons` to `false`. The menu
 :::
 
 - **`socket-wheel` and `inspect`** only act on an item that holds at least one gem. With any other item, sneak + F is the vanilla hand swap. Set `socket-wheel-empty: true` to also show the empty sockets of the held item.
-- **`xp-write-interval`**: the XP a gem earns shows at once in the action bar. It is written on the item every few seconds, and at once when the gem levels up, so the XP bar in the tooltip can be a few seconds late.
+- **`xp-write-interval`**: the XP a gem earns shows at once in the action bar. It is written on the item every few seconds, and at once when the gem levels up, so the XP bar in the tooltip can be a few seconds late. No XP is lost: what waits is written before the item is changed at a forge, by a held socketing or by a command.
 
 ## Socketing
 
@@ -222,7 +222,9 @@ forge:
 
 The levels are yours: add, change or remove them. Number them `'1'`, `'2'`, `'3'`... without a gap. To add a forge level, add a `'4':` section with the same keys. Its `model` must be an item model of a resource pack.
 
-If you remove a level, a forge that was already upgraded to it keeps its level in `forges.yml`, and gets it back when the level is there again.
+The levels written in your `config.yml` are the only ones: a level you delete, or a `cost` you remove from one, does not come back. The three shipped levels apply only when your file names no level at all.
+
+If you remove a level, or set `levels.enabled: false`, a forge that was already upgraded keeps its level in `forges.yml` (and in its Gem Forge item when it is picked up). It works as the highest level you have today, and gets its own level back when that level is there again.
 
 **Costs** are `MATERIAL:amount`. If a `cost` or an `xp-levels` has a typo, the upgrade to that level is not sold, and the console names the wrong value at the start and at `/eg reload`:
 
@@ -254,7 +256,7 @@ You never need to edit it. Three files can appear next to it, and next to `pendi
 | `forges.yml.broken-<time>` | A file that could not be read. It is set aside and never overwritten, and the console says how to get its content back. |
 | `forges.yml.tmp` | Exists for an instant while the file is written. |
 
-The forges of a world that is not loaded are not lost: they wait in the file, with what lies on them, and come back when the world is loaded again. `/eg forge list` marks them `(world not loaded)`.
+The forges of a world that is not loaded are not lost: they wait in the file, with what lies on them, and come back when the world is loaded again. `/eg forge list` marks them `(world not loaded)`. Folia never loads or unloads a world while it runs, so there this only happens at a start.
 
 ## Runewords
 
@@ -352,7 +354,8 @@ loot:                            # gems found in survival (they raise a column o
   chests:
     enabled: true
     tier-weights: {1: 55, 2: 30, 3: 12, 4: 3}
-    tables:                      # loot table (prefix): chance of a gem, of an Unidentified Gem; the most specific wins
+    tables:                      # loot table (prefix): chance of a gem, of an Unidentified Gem; the most specific wins.
+                                 # extra-unidentified (0.25 when not written): the chance that the stone comes as two
       'chests/': {gem: 0.06, unidentified: 0.12}
       'chests/simple_dungeon': {gem: 0.25, unidentified: 0.35}
       'chests/desert_pyramid': {gem: 0.2, unidentified: 0.3}
@@ -364,11 +367,11 @@ loot:                            # gems found in survival (they raise a column o
       'chests/trial_chambers': {gem: 0.2, unidentified: 0.3}
 ```
 
-- **`gems`**: when it is empty, the loot can hold every gem with `obtain.loot: true` and a weight above 0.
+- **`gems`**: when it is empty, the loot can hold every gem with `obtain.loot: true` and a weight above 0. A native enchantment you name here drops as its enchanted book. Its weight is 0, so it is only picked when no other gem of the list can be found at the rolled tier: in practice, in a list of enchantments only. The same goes for `appraisal.gems`.
 - **`worlds`**: the worlds where gems and Unidentified Gems are found, from monsters, from chests and from `appraisal.drop-chance`. With `mode: blacklist`, the listed worlds are excluded. With `mode: whitelist`, only the listed worlds count. A name ending with `*` matches every world whose name starts that way.
 - **`blocked-spawn-reasons`**: a monster that came from one of these sources never drops a gem or an Unidentified Gem, so a mob farm can't print gems. See the table below.
 - **`tier-weights`**: the odds of each tier. They don't need to add up to 100.
-- **`tables`**: a key is the start of a Minecraft loot table name. `chests/` matches them all. The longest match wins.
+- **`tables`**: a key is the start of a Minecraft loot table name. `chests/` matches them all. The longest match wins. Each table takes `gem` (the chance of a gem), `unidentified` (the chance of an Unidentified Gem), its own `tier-weights`, and `extra-unidentified`: the chance that the Unidentified Gem comes as two. It is `0.25` when you don't write it: `'chests/stronghold': {gem: 0.25, unidentified: 0.3, extra-unidentified: 0}` never gives two.
 - **`bosses`**: the chance for each roll. A boss gets `boss-gems` rolls. A key is a vanilla entity type, or `'mythic:<id>'` for a MythicMobs mob, with its internal name: `bosses: {WITHER: 1.0, 'mythic:SkeletonKing': 0.8}`.
 
 The names of `blocked-spawn-reasons` are the spawn reasons of Bukkit:
@@ -460,3 +463,7 @@ It also says who placed, picked up or removed each forge (`placed by`, `picked u
 
 Items owed to a player who left in the middle of an animation, or whose weapon was on a forge that got picked up, are
 kept in `plugins/ExecutableGems/pending.yml` and given at their next join.
+
+If an entry of `pending.yml` can't be read at a start (a key that is not a player's UUID, or an item this server does not
+know), the console says how many. Those entries are not loaded, and they are left out when the file is next written. The
+file as it was read is `pending.yml.bak`: copy it before the next start if these items matter.

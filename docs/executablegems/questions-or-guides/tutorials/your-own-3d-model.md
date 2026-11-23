@@ -264,7 +264,7 @@ This is only for servers that **don't** use the folder above: `selfHostPack: fal
 4. Players reconnect to get it.
 5. Set `icon:` in the gem: the plugin can't read a pack hosted elsewhere, so without it the gem shows a ◆ in texts.
 
-The console shows a line for a gem whose model is in no pack the plugin can read. It is only a hint: ignore it if your pack has the model.
+`/eg reload` and `/eg check` show a note (ℹ) for a gem whose model is in no pack the plugin can read. It is only a hint: ignore it if your pack has the model.
 
 Your pack and the ExecutableGems pack work together: Minecraft stacks them. To send a single pack, see [The resource pack on your server](../frequently-asked-questions/resource-pack.md).
 
@@ -279,7 +279,7 @@ Your pack and the ExecutableGems pack work together: Minecraft stacks them. To s
 | Nothing changed | The pack wasn't sent again | Run `/ei refresh-pack`. |
 | `/ei refresh-pack` says to set `selfHostPack` | You host your pack yourself | See the section above. |
 | A ◆ instead of the icon in tooltips | The plugin can't find the image | Add File 3 in a `textures/item/` folder, the 4 icons for one model per tier, or set `icon:` in the gem. |
-| A generic cut instead of your model | The gem has no `model:`, or a cut that doesn't exist | Read the line about the gem in the console, and fix `model:`. |
+| A generic cut instead of your model | The gem has no `model:`, or a cut that doesn't exist | Run `/eg check <id>` (the console has the same line), and fix `model:`. |
 
 :::warning
 Don't edit `plugins/ExecutableGems/pack/ExecutableGems_Pack.zip`: it is replaced at each start. Your files go in the folder of ExecutableItems.

@@ -80,7 +80,7 @@ Every key except `name` is optional.
 | `namespace:path` | An item model of a resource pack. The same model at every tier. |
 | `name` without `:` | The models `ei:gems/<name>_t1` to `_t4`, one per tier. |
 
-A gem never shows the black and magenta texture of a missing model. A gem without `model:` that has no shipped model, or with a cut that doesn't exist, shows `cut:brilliant`, and the console says why. Adding a gem never needs a new pack.
+A gem never shows the black and magenta texture of a missing model. A gem without `model:` that has no shipped model, or with a cut that doesn't exist, shows `cut:brilliant`. It is a warning of the gem, like the others: `/eg reload` and `/eg check` show it, and the console says why. Adding a gem never needs a new pack.
 
 See [Use your own 3D model](../questions-or-guides/tutorials/your-own-3d-model.md) and [The resource pack on your server](../questions-or-guides/frequently-asked-questions/resource-pack.md).
 
@@ -278,7 +278,7 @@ These words are Minecraft's own "enchantable" sets, the ones Sharpness, Protecti
 
 A word the plugin doesn't know is left out, and the console names it. If no item is left, the enchantment is not registered.
 
-**A native enchantment is not a gem to socket.** A gem with `native-enchantment` and no `applicable-on` fits no item as a gem, and is never in random loot or in an Unidentified Gem: it comes as an enchanted book. These keys are ignored on it, and the console says so: `xp`, `apply`, `attributes`, `incompatible-with`, `exclusive-group`, `obtain`, `max-per-item`, `removable`, `socket-type`, `support`.
+**A native enchantment is not a gem to socket.** A gem with `native-enchantment` and no `applicable-on` fits no item as a gem, and is never in random loot or in an Unidentified Gem by itself. Wherever the plugin hands it out, it comes as its enchanted book: `/eg give`, a shop ware `gem:<id>:<level>`, `eg drop`, the API, and `loot.gems` or `appraisal.gems` when you name it there. Its page in the Codex shows "Goes on" from `supported`, and no success chance. These keys are ignored on it, and the console says so: `xp`, `apply`, `attributes`, `incompatible-with`, `exclusive-group`, `obtain`, `max-per-item`, `removable`, `socket-type`, `support`.
 
 **What needs a restart.** Minecraft registers its enchantments when the server starts. A new enchantment, its `max-level`, its `name`, its `color` and every key of `native-enchantment` wait for a restart. The `description`, the `values` and the `activators` change with `/eg reload`, which tells you what still waits for a restart.
 
@@ -324,6 +324,7 @@ What is checked:
 | `attributes` | An unknown attribute, operation or slot. |
 | `applicable-on` | A word that is not known. |
 | `native-enchantment` | A number outside its range, an unknown word in `supported`. |
+| `model` | A cut that doesn't exist, a model name that is not valid. A model in no pack the plugin can read is only a note (ℹ): fine if you send that pack yourself. |
 | The activators | The errors of ExecutableItems, shown as `activators: ...` on the gem's line. A `chance` outside 0-100. |
 
 ### What a mistake does
