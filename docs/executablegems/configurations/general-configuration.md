@@ -287,7 +287,8 @@ appraisal:                       # Unidentified Gems, appraised by the jeweller 
   drop-chance: 0.03              # a monster killed by a player drops one (not in the worlds nor from the spawners that
                                  # loot excludes: loot.worlds, loot.mobs.blocked-spawn-reasons)
   announce-legendary: true
-  gems: []                       # the gems a stone can hold; empty = all
+  gems: []                       # the gems a stone can hold; empty = all (but the enchantments). Named here, a gem
+                                 # comes out by its obtain.weight (10 when its file sets none), an enchantment as its book
   rarities:                      # weight (odds), tier of the gem found, colour of the lights
     common: {weight: 60, tier: 1, color: '#b8c2cc'}
     rare: {weight: 27, tier: 2, color: '#4aa3ff'}
@@ -295,7 +296,7 @@ appraisal:                       # Unidentified Gems, appraised by the jeweller 
     legendary: {weight: 3, tier: 4, color: '#ffb000'}
 ```
 
-`gems` limits what a stone can hold. Gems with `obtain.appraisal: false` or `obtain.weight: 0` are never in a stone.
+`gems` limits what a stone can hold. While it is empty, gems with `obtain.appraisal: false` or `obtain.weight: 0` are never in a stone, and neither are the native enchantments. When you name gems in it, it works like `loot.gems`: see [the two lists of gems](#the-two-lists-of-gems).
 
 ## Codex item
 
@@ -336,7 +337,9 @@ See [Control loot and prices](../questions-or-guides/tutorials/loot-and-economy.
 
 ```yaml
 loot:                            # gems found in survival (they raise a column of light on the ground)
-  gems: []                       # the gems loot can hold; empty = every rune and support (enchantments come as books)
+  gems: []                       # the gems loot can hold; empty = every rune and support (enchantments come as books).
+                                 # A gem named here drops by its obtain.weight (10 when its file sets none), an
+                                 # enchantment named here as its enchanted book, with those same odds
   worlds:                        # where gems and Unidentified Gems are found: monsters, chests, and appraisal.drop-chance
     mode: blacklist              # blacklist = everywhere but in the listed worlds; whitelist = only in the listed worlds
     list: []                     # world names, e.g. [minigames, 'event_*'] ('*' at the end: every world whose name starts so)
@@ -367,7 +370,7 @@ loot:                            # gems found in survival (they raise a column o
       'chests/trial_chambers': {gem: 0.2, unidentified: 0.3}
 ```
 
-- **`gems`**: when it is empty, the loot can hold every gem with `obtain.loot: true` and a weight above 0. A native enchantment you name here drops as its enchanted book. Its weight is 0, so it is only picked when no other gem of the list can be found at the rolled tier: in practice, in a list of enchantments only. The same goes for `appraisal.gems`.
+- **`gems`**: the gems monsters and chests can give. See [the two lists of gems](#the-two-lists-of-gems) below.
 - **`worlds`**: the worlds where gems and Unidentified Gems are found, from monsters, from chests and from `appraisal.drop-chance`. With `mode: blacklist`, the listed worlds are excluded. With `mode: whitelist`, only the listed worlds count. A name ending with `*` matches every world whose name starts that way.
 - **`blocked-spawn-reasons`**: a monster that came from one of these sources never drops a gem or an Unidentified Gem, so a mob farm can't print gems. See the table below.
 - **`tier-weights`**: the odds of each tier. They don't need to add up to 100.
@@ -388,6 +391,28 @@ The names of `blocked-spawn-reasons` are the spawn reasons of Bukkit:
 Remove `SPAWNER` from the list to let spawner mobs drop. `blocked-spawn-reasons: []` lets every monster drop. Monsters that spawned naturally always drop, even in a farm.
 
 A mistake in `worlds` or in `blocked-spawn-reasons` is named in the console at the start and at `/eg reload`.
+
+### The two lists of gems
+
+`loot.gems` (monsters and chests) and `appraisal.gems` (Unidentified Gems) follow the same rule.
+
+| | The list is empty (the default) | The list names gems |
+|---|---|---|
+| Which gems | Every gem whose file allows it (`obtain.loot` for the loot, `obtain.appraisal` for the stones) and whose weight is above 0 | Exactly the gems you name |
+| Their odds | `obtain.weight` of each gem (10 when its file sets none) | The same: `obtain.weight` as the gem's file writes it, 10 when it writes none |
+| Native enchantments | Never | A named enchantment comes as its enchanted book, with the odds of a gem (10 when its file writes no `obtain.weight`). One added since the last start waits for the restart |
+
+In both cases, a tier is rolled first, and only the gems that can be found at that tier are in the draw (`obtain.min-tier` and `obtain.max-tier` of each gem).
+
+Two details of a list that names gems:
+
+- A named gem whose file writes `obtain.weight: 0` keeps 0. It only comes out when no other named gem can be picked at the rolled tier.
+- If no named gem fits the rolled tier, one of the named gems is taken at random.
+
+```yaml
+loot:
+  gems: [vampire, frost, aftershock]     # two runes and the book of the Aftershock enchantment, one chance in three each
+```
 
 ## Sounds
 

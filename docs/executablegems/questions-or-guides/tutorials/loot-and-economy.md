@@ -51,6 +51,8 @@ obtain:
 
 Then give it by command. See [Reward players with gems](rewards-from-other-plugins.md).
 
+Don't name such a gem in `loot.gems` or `appraisal.gems`: a named gem with weight 0 can still come out, when no other gem of the list fits the tier that was rolled.
+
 ## Only some gems in the loot
 
 ```yaml
@@ -59,6 +61,17 @@ loot:
 appraisal:
   gems: [vampire, frost, ember]
 ```
+
+`loot.gems` is for monsters and chests, `appraisal.gems` for Unidentified Gems. When a list names gems, only those gems come out, each with the `obtain.weight` of its file (10 when the file writes none).
+
+A [native enchantment](native-enchantments.md) never drops by itself. Name it in a list and it drops as its enchanted book, with the odds of a gem:
+
+```yaml
+loot:
+  gems: [vampire, frost, aftershock]     # two runes and the book of Aftershock
+```
+
+See [the two lists of gems](../../configurations/general-configuration.md#the-two-lists-of-gems) for the exact rule.
 
 ## No random gems at all
 

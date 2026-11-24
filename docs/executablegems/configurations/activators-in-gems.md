@@ -64,7 +64,7 @@ activators:
 - Always set `detailedSlots`. With `[-1]`, the loop runs while the item is held in the main hand, and never while it sits elsewhere in the inventory.
 - The loop keeps running after `/eg reload` and `/ei reload`.
 - A player who is not allowed to use the gem gets no message from a `LOOP`: it just doesn't run.
-- It works on Paper and on Folia, with the free and the premium version of ExecutableItems.
+- It works on every supported server: Paper and Folia, from 1.21.11 to 26.3, with the free and the premium version of ExecutableItems.
 
 :::tip
 For a plain stat bonus (armour, health, speed), use [`attributes`](gem-configuration.md#passive-bonuses) instead of a `LOOP`: it needs no timer, and the vanilla tooltip shows it.

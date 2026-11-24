@@ -174,13 +174,15 @@ A word the plugin doesn't know fits nothing, and the console names it. The most 
 
 | Key | Default | Description |
 |---|---|---|
-| `obtain.weight` | `10` | The odds against the other gems. `0`: never random, only by command, shop or quest. Native enchantments default to `0`. |
+| `obtain.weight` | `10` | The odds against the other gems. `0`: never random, only by command, shop or quest. Native enchantments default to `0`: they are never random, unless you name them in `loot.gems` or `appraisal.gems`. |
 | `obtain.min-tier` | `1` | The lowest tier it can be found at. |
 | `obtain.max-tier` | `4` | The highest tier it can be found at. |
-| `obtain.loot` | `true` | It can be found in monster drops and chests. |
-| `obtain.appraisal` | `true` | It can be inside an Unidentified Gem. |
+| `obtain.loot` | `true` | It can be found in monster drops and chests. Not read for a gem you name in `loot.gems`. |
+| `obtain.appraisal` | `true` | It can be inside an Unidentified Gem. Not read for a gem you name in `appraisal.gems`. |
 
 The shipped gems use 10 for a normal gem, 4 to 7 for strong ones and 1 for relics.
+
+When `loot.gems` or `appraisal.gems` of `config.yml` names gems, only those gems are in the draw, each with its `obtain.weight`. See [the two lists of gems](general-configuration.md#the-two-lists-of-gems).
 
 ## Passive bonuses
 
@@ -278,7 +280,7 @@ These words are Minecraft's own "enchantable" sets, the ones Sharpness, Protecti
 
 A word the plugin doesn't know is left out, and the console names it. If no item is left, the enchantment is not registered.
 
-**A native enchantment is not a gem to socket.** A gem with `native-enchantment` and no `applicable-on` fits no item as a gem, and is never in random loot or in an Unidentified Gem by itself. Wherever the plugin hands it out, it comes as its enchanted book: `/eg give`, a shop ware `gem:<id>:<level>`, `eg drop`, the API, and `loot.gems` or `appraisal.gems` when you name it there. Its page in the Codex shows "Goes on" from `supported`, and no success chance. These keys are ignored on it, and the console says so: `xp`, `apply`, `attributes`, `incompatible-with`, `exclusive-group`, `obtain`, `max-per-item`, `removable`, `socket-type`, `support`.
+**A native enchantment is not a gem to socket.** A gem with `native-enchantment` and no `applicable-on` fits no item as a gem, and is never in random loot or in an Unidentified Gem while `loot.gems` and `appraisal.gems` are empty. Wherever the plugin hands it out, it comes as its enchanted book: `/eg give`, a shop ware `gem:<id>:<level>`, `eg drop`, the API, and `loot.gems` or `appraisal.gems` when you name it there, with the odds of a gem. Its page in the Codex shows "Goes on" from `supported`, and no success chance. These keys are ignored on it, and the console says so: `xp`, `apply`, `attributes`, `incompatible-with`, `exclusive-group`, `obtain`, `max-per-item`, `removable`, `socket-type`, `support`.
 
 **What needs a restart.** Minecraft registers its enchantments when the server starts. A new enchantment, its `max-level`, its `name`, its `color` and every key of `native-enchantment` wait for a restart. The `description`, the `values` and the `activators` change with `/eg reload`, which tells you what still waits for a restart.
 
