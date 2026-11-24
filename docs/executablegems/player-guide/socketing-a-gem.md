@@ -48,12 +48,12 @@ The tooltip tells you which one before you try.
 
 ## Adding a socket
 
-Use a **Socket Drill** the same way as a gem: click it on the item, or use it at a forge. It always works, and it is used up. An item can have up to 3 sockets.
+Use a **Socket Drill** the same way as a gem: click it on the item, or use it at a forge. It always works, and it is used up. An item can have up to 3 sockets by default.
 
 ## Taking a gem out
 
 Use a **Gem Extractor**: click it on the item, or use it at a forge. The gem comes out intact, with its level and XP, and the extractor is not used up.
 
-From the inventory it takes the **last** gem. At a forge you choose the gem by looking at it. A few gems may be set by the server so they can't be removed.
+From the inventory it takes the **last** gem. At a forge you choose the gem by looking at it. A few gems may be set by the server so they can't be removed, and a gem the server has switched off stays in the item.
 
 ![The Socket Drill, Gem Extractor, Unidentified Gem, Gem Forge and Gem Codex](https://media.ssomar.com/m/docs-img-eg-tools-tooltips.png)

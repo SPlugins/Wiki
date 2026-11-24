@@ -22,4 +22,6 @@ A gem on the ground raises a **column of light** in its colour. The higher the t
 
 These are the default values. Your server may have changed them.
 
+By default, monsters from a **spawner** or a **spawn egg**, and the zombified piglins that come out of a nether portal, drop no gem. Monsters that spawn naturally do. Your server may also have worlds where no gem is found.
+
 **Relics** are the rarest gems. They are only found at Perfect or Radiant tier.

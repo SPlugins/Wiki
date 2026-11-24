@@ -12,6 +12,10 @@ eg give <player> <gem> [level] [amount]
 eg tool <player> <socket_drill|gem_extractor|gem_forge|rough_gem|gem_codex> [amount]
 ```
 
+For a [native enchantment](native-enchantments.md), `eg give` gives its enchanted book.
+
+Both commands answer in the console: what was given, or why nothing was (a player who is offline, a gem id that doesn't exist).
+
 ## From a quest, a crate, a shop
 
 Use the command with the player placeholder of that plugin, for instance:
@@ -51,4 +55,10 @@ eg apply %player% vampire 5
 eg level %player% vampire +1
 ```
 
-Check that the player holds the right item first.
+Check that the player holds the right item first. If the hand is empty, the command says so and does nothing.
+
+## Conditions and displays
+
+To test what a player holds from a quest, menu or scoreboard plugin, use the [PlaceholderAPI placeholders](../../placeholders.md): `%executablegems_level_vampire%`, `%executablegems_equipped_runewords%`...
+
+To react in your own plugin when a player sockets a gem or awakens a runeword, see the [developer API](../../developer-api.md).

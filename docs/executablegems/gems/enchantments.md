@@ -10,8 +10,10 @@ Real Minecraft enchantments whose effects are gem activators.
 **Goes on:** enchanting table, anvil, books. Folder: `gems/enchantments/`.
 
 :::info
-These are real Minecraft enchantments: enchanting table, books, anvil, grindstone, villagers and loot. They are not socketed. See [Native enchantments](../questions-or-guides/tutorials/native-enchantments.md).
+These are real Minecraft enchantments: enchanting table, books, anvil, grindstone, villagers and loot. They are not socketed. To make yours, see [Create your own enchantment](../questions-or-guides/tutorials/native-enchantments.md).
 :::
+
+To get one by command: `/eg give <player> aftershock 3` gives its enchanted book, and `/enchant <player> executablegems:aftershock 3` puts it on the item the player holds.
 
 ### Aftershock
 

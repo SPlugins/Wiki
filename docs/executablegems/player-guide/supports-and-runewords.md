@@ -26,7 +26,7 @@ In the tooltip, a boosted gem shows its bonus, such as `VII (+2)`:
 
 ## Runewords
 
-A **runeword** is a sequence of gems. Socket those gems **in that order** in one item and it awakens: the item gains a new power and an aura.
+A **runeword** is a sequence of gems. Socket those gems **in that order** in one item and it awakens: the item gains a new power and an aura. The aura shows while you hold the item, in either hand, or wear it.
 
 The rules:
 

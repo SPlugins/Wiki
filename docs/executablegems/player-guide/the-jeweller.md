@@ -22,6 +22,10 @@ Every forge has a jeweller. He comments on the gems you hold, cheers your succes
 | Gem Extractor | 12 emeralds + 3 XP levels |
 | Gem Forge | 8 diamonds + 10 XP levels |
 
+These are the default wares. Your server may sell other things, such as gems, and may ask for money instead of items. The shop shows four wares per page.
+
+The **Gem Forge** you buy is your own: place it where you like, and pick it up with sneak + left-click. See [The Gem Forge](the-gem-forge.md#placing-your-forge).
+
 ## Appraising a stone
 
 An **Unidentified Gem** is a rough stone with a gem inside. **Right-click the jeweller or the forge while holding one**, then press **Appraise**. A reel of gems spins and stops on yours.

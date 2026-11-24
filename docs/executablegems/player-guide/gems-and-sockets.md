@@ -43,7 +43,7 @@ An item can hold as many gems as it has sockets. New items start with:
 | Armour | 0 |
 | Anything else | 0 |
 
-Use a **Socket Drill** to add a socket, up to **3** per item. Your server may have changed these numbers.
+Use a **Socket Drill** to add a socket, up to **3** per item. Your server may have changed these numbers, or given your rank more sockets.
 
 ## Reading a socketed item
 
@@ -54,13 +54,15 @@ Use a **Socket Drill** to add a socket, up to **3** per item. Your server may ha
 3. **A support gem**, and the gems it is linked to.
 4. **An empty socket.**
 
-When you hold a socketed item, its gems also show at the top of the screen, with a ring for their XP:
+A socket that shows **Unknown gem** holds a gem that the server has switched off. The gem is not lost: it stays in its socket and works again if the server brings it back.
+
+When you hold an item with at least one gem in it, its gems also show at the top of the screen, with a ring for their XP:
 
 ![The sockets of the held item at the top of the screen](https://media.ssomar.com/m/docs-img-eg-socket-wheel.jpg)
 
 ## Inspecting an item
 
-**Sneak + press F** (swap hands) with a socketed item in your hand. It floats in front of you with its gems around it. Press F again to stop.
+**Sneak + press F** (swap hands) with an item that holds at least one gem in your hand. It floats in front of you with its gems around it. Press F again to stop. With any other item, sneak + F swaps hands as usual.
 
 ![Inspecting a sword: its name, its gems orbiting it and the list of sockets](https://media.ssomar.com/m/docs-img-eg-inspect-trailer.jpg)
 

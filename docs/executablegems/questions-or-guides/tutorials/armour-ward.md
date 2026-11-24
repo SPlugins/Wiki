@@ -61,7 +61,7 @@ attributes:
 ```
 
 :::info
-`LOOP` activators don't run for gems. Use `attributes` for a permanent bonus, as here.
+For a permanent stat bonus, use `attributes`, as here: it needs no timer and shows in the tooltip. To repeat an effect every few seconds instead, a gem can have a [`LOOP` activator](../../configurations/activators-in-gems.md#loop-activators).
 :::
 
 **`detailedSlots: [36, 37, 38, 39]`** runs the activator wherever the gem is worn. Use one number to limit it to one piece: `38` is the chestplate.
